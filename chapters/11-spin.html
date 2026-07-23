@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XI · Spin — The Quantum Quartet</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="../index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="../about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<div class="chapter-meta">Chapter XI · Part III — The Physics</div>
+
+<h1>Spin</h1>
+
+<p>
+  Spin is the property with no classical picture. An electron carries angular
+  momentum that is not the momentum of anything going around — it does not shrink
+  as you imagine the particle shrinking, it does not vanish for a point, and it
+  takes half-integer values that no rotating object can. It is the cleanest example
+  in the whole subject of a quantity that exists only in the quantum theory, and
+  for that reason it is where the four authors' methods separate most sharply. This
+  is the widest stylistic spread in the project, and the chapter is built to let
+  the contrast do the work.
+</p>
+
+<p>
+  At one pole stands Feynman, who introduces spin through the Stern-Gerlach
+  experiment and refuses any classical analogy from the first sentence. At the
+  other stands Dirac, who never mentions a beam of atoms and derives the spin
+  matrices from algebra alone. Between them, Landau and Lifshitz reach spin from
+  the symmetry of space — the behavior of the wave function under rotations — while
+  Born grounds it in the experimental anomalies, the doublets and Zeeman patterns,
+  that forced physicists to grant the electron an intrinsic spin in the first place.
+</p>
+
+<h2>Entry points</h2>
+
+<table class="entry-table">
+  <thead>
+    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="author-cell">Born</td>
+      <td>Alkali doublets; the anomalous Zeeman effect</td>
+      <td></td>
+      <td>Spin magnetic moment; the Pauli spin theory</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Feynman</td>
+      <td>Stern-Gerlach beam splitting</td>
+      <td></td>
+      <td>Rotation amplitudes derived "by pure reasoning"</td>
+      <td>Filtering and recombining the split beams</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Landau &amp; Lifshitz</td>
+      <td></td>
+      <td>Spin from the algebra of rotations</td>
+      <td>Spinors; the $2\pi$ sign change; $s(s+1)$</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Dirac</td>
+      <td></td>
+      <td>Spin variables $\sigma$ with $\sigma_x^2 = 1$, anticommuting</td>
+      <td>The Pauli matrices from the algebra alone</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>The four treatments</h2>
+
+<h3>Feynman: spin before "angular momentum"</h3>
+
+<p>
+  Feynman makes spin the entry point to quantum mechanics itself. He opens the
+  relevant chapter by declaring that he will describe a quantum phenomenon in a
+  fully quantum way, making no apology and no attempt to connect it to classical
+  mechanics — and he pointedly avoids the phrase "angular momentum" until much
+  later, so that nothing classical smuggles itself in. The phenomenon is the
+  Stern-Gerlach experiment: a beam of atoms passes through an inhomogeneous
+  magnetic field and splits into a fixed number of beams, three for what he calls a
+  particle of spin one. Block two beams, and the survivor passing through a second
+  identical apparatus is not re-split — it has been filtered into a definite state.
+</p>
+
+<p>
+  From this apparatus, used as a filter, Feynman builds the entire machinery of
+  states, base states, and transformation amplitudes. In the spin one-half chapter
+  he goes further, deriving the coefficients that relate spin measured along one
+  axis to spin measured along another "by pure reasoning" from a few assumptions
+  about the structure of space — an argument he cheerfully calls a "cultural
+  excursion." The point is that spin, the least classical of quantities, is for
+  Feynman the ideal teaching example precisely because it forces the reader to
+  think in amplitudes from the start, with no classical crutch to lean on. Spin is
+  not a complication added late; it is the doorway.
+</p>
+
+<h3>Dirac: the matrices from the algebra</h3>
+
+<p>
+  Dirac reaches the same spin-one-half physics without a single beam of atoms. He
+  posits spin variables $\sigma$ obeying a short list of algebraic relations —
+  each component squares to one, and different components anticommute — and then
+  asks what matrices can represent them. The answer is forced. Taking $\sigma_z$
+  diagonal with eigenvalues $\pm 1$, the requirement that $\sigma_x$ be Hermitian,
+  square to one, and anticommute with $\sigma_z$ leaves only the off-diagonal form;
+  fixing the remaining phase gives the three Pauli matrices outright. The
+  two-valuedness of the electron, the whole structure of a spin-½ system, drops out
+  of the algebra with no physical input beyond the defining relations.
+</p>
+
+<p>
+  This is Dirac's method in its purest form. A state of the spin is a pair of
+  numbers — the representative of a ket over the two-point domain of $\sigma_z$ —
+  and a general spin direction is a superposition of the up and down states with
+  weights read straight off the matrix. Where Feynman earns every amplitude from an
+  experiment, Dirac earns them from consistency conditions, and arrives at
+  identical matrices. Spin, which began as the most stubbornly physical of
+  discoveries, becomes for Dirac an exercise in finding the smallest matrices that
+  satisfy an algebra.
+</p>
+
+<h3>Landau &amp; Lifshitz: spin as a fact about rotations</h3>
+
+<p>
+  Landau and Lifshitz derive spin from the symmetry of space. They observe first
+  that the quantum formalism <em>permits</em> a particle to carry an internal
+  discrete variable beyond its coordinates, and that there is no reason to assume
+  an elementary particle lacks one. This intrinsic angular momentum, they stress,
+  is "peculiar to quantum theory" — it disappears in the limit $\hbar \to 0$ and is
+  therefore incapable of any classical interpretation; imagining it as the particle
+  spinning on "its own axis" is, in their word, meaningless.
+</p>
+
+<p>
+  The technical core is that the spin operators must satisfy the same commutation
+  relations as orbital angular momentum, but for a deeper reason: those relations
+  express how the system behaves under infinitesimal rotations of space, and that
+  holds whether the angular momentum lives in the coordinates or in an internal
+  variable. Crucially, the derivation that forces orbital angular momentum to be
+  integer-valued relies on the coordinate representation and <em>fails</em> for
+  spin — so half-integer values become allowed, and $\mathbf{s}^2 = s(s+1)$ with
+  $s$ integer or half-integer. Their §55 draws the consequence that most captures
+  the strangeness: under a full $2\pi$ rotation of the coordinate system, an
+  integer-spin wave function returns to itself, but a half-integer-spin one changes
+  sign. Spin, for Landau and Lifshitz, is what the rotation group demands once you
+  allow the wave function more than one component.
+</p>
+
+<h3>Born: the anomalies that forced the spin</h3>
+
+<p>
+  Born comes at spin the way the physics actually arrived: through spectroscopic
+  facts that classical and old-quantum ideas could not explain. His chapter on the
+  subject opens with alkali doublets — the splitting of spectral lines in sodium
+  and its cousins into close pairs — and the anomalous Zeeman effect, in which a
+  magnetic field splits lines into more components than Bohr's theory allows. These
+  anomalies, Born explains, cannot be understood without granting the electron an
+  intrinsic mechanical angular momentum and magnetic moment of its own, the
+  proposal Uhlenbeck and Goudsmit made in 1925.
+</p>
+
+<p>
+  Born's treatment keeps the phenomenon in the foreground and introduces the
+  formalism — including the Pauli spin theory and its matrices — only as the tool
+  the phenomenon requires. He is interested in the doublets and the Zeeman
+  patterns as measured facts, and in showing that the spinning electron accounts
+  for them quantitatively. Where Feynman uses an idealized apparatus to introduce
+  spin cleanly and Dirac uses none at all, Born uses the messy real spectra that
+  historically made the concept unavoidable. His entry point is the evidence, not
+  the idealization.
+</p>
+
+<h2>Synthesis</h2>
+
+<p>
+  Spin lays the four temperaments side by side more starkly than any other topic.
+  Feynman stages a clean experiment and refuses all classical language, making spin
+  the purest demonstration of amplitude thinking. Dirac stages no experiment at
+  all and lets an algebra force the matrices into existence. Landau and Lifshitz
+  derive spin from the rotation group, treating it as a structural necessity of any
+  multi-component wave function. Born tracks the historical evidence — the doublets,
+  the anomalous Zeeman splittings — that compelled physicists to accept spin before
+  any of these formalisms were in place. Idealized experiment, pure algebra,
+  symmetry, and evidence: four doors into one room.
+</p>
+
+<p>
+  The Feynman–Dirac contrast is the sharpest in the project, and spin is where it
+  is most visible because both reach the <em>same</em> object — the two-component
+  spin-½ state and its Pauli matrices — from opposite starting points. Feynman will
+  not write down a matrix until an experiment has earned it; Dirac will not appeal
+  to an experiment when consistency conditions suffice. A reader who learns spin
+  from Feynman comes away feeling she has watched atoms sort themselves in a magnet;
+  a reader who learns it from Dirac comes away feeling she has solved a small
+  algebra problem. Both have the identical physics, and neither picture is more
+  correct — which is the whole thesis of this project, sharpened to its finest
+  point.
+</p>
+
+<p>
+  What none of them will allow is the picture the word "spin" invites: a little
+  ball rotating. Feynman withholds the phrase "angular momentum" to keep it out;
+  Landau and Lifshitz call the spinning-ball image meaningless outright; Dirac never
+  offers a picture to be tempted by; Born treats the electron's angular momentum as
+  a measured property, not a mechanical rotation. The half-integer values and the
+  $2\pi$ sign change are the theory's way of insisting that spin is genuinely new.
+  On that the four authors, for all their differences of method, do not disagree.
+</p>
+
+<h2>Read the originals</h2>
+
+<div class="read-originals">
+  <h3>Where to find these treatments</h3>
+  <ul>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_05.html">Ch. 5 "Spin One"</a> (Stern-Gerlach filtering, §5-1) and <a href="https://www.feynmanlectures.caltech.edu/III_06.html">Ch. 6 "Spin One-Half"</a> (rotation amplitudes from "pure reasoning")</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. VI §37 "The Spin of the Electron" — the Pauli matrices derived from the spin algebra</li>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §54 "Spin" (commutation relations from rotations; half-integer values) and §55 "Spinors" (the $2\pi$ sign change)</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. VI §1 "Alkali Doublets and the Spinning Electron" and §2 "The Anomalous Zeeman Effect"; the Pauli spin theory in Ch. VI §8</li>
+  </ul>
+</div>
+
+<nav class="chapter-nav">
+  <a class="prev" href="10-hydrogen.html">← The Hydrogen Atom</a>
+  <a class="next" href="../index.html">Home →</a>
+</nav>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>
