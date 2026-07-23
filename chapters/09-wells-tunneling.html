@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IX · Wells, Barriers, and Tunneling — The Quantum Quartet</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="../index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="../about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<div class="chapter-meta">Chapter IX · Part III — The Physics</div>
+
+<h1>Wells, Barriers, and Tunneling</h1>
+
+<p>
+  Give a classical particle less energy than the wall in front of it and it stops;
+  it cannot be found on the far side. Quantum mechanics denies this flatly. The
+  wave function does not vanish at a barrier — it decays through it, and if the
+  barrier is thin enough, a wave emerges on the other side. A particle can appear
+  where classical energy conservation forbids it. This is tunneling, and it is the
+  first place in the book where the abstract formalism of Part II pays out in a
+  concrete, measurable, deeply non-classical effect.
+</p>
+
+<p>
+  This is a calculational chapter, and it belongs to Landau. His book treats
+  wells, steps, and barriers as a systematic catalogue of exactly solvable
+  problems, deriving transmission and reflection coefficients from first
+  principles. Born reaches tunneling from the opposite end — through the physical
+  phenomenon that made it famous, the alpha decay of radioactive nuclei. Dirac,
+  whose book is about structure rather than specific potentials, does not treat it.
+  Feynman's Volume III has no tunneling chapter at all, and the gap is worth naming
+  precisely.
+</p>
+
+<h2>Entry points</h2>
+
+<table class="entry-table">
+  <thead>
+    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="author-cell">Born</td>
+      <td>Alpha decay; Geiger–Nuttall law; cold electron emission</td>
+      <td></td>
+      <td>Gamow / Condon–Gurney barrier penetration (Appendix XXX)</td>
+      <td>The "crater" potential holding the alpha particle</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Feynman</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>No dedicated treatment in Vol. III (see table of contents)</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Landau &amp; Lifshitz</td>
+      <td></td>
+      <td></td>
+      <td>Transmission coefficient from probability current; exact solutions</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Dirac</td>
+      <td></td>
+      <td></td>
+      <td>Not treated (abstract formalism, no specific potentials)</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>The four treatments</h2>
+
+<h3>Landau &amp; Lifshitz: the systematic catalogue</h3>
+
+<p>
+  Landau and Lifshitz treat barrier problems the way they treat everything — by
+  setting up the machinery once and then turning the crank. They define the
+  transmission coefficient $D$ as the ratio of transmitted to incident probability
+  current, and the reflection coefficient $R = 1 - D$, and derive both by matching
+  wave functions across the potential. For a step, a particle with energy above the
+  wall can still be reflected — a phenomenon with no classical analogue that falls
+  straight out of the wave matching. For a rectangular barrier of width $a$ with
+  $E < U_0$, the transmitted amplitude decays exponentially and the transmission
+  coefficient carries the tell-tale $e^{-2\kappa a}$ suppression, where
+  $\hbar\kappa = \sqrt{2m(U_0 - E)}$.
+</p>
+
+<p>
+  What is distinctive is how far they push exact solvability. Rather than settling
+  for the quasi-classical (WKB) estimate, they solve several smoothly varying
+  barriers <em>exactly</em>, in terms of hypergeometric functions — the potential
+  $U_0/\cosh^2\alpha x$, the smooth step $U_0/(1 + e^{-\alpha x})$ — and read the
+  transmission coefficient off the asymptotics. Along the way they turn up genuine
+  surprises: a particle passing <em>over</em> a well of the right depth is not
+  reflected at all, a resonance condition invisible to any classical picture. The
+  quasi-classical penetration formula, the one most physicists remember, they
+  present later as an approximation to be used when the exact solution is out of
+  reach. For Landau the barrier is not a curiosity but a proving ground for
+  technique.
+</p>
+
+<h3>Born: tunneling as the escape of an alpha particle</h3>
+
+<p>
+  Born comes at tunneling through the phenomenon that first demanded it. In 1928
+  Gamow, and independently Condon and Gurney, explained radioactive alpha decay as
+  barrier penetration, and Born makes their account the centrepiece. He pictures
+  the alpha particle held inside the nucleus by a potential shaped like a crater:
+  the Coulomb repulsion outside forms a rim far higher than the energy of the
+  escaping particle, so that classically the alpha particle, once inside, could
+  never get out. Yet it does — with a half-life that can be geological.
+</p>
+
+<p>
+  The wave-mechanical resolution is exactly the barrier physics Landau formalizes,
+  but Born keeps it tethered to the nucleus. The standing wave inside the crater is
+  not extinguished at the wall; it leaks through and emerges outside as a
+  travelling wave, and $|\psi|^2$ at the outer edge sets the probability of escape.
+  Because that probability falls off steeply with barrier thickness, fast alpha
+  particles escape far more readily than slow ones — which, Born notes, is the
+  qualitative content of the Geiger–Nuttall law relating decay rate to alpha
+  energy. He defers the exact formula to an appendix and stresses what the model
+  needs and does not need: essentially only the nuclear radius at the rim. He then
+  extends the same idea to the cold emission of electrons from a metal under a
+  strong field, another barrier the electron has no classical right to cross. Where
+  Landau derives the coefficient, Born shows you the crater and the decaying nucleus
+  it explains.
+</p>
+
+<h3>Dirac: not this kind of problem</h3>
+
+<p>
+  Dirac's <em>Principles</em> does not treat wells and barriers, and the omission
+  is a matter of genre rather than oversight. His book is built around the abstract
+  structure of the theory — states, observables, the algebra of the transformation
+  theory — and it descends to specific potentials only for the few systems that
+  illuminate the general method, chiefly the free particle and the harmonic
+  oscillator. A rectangular barrier is a boundary-value problem in a particular
+  $U(x)$, precisely the kind of concrete calculation Dirac leaves to books written
+  in a different key. His absence here is the same austerity that made his
+  uncertainty chapter start from non-commuting observables rather than a slit.
+</p>
+
+<h3>Feynman: an absence in the table of contents</h3>
+
+<p>
+  Feynman's Volume III contains no chapter on tunneling. This is not a rough
+  characterization but a fact about the table of contents: the volume moves from
+  spin and two-state systems through the amplitude formalism to the hydrogen atom,
+  and a barrier-penetration problem never gets its own treatment. The physics of
+  tunneling is not absent from Feynman's thought — it appears in Volume III's
+  discussion of two-state systems and, elsewhere in the Lectures, in solid-state
+  contexts — but the canonical square-barrier calculation that anchors Landau's
+  chapter has no counterpart in the quantum-mechanics volume.
+</p>
+
+<p>
+  The cell is worth leaving visibly near-empty, because it marks a real difference
+  in what each book is <em>for</em>. Landau's volume is, among other things, a
+  reference catalogue of solved problems, and a barrier is one of the entries.
+  Feynman's is a conceptual tour built to convey how quantum mechanics thinks, and
+  a barrier calculation, however important, is not on the itinerary. The silence is
+  editorial, and reading it as content is the whole point of this project.
+</p>
+
+<h2>Synthesis</h2>
+
+<p>
+  Tunneling sorts the four books by what they take a physics chapter to be. For
+  Landau and Lifshitz it is an occasion to demonstrate exact technique, and they
+  wring more solvable cases out of the barrier than most readers knew existed. For
+  Born it is a phenomenon — alpha decay — whose explanation happens to require the
+  barrier, and the barrier is in service of the nucleus, not the reverse. For Dirac
+  it is simply not the kind of thing his book discusses. For Feynman it is a topic
+  the tour route bypasses. The same effect anchors a calculation, explains a
+  natural process, falls below the threshold of abstraction, and misses the
+  itinerary — four times over.
+</p>
+
+<p>
+  The most illuminating pairing is Landau and Born, because between them they hold
+  the two halves of how tunneling entered physics. Born supplies the 1928 moment
+  when a baffling fact — nuclei emitting particles they could not classically
+  release — found its explanation in a leaking wave. Landau supplies the mature
+  technique that lets you compute the leak for any barrier you like, exactly where
+  possible. Read together they show a discovery becoming a method: the crater that
+  once seemed miraculous becomes one more potential to match wave functions across.
+</p>
+
+<p>
+  What no one disputes is the physics itself. A particle with too little energy
+  gets through, with a probability that dies exponentially in the barrier's
+  thickness, and the effect is not a mathematical artefact but the mechanism of
+  radioactive decay and the reason certain electrons escape cold metals. The
+  wave function's refusal to vanish at a wall — the same refusal that made the
+  double slit interfere — is here doing work you can measure with a Geiger counter.
+</p>
+
+<h2>Read the originals</h2>
+
+<div class="read-originals">
+  <h3>Where to find these treatments</h3>
+  <ul>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §25 "The transmission coefficient" (with worked barriers) and §50 "Penetration through a potential barrier" (the quasi-classical formula); wells in §22 "The potential well"</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. XVI on alpha decay (the Gamow / Condon–Gurney crater model) with the exact analysis in Appendix XXX "Theory of α-Disintegration"; cold electron emission in Ch. VII</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.) — wells and barriers are not treated; specific potentials are limited to the free particle and harmonic oscillator</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III — no dedicated tunneling chapter (see the <a href="https://www.feynmanlectures.caltech.edu/III_toc.html">Vol. III table of contents</a>); barrier physics appears only within the two-state-system discussion</li>
+  </ul>
+</div>
+
+<nav class="chapter-nav">
+  <a class="prev" href="08-dirac-formalism.html">← States, Observables, Bras and Kets</a>
+  <a class="next" href="../index.html">Home →</a>
+</nav>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>
