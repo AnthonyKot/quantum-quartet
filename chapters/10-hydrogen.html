@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X · The Hydrogen Atom — The Quantum Quartet</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="../index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="../about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<div class="chapter-meta">Chapter X · Part III — The Physics</div>
+
+<h1>The Hydrogen Atom</h1>
+
+<p>
+  Hydrogen is the test every quantum theory must pass. One electron bound to one
+  proton by the Coulomb force is the simplest atom, and it is the only atom that
+  can be solved exactly. Its spectrum — the sharp lines Balmer fit to a formula in
+  1885, decades before anyone could explain them — is the anvil on which the new
+  mechanics was hammered out. When the Schrödinger equation reproduced the Balmer
+  series from a law of motion, quantum mechanics stopped being a promising scheme
+  and became the theory of the atom.
+</p>
+
+<p>
+  The four authors converge on the same energy levels,
+  $E_n = -\tfrac{m\alpha^2}{2\hbar^2 n^2}$, by four routes that reveal their
+  temperaments completely. Landau solves the Coulomb problem as a set-piece of
+  mathematical technique. Born tells the story of why the answer mattered before
+  anyone could derive it. Dirac reaches the same radial equation through the
+  abstract algebra of a central field, descending to coordinates only to finish.
+  Feynman, near the end of Volume III, does the one thing he has avoided for
+  eighteen chapters: he sits down and grinds through the differential equation.
+</p>
+
+<h2>Entry points</h2>
+
+<table class="entry-table">
+  <thead>
+    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="author-cell">Born</td>
+      <td>Balmer series; the Rydberg constant</td>
+      <td>Correspondence principle</td>
+      <td>Balmer terms identified with Bohr energy levels</td>
+      <td>Why the classical atom cannot exist</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Feynman</td>
+      <td>The measured hydrogen spectrum</td>
+      <td></td>
+      <td>Direct series solution of the Schrödinger equation</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Landau &amp; Lifshitz</td>
+      <td></td>
+      <td></td>
+      <td>Coulomb units; confluent hypergeometric functions; $n \ge l+1$</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Dirac</td>
+      <td></td>
+      <td>Central field built from Poisson brackets</td>
+      <td>Radial momentum $p_r$; $H$ in terms of $r$, $p_r$, and angular momentum $k$</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>The four treatments</h2>
+
+<h3>Landau &amp; Lifshitz: the Coulomb problem as set-piece</h3>
+
+<p>
+  For Landau and Lifshitz the hydrogen atom is the culmination of their chapter on
+  centrally symmetric fields, and they solve it with characteristic economy. They
+  switch to "Coulomb units" — the atomic units in which $m$, $\hbar$, and the
+  Coulomb constant are all set to one — so the radial equation loses its clutter of
+  constants. Substituting the expected asymptotic behavior reduces the equation to
+  the confluent hypergeometric function, and the physical requirement that the
+  solution not blow up at infinity forces the series to terminate. That termination
+  is the quantization: the principal quantum number $n$ must be a positive integer
+  with $n \ge l+1$, and the energy $E = -1/2n^2$ falls out immediately.
+</p>
+
+<p>
+  Two features mark the treatment as theirs. First, they dwell on the
+  <em>accidental degeneracy</em> — the fact that the energy depends only on $n$ and
+  not on the angular momentum $l$, giving each level a degeneracy of $n^2$. In a
+  general central field the energy would depend on both; that it does not is a
+  special property of the $1/r$ potential, and they flag it as such rather than
+  letting it pass unremarked. Second, they do not stop at the bound states. They
+  push through the entire <em>continuous</em> spectrum of positive-energy Coulomb
+  wave functions, representing them by contour integrals and extracting the
+  scattering asymptotics — a completeness no other author here attempts. For
+  Landau the hydrogen atom is not just the answer to a physical question; it is an
+  exhibition of how far exact methods reach.
+</p>
+
+<h3>Born: the answer before the derivation</h3>
+
+<p>
+  Born's hydrogen chapter is history first and calculation second, and
+  deliberately so. He begins with the crisis: a classical electron orbiting a
+  proton radiates continuously, spirals inward, and the atom collapses in a
+  fraction of a second. That hydrogen exists at all, and emits not a smear of
+  frequencies but a discrete series of razor-sharp lines, is something classical
+  physics "cannot understand" — his framing of the impasse that forced the
+  quantum. He then gives Balmer his due: the 1885 formula that fit the visible
+  hydrogen lines to a difference of two terms, accurate to the last decimal the
+  spectroscopists could measure, long before anyone knew what the terms were.
+</p>
+
+<p>
+  The decisive step, in Born's telling, is recognizing that the form of Balmer's
+  formula — a difference of two expressions of the same type — points straight at
+  energy levels, once Bohr's condition ties a spectral line to a jump between them.
+  The Rydberg constant, measured to six figures, becomes a combination of $e$, $m$,
+  and $\hbar$, and the correspondence principle fixes how. Born is leading the
+  chapter's <em>meaning</em>: he supplies the reason the eventual solution is a
+  triumph, which is that it recovers, from a bare equation of motion, a number the
+  experimentalists had known to extraordinary precision for forty years.
+</p>
+
+<h3>Dirac: hydrogen as an application of the algebra</h3>
+
+<p>
+  Dirac reaches hydrogen through the most abstract door. Before writing any wave
+  equation he sets up the central-field problem in the language of observables:
+  he defines a radial momentum $p_r$ satisfying the canonical relation
+  $[r, p_r] = i\hbar$, expresses the angular momentum magnitude $k$ algebraically,
+  and manipulates Poisson brackets until the Hamiltonian appears in the reduced
+  form $H = \frac{1}{2m}\!\left(\frac{1}{r}p_r^2\,r + \frac{k(k+\hbar)}{r^2}\right) + V$.
+  All of this happens in the abstract theory, without committing to a
+  representation, and it works for any central potential $V$.
+</p>
+
+<p>
+  Only then does he descend. Introducing Schrödinger's representation with
+  coordinates diagonal turns the abstract equation into a differential equation in
+  $r$, $\theta$, $\phi$; the angular part is the spherical-harmonic operator whose
+  eigenvalues $n(n+1)\hbar^2$ he can quote from mathematical physics, and the radial
+  part becomes the equation to solve for the Coulomb $V = -\alpha/r$. Dirac even
+  pauses on a subtlety the others skip — that the boundary condition at the origin
+  must be checked against the full Cartesian equation, since $\nabla^2(1/r)$ hides a
+  delta function. His hydrogen atom is a worked example of a general machine, and
+  the machine is the point.
+</p>
+
+<h3>Feynman: grinding the equation at last</h3>
+
+<p>
+  Feynman's hydrogen chapter is startling precisely because of what it is not.
+  Having spent seventeen chapters insisting that quantum mechanics is best done
+  with amplitudes and two-state systems, avoiding differential equations almost
+  entirely, he arrives at hydrogen and simply solves the Schrödinger equation the
+  old-fashioned way. He writes the spherically symmetric equation, admits that
+  there is no general method for such equations and that "you just have to fiddle
+  around," proposes a series solution, and finds that physically acceptable
+  solutions — ones that vanish at large $r$ — exist only for the quantized
+  energies. The same brute-force method, extended to non-zero angular momentum,
+  gives the full set of states labeled by three quantum numbers.
+</p>
+
+<p>
+  What makes the chapter Feynman's, despite the conventional method, is the frame he
+  puts around it. He is explicit that the experimental hydrogen spectrum was known
+  in advance, and that reproducing it from "a basic equation of motion for the
+  electron" was "the first great success of the Schrödinger theory." The
+  calculation is standard; the emphasis is on what it meant. And the placement is
+  itself a statement: hydrogen is where his amplitude-first pedagogy finally cashes
+  out into the concrete spatial problem it had deferred, arriving at the same
+  Balmer numbers by the route he had spent the book postponing.
+</p>
+
+<h2>Synthesis</h2>
+
+<p>
+  Hydrogen is the chapter where all four authors must produce the same number, and
+  the interest lies entirely in how they get there. Landau treats the Coulomb
+  potential as an opportunity to display exact technique, solving even the
+  continuous spectrum that the physics does not strictly require. Dirac treats it
+  as an application of his central-field algebra, deriving the radial problem
+  abstractly and descending to coordinates only to finish. Feynman treats it as the
+  overdue differential-equation calculation, done plainly and framed by its
+  historical weight. Born treats it as a story whose climax the others are
+  computing — the forty-year gap between Balmer's formula and its explanation.
+</p>
+
+<p>
+  The sharpest contrast is between Dirac and Feynman, and it inverts their usual
+  roles. Through most of the book Feynman is the physical, intuitive one and Dirac
+  the abstract formalist. Here Dirac derives the Hamiltonian from Poisson brackets
+  in pure operator algebra, while Feynman rolls up his sleeves and solves a
+  differential equation by trial series — the concrete grind Dirac's abstraction is
+  built to avoid. The Coulomb problem is where Feynman pays the bill his amplitude
+  pedagogy had run up, and where Dirac shows that his abstraction was never
+  ornamental: it reduces the atom to a one-dimensional radial equation before a
+  single coordinate is chosen.
+</p>
+
+<p>
+  Underneath the four methods sits one fact that none of them invented and all of
+  them recover: the energies scale as $-1/n^2$, and hydrogen's peculiar
+  $l$-degeneracy is a gift of the Coulomb force alone. Born knew the number from
+  Balmer; Bohr guessed the levels; and the new mechanics, in every one of these
+  four dialects, derives them. That convergence — a spectroscopic constant known to
+  six figures, falling out of an equation of motion — is the moment the theory
+  earned its authority, and each author, in his own register, is describing the
+  same victory.
+</p>
+
+<h2>Read the originals</h2>
+
+<div class="read-originals">
+  <h3>Where to find these treatments</h3>
+  <ul>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §36 "Motion in a Coulomb field (spherical polar co-ordinates)" — bound states, the $n^2$ degeneracy, and the continuous spectrum</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. V on the Bohr atom and the Balmer series; the classical-instability argument and the identification of Balmer terms with energy levels</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. VI §38 "Motion in a Central Field of Force" and §39 "Energy-levels of the Hydrogen Atom"</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_19.html">Ch. 19 "The Hydrogen Atom and The Periodic Table"</a> (Schrödinger's equation for hydrogen, §19-1 onward)</li>
+  </ul>
+</div>
+
+<nav class="chapter-nav">
+  <a class="prev" href="09-wells-tunneling.html">← Wells, Barriers, and Tunneling</a>
+  <a class="next" href="../index.html">Home →</a>
+</nav>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>
