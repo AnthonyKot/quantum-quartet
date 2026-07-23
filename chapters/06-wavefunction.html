@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VI · The Wavefunction and Schrödinger's Equation — The Quantum Quartet</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="../index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="../about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<div class="chapter-meta">Chapter VI · Part II — The New Mechanics</div>
+
+<h1>The Wavefunction and Schrödinger's Equation</h1>
+
+<p>
+  The wavefunction $\psi$ is the central object of non-relativistic quantum
+  mechanics, and its equation of motion — the Schrödinger equation — is the
+  workhorse that every practical calculation eventually runs on. But where does
+  the equation come from? It cannot be deduced from anything more fundamental; it
+  is a law of nature, tested by its consequences. The four authors differ sharply
+  in how they handle that fact — whether they motivate the equation by symmetry,
+  postulate it outright, present it as the integrated form of a deeper abstraction,
+  or frankly admit it was guessed.
+</p>
+
+<p>
+  This is the chapter where Landau's register is at full strength and where
+  Feynman's ordering becomes a subject in itself. Landau and Lifshitz reach the
+  Schrödinger equation early and derive as much of its form as symmetry allows.
+  Feynman reaches it in his Chapter 16, sixteen chapters into Volume III, and says
+  so pointedly. Born supplies the reading of $\psi$ that makes the equation about
+  physics rather than mathematics. Dirac has already written the equation down, in
+  the previous chapter's terms, as one face of his abstract law of motion.
+</p>
+
+<h2>Entry points</h2>
+
+<table class="entry-table">
+  <thead>
+    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="author-cell">Born</td>
+      <td>Electron scattering</td>
+      <td></td>
+      <td>$|\psi|^2$ as probability density (statistical interpretation)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Feynman</td>
+      <td></td>
+      <td></td>
+      <td>Amplitude diffusing point to point (Ch. 16, deferred)</td>
+      <td>Electron on a line of atoms → the free-space limit</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Landau &amp; Lifshitz</td>
+      <td></td>
+      <td>Galilean invariance fixes the free-particle Hamiltonian</td>
+      <td>$\hat H = -\tfrac{\hbar^2}{2m}\Delta + U$; classical limit via Hamilton–Jacobi</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Dirac</td>
+      <td></td>
+      <td>Schrödinger's equation as the integrated law of motion</td>
+      <td>$i\hbar\,\partial_t|Pt\rangle = H|Pt\rangle$ in a representation</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>The four treatments</h2>
+
+<h3>Landau &amp; Lifshitz: as much as symmetry allows</h3>
+
+<p>
+  Landau and Lifshitz do the thing that most distinguishes their book: they refuse
+  to simply write the Schrödinger equation down. Instead they ask what the
+  Hamiltonian of a free particle <em>can</em> be, given the symmetry of space. For
+  a free particle the Hamiltonian cannot depend on position — space is homogeneous —
+  so it must be built from momentum alone; and because space is isotropic, it can
+  depend only on the magnitude of the momentum. Galilean relativity then forces the
+  quadratic dependence $E = p^2/2m$, and promoting this to operators gives the
+  free-particle Hamiltonian $\hat H = -(\hbar^2/2m)\Delta$ almost without choice.
+  Adding a potential $U$ for an interacting system yields the full equation
+  $i\hbar\,\partial_t\Psi = -(\hbar^2/2m)\Delta\Psi + U\Psi$.
+</p>
+
+<p>
+  What symmetry cannot fix — the interaction term — they take over from classical
+  mechanics by the requirement that the theory reduce correctly in the classical
+  limit. And they show that limit explicitly: substituting $\Psi = a\,e^{iS/\hbar}$
+  and letting $\hbar \to 0$ recovers the Hamilton–Jacobi equation for the classical
+  action $S$, while the modulus $|a|^2 = |\Psi|^2$ obeys a continuity equation,
+  flowing with the classical velocity. The Schrödinger equation is not handed down;
+  it is cornered from two directions — symmetry above, classical mechanics below —
+  until only one form is left. This is the calculational register operating on the
+  foundations themselves.
+</p>
+
+<h3>Feynman: the equation that came out of a mind</h3>
+
+<p>
+  Feynman's treatment is defined by <em>when</em> it happens. He arrives at the
+  Schrödinger equation only in Chapter 16 of Volume III, and he opens that chapter
+  by announcing that he is breaking his usual rule — he will write down the
+  differential equation for amplitudes in space without having time to develop its
+  consequences. The placement is the message: everything essential about quantum
+  behavior, in his telling, was already available from amplitudes and the two-slit
+  experiment. The Schrödinger equation is a late specialization, not a foundation.
+</p>
+
+<p>
+  His route to it is physical rather than deductive. He imagines an electron
+  hopping along a line of atoms in a crystal, writes the amplitude to be at each
+  site, and takes the continuum limit; the resulting equation has the form of a
+  diffusion equation — but with an imaginary coefficient in front of the time
+  derivative, which turns spreading into wave propagation. Then he is scrupulously
+  honest about status. He tells the reader outright that the equation is not derived
+  from anything: in his framing it came out of Schrödinger's mind, from heuristic
+  arguments and intuitive guesses, some of them even wrong, and the only thing that
+  matters is that the final equation describes nature correctly. Where Landau corners
+  the equation with symmetry, Feynman motivates it with a picture and then confesses
+  that motivation is not proof.
+</p>
+
+<h3>Born: what $\psi$ means</h3>
+
+<p>
+  Born's contribution to this chapter is the one without which the equation would be
+  uninterpretable. Schrödinger had his wave and his equation; what he did not have,
+  at first, was a secure account of what the wave <em>was</em>. Born supplied it in
+  1926: the squared modulus $|\psi|^2$ is a probability density — the probability of
+  finding the particle in a region, not the density of a smeared-out charge. In
+  <em>Atomic Physics</em> this statistical interpretation is presented as the pivot
+  on which the whole scheme turns, the thing that lets the wave and corpuscle
+  pictures coexist.
+</p>
+
+<p>
+  Born is characteristically careful about what the interpretation forbids. The
+  wavefunction is not a physical wave in ordinary space; for two particles it is a
+  function on a six-dimensional configuration space, which no ripple in the room
+  could be. He resists the temptation — Schrödinger's own, at first — to see the
+  electron as literally a packet of waves, since such a packet disperses. Born gives
+  the equation its meaning precisely by denying $\psi$ the kind of reality that would
+  make the meaning simpler and wrong.
+</p>
+
+<h3>Dirac: the equation was already written</h3>
+
+<p>
+  For Dirac there is nothing new to introduce here, because the Schrödinger equation
+  appeared in the previous chapter as a special case of his abstract law of motion.
+  His fundamental equation, $i\hbar\,\frac{d}{dt}|Pt\rangle = H|Pt\rangle$, governs
+  the state ket directly; choosing a representation in which the coordinates are
+  diagonal, and reading $\langle\xi'|Pt\rangle$ as the wavefunction $\psi(\xi' t)$,
+  turns that abstract equation into Schrödinger's wave equation. The wave equation is
+  the Schrödinger picture written in the position basis — a representation of the law,
+  not the law itself.
+</p>
+
+<p>
+  This inverts the usual order of exposition. For most students the Schrödinger
+  equation is the beginning and the abstract formalism a later generalization; for
+  Dirac the abstract equation of motion is primary and the wave equation is one of
+  its representations, obtained by a choice of basis. The wavefunction, in this view,
+  is not the fundamental object but the set of components of the state ket along the
+  position eigenvectors. It is the same relationship Landau and Lifshitz build into
+  their matrices, arrived at from the opposite end.
+</p>
+
+<h2>Synthesis</h2>
+
+<p>
+  The four treatments are four answers to a single awkward question: if the
+  Schrödinger equation cannot be derived, how should a book present it honestly?
+  Landau and Lifshitz derive everything derivable and import the rest from the
+  classical limit, leaving the smallest possible residue of pure postulate. Feynman
+  motivates the equation with a concrete lattice picture and then states plainly that
+  it was guessed. Dirac makes it a representation of a deeper axiom, so that the
+  postulation happens elsewhere, at the level of the abstract law of motion. Born,
+  uniquely, is not concerned with deriving the equation at all — his contribution is
+  to fix what its solution <em>means</em>.
+</p>
+
+<p>
+  The Feynman–Landau contrast is the sharpest in Part II, and it is a contrast of
+  temperament as much as method. Landau's instinct is that a fundamental equation
+  should be shown to be nearly inevitable — that symmetry and correspondence leave
+  the theorist almost no freedom. Feynman's instinct is that honesty about
+  guessing is more valuable to a student than a derivation that only looks
+  inevitable in hindsight. That one book reaches the equation in its third chapter
+  of foundations and the other in its sixteenth is not a scheduling accident; it
+  encodes two philosophies of what a wavefunction is for.
+</p>
+
+<p>
+  Beneath the differences they agree on the essential point, the one Born insisted
+  on and the others build into their formalisms: $\psi$ is an instrument for
+  computing probabilities, not a picture of a thing. The Schrödinger equation tells
+  you how that instrument evolves. What it evolves is not a wave you could point to,
+  and the discipline of remembering that is what separates all four of these authors
+  from the naive reading their own equation invites.
+</p>
+
+<h2>Read the originals</h2>
+
+<div class="read-originals">
+  <h3>Where to find these treatments</h3>
+  <ul>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §17 "Schrödinger's equation" (Hamiltonian from Galilean invariance; classical limit) and §18 "The fundamental properties of Schrödinger's equation"</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_16.html">Ch. 16 "The Dependence of Amplitudes on Position"</a> — the Schrödinger equation is §16-5, sixteen chapters in</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. V §4 "Wave Mechanics" and §7 "The Statistical Interpretation of Wave Mechanics"</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. V §27 "Schrödinger's Form for the Equations of Motion" (the wave equation as a representation of $i\hbar\,\partial_t|Pt\rangle = H|Pt\rangle$)</li>
+  </ul>
+</div>
+
+<nav class="chapter-nav">
+  <a class="prev" href="05-two-mechanics.html">← Two Mechanics: Matrices vs. Waves</a>
+  <a class="next" href="07-uncertainty.html">The Uncertainty Principle →</a>
+
+</nav>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>

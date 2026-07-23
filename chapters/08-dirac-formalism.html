@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIII · States, Observables, Bras and Kets — The Quantum Quartet</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="../index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="../about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<div class="chapter-meta">Chapter VIII · Part II — The New Mechanics</div>
+
+<h1>States, Observables, Bras and Kets</h1>
+
+<p>
+  By this point in the story the wave function has stopped being the fundamental
+  object and become a shadow of one — the components of an abstract state along the
+  position axis. The formalism that makes that reading precise is Dirac's: states
+  are vectors, written as kets $|A\rangle$; measurable quantities are operators
+  called observables; and the pairing of a bra with a ket, $\langle B|A\rangle$, is
+  the complex amplitude that ties the whole theory to experiment. This chapter is
+  about that formalism and the different relationships our four authors have to it.
+</p>
+
+<p>
+  Here the roles are unusually clear. Dirac is the author; the notation and the
+  architecture are his invention, and the chapter is in a real sense about his
+  book. The other three become a translation layer, each rendering the same
+  structure in a different dialect. Feynman adopts Dirac's brackets wholesale but
+  reaches them through Stern-Gerlach filters instead of axioms. Landau and Lifshitz
+  use much of the same algebra while pointedly keeping the wave function, not the
+  ket, as their primary object — and the places where their notation diverges from
+  Dirac's are worth marking exactly. Born has no bra-ket formalism at all.
+</p>
+
+<h2>Entry points</h2>
+
+<table class="entry-table">
+  <thead>
+    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="author-cell">Born</td>
+      <td></td>
+      <td></td>
+      <td>Operators used pragmatically (e.g. Pauli matrices, $\hat p = -i\hbar\,\partial_x$)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Feynman</td>
+      <td>Stern-Gerlach filtering</td>
+      <td></td>
+      <td>Completeness: $\langle\chi|\phi\rangle = \sum_i \langle\chi|i\rangle\langle i|\phi\rangle$</td>
+      <td>Base states as "the three components of a vector"</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Landau &amp; Lifshitz</td>
+      <td></td>
+      <td>Operators/wave functions primary; brackets secondary</td>
+      <td>Matrix element $\langle n|f|m\rangle = f_{nm}$</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Dirac</td>
+      <td></td>
+      <td>States = kets; observables = complete eigenstate sets</td>
+      <td>$\langle B|A\rangle$; the projector $|A\rangle\langle A|$</td>
+      <td>Measurement as a "jump" into an eigenstate</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>The four treatments</h2>
+
+<h3>Dirac: the architecture</h3>
+
+<p>
+  Dirac builds the formalism from the top down, and every later author is reacting
+  to his sequence. A state is a ket vector; to each ket he pairs a dual object, a
+  bra $\langle B|$, so that the scalar product $\langle B|A\rangle$ is a single
+  complex number — the notation itself splits the word "bracket" across the two
+  halves. A dynamical variable becomes a linear operator, and the physically
+  meaningful operators are the real (Hermitian) ones, whose eigenvalues are real
+  numbers.
+</p>
+
+<p>
+  His deepest definition is of an <em>observable</em>. A real dynamical variable
+  counts as observable only if its eigenstates form a complete set — if any state
+  can be expanded in them. This is not a technicality; it is what lets measurement
+  work. Dirac argues that measuring a variable makes the system "jump" into one of
+  its eigenstates, with the measured value being the corresponding eigenvalue, so
+  the possible results of a measurement are exactly the eigenvalues, and a
+  repeated measurement immediately after must give the same answer. The projector
+  $|A\rangle\langle A|$ is itself an observable — the one that asks whether the
+  system is in the state $|A\rangle$, with eigenvalues 1 and 0. Superposition,
+  orthogonality, and measurement all acquire their physical meaning inside this one
+  scheme.
+</p>
+
+<p>
+  What Dirac achieves is a language in which the wave equation, the matrices, and
+  the measurement postulate are all shadows of a single vector-space structure. It
+  is the most economical of the four presentations and the least tethered to any
+  picture — which is its power and, for a first-time reader, its difficulty.
+</p>
+
+<h3>Feynman: the same brackets, earned from filters</h3>
+
+<p>
+  Feynman uses Dirac's notation without apology — the amplitude
+  $\langle\chi|\phi\rangle$ runs through all of Volume III — but he refuses to
+  introduce it as an axiom. His route is the Stern-Gerlach apparatus: a device that
+  splits a beam by spin and can be used to filter, block, or recombine base states.
+  From manipulating such filters he extracts the completeness relation,
+  $\langle\chi|\phi\rangle = \sum_i \langle\chi|i\rangle\langle i|\phi\rangle$,
+  as a physical statement about passing through a complete set of intermediate
+  channels — and then remarks that the equation holds whether or not the apparatus
+  is actually there. The formula outlives the picture that motivated it.
+</p>
+
+<p>
+  His analogy for the state is deliberately homely: the base-state amplitudes
+  $\langle i|\phi\rangle$ are like the components of an ordinary vector along
+  chosen axes, and knowing them is knowing everything about the state — which is
+  why, he notes, a "state" is also called a "state vector." Feynman thus arrives at
+  exactly Dirac's structure, complete with orthonormal base states
+  $\langle i|j\rangle = \delta_{ij}$ and the resolution
+  $|\phi\rangle = \sum_i |i\rangle\langle i|\phi\rangle$, but the reader who
+  follows him has handled a beam of atoms the whole way. He is the translation
+  layer that keeps a thumb on the experiment.
+</p>
+
+<h3>Landau &amp; Lifshitz: the same algebra, a different primary object</h3>
+
+<p>
+  Landau and Lifshitz use a great deal of the same machinery — Hermitian operators,
+  eigenvalues, complete sets, matrix elements — and they even adopt Dirac's bracket
+  <em>as a notation</em>: they write the matrix element of a quantity $f$ as
+  $\langle n|f|m\rangle$, equal to their $f_{nm} = \int \psi_n^* \hat f \psi_m\,dq$.
+  But the divergence from Dirac is real and worth stating precisely. For Dirac the
+  ket is the fundamental object and the wave function is its component along a
+  position eigenket; for Landau and Lifshitz the <em>wave function is primary</em>
+  and the bracket is shorthand for an integral over it. The abstract state vector,
+  which Dirac takes as bedrock, never becomes their basic object; it is Feynman's
+  and Dirac's "state vector," not theirs.
+</p>
+
+<p>
+  The practical consequence shows in what each treats as a definition versus a
+  derived formula. Dirac defines the scalar product $\langle B|A\rangle$
+  abstractly and lets integrals appear only when he chooses a representation.
+  Landau and Lifshitz define $\langle n|f|m\rangle$ <em>as</em> the integral, so the
+  bracket is a compact name for something more concrete rather than a primitive.
+  The algebra of matrix multiplication, transformation between representations, and
+  the trace are all present in their §§11–13, but they arise as properties of
+  operators acting on wave functions, not as the axioms of an abstract space. It is
+  the same country reached by a different road, and their map keeps the wave
+  function at the center where Dirac keeps the ket.
+</p>
+
+<h3>Born: formalism only where a problem demands it</h3>
+
+<p>
+  Born's <em>Atomic Physics</em> has no chapter on the abstract formalism, and that
+  is consistent with the book's whole character. Operators appear when a specific
+  problem needs them — the Pauli spin matrices when he treats the spinning electron,
+  the differential operator $\hat p = -i\hbar\,\partial_x$ for momentum in wave
+  mechanics — but never as an axiomatic system introduced for its own sake. There
+  are no kets and no bras. The commutation relations he mentions are presented as
+  facts about these particular operators, not as the founding structure of the
+  theory.
+</p>
+
+<p>
+  This is not a gap so much as a different genre. Born is writing a physics book
+  organized around phenomena and their explanation, and he reaches for whatever
+  mathematical tool the phenomenon requires. The abstract vector-space formulation,
+  which for Dirac is the whole point, is for Born an implicit background he can
+  invoke piecewise. His cell in the comparison table is nearly empty of "axiom" and
+  "thought experiment" for the same reason his uncertainty chapter led with a slit:
+  he trusts the concrete instance over the general scheme.
+</p>
+
+<h2>Synthesis</h2>
+
+<p>
+  This chapter measures four distances from a single invention. Dirac made the
+  formalism, and for him it is the theory itself — states are vectors, observables
+  are operators with complete eigenstates, and physics is the algebra of brackets.
+  Feynman adopts the invention entire but insists on earning each piece from an
+  experiment with atoms and magnets, so that the abstraction never floats free of
+  the laboratory. Landau and Lifshitz borrow the notation and most of the algebra
+  while quietly refusing the central ontological move: for them the wave function,
+  not the ket, is what is real, and the bracket is a convenience. Born reaches for
+  operators only when a calculation demands one and never builds the general
+  scheme at all.
+</p>
+
+<p>
+  The most instructive comparison is between Feynman and Landau and Lifshitz,
+  because both use Dirac's brackets and yet mean different things by them. In
+  Feynman the bracket is an amplitude — a physical quantity you could in principle
+  measure the square of — motivated by filters and beams. In Landau and Lifshitz the
+  identical symbol $\langle n|f|m\rangle$ is defined as an integral, a piece of
+  bookkeeping over wave functions. A student who moves between the two books without
+  noticing this will read the same marks on the page as two different objects. The
+  notation converged; the underlying commitments did not.
+</p>
+
+<p>
+  What the chapter reveals is that a formalism is never neutral. Dirac's brackets
+  look like pure convenience — and Feynman and Landau both take advantage of that
+  convenience — but adopting them fully, as Dirac does, means accepting that the
+  abstract state is the primary reality and the wave function a mere representation.
+  Landau and Lifshitz take the notation and decline the metaphysics; Born declines
+  both. The choice of what to treat as fundamental is made not in the equations but
+  in the decision about where to begin, and on that decision the four authors do
+  not agree.
+</p>
+
+<h2>Read the originals</h2>
+
+<div class="read-originals">
+  <h3>Where to find these treatments</h3>
+  <ul>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. I §6 "Bra and Ket Vectors," Ch. II §10 "Observables" and §13 "Commutability and Compatibility"</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_03.html">Ch. 3 "Probability Amplitudes"</a>, <a href="https://www.feynmanlectures.caltech.edu/III_08.html">Ch. 8 "The Hamiltonian Matrix"</a>, and <a href="https://www.feynmanlectures.caltech.edu/III_20.html">Ch. 20 "Operators"</a></li>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §11 "Matrices," §12 "Transformation of matrices," §13 "The Heisenberg representation of operators" (note: the bracket $\langle n|f|m\rangle$ is defined as an integral over wave functions, not as an abstract scalar product)</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.) — no dedicated formalism chapter; operators appear where problems require them, e.g. the Pauli matrices in Ch. VI §8 "Wave Theory of the Spin Electron"</li>
+  </ul>
+</div>
+
+<nav class="chapter-nav">
+  <a class="prev" href="07-uncertainty.html">← The Uncertainty Principle</a>
+  <a class="next" href="../index.html">Home →</a>
+</nav>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>

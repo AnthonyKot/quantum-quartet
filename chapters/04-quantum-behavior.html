@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IV · Quantum Behavior: The Double Slit and Amplitudes — The Quantum Quartet</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="../index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="../about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<div class="chapter-meta">Chapter IV · Part II — The New Mechanics</div>
+
+<h1>Quantum Behavior: The Double Slit and Amplitudes</h1>
+
+<p>
+  Somewhere beneath every quantum calculation lies a single fact that no
+  classical picture can absorb: when a particle can reach a place by more than
+  one indistinguishable route, you do not add the probabilities of the routes —
+  you add complex numbers, one per route, and square the sum. The cross-term
+  that survives the squaring is interference. Everything else in quantum
+  mechanics is, in a sense, bookkeeping around that one operation.
+</p>
+
+<p>
+  This chapter is where our four authors meet the operation head-on. Feynman
+  builds his entire treatment on it, starting from the two-slit experiment and
+  refusing to leave it. Dirac elevates it to an axiom — the principle of
+  superposition — and derives the vector-space structure of quantum mechanics
+  from it. Landau and Lifshitz state it as "the chief positive principle" and
+  immediately draw the consequence that all the theory's equations must be
+  linear. Born, who gave the amplitude its physical meaning, never writes the
+  principle down as a principle at all.
+</p>
+
+<h2>Entry points</h2>
+
+<table class="entry-table">
+  <thead>
+    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="author-cell">Born</td>
+      <td>Electron diffraction; scattering</td>
+      <td></td>
+      <td>$|\psi|^2$ as particle number / probability (Born, 1926)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Feynman</td>
+      <td>Two-slit experiment with electrons</td>
+      <td></td>
+      <td>Three rules for combining amplitudes</td>
+      <td>Watching which slit; scattering with/without a "record"</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Landau &amp; Lifshitz</td>
+      <td></td>
+      <td>Superposition as the "chief positive principle"</td>
+      <td>Linearity of all equations in $\psi$</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Dirac</td>
+      <td>Photon polarization</td>
+      <td>Superposition of states</td>
+      <td>States as directions of ket vectors</td>
+      <td>Superposing a state with itself</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>The four treatments</h2>
+
+<h3>Feynman: three rules and nothing else</h3>
+
+<p>
+  Feynman's Volume III opens on the two-slit experiment and then, in the third
+  chapter, distills the whole apparatus of quantum mechanics into three rules for
+  combining amplitudes. First: the probability of an event is the absolute square
+  of a complex amplitude. Second: when an outcome can be reached by several
+  indistinguishable routes, the amplitudes for the routes add. Third: the
+  amplitude for a route taken in stages is the product of the amplitudes for the
+  stages.
+</p>
+
+<p>
+  What is radical is the claim that this is <em>enough</em>. Feynman calls the
+  approach "a pedagogical experiment," and its wager is that the so-called
+  advanced parts of quantum mechanics — spin, identical particles — are actually
+  the simplest, once you give up trying to picture a particle threading space and
+  work directly with amplitudes instead. He writes them in Dirac's bracket
+  notation, $\langle x \mid s\rangle$ for "the amplitude that a particle from $s$
+  arrives at $x$," and shows that a two-stage journey factorizes:
+  $\langle x \mid s\rangle_{\text{via }1} = \langle x \mid 1\rangle\langle 1 \mid s\rangle$.
+</p>
+
+<p>
+  The decisive move is his rule about when <em>not</em> to add amplitudes. If the
+  final states differ in any way that could <em>in principle</em> be told
+  apart — a scattered photon that marks which slit, a flipped nuclear spin that
+  records which atom did the scattering — then you square first and add the
+  probabilities. If no such record can exist even in principle, you add the
+  amplitudes first. Feynman's slogan is that nature behaves this way whether or
+  not you bother to look: "Nature does not know what you are looking at." The
+  distinction is not about the observer's knowledge but about whether a
+  distinguishing record exists anywhere in the world.
+</p>
+
+<h3>Dirac: superposition as the founding axiom</h3>
+
+<p>
+  Dirac does not wait for an experiment to motivate superposition; he opens his
+  book with it. His concrete anchor is the polarization of a photon: superpose
+  two perpendicular plane-polarized states with equal weight and a phase, and you
+  get circular, or diagonal, or elliptical polarization. From there he extracts
+  the non-classical essence in a single sentence's worth of thought. Suppose an
+  observation gives result $a$ with certainty on state $A$, and result $b$ with
+  certainty on state $B$. On the superposition, the result is sometimes $a$ and
+  sometimes $b$, never something in between. The intermediate character of the
+  superposed state shows up in the <em>probabilities</em>, not in the outcomes.
+</p>
+
+<p>
+  This is where Dirac plants the flag that the others build on: superposition
+  only makes sense because measurement is indeterminate. He then formalizes it.
+  States correspond to vectors — his "ket vectors," written $|A\rangle$ — that can
+  be added and scaled by complex numbers, so that a superposition is literally a
+  linear combination $c_1|A\rangle + c_2|B\rangle$. One further assumption gives
+  the theory its peculiar geometry: superposing a state with itself must return
+  the same state, which forces $|A\rangle$ and any nonzero multiple of it to mean
+  the same physical state. A quantum state is a <em>direction</em> in the vector
+  space, not a vector of definite length — and the zero vector corresponds to no
+  state at all.
+</p>
+
+<p>
+  Dirac is careful to warn against the analogy the mathematics invites. Because
+  the equations are linear, one is tempted to compare quantum states with
+  vibrating strings and membranes, which also superpose. He insists the
+  resemblance is misleading: classical superposition of a state with itself gives
+  a bigger oscillation, a genuinely different state, whereas quantum superposition
+  of a state with itself gives nothing new. The linearity is the same; the meaning
+  is not.
+</p>
+
+<h3>Landau &amp; Lifshitz: linearity as a corollary</h3>
+
+<p>
+  Landau and Lifshitz reach the same principle by a different door. They introduce
+  the wave function $\psi(q)$ first, with $|\psi|^2\,dq$ as the probability of
+  finding the coordinates in $dq$, and only then state superposition as a set of
+  propositions about wave functions. Their formulation is operational: if a
+  measurement yields result 1 with certainty in state $\psi_1$ and result 2 in
+  $\psi_2$, then any linear combination $c_1\psi_1 + c_2\psi_2$ is a state in which
+  the measurement yields either result 1 or result 2. They call this "the chief
+  positive principle" of quantum mechanics — positive because the uncertainty
+  principle of their opening section was, in their words, negative in content, and
+  a theory cannot be built on prohibitions alone.
+</p>
+
+<p>
+  The corollary they draw immediately is the one that matters for everything
+  after: because states superpose linearly, every equation that wave functions
+  satisfy must itself be linear in $\psi$. That single sentence licenses the entire
+  operator formalism to come — the Schrödinger equation, the eigenvalue problems,
+  the expansions in complete sets. Where Feynman keeps the linearity implicit in
+  his adding of amplitudes, and Dirac makes it geometry, Landau and Lifshitz name
+  it as a constraint on the form of the laws and move on.
+</p>
+
+<h3>Born: the meaning without the principle</h3>
+
+<p>
+  Born's place in this chapter is the strangest and, historically, the most
+  consequential. <em>Atomic Physics</em> has no section called "the principle of
+  superposition." What it has instead is the thing that makes superposition
+  physics rather than mathematics: the interpretation of the squared wave
+  amplitude as a probability. Born arrived at it in 1926 by comparing the
+  scattering of electrons with the scattering of light, reasoning that the number
+  of particles should be proportional to the intensity the wave theory computes.
+  The quantity we now add and square, the amplitude, is meaningful because Born
+  said what its square counts.
+</p>
+
+<p>
+  So Born supplies the semantics while declining to axiomatize the syntax. He is
+  wary of the wave-packet reading that superposition tempts — a particle built
+  from superposed wave trains, he notes, disperses like a ripple on water and
+  cannot be the particle itself. His caution is the caution of someone who watched
+  the interpretation get fixed in real time and knew how easily it could be
+  misread. That he never elevates superposition to a stated principle is not an
+  omission; it reflects a book organized around phenomena and their statistical
+  reading rather than around a scheme of axioms.
+</p>
+
+<h2>Synthesis</h2>
+
+<p>
+  Read together, the four treatments form a nearly complete logical circuit around
+  a single idea, each author holding a different arc. Feynman has the operation —
+  add amplitudes for indistinguishable routes — in its barest experimental form.
+  Dirac has the axiom that turns the operation into a vector space and the
+  insight that it only coheres because measurement is indeterminate. Landau and
+  Lifshitz have the structural payoff, linearity of the laws. Born has the
+  interpretation that lets any of it touch a laboratory.
+</p>
+
+<p>
+  The sharpest contrast is between Feynman and Dirac, and it is a contrast of
+  direction rather than content. Feynman starts from the two-slit pattern and
+  earns the amplitude formalism as its explanation; the abstraction is the
+  destination. Dirac starts from the abstraction — states superpose — and treats
+  polarization as an illustration of a principle already in hand; the experiment
+  is a footnote. They use the same bracket notation, invented by Dirac and adopted
+  by Feynman, to travel the same road in opposite directions.
+</p>
+
+<p>
+  What all four refuse, in their different registers, is the picture of a wave as
+  a real thing in space. Feynman warns against attributing too much reality to the
+  waves; Dirac warns that the vibrating-membrane analogy misleads; Landau and
+  Lifshitz note that for two particles the amplitude lives in a six-dimensional
+  configuration space, not ordinary space; Born watched the naive wave-packet
+  electron dissolve and refused it. The amplitude is not a substance. It is a
+  bookkeeping device of astonishing reach, and the double slit is the smallest
+  experiment that forces you to keep its books correctly.
+</p>
+
+<h2>Read the originals</h2>
+
+<div class="read-originals">
+  <h3>Where to find these treatments</h3>
+  <ul>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_01.html">Ch. 1 "Quantum Behavior"</a>, <a href="https://www.feynmanlectures.caltech.edu/III_02.html">Ch. 2</a>, and <a href="https://www.feynmanlectures.caltech.edu/III_03.html">Ch. 3 "Probability Amplitudes"</a> (the three amplitude rules are in §3-1)</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. I "The Principle of Superposition" — §4 "Superposition and Indeterminacy" and §5 "Mathematical Formulation of the Principle"</li>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §2 "The principle of superposition"</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. IV "Wave-Corpuscles" (de Broglie waves and the statistical interpretation) and Ch. V §7 "The Statistical Interpretation of Wave Mechanics"</li>
+  </ul>
+</div>
+
+<nav class="chapter-nav">
+  <a class="prev" href="03-bohr-atom.html">← The Bohr Atom and the Old Quantum Theory</a>
+  <a class="next" href="05-two-mechanics.html">Two Mechanics: Matrices vs. Waves →</a>
+</nav>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V · Two Mechanics: Matrices vs. Waves — The Quantum Quartet</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="../index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="../about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<div class="chapter-meta">Chapter V · Part II — The New Mechanics</div>
+
+<h1>Two Mechanics: Matrices vs. Waves</h1>
+
+<p>
+  For about a year, quantum mechanics existed in two apparently unrelated forms.
+  In 1925, Heisenberg, Born, and Jordan built a mechanics out of arrays of
+  numbers — matrix mechanics — in which observable quantities were represented by
+  matrices and the act of measurement had no picture attached to it at all. In
+  1926, Schrödinger published a wave equation for a continuous function $\psi$ that
+  looked reassuringly like the mathematics of vibrating strings and diffusing heat.
+  The two schemes gave the same answers and shared no obvious common ground. Then
+  Schrödinger, and independently Dirac, showed they were the same theory.
+</p>
+
+<p>
+  This chapter is about that strange interval and its resolution. It is the one
+  chapter where the comparison is partly historical, and the four authors divide
+  along a fault line: two of them lived the events and two received them as
+  finished mathematics. Born was a co-inventor of matrix mechanics; his account is
+  testimony. Dirac supplies the cleanest statement of why the two forms are one.
+  Landau and Lifshitz absorb both into a single formalism from the first page.
+  Feynman scarcely mentions the episode — and that silence is itself a data point.
+</p>
+
+<h2>Entry points</h2>
+
+<table class="entry-table">
+  <thead>
+    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="author-cell">Born</td>
+      <td>Spectral line intensities and frequencies</td>
+      <td>Observability: admit only measurable quantities</td>
+      <td>Matrix multiplication from Ritz's combination rule</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Feynman</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Near-silent on the 1925–26 history</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Landau &amp; Lifshitz</td>
+      <td></td>
+      <td>Operators are primary; matrices are a representation</td>
+      <td>Matrix element $f_{nm} = \int \psi_n^* \hat f \psi_m \, dq$</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Dirac</td>
+      <td></td>
+      <td>States and observables; the unitary transformation $T$</td>
+      <td>Schrödinger and Heisenberg pictures as one theory</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>The four treatments</h2>
+
+<h3>Born: the participant's account</h3>
+
+<p>
+  Born is the only one of the four who can write about matrix mechanics in the
+  first person, and <em>Atomic Physics</em> quietly does. He recounts Heisenberg's
+  1925 starting point — the demand that a consistent atomic mechanics admit only
+  observable quantities, the frequencies and intensities of emitted light, and not
+  the unobservable orbit of an electron inside the atom. From that principle
+  Heisenberg was led to represent each quantity by an array indexed by pairs of
+  states, and to a rule for multiplying two such arrays.
+</p>
+
+<p>
+  The decisive recognition, Born notes, was his own and Jordan's: Heisenberg's
+  multiplication rule was exactly the rule mathematicians already knew for
+  multiplying <em>matrices</em>. What Heisenberg had reinvented from spectroscopic
+  data was a piece of nineteenth-century linear algebra, and the non-commuting
+  products that had puzzled him were simply the ordinary non-commutativity of
+  matrix multiplication. Born's telling is generous and precise about who did what,
+  and it carries the authority of a man describing a room he was standing in. He is
+  also unhurried about the formal development — he omits much of it, since by the
+  time he is writing, wave mechanics has become the working language and matrix
+  mechanics is the historical root.
+</p>
+
+<p>
+  His verdict on the two schemes is the one that matters: though entirely different
+  in form, they are, as Schrödinger showed, identical in content. Born states this
+  as settled fact, not as a claim he needs to defend, because he watched it become
+  settled.
+</p>
+
+<h3>Dirac: equivalence as a change of picture</h3>
+
+<p>
+  Dirac gives the argument Born only gestures at. In his hands the two "mechanics"
+  become two <em>pictures</em> of a single theory, related by a unitary
+  transformation. In the Schrödinger picture the state is a moving ket
+  $|Pt\rangle$, carried along in time by the Hamiltonian, while the observables sit
+  fixed. Apply a time-dependent unitary transformation $T$ that brings the states
+  of undisturbed motion to rest, and the motion is transferred instead onto the
+  observables, which become moving operators — this is the Heisenberg picture.
+</p>
+
+<p>
+  Because the transformation is unitary, every algebraic relation is preserved: the
+  two pictures are not merely compatible, they are the same physics wearing
+  different clothes. Dirac's Heisenberg-picture equation of motion for an observable,
+  $\dot v_t = [v_t, H_t]$ in his bracket notation, sits beside the classical
+  Hamiltonian equation of the identical form, which is exactly why he can call the
+  energy operator the "Hamiltonian" and carry classical language into the quantum
+  theory. He then remarks, drily, which picture to actually compute in: the
+  Schrödinger form gives the simpler equations and fewer unknowns, while the
+  Heisenberg form is valued for making the analogy with classical mechanics visible.
+  The equivalence is not a historical reconciliation for Dirac; it is a theorem
+  about a transformation.
+</p>
+
+<h3>Landau &amp; Lifshitz: no two mechanics to reconcile</h3>
+
+<p>
+  Landau and Lifshitz dissolve the problem before it can arise. In their
+  presentation the operator attached to a physical quantity is primary, and a
+  matrix is nothing more than that operator written out in a particular basis: the
+  matrix element $f_{nm} = \int \psi_n^* \hat f \psi_m \, dq$ is the operator's
+  component between two stationary states. Matrix multiplication is then not a
+  postulate but a consequence — it falls directly out of composing two operators
+  and expanding in a complete set. What Heisenberg discovered as a mysterious rule,
+  they derive in a line.
+</p>
+
+<p>
+  They do acknowledge the history, but only in a footnote: the matrix representation
+  was introduced by Heisenberg in 1925, before Schrödinger's wave equation, and
+  matrix mechanics was developed by Born, Heisenberg, and Jordan. In the body of the
+  text there is no drama of two rival theories, because from their starting point
+  there was only ever one. The "energy representation," in which the Hamiltonian
+  matrix is diagonal and the diagonal entries are the energy levels, is presented as
+  one convenient choice of basis among many, related to others by the unitary
+  transformations of their §12. Where Born narrates and Dirac proves, Landau and
+  Lifshitz simply build the house so that the question does not come up.
+</p>
+
+<h3>Feynman: the eloquent silence</h3>
+
+<p>
+  Feynman's Volume III has almost nothing to say about the events of 1925–26, and
+  the omission is deliberate. He tells the reader plainly that the traditional
+  course retraces the historical path — classical mechanics first, then the
+  Schrödinger equation, then, much later, the "advanced" topics — and that he is
+  abandoning that path on purpose. His wager is that the amplitude formalism, taken
+  as the starting point, makes the historical scaffolding unnecessary. The
+  matrix-versus-wave controversy was a stage the subject passed through on its way to
+  a clean formulation, and Feynman elects to begin at the destination.
+</p>
+
+<p>
+  So the cell in the comparison table for Feynman is intentionally near-empty. It
+  records a pedagogical stance: that the equivalence of the two mechanics, which
+  cost the founders real effort to establish, is invisible to a student who is
+  never shown the two forms as separate in the first place. What looks like silence
+  is a claim — that the history is not load-bearing.
+</p>
+
+<h2>Synthesis</h2>
+
+<p>
+  The four treatments line up as four distances from a single event. Born stands
+  inside it, reporting what was done and by whom. Dirac stands just outside,
+  holding the transformation that shows why the two forms had to coincide. Landau
+  and Lifshitz stand far enough away that the two forms have merged into one
+  formalism with a choice of basis. Feynman stands so far downstream that he can
+  decline to mention the fork at all. No one of these vantage points is more
+  correct; together they show a theory hardening from lived controversy into
+  textbook architecture.
+</p>
+
+<p>
+  There is a lesson in the sequence about how physics digests its own revolutions.
+  The matrix–wave duality was, for a year, a genuine mystery: two calculational
+  engines with no common parts, agreeing on every answer. The resolution — that
+  they are unitary images of each other — did not just settle a priority dispute;
+  it revealed the object underneath both, the abstract state and its operators,
+  which is what Dirac and then Landau and Lifshitz take as their true subject.
+  Born's history and Feynman's silence are the two ends of that process: the memory
+  of the mystery, and the confidence to skip it.
+</p>
+
+<p>
+  It is worth noticing what the equivalence cost and what it bought. It cost the
+  intuition that a wave function is a wave in space — an intuition the previous
+  chapter already showed all four authors refusing. It bought the freedom to move
+  between pictures at will, computing in whichever representation is easiest and
+  trusting that the physics is representation-independent. That freedom is the
+  quiet foundation of everything in Part III.
+</p>
+
+<h2>Read the originals</h2>
+
+<div class="read-originals">
+  <h3>Where to find these treatments</h3>
+  <ul>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. V "Atomic Structure and Spectral Lines" §3 "Matrix Mechanics" and §4 "Wave Mechanics" (with his remark on their identity of content)</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. V "The Equations of Motion" §27 "Schrödinger's Form for the Equations of Motion" and §28 "Heisenberg's Form for the Equations of Motion"</li>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §11 "Matrices," §12 "Transformation of matrices," §13 "The Heisenberg representation of operators"</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III — no dedicated treatment; see <a href="https://www.feynmanlectures.caltech.edu/III_08.html">Ch. 8 "The Hamiltonian Matrix"</a> for his (later, formalism-first) route into matrices</li>
+  </ul>
+</div>
+
+<nav class="chapter-nav">
+  <a class="prev" href="04-quantum-behavior.html">← Quantum Behavior: The Double Slit and Amplitudes</a>
+  <a class="next" href="06-wavefunction.html">The Wavefunction and Schrödinger's Equation →</a>
+</nav>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>
