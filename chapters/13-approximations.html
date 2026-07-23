@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XIII · Approximation Methods — The Quantum Quartet</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="../index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="../about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<div class="chapter-meta">Chapter XIII · Part III — The Physics</div>
+
+<h1>Approximation Methods</h1>
+
+<p>
+  Hydrogen can be solved exactly; almost nothing else can. Helium already has too
+  many coordinates, and every real atom, molecule, and collision beyond the
+  simplest is a problem the Schrödinger equation poses but cannot answer in closed
+  form. Perturbation theory is the response: split the Hamiltonian into a part you
+  can solve and a small remainder, and compute the corrections the remainder
+  introduces as a series. It is less a single technique than a way of thinking —
+  the habit of treating a hard problem as an easy one slightly disturbed — and the
+  four authors reveal their characters in how they frame it.
+</p>
+
+<p>
+  This is a short chapter, because the mathematics is standard and the interest is
+  in stance rather than result. Landau and Lifshitz build the general apparatus and
+  turn its crank. Dirac steps back first to classify what perturbation theory even
+  is, splitting it into two methods before computing anything. Born reaches for it
+  as the practical tool that makes real spectra calculable. Feynman, characteristically,
+  largely does without it — by confining himself to systems he can solve exactly.
+</p>
+
+<h2>Entry points</h2>
+
+<table class="entry-table">
+  <thead>
+    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="author-cell">Born</td>
+      <td>Helium and multi-electron spectra; the Lamb shift</td>
+      <td></td>
+      <td>Perturbation as the workhorse for real atoms</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Feynman</td>
+      <td></td>
+      <td></td>
+      <td>Exact two-state diagonalization, not a perturbation series</td>
+      <td>The ammonia molecule as a solvable two-state system</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Landau &amp; Lifshitz</td>
+      <td></td>
+      <td></td>
+      <td>First/second-order corrections; the secular equation; transitions</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Dirac</td>
+      <td></td>
+      <td>Two methods: modifying states vs. causing transitions</td>
+      <td>Corrections from the bracket algebra</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>The four treatments</h2>
+
+<h3>Landau &amp; Lifshitz: turning the crank</h3>
+
+<p>
+  Landau and Lifshitz treat perturbation theory as a systematic apparatus to be
+  built once and applied everywhere. They derive the first-order energy correction
+  as the diagonal matrix element of the perturbation, the second-order correction as
+  a sum over intermediate states with energy denominators, and — where the
+  unperturbed level is degenerate — the corrections as the roots of a
+  <em>secular equation</em>, a determinant whose vanishing fixes the splitting. They
+  borrow the name, they note, from celestial mechanics, and the analogy is apt: a
+  degenerate level, like a resonant orbit, splits when disturbed. They then extend
+  the machinery to time-dependent perturbations, computing transition probabilities
+  between states via the variation of the expansion coefficients, and specialize to
+  periodic perturbations, where a resonance condition governs which transitions
+  occur.
+</p>
+
+<p>
+  The treatment is thorough and impersonal, exactly as their book is everywhere. The
+  degenerate case, the continuous spectrum, the periodic perturbation — each is
+  handled as one more entry in a catalogue. What Landau and Lifshitz supply is the
+  reference apparatus a working physicist reaches for, complete and general, with the
+  understanding that in the majority of cases the first approximation already
+  suffices.
+</p>
+
+<h3>Dirac: classifying before computing</h3>
+
+<p>
+  Dirac, before he calculates anything, draws a distinction that organizes the whole
+  subject. There are, he says, two distinct methods in perturbation theory. In the
+  first, the perturbation causes a <em>modification of the states of motion</em> —
+  one compares the stationary states of the perturbed system with those of the
+  unperturbed system, and this is the method for energy-level shifts. In the second,
+  the perturbation causes <em>transitions</em> — one takes an unperturbed stationary
+  state and watches it evolve, changing into other states under the disturbance, and
+  this is the method for anything involving time, including absorption, emission, and
+  collisions.
+</p>
+
+<p>
+  Having drawn the distinction, he derives the energy corrections through his bracket
+  algebra, recovering the first-order diagonal element and the second-order sum over
+  states, and noting that the degenerate case corresponds to the "secular
+  perturbations" of classical mechanics — the same borrowing Landau makes, from the
+  other side. He credits the general recurrence formulas for the higher orders to
+  Born, Heisenberg, and Jordan. Dirac's contribution here is less a calculation than
+  a taxonomy: the recognition that "perturbation theory" names two different
+  activities, and that knowing which one a problem calls for is the first step in
+  solving it.
+</p>
+
+<h3>Born: the tool that makes atoms calculable</h3>
+
+<p>
+  Born treats perturbation theory as the instrument that turns quantum mechanics from
+  a theory of hydrogen into a theory of matter. He is candid that beyond the simplest
+  systems exact solution is hopeless — helium already needs six coordinates, lithium
+  nine — and that one must be content with approximation. But the approximation
+  works: the lowest terms of many atomic configurations, he reports, have been
+  computed to excellent agreement with experiment, beginning with Hylleraas's
+  treatment of helium around 1930. His interest is in the results the method
+  delivers — atomic spectra, the screening of the nucleus by inner electrons, and,
+  at the frontier of his latest edition, the Lamb shift computed from renormalized
+  quantum electrodynamics to a part in ten thousand.
+</p>
+
+<p>
+  Where Landau builds the apparatus and Dirac classifies it, Born points at what it
+  buys. Perturbation theory, for him, is justified by the elements it makes
+  calculable — it is the reason the periodic table and the atomic spectra of the
+  previous chapters are not merely qualitative stories but quantitative predictions.
+  His entry point is once again the evidence: the measured spectra that the method,
+  pushed far enough, reproduces.
+</p>
+
+<h3>Feynman: solving exactly instead</h3>
+
+<p>
+  Feynman's Volume III has no chapter that develops perturbation theory as a general
+  apparatus, and the reason is a deliberate change of strategy. Rather than take
+  hard problems and approximate them, he restricts his attention to systems simple
+  enough to solve exactly — above all the two-state system, whose Hamiltonian is a
+  $2\times 2$ matrix that can always be diagonalized in closed form. The ammonia
+  molecule, with its nitrogen able to sit on either side of the hydrogen plane, is
+  his exemplar: he writes the two-state Hamiltonian, solves it exactly for the
+  split energy levels, and from that exact solution reads off real physics, up to
+  the maser.
+</p>
+
+<p>
+  This is not a claim that Feynman never approximates; it is a claim about where he
+  puts his weight. The others devote whole chapters to the systematic theory of the
+  insoluble; Feynman spends his on a family of soluble systems rich enough to carry
+  the ideas. The contrast is the same one that ran through the wavefunction chapter,
+  where he reached the Schrödinger equation late and reluctantly: given the choice
+  between the general machinery and the concrete exact case, he takes the case. His
+  cell in the comparison is not empty but redirected — the approximation the others
+  build, he arranges not to need.
+</p>
+
+<h2>Synthesis</h2>
+
+<p>
+  Perturbation theory is where the four temperaments show in miniature, and the
+  chapter is short because the differences are clean. Landau and Lifshitz build the
+  general apparatus and apply it without comment. Dirac classifies the subject before
+  touching a calculation, extracting the distinction between shifting states and
+  causing transitions that the others use implicitly. Born measures the theory by the
+  spectra it makes computable. Feynman sidesteps it, working with exactly solvable
+  two-state systems rather than approximating hard ones. Apparatus, taxonomy,
+  application, and avoidance: four relationships to the same indispensable method.
+</p>
+
+<p>
+  The revealing pairing is Landau and Feynman, and it recapitulates the axis of the
+  whole project. Landau's instinct is to build the general tool, because a physicist
+  will face problems no exact method can touch and needs a systematic way to
+  approximate them. Feynman's instinct is to find the simplest system that still
+  teaches the lesson, because an exact solution you understand is worth more than an
+  approximate one you have merely computed. Neither is wrong; the working physicist
+  needs Landau's apparatus, and the student learning to think needs Feynman's
+  exactly-soluble cases. That perturbation theory can be presented either as the
+  center of the subject or as a thing to be routed around is the clearest possible
+  demonstration that a method is never separable from a temperament.
+</p>
+
+<h2>Read the originals</h2>
+
+<div class="read-originals">
+  <h3>Where to find these treatments</h3>
+  <ul>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §38 "Perturbations independent of time," §39 "The secular equation," §40 "Perturbations depending on time" (with the transition and periodic-perturbation sections following)</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. VII "Perturbation Theory" §42 "General Remarks" (the two methods), §43 "The Change in the Energy-levels Caused by a Perturbation," §44 "The Perturbation Considered as Causing Transitions"</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), the perturbation treatment of helium and multi-electron atoms in Ch. V–VI, with the formal theory in Appendix XXXIX "Time-independent Perturbation Theory for Non-degenerate States"</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III — no general perturbation-theory chapter; two-state systems solved exactly in <a href="https://www.feynmanlectures.caltech.edu/III_08.html">Ch. 8 "The Hamiltonian Matrix"</a> and <a href="https://www.feynmanlectures.caltech.edu/III_09.html">Ch. 9 "The Ammonia Maser"</a></li>
+  </ul>
+</div>
+
+<nav class="chapter-nav">
+  <a class="prev" href="12-identical-particles.html">← Identical Particles and the Periodic Table</a>
+  <a class="next" href="14-measurement.html">Measurement and What It All Means →</a>
+</nav>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>
