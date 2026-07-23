@@ -1,0 +1,342 @@
+/* ── Reset ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Custom properties ─────────────────────────── */
+:root {
+  /* Light mode */
+  --bg:        #fafaf9;
+  --bg-alt:    #f5f5f4;
+  --text:      #1c1917;
+  --text-dim:  #57534e;
+  --accent:    #b45309;       /* warm amber */
+  --accent-h:  #92400e;
+  --border:    #e7e5e4;
+  --table-head:#f5f5f4;
+  --table-row:#fafaf9;
+  --code-bg:   #f5f5f4;
+  --shadow:    rgba(0,0,0,.06);
+
+  --serif:    Georgia, "Times New Roman", "Noto Serif", serif;
+  --sans:     -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --mono:     "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:       #18181b;
+    --bg-alt:   #27272a;
+    --text:     #f5f5f4;
+    --text-dim: #a1a1aa;
+    --accent:   #f59e0b;
+    --accent-h: #d97706;
+    --border:   #3f3f46;
+    --table-head:#27272a;
+    --table-row:#18181b;
+    --code-bg:  #27272a;
+    --shadow:   rgba(0,0,0,.3);
+  }
+}
+
+[data-theme="dark"] {
+  --bg:       #18181b;
+  --bg-alt:   #27272a;
+  --text:     #f5f5f4;
+  --text-dim: #a1a1aa;
+  --accent:   #f59e0b;
+  --accent-h: #d97706;
+  --border:   #3f3f46;
+  --table-head:#27272a;
+  --table-row:#18181b;
+  --code-bg:  #27272a;
+  --shadow:   rgba(0,0,0,.3);
+}
+
+/* ── Typography ────────────────────────────────── */
+html { font-size: 17px; }
+
+body {
+  font-family: var(--serif);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--sans);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 2em 0 .6em;
+}
+
+h1 { font-size: 2.4rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.2rem; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+p + p { margin-top: 1.2em; }
+
+/* ── Layout ────────────────────────────────────── */
+.page {
+  max-width: 72ch;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+header.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+}
+
+header.site-header h1 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+header.site-header h1 a { color: var(--text); }
+
+nav.nav a {
+  margin-left: 1.5rem;
+  font-family: var(--sans);
+  font-size: .85rem;
+  color: var(--text-dim);
+  transition: color .15s;
+}
+nav.nav a:hover { color: var(--accent); text-decoration: none; }
+
+/* ── Hero (index) ─────────────────────────────── */
+.hero {
+  text-align: center;
+  padding: 4rem 0 3rem;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: .5rem; }
+.hero .subtitle {
+  font-family: var(--sans);
+  color: var(--text-dim);
+  font-size: 1.1rem;
+  max-width: 40ch;
+  margin: 0 auto;
+}
+
+/* ── Book cards ────────────────────────────────── */
+.books {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+  margin: 2.5rem 0;
+}
+
+.book-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.4rem;
+  background: var(--bg-alt);
+  transition: box-shadow .2s;
+}
+.book-card:hover { box-shadow: 0 2px 12px var(--shadow); }
+
+.book-card h3 {
+  font-size: 1rem;
+  margin: 0 0 .4rem;
+}
+
+.book-card .author {
+  font-family: var(--sans);
+  font-size: .85rem;
+  color: var(--text-dim);
+  margin-bottom: .6rem;
+}
+
+.book-card .year {
+  font-family: var(--sans);
+  font-size: .75rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Chapter list ──────────────────────────────── */
+.part-label {
+  font-family: var(--sans);
+  font-size: .8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--text-dim);
+  margin: 2.5rem 0 .8rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+}
+
+.chapter-list { list-style: none; }
+.chapter-list li {
+  padding: .3rem 0;
+}
+.chapter-list a {
+  font-size: 1rem;
+}
+.chapter-list .part-label + .chapter-list a {
+  margin-top: .4rem;
+}
+
+/* ── Chapter page ──────────────────────────────── */
+.chapter-meta {
+  font-family: var(--sans);
+  font-size: .8rem;
+  color: var(--text-dim);
+  margin-bottom: 1rem;
+}
+
+.chapter-body h2 {
+  font-size: 1.35rem;
+  margin-top: 2.5rem;
+}
+
+/* Entry-points table */
+.entry-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2rem;
+  font-size: .9rem;
+}
+
+.entry-table th {
+  text-align: left;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text-dim);
+  padding: .7rem .8rem;
+  background: var(--table-head);
+  border-bottom: 2px solid var(--border);
+}
+
+.entry-table td {
+  padding: .7rem .8rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.entry-table tr:nth-child(even) td {
+  background: var(--table-row);
+}
+
+.entry-table .author-cell {
+  font-family: var(--sans);
+  font-weight: 600;
+  white-space: nowrap;
+  width: 140px;
+}
+
+/* ── Read-the-originals box ────────────────────── */
+.read-originals {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.2rem 1.4rem;
+  margin: 2rem 0;
+  background: var(--bg-alt);
+}
+
+.read-originals h3 {
+  font-family: var(--sans);
+  font-size: .9rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text-dim);
+  margin: 0 0 .8rem;
+}
+
+.read-originals ul {
+  list-style: none;
+  padding: 0;
+}
+.read-originals li {
+  padding: .3rem 0;
+  font-size: .9rem;
+}
+.read-originals li::before {
+  content: "→ ";
+  color: var(--accent);
+}
+
+/* ── Nav (prev / next) ────────────────────────── */
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+}
+
+.chapter-nav a {
+  font-family: var(--sans);
+  font-size: .85rem;
+  color: var(--text-dim);
+}
+.chapter-nav a:hover { color: var(--accent); }
+.chapter-nav a.next { text-align: right; }
+
+/* ── Theme toggle ──────────────────────────────── */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: .3rem .6rem;
+  cursor: pointer;
+  font-size: .8rem;
+  color: var(--text-dim);
+  transition: color .15s, border-color .15s;
+}
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── Footer ────────────────────────────────────── */
+footer {
+  text-align: center;
+  font-family: var(--sans);
+  font-size: .75rem;
+  color: var(--text-dim);
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+/* ── Unverified reference marker ───────────────── */
+.unverified {
+  font-style: italic;
+  font-size: .8em;
+  color: var(--accent);
+  border-bottom: 1px dotted var(--accent);
+  cursor: help;
+}
+
+/* ── KaTeX ─────────────────────────────────────── */
+.katex-display {
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* ── Print ─────────────────────────────────────── */
+@media print {
+  header.site-header, .chapter-nav, footer, .theme-toggle { display: none; }
+  .page { max-width: 100%; padding: 0; }
+  body { color: #000; background: #fff; }
+  a { color: #000; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: .75rem; }
+}

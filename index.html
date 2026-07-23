@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Quantum Quartet</title>
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<section class="hero">
+  <h1>The Quantum Quartet</h1>
+  <p class="subtitle">Four authors, four registers, the same physics — read side by side.</p>
+</section>
+
+<p>
+  Between 1926 and 1935, four books appeared that taught the world how to think
+  about quantum mechanics. Max Born brought the German tradition of precision and
+  calculation. Paul Dirac distilled the subject to its logical bones. Richard Feynman
+  rebuilt it from scratch, starting with the double-slit experiment. Lev Landau
+  and Evgeny Lifshitz forged a single coherent mathematical edifice.
+</p>
+<p>
+  Each author enters the material from a different angle — experiment, axiom,
+  calculation, thought experiment — and each leaves something out. This site reads
+  them together, chapter by chapter, without ranking them against one another.
+</p>
+
+<h2>The Books</h2>
+<div class="books">
+  <div class="book-card">
+    <h3>Atomic Physics</h3>
+    <div class="author">Max Born</div>
+    <div class="year">1935 (Blackie &amp; Son)</div>
+  </div>
+  <div class="book-card">
+    <h3>The Feynman Lectures on Physics, Vol. III</h3>
+    <div class="author">Richard Feynman</div>
+    <div class="year">1964 (Caltech)</div>
+  </div>
+  <div class="book-card">
+    <h3>Quantum Mechanics: Non-Relativistic Theory</h3>
+    <div class="author">Landau &amp; Lifshitz</div>
+    <div class="year">1977 (Pergamon)</div>
+  </div>
+  <div class="book-card">
+    <h3>The Principles of Quantum Mechanics</h3>
+    <div class="author">Paul Dirac</div>
+    <div class="year">1930 (Clarendon)</div>
+  </div>
+</div>
+
+<h2>Chapter Map</h2>
+
+<div class="part-label">Part I — The Crisis (1900–1913)</div>
+<ul class="chapter-list">
+  <li><a href="chapters/01-blackbody-planck.html">I · Blackbody Radiation and Planck's Quantum</a></li>
+  <li><a href="chapters/02-photons.html">II · Photons: Photoelectric Effect and Compton Scattering</a></li>
+  <li><a href="chapters/03-bohr-atom.html">III · The Bohr Atom and the Old Quantum Theory</a></li>
+</ul>
+
+<div class="part-label">Part II — The New Mechanics (1925–1930)</div>
+<ul class="chapter-list">
+  <li><a href="chapters/04-quantum-behavior.html">IV · Quantum Behavior: The Double Slit and Amplitudes</a></li>
+  <li><a href="chapters/05-two-mechanics.html">V · Two Mechanics: Matrices vs. Waves</a></li>
+  <li><a href="chapters/06-wavefunction.html">VI · The Wavefunction and Schrödinger's Equation</a></li>
+  <li><a href="chapters/07-uncertainty.html">VII · The Uncertainty Principle</a></li>
+  <li><a href="chapters/08-dirac-formalism.html">VIII · States, Observables, Bras and Kets</a></li>
+</ul>
+
+<div class="part-label">Part III — The Physics</div>
+<ul class="chapter-list">
+  <li><a href="chapters/09-wells-tunneling.html">IX · Wells, Barriers, and Tunneling</a></li>
+  <li><a href="chapters/10-hydrogen.html">X · The Hydrogen Atom</a></li>
+  <li><a href="chapters/11-spin.html">XI · Spin</a></li>
+  <li><a href="chapters/12-identical-particles.html">XII · Identical Particles and the Periodic Table</a></li>
+  <li><a href="chapters/13-approximations.html">XIII · Approximation Methods</a></li>
+  <li><a href="chapters/14-measurement.html">XIV · Measurement and What It All Means</a></li>
+</ul>
+
+<div class="part-label">Appendix — Relativity</div>
+<ul class="chapter-list">
+  <li><a href="chapters/a1-special-relativity.html">A · Spacetime and Lorentz Transformations</a></li>
+  <li><a href="chapters/a2-mass-energy.html">B · Mass, Energy, Relativistic Dynamics</a></li>
+  <li><a href="chapters/a3-general-relativity.html">C · General Relativity, Sketched</a></li>
+  <li><a href="chapters/a4-dirac-equation.html">D · Where the Threads Meet: The Dirac Equation</a></li>
+</ul>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>

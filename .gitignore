@@ -1,0 +1,12 @@
+# Copyrighted source material — reference only, never published.
+# The site links to originals (e.g. feynmanlectures.caltech.edu); it never hosts them.
+books/
+born.txt
+*.pdf
+*.epub
+
+# Local tooling / editor config
+.claude/settings.local.json
+.DS_Store
+*.swp
+scratchpad/

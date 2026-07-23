@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I · The Uncertainty Principle — The Quantum Quartet</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="../index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="../about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<div class="chapter-meta">Chapter I · Part I — Crisis</div>
+
+<h1>The Uncertainty Principle</h1>
+
+<p>
+  The uncertainty principle is the first thing a student learns about quantum
+  mechanics and the last thing she truly understands. It sounds like a limitation —
+  "we cannot measure position and momentum simultaneously with arbitrary
+  precision" — but each of our four authors writes about it as something deeper:
+  a structural feature of reality, not a statement about measurement.
+</p>
+
+<p>
+  What makes this chapter interesting is how differently the four books arrive at
+  the same inequality. Born reaches it through diffraction at a single slit, then
+  sharpens it with a γ-ray microscope. Feynman derives it from the double-slit
+  experiment, as a consequence of superposition. Landau and Lifshitz build it from
+  the operator formalism, as a theorem. Dirac states it from non-commuting
+  observables, as a consequence of the quantum conditions.
+</p>
+
+<h2>Entry points</h2>
+
+<table class="entry-table">
+  <thead>
+    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="author-cell">Born</td>
+      <td>Diffraction through a single slit</td>
+      <td></td>
+      <td>Wave-packet / Fourier synthesis (third example)</td>
+      <td>Heisenberg's γ-ray microscope</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Feynman</td>
+      <td>Double-slit experiment</td>
+      <td></td>
+      <td>Probability amplitudes</td>
+      <td>Microscope thought experiment (Heisenberg's γ-ray microscope)</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Landau &amp; Lifshitz</td>
+      <td>Electron diffraction by crystals</td>
+      <td>Measurement by a classical apparatus</td>
+      <td>Cauchy–Schwarz inequality applied to operators</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Dirac</td>
+      <td></td>
+      <td>Non-commuting observables</td>
+      <td>Canonical transformation theory</td>
+      <td>Measurement limits as fundamental</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>The four treatments</h2>
+
+<h3>Born: diffraction at a slit, then the microscope</h3>
+
+<p>
+  Born does not open <em>Atomic Physics</em> with the uncertainty principle. It
+  arrives well into the book, in the chapter on wave-corpuscles, under the heading
+  "the contradiction between the wave theory and the corpuscular theory, and its
+  removal." The framing is telling: for Born the uncertainty relation is not a
+  starting axiom but the <em>resolution</em> of a paradox — the price of holding
+  the wave and particle pictures together.
+</p>
+
+<p>
+  His primary derivation is concrete and experimental. Send an electron through a
+  single slit of width $\Delta x$. The slit fixes the position to within $\Delta x$;
+  but diffraction spreads the beam, and from the corpuscular standpoint that spread
+  is a transverse momentum $\Delta p$ acquired at the slit. Combining the slit width
+  with the de Broglie relation $\lambda = h/p$ gives $\Delta x \, \Delta p \sim h$
+  directly. Born reaches the inequality by contrasting the two descriptions of the
+  same experiment, not by manipulating operators.
+</p>
+
+<p>
+  He then reinforces it with a second, independent argument: Heisenberg's γ-ray
+  microscope. To locate an electron optically you must scatter light of short enough
+  wavelength off it, but short wavelength means a large Compton recoil — so sharper
+  position costs a larger momentum disturbance. Only as a <em>third</em> example does
+  Born turn to wave packets, noting that building a spatially bounded packet requires
+  a finite range of momenta. The rigorous inequality he defers to an appendix. This
+  ordering — slit first, microscope second, wave packets third — is the opposite of
+  the "Born is the wave-packet man" caricature, and it is worth getting right.
+</p>
+
+<h3>Feynman: the double-slit</h3>
+
+<p>
+  Feynman's treatment in Volume III of the Lectures is arguably the most famous of the
+  four. He opens with the double-slit experiment — not as a historical curiosity but as
+  <em>the</em> essential phenomenon of quantum mechanics. Everything, he insists, comes
+  back to the interference pattern of two slits.
+</p>
+
+<p>
+  From the double slit, Feynman derives the uncertainty principle. If you try to
+  determine which slit the particle went through, you disturb its momentum enough to
+  destroy the interference pattern. The argument is not a proof so much as a
+  demonstration — a way of seeing why the uncertainty principle must hold, grounded in
+  a concrete experimental situation.
+</p>
+
+<p>
+  Feynman's style is deliberately informal. He does not introduce Hilbert spaces or
+  operators at this stage. He introduces probability amplitudes, superposition, and
+  the idea that quantum particles behave in ways that no classical picture can capture.
+  The uncertainty principle is a consequence of this deeper fact, not a starting point.
+</p>
+
+<h3>Landau &amp; Lifshitz: the commutator proof</h3>
+
+<p>
+  Landau and Lifshitz open their entire volume with a section titled "the
+  uncertainty principle" — but, revealingly, that opening section contains no
+  inequality. It begins with electron diffraction and a long meditation on the role
+  of the classical measuring apparatus: quantum mechanics, they argue, contains
+  classical mechanics as a limiting case yet requires it for its own formulation.
+  The principle is introduced first as a statement about what cannot be
+  simultaneously measured, not as a formula.
+</p>
+
+<p>
+  The actual inequality arrives later, once the machinery is in place. With position
+  and momentum promoted to Hermitian operators obeying the canonical commutation
+  relation $[\hat{x}, \hat{p}] = i\hbar$, the relation
+  $\Delta x \cdot \Delta p \ge \hbar/2$ follows from the operator formalism as a
+  theorem. There is no appeal to a slit or a microscope — the physical picture was
+  discharged in the opening section, and what remains is structure.
+</p>
+
+<p>
+  This split is characteristic. Landau and Lifshitz separate the <em>conceptual</em>
+  content of the principle (why measurement is limited) from its <em>mathematical</em>
+  content (the inequality between conjugate operators), and they refuse to let the
+  first masquerade as a derivation of the second. It is the most disciplined of the
+  four treatments about not confusing a picture with a proof.
+</p>
+
+<h3>Dirac: non-commuting observables</h3>
+
+<p>
+  Dirac's treatment in the <em>Principles of Quantum Mechanics</em> is the most
+  abstract of the four. His book does open with a physical discussion — the
+  polarization and interference of photons — but by the time he reaches the
+  uncertainty principle, deep into the chapter on the quantum conditions, the
+  physics has been fully absorbed into algebra. The controlling fact is that certain
+  pairs of observables, position and momentum among them, do not commute.
+</p>
+
+<p>
+  For Dirac, this non-commutativity is primitive. The uncertainty relation follows
+  from it as a consequence of the quantum conditions, not from any thought experiment
+  about slits or microscopes. His presentation is famously terse — a single sentence
+  can carry a result that takes others a page — and it reflects his conviction that,
+  properly set up, the mathematics <em>is</em> the physics.
+</p>
+
+<p>
+  Dirac's approach has a certain purity that the other treatments lack, but it also
+  has a cost: it is less connected to physical intuition. A student who reads only
+  Dirac might understand the algebra of the uncertainty principle without ever having
+  a feeling for why it matters.
+</p>
+
+<h2>Synthesis</h2>
+
+<p>
+  What do we learn from reading these four treatments side by side?
+</p>
+
+<p>
+  The first lesson is that the uncertainty principle is not a single idea but a cluster
+  of ideas that happen to be expressed by the same formula. Born sees it as a property
+  of waves. Feynman sees it as a consequence of superposition. Landau and Lifshitz see
+  it as a theorem of operator algebra. Dirac sees it as a consequence of non-commuting
+  observables. None of these views is wrong; they are complementary.
+</p>
+
+<p>
+  The second lesson is about pedagogy. Born's wave-packet argument is the easiest to
+  understand physically but the hardest to generalize. Feynman's double-slit argument
+  is the most vivid but the hardest to formalize. Landau and Lifshitz's commutator proof
+  is the most general but the least intuitive. Dirac's non-commuting observables is the
+  most elegant but the least grounded. Each treatment illuminates something the others
+  obscure.
+</p>
+
+<p>
+  The third lesson — and the one that matters most — is that the uncertainty principle
+  is not primarily about measurement. Born's wave packets exist independently of any
+  measurement. Feynman's double-slit interference pattern exists whether or not anyone
+  looks at it. Landau and Lifshitz's commutator is a property of operators, not of
+  measuring devices. Dirac's non-commuting observables are a mathematical fact. The
+  uncertainty principle is a statement about the structure of quantum states, not about
+  the limitations of our instruments.
+</p>
+
+<p>
+  This is the difference between the popular understanding of the uncertainty principle
+  (as a statement about measurement disturbance) and what the four authors actually
+  teach. The popular understanding is not wrong — it captures a real aspect of the
+  physics — but it misses the deeper point: that quantum mechanics simply does not
+  assign simultaneous definite values to position and momentum, regardless of whether
+  anyone measures them.
+</p>
+
+<h2>Read the originals</h2>
+
+<div class="read-originals">
+  <h3>Where to find these treatments</h3>
+  <ul>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. IV §7 "The Contradiction between the Wave Theory and the Corpuscular Theory, and its Removal"; rigorous derivation in Appendix XII</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_01.html#Ch1-S8">§1-8 "The uncertainty principle"</a> and <a href="https://www.feynmanlectures.caltech.edu/III_02.html#Ch2-S2">§2-2 "Measurement of position and momentum"</a></li>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §1 "The uncertainty principle" (conceptual opening) and §§3–4 (operators and commutators, where the inequality follows)</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. IV §24 "Heisenberg's Principle of Uncertainty"</li>
+  </ul>
+</div>
+
+<nav class="chapter-nav">
+  <a class="prev" href="../index.html">← Home</a>
+  <a class="next" href="../index.html">Home →</a>
+</nav>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>

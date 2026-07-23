@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — The Quantum Quartet</title>
+  <link rel="stylesheet" href="static/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<h1>About this project</h1>
+
+<h2>Method</h2>
+<p>
+  Each chapter pairs the four authors on a single topic — the uncertainty principle,
+  spin, perturbation theory, hydrogen — and asks how each one enters the material.
+  What experiment do they start from? What do they take as axiom? What do they skip
+  or defer? Where do they agree, and where does their disagreement reveal something
+  deeper about the subject?
+</p>
+<p>
+  There are no rankings. The point is not to crown a best author but to read the
+  differences productively — to see what each treatment illuminates that the others
+  obscure.
+</p>
+
+<h2>Editions</h2>
+<table class="entry-table">
+  <thead>
+    <tr><th>Book</th><th>Edition referenced</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Max Born, <em>Atomic Physics</em></td><td>8th edition — Dover reprint (1969), English translation of <em>Atomphysik</em></td></tr>
+    <tr><td>Richard Feynman, <em>Feynman Lectures on Physics, Vol. III</em></td><td>1964 Caltech edition — linked at <a href="https://www.feynmanlectures.caltech.edu/">feynmanlectures.caltech.edu</a></td></tr>
+    <tr><td>Richard Feynman, <em>Feynman Lectures on Physics, Vol. I</em></td><td>1963 Caltech edition — linked at <a href="https://www.feynmanlectures.caltech.edu/">feynmanlectures.caltech.edu</a> (used where photons/blackbody are treated)</td></tr>
+    <tr><td>Landau &amp; Lifshitz, <em>Quantum Mechanics: Non-Relativistic Theory</em></td><td>2nd ed., revised and enlarged (1965) — Pergamon Press, English translation by J. B. Sykes and J. S. Bell</td></tr>
+    <tr><td>Paul Dirac, <em>The Principles of Quantum Mechanics</em></td><td>4th edition, revised (1958) — Clarendon Press (Oxford)</td></tr>
+    <tr><td>Albert Einstein, <em>The Meaning of Relativity</em></td><td>4th ed. (1950) — Princeton University Press (used for Appendix chapters A–C)</td></tr>
+  </tbody>
+</table>
+
+<h2>Content policy</h2>
+<p>
+  All prose on this site is original synthesis. Direct quotations from the four books
+  are rare and kept short (under fifteen words) with attribution. Derivations, proofs,
+  and figures are not reproduced.
+</p>
+
+<h2>Reference verification</h2>
+<p>
+  Every "read the originals" pointer is verified against the edition listed above.
+  Where a reference has not yet been checked against the source, it is visibly
+  marked <span class="unverified">unverified</span> on the page — never silently
+  guessed.
+</p>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>

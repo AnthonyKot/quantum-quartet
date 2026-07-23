@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I · Blackbody Radiation and Planck's Quantum — The Quantum Quartet</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="../index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="../about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<div class="chapter-meta">Chapter I · Part I — The Crisis</div>
+
+<h1>Blackbody Radiation and Planck's Quantum</h1>
+
+<p>
+  The story of quantum mechanics begins not with a revolution but with a
+  calculation that no one believed in. Max Planck wanted to derive a formula
+  for the spectrum of blackbody radiation — the light emitted by a cavity in
+  thermal equilibrium — and he found one. But the trick that made it work
+  was absurd: he assumed that energy could only be exchanged in discrete
+  chunks, $\Delta E = h\nu$, where $h$ is a new fundamental constant and
+  $\nu$ is the frequency of the radiation.
+</p>
+
+<p>
+  Planck did not believe his own trick. He spent years trying to derive it
+  from classical principles, convinced that the quantization was a
+  mathematical convenience rather than a feature of nature. It took ten
+  years for anyone to take it seriously, and when Einstein did — in 1905,
+  in his paper on the photoelectric effect — he went further than Planck
+  ever dared, proposing that light itself consists of quanta, not just that
+  the exchange of energy between matter and radiation is quantized.
+</p>
+
+<p>
+  This chapter is the origin story. It is also the chapter where three of
+  our four authors are conspicuously absent: Feynman's Vol. III, Landau and
+  Lifshitz, and Dirac barely touch blackbody radiation, each for a different
+  reason. Their near-absence is not a gap to be papered over but a cell to be
+  filled with silence.
+</p>
+
+<h2>Entry points</h2>
+
+<table class="entry-table">
+  <thead>
+    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="author-cell">Born</td>
+      <td>Blackbody spectrum, specific heats</td>
+      <td></td>
+      <td>Planck's law (within quantum statistics)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Feynman</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Landau &amp; Lifshitz</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Dirac</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  The Rayleigh–Jeans formula, derived from classical equipartition, predicts
+  that the radiated power diverges at short wavelengths — the "ultraviolet
+  catastrophe" that Planck's formula cured. Born treats this not at the front of
+  <em>Atomic Physics</em> but well into it, in the chapter on quantum statistics,
+  where heat radiation and Planck's law sit alongside specific heats and the
+  Bose–Einstein and Fermi–Dirac distributions. That placement is itself a choice:
+  for Born, blackbody radiation is not the dramatic opening of the quantum story
+  but one thread in the statistical mechanics of quanta.
+</p>
+
+<h2>The crisis</h2>
+
+<p>
+  The problem was deceptively simple. A blackbody is an idealized object that
+  absorbs and emits radiation perfectly — a cavity with a small hole, where
+  radiation entering the hole is trapped by multiple reflections. Inside such
+  a cavity, at thermal equilibrium at temperature $T$, the radiation has a
+  characteristic spectrum: the intensity of emitted light at each wavelength
+  is determined solely by the temperature, not by the material of the cavity.
+</p>
+
+<p>
+  Classical physics predicted the spectrum using the equipartition theorem:
+  each mode of the electromagnetic field in the cavity should carry an average
+  energy of $k_B T$, where $k_B$ is Boltzmann's constant. Since the number of
+  modes increases with the square of the frequency, the total radiated power
+  at high frequencies grows without bound. This is the ultraviolet catastrophe.
+</p>
+
+<p>
+  Planck's solution was to assume that the oscillators in the cavity walls
+  could only exchange energy with the field in discrete amounts: $E = nh\nu$,
+  where $n$ is an integer. The resulting formula agreed with experiment at
+  all wavelengths and reduced to Wien's law at high frequencies and to
+  Rayleigh–Jeans at low ones. It was a triumph — but it came at a cost that
+  nobody understood at the time.
+</p>
+
+<h2>The absence of Feynman, Landau &amp; Lifshitz, and Dirac</h2>
+
+<p>
+  Why do Feynman, Landau and Lifshitz, and Dirac barely mention blackbody
+  radiation? The answer lies in their starting points.
+</p>
+
+<p>
+  Feynman begins the Feynman Lectures with the double-slit experiment —
+  the phenomenon that, in his view, encapsulates the essence of quantum
+  mechanics. Blackbody radiation is a warm-up act, not the main event.
+  Feynman treats it briefly as historical context for the photon concept,
+  but he does not dwell on the crisis or Planck's derivation.
+</p>
+
+<p>
+  Landau and Lifshitz begin with the uncertainty principle and the
+  measurement problem. Blackbody radiation is not a good starting point
+  for their approach: it is a statistical phenomenon involving many degrees
+  of freedom, not a single-particle puzzle. They treat it in the context
+  of statistical physics (Volume V of the series), not in the quantum
+  mechanics volume.
+</p>
+
+<p>
+  Dirac's approach is the most austere. He begins with the logical structure
+  of quantum mechanics — states, observables, and the transformation theory
+  that unifies matrices and wave functions. Blackbody radiation is an
+  application, not a foundation, and Dirac does not waste time on
+  historical derivations.
+</p>
+
+<p>
+  This triply repeated absence is itself a data point. Three of the four
+  books treat blackbody radiation as a historical curiosity — a step on the
+  path to the real theory, not the theory itself. Born, the only one who
+  treats it seriously, is the one author who was actually working on it at
+  the time.
+</p>
+
+<h2>Synthesis</h2>
+
+<p>
+  The lesson of this chapter is that the birth of quantum mechanics was
+  not a dramatic confrontation with experiment but a slow, reluctant
+  accommodation. Planck did not wake up one day and decide that energy
+  was quantized. He tried classical methods, failed, and stumbled onto
+  a formula that worked — then spent years trying to justify it
+  classically.
+</p>
+
+<p>
+  This is the first of several moments in the history of quantum mechanics
+  where a successful formula preceded its explanation by years or decades.
+  The Bohr model of the atom (1913) anticipated wave mechanics by twelve
+  years. Matrix mechanics (1925) and wave mechanics (1926) arrived
+  independently and were shown to be equivalent only later.
+</p>
+
+<p>
+  Born's treatment of this history is valuable precisely because he was
+  there. He witnessed the debate between Planck and Einstein over the
+  physical meaning of quanta. He knew Heisenberg personally and helped
+  him develop matrix mechanics. His account is not a neutral history but
+  the testimony of a participant — and that gives it a texture that later
+  retellings lack.
+</p>
+
+<h2>Read the originals</h2>
+
+<div class="read-originals">
+  <h3>Where to find these treatments</h3>
+  <ul>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. VII "Quantum Statistics" §1 "Heat Radiation and Planck's Law" and §3 "Quantisation of Black Body Radiation"</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. I — heat radiation is treated here, not in Vol. III <span class="unverified" title="Vol. I section number not yet verified against the Caltech ToC">(section unverified)</span></li>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> — not treated in this volume; the statistical treatment belongs to <em>Statistical Physics</em> (Vol. V of the Course)</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> — blackbody radiation is not treated as such; radiation theory appears in Ch. X</li>
+  </ul>
+</div>
+
+<nav class="chapter-nav">
+  <a class="prev" href="../index.html">← Home</a>
+  <a class="next" href="02-photons.html">Photons: Photoelectric Effect and Compton Scattering →</a>
+</nav>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>
