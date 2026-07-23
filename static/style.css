@@ -316,6 +316,23 @@ footer {
   margin-top: 2rem;
 }
 
+/* ── Upcoming (unwritten) chapter ──────────────── */
+.chapter-list li.upcoming {
+  color: var(--text-dim);
+}
+.chapter-list li.upcoming .upcoming-tag {
+  font-family: var(--sans);
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: .05em .4em;
+  margin-left: .5rem;
+  vertical-align: middle;
+}
+
 /* ── Unverified reference marker ───────────────── */
 .unverified {
   font-style: italic;

@@ -157,7 +157,8 @@ use these exact pointers, do not re-derive:
 - Feynman: 1963 (Vol. I) / 1964 (Vol. III) Caltech — link-only, caltech.edu
 - L&L: 2nd ed. 1965 Pergamon, tr. Sykes & Bell
 - Dirac: 4th ed. revised 1958, Clarendon
-- Einstein, *The Meaning of Relativity*, 4th ed. 1950 Princeton — Appendix A–C
+- Einstein, *Relativity: The Special and the General Theory* (1916 popular
+  exposition; Lawson tr. 1920) — public domain — Appendix A–C
 
 ### Remaining TODO
 - Feynman Vol. I ToC → verify ch.01 blackbody & ch.02 photons section numbers,

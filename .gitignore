@@ -2,8 +2,11 @@
 # The site links to originals (e.g. feynmanlectures.caltech.edu); it never hosts them.
 books/
 born.txt
+feyman*.txt
+feynman*.txt
 *.pdf
 *.epub
+*.txt
 
 # Local tooling / editor config
 .claude/settings.local.json
