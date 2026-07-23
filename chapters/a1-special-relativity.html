@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A · Spacetime and Lorentz Transformations — The Quantum Quartet</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="../index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="../about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<div class="chapter-meta">Appendix A · Relativity</div>
+
+<h1>Spacetime and Lorentz Transformations</h1>
+
+<p>
+  The appendix steps outside the quantum quartet. Relativity is the other pillar
+  of twentieth-century physics, and the four quantum authors mostly assume it
+  rather than build it — so here the lead passes to the person who did build it.
+  Einstein's own 1916 popular exposition, written for the general reader, is the
+  primary source for these chapters, with Feynman's Volume I as a modern companion.
+  The comparison is narrower than in the main chapters, but the contrast between
+  how the discoverer and a later teacher present the same ideas is worth drawing.
+</p>
+
+<p>
+  Special relativity rests on two premises that seem, at first, to contradict each
+  other: the laws of physics are the same in every uniformly moving frame (the
+  principle of relativity), and light travels at the same speed $c$ regardless of
+  the motion of its source or observer. Reconciling them forces a revision of the
+  most basic notions — simultaneity, length, and duration cease to be absolute —
+  and the mathematics of that revision is the Lorentz transformation. Einstein
+  reaches it by thinking about trains and lightning; Feynman reaches it through
+  Maxwell's equations and the Michelson–Morley experiment.
+</p>
+
+<h2>Entry points</h2>
+
+<table class="entry-table">
+  <thead>
+    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="author-cell">Einstein (1916)</td>
+      <td>Constancy of $c$ (De Sitter's double stars)</td>
+      <td>The principle of relativity + the light postulate</td>
+      <td>Lorentz transformation from the two postulates</td>
+      <td>Lightning at two points of a railway embankment</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Feynman (Vol. I)</td>
+      <td>The Michelson–Morley experiment</td>
+      <td>Physical laws invariant under the Lorentz transformation</td>
+      <td>Lorentz transformation as the symmetry of Maxwell's equations</td>
+      <td>Moe and Joe comparing measurements between frames</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>The two treatments</h2>
+
+<h3>Einstein: from simultaneity outward</h3>
+
+<p>
+  Einstein's exposition is a masterpiece of building difficulty slowly. He begins
+  with the innocuous-seeming law that light travels at a fixed speed $c$, and asks
+  what happens if a ray is chased by a railway carriage moving at speed $v$. Common
+  sense — the classical addition of velocities — says the carriage should measure
+  the light approaching at $c - v$. But the principle of relativity insists that the
+  law of light propagation must look the same from the carriage as from the
+  embankment, and those two demands cannot both hold if velocities simply add.
+  Something has to give.
+</p>
+
+<p>
+  What gives, Einstein shows, is simultaneity itself. Before touching any equation
+  he dismantles the idea that "at the same time" has an observer-independent
+  meaning. Two lightning strokes hit the embankment at points $A$ and $B$; an
+  observer at the midpoint who sees the flashes together calls them simultaneous.
+  But an observer on a moving train, passing the midpoint as the light travels,
+  meets the flash from the front before the flash from behind — and so, by the same
+  definition, judges them <em>not</em> simultaneous. Simultaneity is relative to the
+  frame. From this single realization the whole structure follows: if clocks in
+  different places cannot be synchronized absolutely, then time, length, and the
+  addition of velocities must all be reworked, and the reworking is the Lorentz
+  transformation. Einstein's genius in the popular book is to make the strange
+  conclusion feel forced rather than imposed — the reader arrives at it having
+  refused, at each step, to accept anything that cannot be checked by experiment.
+</p>
+
+<p>
+  He is candid that the resolution came from experience, not pure thought. It was
+  Lorentz's investigation of the electrodynamics of moving bodies, he notes, that
+  showed the constancy of light to be a necessary consequence of electromagnetic
+  theory — and the theory that reconciled it with relativity he calls the special
+  theory, to distinguish it from the general theory to come. The Minkowski
+  four-dimensional world, in which space and time merge into a single continuum, he
+  presents as the geometrical culmination: not a new physical assumption but the
+  natural language in which the Lorentz transformation becomes a rotation.
+</p>
+
+<h3>Feynman: from Maxwell's symmetry</h3>
+
+<p>
+  Feynman comes at special relativity from the direction that historically produced
+  it: the failure of Maxwell's equations to respect the old, common-sense
+  (Galilean) transformation between moving frames. He recounts the puzzle plainly.
+  The principle of relativity had served mechanics since Newton, but Maxwell's
+  electrodynamics seemed to violate it — the equations changed form under a Galilean
+  transformation, which would let an experimenter detect absolute motion by optical
+  means. The Michelson–Morley experiment of 1887 looked for exactly that absolute
+  motion through the supposed ether, and found nothing, and the null result waited
+  eighteen years for Einstein's explanation.
+</p>
+
+<p>
+  The resolution Feynman emphasizes is Lorentz's discovery that Maxwell's equations
+  <em>do</em> keep their form under a different substitution — the Lorentz
+  transformation — and Einstein's bold generalization that <em>all</em> physical
+  laws must share that invariance. The consequence is that it is Newton's mechanics,
+  not Maxwell's electrodynamics, that must be changed: mass has to be replaced by the
+  velocity-dependent form $m = m_0/\sqrt{1 - v^2/c^2}$ for the two theories to
+  harmonize. Feynman's framing is that of a modern physicist looking back with the
+  answer in hand — he leads with the symmetry principle (invariance under the
+  Lorentz transformation) and shows the mechanics bending to fit it, where Einstein
+  led with the analysis of time and let the transformation emerge. Same destination,
+  opposite order: Einstein reasons his way to the transformation from the meaning of
+  simultaneity; Feynman starts from the transformation as the known symmetry of
+  electrodynamics and asks what it costs the rest of physics.
+</p>
+
+<h2>Synthesis</h2>
+
+<p>
+  The two accounts are a study in how a revolutionary idea looks from inside and
+  from after. Einstein, writing eleven years after the discovery but still close to
+  it, builds the theory from a philosophical analysis of simultaneity, taking pains
+  to admit nothing the reader cannot in principle verify — the constancy of light is
+  a fact about the world, and everything else is forced by refusing to smuggle in an
+  absolute time. Feynman, writing half a century later, builds it from the symmetry
+  of Maxwell's equations, treating Lorentz invariance as a principle to be imposed on
+  all of physics and following its consequences. The discoverer argues upward from an
+  experiment; the teacher argues downward from a symmetry.
+</p>
+
+<p>
+  What both refuse is the ether and the absolute frame it implied. Einstein
+  dismantles absolute simultaneity by thought; Feynman lets Michelson and Morley
+  dismantle absolute motion by measurement; and both arrive at the same Lorentz
+  transformation and the same Minkowski spacetime, in which the interval between
+  events, not their separation in space or time alone, is the invariant. That a
+  popular exposition by the theory's author and a lecture course by its most famous
+  expositor should converge so exactly — differing only in whether simultaneity or
+  symmetry comes first — is a reminder that special relativity, unlike the quantum
+  theory that fills the rest of this site, is a settled subject with a single agreed
+  shape. The interpretive disagreements that animate the quantum chapters have no
+  counterpart here. There is one relativity, told two ways.
+</p>
+
+<h2>Read the originals</h2>
+
+<div class="read-originals">
+  <h3>Where to find these treatments</h3>
+  <ul>
+    <li>Einstein, <em>Relativity: The Special and General Theory</em> (1916, Lawson translation), Part I — especially §VII "The Apparent Incompatibility of the Law of Propagation of Light with the Principle of Relativity," §VIII "On the Idea of Time in Physics," §IX "The Relativity of Simultaneity," §XI "The Lorentz Transformation," and §XVII "Minkowski's Four-dimensional Space"</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. I, <a href="https://www.feynmanlectures.caltech.edu/I_15.html">Ch. 15 "The Special Theory of Relativity"</a> (§15-1 the principle of relativity, §15-2 the Lorentz transformation, §15-3 Michelson–Morley) and <a href="https://www.feynmanlectures.caltech.edu/I_17.html">Ch. 17 "Space-Time"</a></li>
+  </ul>
+</div>
+
+<nav class="chapter-nav">
+  <a class="prev" href="14-measurement.html">← Measurement and What It All Means</a>
+  <a class="next" href="a2-mass-energy.html">Mass, Energy, Relativistic Dynamics →</a>
+</nav>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>

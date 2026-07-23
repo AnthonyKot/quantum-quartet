@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D · Where the Threads Meet: The Dirac Equation — The Quantum Quartet</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="../index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="../about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<div class="chapter-meta">Appendix D · Relativity</div>
+
+<h1>Where the Threads Meet: The Dirac Equation</h1>
+
+<p>
+  This is the chapter the whole appendix has been walking toward, and in a sense the
+  whole site. The main chapters told the story of quantum mechanics; the appendix
+  told the story of relativity; and here the two theories are forced to hold at once.
+  The result is the Dirac equation — the relativistic wave equation for the electron —
+  and its consequences are among the most beautiful in physics. From the bare demand
+  that quantum mechanics respect special relativity, two facts that had to be assumed
+  in the main chapters fall out on their own: the electron has spin, and there must
+  exist a particle with the electron's mass and the opposite charge. Antimatter was
+  predicted on paper before it was ever seen.
+</p>
+
+<p>
+  Dirac leads this chapter alone, and rightly — the equation is his, and his
+  <em>Principles</em> is the only one of the five books that derives it. The other
+  quantum authors stop at the non-relativistic theory; Einstein's relativity is one of
+  the two ingredients but not the dish. So this is not a comparison of treatments but a
+  single author's demonstration that the two great theories of the century, joined,
+  predict more than either alone.
+</p>
+
+<h2>Entry point</h2>
+
+<table class="entry-table">
+  <thead>
+    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="author-cell">Dirac</td>
+      <td>The electron's spin and magnetic moment (later, the positron)</td>
+      <td>Quantum mechanics made invariant under Lorentz transformations</td>
+      <td>A wave equation first-order in space and time; spin and antimatter as consequences</td>
+      <td>The "sea" of filled negative-energy states, and a hole in it</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Born, Feynman, Landau &amp; Lifshitz</td>
+      <td></td>
+      <td></td>
+      <td>Non-relativistic — the Dirac equation lies beyond their scope; spin is put in by hand</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Dirac's argument</h2>
+
+<h3>The demand for a relativistic theory</h3>
+
+<p>
+  Dirac opens the relativistic part of his book by naming the deficiency plainly. The
+  theory built so far, he says, is essentially non-relativistic: it works in one
+  Lorentz frame and is modeled on classical non-relativistic dynamics. To apply it to
+  fast-moving particles — and the electron in an atom is fast enough to matter — the
+  theory must be made invariant under Lorentz transformations, conforming to the
+  special principle of relativity. General relativity, he notes, is not needed:
+  gravitation is utterly negligible in atomic phenomena. The task is precise: find a
+  wave equation for the electron that treats space and time on the same footing, as
+  relativity demands.
+</p>
+
+<p>
+  The obstacle is subtle. The superposition principle is already relativistic, but the
+  ordinary notion of an observable — which may refer to physical things at one instant
+  of time — is not, because "one instant" is frame-dependent. Dirac's resolution is to
+  insist on a representation in which the symmetry between space and time is displayed:
+  the Schrödinger representation with the wave function written over the four
+  coordinates $x_0, x_1, x_2, x_3$, with $x_0 = ct$. The equation he seeks must be
+  first-order in all four, so that time enters no differently from space.
+</p>
+
+<h3>Spin, for free</h3>
+
+<p>
+  The triumph of the construction is what it yields without being asked. In the main
+  chapter on spin, all four authors had to <em>introduce</em> the electron's spin —
+  Feynman from Stern-Gerlach, Dirac himself from a bare algebra of Pauli matrices,
+  Landau and Lifshitz from rotational symmetry, Born from spectroscopic anomalies.
+  In every case spin was an addition, grafted onto a theory that did not require it.
+  The relativistic equation changes that entirely. Working through the motion of the
+  electron in an electromagnetic field, Dirac finds that the equation automatically
+  contains an extra term amounting to a magnetic moment of $-e\hbar/2mc$ — exactly the
+  spin magnetic moment that had been assumed to explain the Zeeman effect. Pursuing the
+  angular momentum of a free electron, he finds that the orbital angular momentum alone
+  is not conserved; only when a spin angular momentum of $\tfrac{1}{2}\hbar\boldsymbol{\sigma}$
+  is added does one obtain a constant of the motion.
+</p>
+
+<p>
+  The electron's spin, in other words, is not an independent fact about the world that
+  must be discovered and inserted. It is a <em>requirement</em> of joining quantum
+  mechanics to relativity. Dirac is careful about the reach of the argument: it gives
+  spin one-half to any particle whose position is an observable, which fits the
+  electron, proton, and neutron, though not the photon — a limitation he flags rather
+  than hides. But for the electron the conclusion is exact and unforced, and it
+  retroactively explains why the spin chapter had felt like four authors patching the
+  same hole. The hole was an artifact of stopping short of relativity.
+</p>
+
+<h3>Antimatter, predicted on paper</h3>
+
+<p>
+  The equation had one further consequence, and it was at first an embarrassment. A
+  relativistic energy relation is quadratic — energy appears squared — so the equation
+  admits solutions of <em>negative</em> energy as well as positive. Classically these
+  could be dismissed, but in quantum mechanics an electron could keep dropping into
+  ever-lower negative-energy states, radiating without limit; the ordinary electron
+  would be unstable. Dirac's resolution, the boldest stroke in the book, was to suppose
+  that in the vacuum essentially all the negative-energy states are already <em>filled</em>,
+  one electron each, so that the exclusion principle forbids an ordinary electron from
+  falling into them. What we call empty space is this filled sea.
+</p>
+
+<p>
+  Then comes the prediction. Remove one electron from the negative-energy sea and the
+  absence — the "hole" — behaves as a particle with positive energy and positive charge,
+  the mirror image of the electron. Dirac's own fermion formalism makes the symmetry
+  precise: the mathematics that creates a particle in an occupied state is, under an
+  exchange of "occupied" and "unoccupied," the mathematics that creates a hole, and the
+  holes, he writes, "are just as much physical things as the original particles." A
+  particle with the electron's mass and the opposite charge had to exist. When Carl
+  Anderson found the positron in cosmic rays in 1932, it was the confirmation of a
+  particle that had been deduced, years earlier, from the requirement that Schrödinger's
+  quantum mechanics be made consistent with Einstein's relativity.
+</p>
+
+<h2>Synthesis</h2>
+
+<p>
+  The Dirac equation is where the two halves of this project meet, and the meeting is
+  generative rather than merely consistent. Quantum mechanics and special relativity are
+  each, on their own, complete and successful theories. Forced together, they produce
+  what neither contains: the electron's spin as a necessity rather than an observation,
+  and the existence of antimatter as a theorem rather than a discovery. This is the
+  deepest vindication in the book of the conviction, which was Dirac's above all, that
+  the mathematics is not a description laid over the physics but the physics itself — for
+  here the mathematics knew about the positron before anyone had seen one.
+</p>
+
+<p>
+  It is fitting that Dirac stands alone in this final chapter, because it completes an
+  arc that ran through the whole site. In the uncertainty chapter he reached the
+  principle from non-commuting observables while the others used slits and wave packets;
+  in the formalism chapter he built the abstract structure the others translated; in the
+  spin chapter he forced the Pauli matrices out of pure algebra. Again and again his
+  method was to trust the mathematics further than intuition would allow. The Dirac
+  equation is the reward of that trust — the one place where following the formalism to
+  its logical end did not merely reorganize known physics but revealed physics no one
+  had known. The threads of the quartet and the threads of relativity meet here, in an
+  equation that predicted a new form of matter from consistency alone.
+</p>
+
+<p>
+  And it ends, as the measurement chapter warned it might, on unfinished business. The
+  Dirac equation joins quantum mechanics to <em>special</em> relativity; the joining of
+  quantum mechanics to <em>general</em> relativity — to gravitation, to the curved
+  spacetime of the previous chapter — has never been achieved. The quartet's theory of
+  the very small and Einstein's theory of the very large still do not speak the same
+  language. That the two greatest achievements of twentieth-century physics can be set
+  side by side, and in the Dirac equation partly joined, but not yet united, is the note
+  this comparative reading closes on. The threads meet. They are not all tied.
+</p>
+
+<h2>Read the originals</h2>
+
+<div class="read-originals">
+  <h3>Where to find these treatments</h3>
+  <ul>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. XI "Relativistic Theory of the Electron" — §66 "Relativistic Treatment of a Particle," §67–68 (the wave equation), §70 "Existence of the Spin," and §73 "Theory of the Positron"; the hole-theory formalism in Ch. IX §65 "An Assembly of Fermions"</li>
+    <li>Einstein, <em>Relativity: The Special and General Theory</em> (1916) — supplies the relativistic half (Part I), though not the quantum synthesis</li>
+    <li>Born, Feynman, Landau &amp; Lifshitz — the relativistic electron lies beyond the non-relativistic scope of all three; in their treatments the electron's spin is introduced, not derived</li>
+  </ul>
+</div>
+
+<nav class="chapter-nav">
+  <a class="prev" href="a3-general-relativity.html">← General Relativity, Sketched</a>
+  <a class="next" href="../index.html">Home →</a>
+</nav>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>
