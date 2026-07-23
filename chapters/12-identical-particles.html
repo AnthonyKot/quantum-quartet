@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XII · Identical Particles and the Periodic Table — The Quantum Quartet</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="../index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="../about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page">
+
+<div class="chapter-meta">Chapter XII · Part III — The Physics</div>
+
+<h1>Identical Particles and the Periodic Table</h1>
+
+<p>
+  Two electrons are not merely alike; they are interchangeable in a way no two
+  classical objects can be. You cannot paint one red and follow it — the
+  uncertainty principle forbids the tracking, so swapping two electrons produces a
+  state that must be physically identical to the one you started with. That single
+  demand, worked through, forces the wave function to be either symmetric or
+  antisymmetric under exchange, splits all matter into bosons and fermions, and —
+  through the antisymmetric case — yields the Pauli exclusion principle that builds
+  the periodic table. It is one of the shortest paths in physics from a symmetry to
+  the shape of chemistry.
+</p>
+
+<p>
+  All four authors take that path, and they agree on where it leads. The interest
+  lies elsewhere — in how each one handles the question the path leaves open: why
+  do half-integer-spin particles get the antisymmetric option and integer-spin
+  particles the symmetric one? On this the chapter divides cleanly. Feynman
+  confesses openly that he cannot explain it. Dirac, Landau and Lifshitz, and Born
+  each state the connection and move on — but even they, tellingly, point somewhere
+  outside their own books for the reason.
+</p>
+
+<h2>Entry points</h2>
+
+<table class="entry-table">
+  <thead>
+    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="author-cell">Born</td>
+      <td>Atomic spectra; the periodic table; closed shells</td>
+      <td>Pauli's exclusion principle</td>
+      <td>Filling electron shells to build the elements</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Feynman</td>
+      <td>Scattering identical particles; helium</td>
+      <td></td>
+      <td>Amplitudes added with $+$ (Bose) or $-$ (Fermi)</td>
+      <td>Exchanging which particle reaches the detector</td>
+    </tr>
+    <tr>
+      <td class="author-cell">Landau &amp; Lifshitz</td>
+      <td></td>
+      <td>Indistinguishability forces symmetric or antisymmetric $\psi$</td>
+      <td>Slater determinant; the exchange interaction</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="author-cell">Dirac</td>
+      <td></td>
+      <td>Permutation as a linear operator on the assembly ket</td>
+      <td>Symmetrical / antisymmetrical states; the determinant</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>The four treatments</h2>
+
+<h3>Feynman: the honest confession</h3>
+
+<p>
+  Feynman reaches identical particles through a scattering experiment. Fire two
+  identical particles at each other and ask for the amplitude that one arrives at a
+  detector: there are two indistinguishable ways it can happen — the particle
+  scattered through an angle, or its twin scattered through the supplementary angle
+  — and the amplitudes must be combined. For some particles they add with a plus
+  sign (bosons), for others with a minus sign (fermions), and the difference shows
+  up directly in the scattering rate, doubling it at ninety degrees for identical
+  bosons where classical reasoning predicts no enhancement at all.
+</p>
+
+<p>
+  Then Feynman does something none of the other three does: he stops and admits he
+  cannot explain the rule. Why half-integer spin goes with the minus sign and
+  integer spin with the plus sign is, he says, something for which they can give no
+  elementary explanation — Pauli derived it from quantum field theory and
+  relativity, but no one has found a simple argument, and the gap, Feynman suggests,
+  probably means the fundamental principle is not yet completely understood. He tells
+  the reader to take it, for now, as one of the rules of the world. It is
+  the most striking display of intellectual honesty in the four books: at the exact
+  point where a lesser text would assert the spin-statistics connection as though it
+  were obvious, Feynman marks it as an open hole in the foundations.
+</p>
+
+<h3>Dirac: the assembly ket and its permutations</h3>
+
+<p>
+  Dirac builds the theory from the top, as always. A system of similar particles
+  has a state ket for the whole assembly, and interchanging any two particles is a
+  linear operator — a permutation — acting on that ket. A ket unchanged by every
+  permutation is <em>symmetrical</em>; one that keeps its sign under even
+  permutations and flips it under odd ones is <em>antisymmetrical</em>. Because the
+  Hamiltonian treats all the particles alike, a state that starts symmetrical stays
+  symmetrical and one that starts antisymmetrical stays antisymmetrical, so nature
+  can consistently permit only one type for a given kind of particle. The
+  antisymmetrical ket, written as a determinant, vanishes if two particle-states
+  coincide — and there, in one line of algebra, is the exclusion principle.
+</p>
+
+<p>
+  On the crucial question Dirac is matter-of-fact and empirical. He does not derive
+  which particles are which; he reports what experiment shows. To build atoms
+  correctly one must assume two electrons are never in the same state, so electrons
+  are fermions; Planck's radiation law requires photons to be bosons; protons,
+  neutrons, positrons are fermions, alpha particles bosons. Every particle in
+  nature, he observes, appears to be one or the other, and he treats the dichotomy
+  as a fact established in the laboratory rather than a theorem. His
+  formalism explains everything about identical particles <em>except</em> the
+  spin-statistics link, and he does not pretend otherwise — he simply grounds it in
+  evidence instead of confessing a gap.
+</p>
+
+<h3>Landau &amp; Lifshitz: indistinguishability and the exchange interaction</h3>
+
+<p>
+  Landau and Lifshitz derive the symmetry dichotomy from the uncertainty principle
+  itself. Because an electron has no path, localizing and numbering electrons at one
+  instant tells you nothing about which is which an instant later; identical
+  particles "entirely lose their individuality." Interchanging two of them can
+  therefore change the wave function only by a phase, and repeating the interchange
+  shows that phase must be $\pm 1$ — symmetric or antisymmetric, with no third
+  possibility. Antisymmetric wave functions, written as a determinant, vanish when
+  two states coincide, giving Pauli's principle; symmetric ones give Bose statistics.
+</p>
+
+<p>
+  They state the spin connection plainly and attribute it honestly: relativistic
+  quantum mechanics shows that particles with half-integral spin are fermions and
+  those with integral spin bosons — a result their non-relativistic book invokes
+  but does not prove. Where Landau and Lifshitz go beyond the others is the
+  <em>exchange interaction</em>: because the total wave function's symmetry couples
+  the spatial part to the spin part, the energy of a system of electrons comes to
+  depend on the total spin, even though the electric forces do not involve spin at
+  all. This dependence is "a purely quantum effect" with no classical limit, and it
+  is the mechanism behind the chemical bond and ferromagnetism. Their distinctive
+  contribution is to show that indistinguishability is not just a bookkeeping rule
+  about signs but a genuine, energy-shifting force.
+</p>
+
+<h3>Born: exclusion in the service of chemistry</h3>
+
+<p>
+  Born, true to his book, comes at identical particles from the periodic table
+  backward. His chapter runs the exclusion principle straight into the closed-shell
+  structure of atoms: Pauli's rule that no two electrons share a state is what makes
+  electrons stack into shells rather than all collapsing into the lowest orbit, and
+  the shell structure is what gives the periodic system its columns — the alkalis
+  with their single loosely-bound radiating electron, the noble gases with their
+  filled shells, the chemical families lined up by how their outer electrons are
+  arranged.
+</p>
+
+<p>
+  For Born the exclusion principle is interesting because it explains chemistry.
+  He is less concerned with the permutation algebra that Dirac savors or the
+  exchange energy that Landau and Lifshitz extract, and more with the payoff a
+  chemist cares about: that the entire architecture of the periodic table —
+  Mendeleev's columns, Moseley's ordering by atomic number, the filling of shells —
+  follows from one principle about identical electrons. He states the spin-statistics
+  rule as needed and spends his energy on the consequence, which is nothing less
+  than the structure of matter as chemistry finds it. His entry point is the
+  evidence of the elements themselves.
+</p>
+
+<h2>Synthesis</h2>
+
+<p>
+  Identical particles produce the clearest four-way split in the project on a single
+  question: not what the rule is, but why it holds. Feynman confesses he cannot
+  explain the spin-statistics connection and names it an open problem. Dirac asserts
+  the boson-fermion dichotomy as an experimental fact. Landau and Lifshitz assert it
+  too and attribute it to relativistic quantum mechanics. Born states it and turns
+  immediately to what it explains. Three assertions and one confession — and the
+  confession is the most honest moment in the four books, because it refuses to
+  dress an unexplained rule as an obvious one.
+</p>
+
+<p>
+  Yet the three assertions are more honest than they first appear, and that is the
+  chapter's quiet lesson. Dirac grounds the dichotomy in the laboratory, not in his
+  formalism; Landau and Lifshitz point explicitly to relativistic quantum mechanics,
+  a theory outside their volume; Born leans on the spectroscopic and chemical
+  evidence. None of the four claims to derive the spin-statistics connection from
+  what is in front of the reader, because none of them can — it requires quantum
+  field theory, which lies beyond all four books. What separates Feynman is not that
+  he knows less but that he says so loudest, converting a shared limitation into an
+  explicit lesson about the edge of understanding.
+</p>
+
+<p>
+  What they share is the destination, and it is a remarkable one. From the bare
+  fact that electrons cannot be told apart, each author reaches — by permutation
+  algebra, by phase argument, by scattering amplitude, by shell-filling — the same
+  antisymmetric wave function, the same exclusion principle, and the same periodic
+  table. That a symmetry of indistinguishability should dictate the form of the
+  chemical elements is one of the deepest results in the subject, and the four books
+  converge on it from four directions. They differ only, and revealingly, in how
+  candidly each admits where the road runs out.
+</p>
+
+<h2>Read the originals</h2>
+
+<div class="read-originals">
+  <h3>Where to find these treatments</h3>
+  <ul>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_04.html">Ch. 4 "Identical Particles"</a> (§4-1 the Bose/Fermi sign; the spin-statistics confession in §4-1) and <a href="https://www.feynmanlectures.caltech.edu/III_19.html">Ch. 19</a> for the periodic-table payoff</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. IX "Systems Containing Several Similar Particles" §54 "Symmetrical and Antisymmetrical States" through §58 "Application to Electrons"</li>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §61 "The principle of indistinguishability of similar particles," §62 "Exchange interaction," §63 "Symmetry with respect to interchange"</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. VI §5 "Pauli's Exclusion Principle" and §6 "The Periodic System. Closed Shells"</li>
+  </ul>
+</div>
+
+<nav class="chapter-nav">
+  <a class="prev" href="11-spin.html">← Spin</a>
+  <a class="next" href="../index.html">Home →</a>
+</nav>
+
+</main>
+
+<footer>
+  <p>A comparative reading. Prose is original synthesis.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>
