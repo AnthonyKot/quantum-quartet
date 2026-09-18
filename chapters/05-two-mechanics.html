@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>V · Two Mechanics: Matrices vs. Waves — The Quantum Quartet</title>
+  <title>One state, different ways to describe it — The Quantum Quartet</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -20,233 +20,337 @@
   </nav>
 </header>
 
-<main class="page">
+<main class="page essay">
 
-<div class="chapter-meta">Chapter V · Part II — The New Mechanics</div>
+<div class="chapter-meta">Part II — The new mechanics</div>
 
-<h1>Two Mechanics: Matrices vs. Waves</h1>
+<h1>One state, different ways to describe it</h1>
 
-<p>
-  For about a year, quantum mechanics existed in two apparently unrelated forms.
-  In 1925, Heisenberg, Born, and Jordan built a mechanics out of arrays of
-  numbers — matrix mechanics — in which observable quantities were represented by
-  matrices and the act of measurement had no picture attached to it at all. In
-  1926, Schrödinger published a wave equation for a continuous function $\psi$ that
-  looked reassuringly like the mathematics of vibrating strings and diffusing heat.
-  The two schemes gave the same answers and shared no obvious common ground. In
-  1926 Schrödinger — and, independently, Carl Eckart — proved the two formalisms
-  equivalent; Dirac's transformation theory would later supply the deeper
-  unification, recasting both as one abstract structure seen in different bases.
+<p class="lede">
+  Send single photons, all prepared the same way, at a polarising filter set
+  horizontal: three out of four get through. Turn the filter to 45° and
+  send more photons prepared exactly as before: now more than nine out of ten get
+  through. Is the photon "mostly horizontal" or "mostly diagonal"? And which set of
+  numbers is the real description of it?
 </p>
 
 <p>
-  This chapter is about that strange interval and its resolution. It is the one
-  chapter where the comparison is partly historical, and the four authors divide
-  along a fault line: two of them lived the events and two received them as
-  finished mathematics. Born was a co-inventor of matrix mechanics; his account is
-  testimony. Dirac supplies the cleanest statement of why the two forms are one.
-  Landau and Lifshitz absorb both into a single formalism from the first page.
-  Feynman scarcely mentions the episode — and that silence is itself a data point.
+  The previous essay attached one complex number, an amplitude, to each way an event
+  could happen. This essay collects the amplitudes that belong to a system into a
+  single object, its <em>state</em>, and asks what changes when we describe that state
+  using a different set of alternatives. The answer turns out to be the same as for
+  an arrow drawn on a page and described along two different pairs of axes: the arrow
+  does not change, its coordinates do, and each set of coordinates answers a different
+  question.
 </p>
 
-<h2>Entry points</h2>
+<aside class="reminders" aria-label="Reminders">
+  <h2>Two things worth having back in mind</h2>
+  <ul>
+    <li><strong>Components of an arrow.</strong> An arrow of length 1 at angle
+      $\theta$ has components $(\cos\theta, \sin\theta)$ along a horizontal and a
+      vertical axis. Its component along any other direction at angle $\varphi$ is
+      $\cos(\theta - \varphi)$: the length of its shadow on that direction.</li>
+    <li><strong>From the double-slit essay.</strong> A probability is the squared size
+      of an amplitude, $P = |a|^2$.</li>
+  </ul>
+</aside>
 
-<table class="entry-table">
-  <thead>
-    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="author-cell">Born</td>
-      <td>Spectral line intensities and frequencies</td>
-      <td>Observability: admit only measurable quantities</td>
-      <td>Matrix multiplication from Ritz's combination rule</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Feynman</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>Near-silent on the 1925–26 history</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Landau &amp; Lifshitz</td>
-      <td></td>
-      <td>Operators are primary; matrices are a representation</td>
-      <td>Matrix element $f_{nm} = \int \psi_n^* \hat f \psi_m \, dq$</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Dirac</td>
-      <td></td>
-      <td>States and observables; the unitary transformation $T$</td>
-      <td>Schrödinger and Heisenberg pictures as one theory</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>The four treatments</h2>
-
-<h3>Born: the participant's account</h3>
+<h2>Polarisers, one photon at a time</h2>
 
 <p>
-  Born is the only one of the four who can write about matrix mechanics in the
-  first person, and <em>Atomic Physics</em> quietly does. He recounts Heisenberg's
-  1925 starting point — the demand that a consistent atomic mechanics admit only
-  observable quantities, the frequencies and intensities of emitted light, and not
-  the unobservable orbit of an electron inside the atom. From that principle
-  Heisenberg was led to represent each quantity by an array indexed by pairs of
-  states, and to a rule for multiplying two such arrays.
+  Light is a wave of electric field, and in a polarised beam the field oscillates
+  along one fixed direction across the beam, its <em>polarisation</em>. A polarising
+  filter has a direction of its own. Classical optics says what fraction of a beam
+  gets through: if the light is polarised at angle $\theta$ and the filter is set at
+  $\varphi$, the transmitted intensity is a fraction $\cos^2(\theta - \varphi)$ of the
+  original. This is Malus's law, known since the early nineteenth century.
 </p>
 
 <p>
-  The decisive recognition, Born notes, was his own and Jordan's: Heisenberg's
-  multiplication rule was exactly the rule mathematicians already knew for
-  multiplying <em>matrices</em>. What Heisenberg had reinvented from spectroscopic
-  data was a piece of nineteenth-century linear algebra, and the non-commuting
-  products that had puzzled him were simply the ordinary non-commutativity of
-  matrix multiplication. Born's telling is generous and precise about who did what,
-  and it carries the authority of a man describing a room he was standing in. He is
-  also unhurried about the formal development — he omits much of it, since by the
-  time he is writing, wave mechanics has become the working language and matrix
-  mechanics is the historical root.
+  Now turn the light down until photons arrive one at a time, and put a photon
+  counter behind the filter. A photon cannot be partly transmitted; each one either
+  gets through whole or is absorbed. What Malus's law becomes is a probability: each
+  photon gets through with probability $\cos^2(\theta - \varphi)$, and over many photons
+  that reproduces the classical fraction. Experiments add one more fact. A photon that
+  does get through leaves polarised along the filter's direction, whatever its
+  polarisation was before.
+</p>
+
+<h2>A state is an arrow</h2>
+
+<p>
+  Everything above fits one simple description. Represent the photon's polarisation
+  by an arrow of length 1 pointing at angle $\theta$. The amplitude for it to pass a
+  filter at angle $\varphi$ is the arrow's component along the filter's direction,
+  $\cos(\theta - \varphi)$, and the probability is its square, as in the double-slit
+  essay. The arrow is the photon's <em>state</em>: once we know it, we can compute the
+  probabilities for any filter we might choose.
 </p>
 
 <p>
-  His verdict on the two schemes is the one that matters: though entirely different
-  in form, they are, as Schrödinger showed, identical in content. Born states this
-  as settled fact, not as a claim he needs to defend, because he watched it become
-  settled.
+  A more useful device than a filter is a <em>polarising beam splitter</em>, a crystal
+  that sends light polarised one way straight on and light polarised at right angles
+  off to the side. With one set horizontal (H) and vertical (V), every photon comes
+  out one way or the other, and never both. H and V form a complete list of
+  alternatives for this question. For a photon polarised at $\theta$, the state can then
+  be written as two numbers, its amplitudes for the two exits:
 </p>
 
-<h3>Dirac: equivalence as a change of picture</h3>
+$$(a_H,\; a_V) = (\cos\theta,\; \sin\theta).$$
 
 <p>
-  Dirac gives the argument Born only gestures at. In his hands the two "mechanics"
-  become two <em>pictures</em> of a single theory, related by a unitary
-  transformation. In the Schrödinger picture the state is a moving ket
-  $|Pt\rangle$, carried along in time by the Hamiltonian, while the observables sit
-  fixed. Apply a time-dependent unitary transformation $T$ that brings the states
-  of undisturbed motion to rest, and the motion is transferred instead onto the
-  observables, which become moving operators — this is the Heisenberg picture.
+  The squares add to 1, since $\cos^2\theta + \sin^2\theta = 1$: the photon certainly
+  leaves by one exit or the other. Such a complete set of alternatives is called a
+  <em>basis</em>, and the amplitudes are the state's <em>components</em> in that basis. Writing a state
+  in a particular basis is also called choosing a <em>representation</em>, which is why later essays
+  refer back to this one as the essay on representations.
+</p>
+
+<h2>The same arrow, different axes</h2>
+
+<p>
+  Nothing forces us to set the beam splitter horizontal. Turned by 45°, it has exits
+  for diagonal (D, at 45°) and antidiagonal (A, at 135°) polarisation, and those are
+  another complete pair of alternatives. The same photon described in this basis has
+  components equal to the arrow's shadows on the new axes:
+</p>
+
+$$\begin{aligned}a_D &= \cos(\theta - 45°),\\[4pt] a_A &= \cos(\theta - 135°).\end{aligned}$$
+
+<figure>
+<div class="fig-scroll">
+<!-- FIGURE:axes generated by scripts/ch05_representations.py -->
+<svg class="fig-svg" viewBox="0 0 680 400" role="img" aria-labelledby="fig-axes-title fig-axes-desc">
+<title id="fig-axes-title">One arrow, two pairs of axes</title>
+<desc id="fig-axes-desc">A single arrow at 30 degrees from horizontal. Solid axes H and V give it components 0.87 and 0.50. Dashed axes D and A, rotated by 45 degrees, give the same arrow components 0.97 and minus 0.26. The arrow itself is the same in both.</desc>
+<path class="fig-axis" style="stroke-width:1.4" d="M112.5,330.0 H562.5"/>
+<path class="fig-axis" style="stroke-width:1.4" d="M250.0,392.5 V30.0"/>
+<text class="fig-label" x="567.5" y="335.0">H</text>
+<text class="fig-label" x="245.0" y="25.0">V</text>
+<path class="fig-axis" style="stroke-dasharray:6 5" d="M197.0,383.0 L471.0,109.0"/>
+<text class="fig-label" x="475.6" y="102.4">D</text>
+<path class="fig-axis" style="stroke-dasharray:6 5" d="M303.0,383.0 L117.4,197.4"/>
+<text class="fig-label" x="100.8" y="190.8">A</text>
+<path class="fig-axis" style="stroke-dasharray:2 4" d="M466.5,205.0 V330.0 M466.5,205.0 H250.0"/>
+<text class="fig-note" x="466.5" y="350.0" text-anchor="middle">0.87</text>
+<text class="fig-note" x="240.0" y="210.0" text-anchor="end">0.50</text>
+<path class="fig-axis" style="stroke-dasharray:2 4" d="M466.5,205.0 L420.8,159.2"/>
+<text class="fig-note" x="408.8" y="151.2" text-anchor="end">0.97</text>
+<path class="fig-axis" style="stroke-dasharray:2 4" d="M466.5,205.0 L295.8,375.8"/>
+<text class="fig-note" x="301.8" y="393.8">−0.26</text>
+<path class="fig-curve fig-hot" style="stroke-width:3" d="M250.0,330.0 L466.5,205.0"/>
+<path class="fig-arrowhead" d="M466.5,205.0 L457.4,217.2 L451.4,206.8 Z"/>
+<text class="fig-note" x="478.5" y="203.0">the state:</text>
+<text class="fig-note" x="478.5" y="219.0">polarised at 30°</text>
+</svg>
+<!-- /FIGURE:axes -->
+</div>
+  <figcaption>
+    One state, the arrow at 30°, drawn against two bases. Its shadows on the solid H
+    and V axes are 0.87 and 0.50; its shadows on the dashed D and A axes are 0.97 and
+    −0.26. Two different pairs of numbers, one arrow. The negative sign means the
+    shadow falls on the A axis on the side opposite the A label.
+  </figcaption>
+</figure>
+
+<p>
+  The two pairs of numbers look nothing alike, yet they describe exactly the same
+  photon. Neither is <em>the</em> state. The state is the arrow, and each basis gives a
+  set of coordinates for it. What a basis does is fit a question. The H/V components
+  answer "which exit of a horizontal splitter?" directly; the D/A components answer the
+  diagonal question directly. Either list can answer the other's question too, with a
+  little arithmetic, as the worked example shows.
+</p>
+
+<h2>Worked example: a photon at 30°</h2>
+
+<div class="worked">
+<p>
+  <strong>In the H/V basis.</strong> The components are $\cos 30° = 0.866$ and
+  $\sin 30° = 0.500$. Squaring: $P(H) = 0.750$ and $P(V) = 0.250$. That is the
+  three-in-four of the opening.
+</p>
+<p>
+  <strong>In the D/A basis.</strong> The components are $\cos(-15°) = 0.966$ and
+  $\cos(-105°) = -0.259$. Squaring: $P(D) = 0.933$ and $P(A) = 0.067$. That is the
+  more-than-nine-in-ten. Both pairs of probabilities add to one, as they must.
+</p>
+<p>
+  <strong>Asking the H question of the D/A list.</strong> Suppose all we had written
+  down was the D/A description, $(0.966, -0.259)$, and someone asked for $P(H)$. The
+  arrow for "horizontal" is itself a state, and in the D/A basis it has components
+  $(\cos(-45°), \cos(-135°)) = (0.707, -0.707)$. The amplitude for our photon to be
+  found horizontal is the overlap of the two arrows, computed from either list by
+  multiplying matching components and adding:
+</p>
+$$\begin{aligned}
+a_H &= (0.966)(0.707)\\[4pt]
+&\quad + (-0.259)(-0.707)\\[4pt]
+&= 0.683 + 0.183 = 0.866.
+\end{aligned}$$
+<p>
+  That is $\cos 30°$ again, and $P(H) = 0.750$. The answer does not depend on which
+  basis we happened to write the state in. That is the whole content of saying the
+  two lists describe one state.
+</p>
+<p>
+  <strong>Check: nothing depends on the axes.</strong> The overlap of two arrows is
+  their dot product, which is the cosine of the angle between them. Rotating the axes
+  changes every component but not that angle, so every probability survives any change
+  of basis.
+</p>
+</div>
+
+<details>
+  <summary>Optional: why the entries must be allowed to be complex</summary>
+  <p>
+    So far every component has been a real number. Light can also be circularly
+    polarised: the field rotates as the wave travels. Such a photon passes a filter at
+    any angle with probability ½, so no real arrow in the plane describes it. Its H/V
+    components are $(1/\sqrt2,\; i/\sqrt2)$: equal sizes, but a quarter-turn of phase
+    between them.
+  </p>
+  <p>
+    Check it against the D exit: the overlap with the diagonal arrow, which has H/V
+    components $(1/\sqrt2, 1/\sqrt2)$, is $\tfrac12 + \tfrac{i}{2}$, whose squared size is
+    ½. So $P(H) = P(V) = P(D) = P(A) = \tfrac12$. By these tests the circular photon looks
+    like an even mixture of everything. It is not: a circular analyser, which has exits
+    for right- and left-handed circular light, sends every one of these photons out of
+    the same exit. The relative phase between components is physical information.
+  </p>
+  <p>
+    With complex components the overlap recipe needs one adjustment: take the complex
+    conjugate of one list's entries before multiplying. The formalism essay makes this
+    precise.
+  </p>
+</details>
+
+<h2>When the list gets longer</h2>
+
+<p>
+  Polarisation needs only two alternatives. Most systems need more. Think back to the
+  electron arriving at the screen in the double-slit experiment. The question "where
+  does it land?" has a separate alternative for every detector window across the
+  screen, and the state, described in that basis, is a long list of amplitudes, one per
+  window. Make the windows narrower and the list becomes a continuous function of
+  position, one complex number for every $x$. That function is the <em>wavefunction</em>,
+  and the next essay is about it.
 </p>
 
 <p>
-  Because the transformation is unitary, every algebraic relation is preserved: the
-  two pictures are not merely compatible, they are the same physics wearing
-  different clothes. Dirac's Heisenberg-picture equation of motion for an observable,
-  $\dot v_t = [v_t, H_t]$ in his bracket notation, sits beside the classical
-  Hamiltonian equation of the identical form, which is exactly why he can call the
-  energy operator the "Hamiltonian" and carry classical language into the quantum
-  theory. He then remarks, drily, which picture to actually compute in: the
-  Schrödinger form gives the simpler equations and fewer unknowns, while the
-  Heisenberg form is valued for making the analogy with classical mechanics visible.
-  The equivalence is not a historical reconciliation for Dirac; it is a theorem
-  about a transformation.
+  The same electron could be described in other bases. Listing its amplitudes for each
+  possible momentum gives a different function, carrying the same state. For an
+  electron bound in an atom, the natural list is one amplitude for each energy level,
+  Bohr's levels among them. As with the photon, none of these descriptions is the
+  electron; each is the state written in the alternatives of one particular question.
 </p>
 
-<h3>Landau &amp; Lifshitz: no two mechanics to reconcile</h3>
+<h2>A note on history: two mechanics that were one</h2>
 
 <p>
-  Landau and Lifshitz dissolve the problem before it can arise. In their
-  presentation the operator attached to a physical quantity is primary, and a
-  matrix is nothing more than that operator written out in a particular basis: the
-  matrix element $f_{nm} = \int \psi_n^* \hat f \psi_m \, dq$ is the operator's
-  component between two stationary states. Matrix multiplication is then not a
-  postulate but a consequence — it falls directly out of composing two operators
-  and expanding in a complete set. What Heisenberg discovered as a mysterious rule,
-  they derive in a line.
+  This is why quantum mechanics was discovered twice. In 1925 Werner Heisenberg, soon
+  joined by Max Born and Pascual Jordan, built a mechanics out of square arrays of
+  numbers, each entry labelled by a pair of energy levels of the atom: matrix
+  mechanics. In 1926 Erwin Schrödinger produced a wave equation for a function spread
+  through space: wave mechanics. They looked like rival theories with nothing in common.
+  Within months Schrödinger and others showed they give identical predictions. In the
+  language of this essay, one theory wrote everything in the basis of energy levels and
+  the other in the basis of positions. Paul Dirac and Jordan then developed the general
+  rules for moving between any two descriptions, and the two mechanics became two
+  coordinate systems for a single theory.
 </p>
+
+<h2>Two questions</h2>
+
+<div class="questions">
+<p>
+  <strong>1. Adding a filter lets more through.</strong> Photons polarised horizontally
+  meet a vertical filter. What fraction gets through? Now insert a filter at 45°
+  between the source and the vertical filter. What fraction gets through both?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    Without the middle filter: $\cos^2 90° = 0$. None.
+  </p>
+  <p>
+    With it: a horizontal photon passes the 45° filter with probability
+    $\cos^2 45° = \tfrac12$, and those that pass leave polarised at 45°. Each of those
+    then meets the vertical filter at 45° to its polarisation and passes with probability
+    $\tfrac12$. Overall, $\tfrac12\times\tfrac12 = \tfrac14$.
+  </p>
+  <p>
+    The tempting wrong turn is to reason that a filter can only remove photons, so adding
+    one cannot increase what gets through. That would be right if the filter only
+    sorted photons that already had definite H or V labels. It does not. A photon that
+    passes the middle filter is in a new state, the 45° arrow, and described in the H/V
+    basis that state has a vertical component of $0.707$.
+  </p>
+</details>
 
 <p>
-  They do acknowledge the history, but only in a footnote: the matrix representation
-  was introduced by Heisenberg in 1925, before Schrödinger's wave equation, and
-  matrix mechanics was developed by Born, Heisenberg, and Jordan. In the body of the
-  text there is no drama of two rival theories, because from their starting point
-  there was only ever one. The "energy representation," in which the Hamiltonian
-  matrix is diagonal and the diagonal entries are the energy levels, is presented as
-  one convenient choice of basis among many, related to others by the unitary
-  transformations of their §12. Where Born narrates and Dirac proves, Landau and
-  Lifshitz simply build the house so that the question does not come up.
+  <strong>2. Partly horizontal, or sometimes horizontal?</strong> A friend reads the
+  worked example and says: "So a photon at 30° is really horizontal three-quarters of
+  the time and vertical one-quarter of the time; we just don't know which." Test this
+  against the diagonal splitter. If it were true, what fraction would leave by the D
+  exit? What fraction actually does?
 </p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    If each photon were definitely H (probability ¾) or definitely V (¼), each would
+    reach the diagonal splitter as an H or V arrow. Both H and V are at 45° to the D
+    axis, so either kind leaves by D with probability $\cos^2 45° = \tfrac12$. The
+    total would be $\tfrac34\cdot\tfrac12 + \tfrac14\cdot\tfrac12 = \tfrac12$. The actual
+    photons at 30° leave by D with probability $0.933$.
+  </p>
+  <p>
+    So the friend's picture makes a wrong prediction. A photon at 30° is not a hidden
+    choice between H and V; it is a single definite state that is neither of the two
+    H/V alternatives. The H/V components are amplitudes, and amplitudes combine
+    before squaring, exactly as the two slits did in the previous essay. Treating them as
+    probabilities of a hidden label throws away the cross term, and with it the 0.933.
+  </p>
+</details>
+</div>
 
-<h3>Feynman: the eloquent silence</h3>
-
-<p>
-  Feynman's Volume III has almost nothing to say about the events of 1925–26, and
-  the omission is deliberate. He tells the reader plainly that the traditional
-  course retraces the historical path — classical mechanics first, then the
-  Schrödinger equation, then, much later, the "advanced" topics — and that he is
-  abandoning that path on purpose. His wager is that the amplitude formalism, taken
-  as the starting point, makes the historical scaffolding unnecessary. The
-  matrix-versus-wave controversy was a stage the subject passed through on its way to
-  a clean formulation, and Feynman elects to begin at the destination.
-</p>
-
-<p>
-  So the cell in the comparison table for Feynman is intentionally near-empty. It
-  records a pedagogical stance: that the equivalence of the two mechanics, which
-  cost the founders real effort to establish, is invisible to a student who is
-  never shown the two forms as separate in the first place. What looks like silence
-  is a claim — that the history is not load-bearing.
-</p>
-
-<h2>Synthesis</h2>
-
-<p>
-  The four treatments line up as four distances from a single event. Born stands
-  inside it, reporting what was done and by whom. Dirac stands just outside,
-  holding the transformation that shows why the two forms had to coincide. Landau
-  and Lifshitz stand far enough away that the two forms have merged into one
-  formalism with a choice of basis. Feynman stands so far downstream that he can
-  decline to mention the fork at all. No one of these vantage points is more
-  correct; together they show a theory hardening from lived controversy into
-  textbook architecture.
-</p>
-
-<p>
-  There is a lesson in the sequence about how physics digests its own revolutions.
-  The matrix–wave duality was, for a year, a genuine mystery: two calculational
-  engines with no common parts, agreeing on every answer. The resolution — that
-  they are unitary images of each other — did not just settle a priority dispute;
-  it revealed the object underneath both, the abstract state and its operators,
-  which is what Dirac and then Landau and Lifshitz take as their true subject.
-  Born's history and Feynman's silence are the two ends of that process: the memory
-  of the mystery, and the confidence to skip it.
-</p>
-
-<p>
-  It is worth noticing what the equivalence cost and what it bought. It cost the
-  intuition that a wave function is a wave in space — an intuition the previous
-  chapter already showed all four authors refusing. It bought the freedom to move
-  between pictures at will, computing in whichever representation is easiest and
-  trusting that the physics is representation-independent. That freedom is the
-  quiet foundation of everything in Part III.
-</p>
-
-<h2>Read the originals</h2>
+<h2>Further reading</h2>
 
 <div class="read-originals">
-  <h3>Where to find these treatments</h3>
   <ul>
-    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. V "Atomic Structure and Spectral Lines" §3 "Matrix Mechanics" and §4 "Wave Mechanics" (with his remark on their identity of content)</li>
-    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. V "The Equations of Motion" §27 "Schrödinger's Form for the Equations of Motion" and §28 "Heisenberg's Form for the Equations of Motion"</li>
-    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §11 "Matrices," §12 "Transformation of matrices," §13 "The Heisenberg representation of operators"</li>
-    <li>Feynman, <em>Lectures on Physics</em>, Vol. III — no dedicated treatment; see <a href="https://www.feynmanlectures.caltech.edu/III_08.html">Ch. 8 "The Hamiltonian Matrix"</a> for his (later, formalism-first) route into matrices</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. I §2 "The Polarization of Photons" and §4 "Superposition and Indeterminacy": the photon-and-filter argument this essay follows, stated with great economy. Ch. III "Representations" develops the idea of describing one state in many bases in full.</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_08.html">Ch. 8 "The Hamiltonian Matrix"</a>, §8-1 "Amplitudes and vectors", §8-2 "Resolving state vectors" and §8-3 "What are the base states of the world?": the analogy between a state and an arrow, taken further.</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. V §3 "Matrix Mechanics" and §4 "Wave Mechanics"; in §8 he describes the two as "two forms of the same content".</li>
   </ul>
 </div>
 
+<h2>Where this leaves us</h2>
+
+<p>
+  The photon at 30° is neither "mostly horizontal" nor "mostly diagonal". It is one
+  state, an arrow, and the two sets of numbers are its coordinates in two bases. Each
+  set answers its own question directly, and either one can answer any question, with
+  the same result. A state is not the same thing as the numbers used to describe it.
+</p>
+
+<p>
+  For a photon's polarisation the list is two numbers long. For an electron's position
+  it becomes a function, a complex number at every point of space, and that function
+  has to change in time as the electron moves. What does such a function tell us, what
+  does its size at a point mean, and what equation governs how it evolves? That is the
+  subject of the next essay.
+</p>
+
 <nav class="chapter-nav">
-  <a class="prev" href="04-quantum-behavior.html">← Quantum Behavior: The Double Slit and Amplitudes</a>
-  <a class="next" href="06-wavefunction.html">The Wavefunction and Schrödinger's Equation →</a>
+  <a class="prev" href="04-quantum-behavior.html">← How alternatives interfere</a>
+  <a class="next" href="06-wavefunction.html">What a wavefunction tells us →</a>
 </nav>
 
 </main>
 
 <footer>
-  <p>A comparative reading. Prose is original synthesis.</p>
+  <p>Original prose, worked examples and figures.</p>
 </footer>
 
 <script>
@@ -255,6 +359,13 @@ function toggleTheme() {
   const current = root.getAttribute('data-theme');
   root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
 }
+// Printed copies include every optional section and worked answer.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('details:not([open])')];
+  closedForPrint.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
 </script>
 
 </body>

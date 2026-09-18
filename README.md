@@ -1,78 +1,57 @@
 # The Quantum Quartet
 
-A comparative reading of early 20th-century theoretical physics through four books:
+A readable guide to the basics of quantum mechanics, written as a connected sequence of essays for
+an adult returning to physics: university mathematics some years ago, no previous quantum mechanics.
+Each essay answers one concrete question with enough mathematics to answer it, restores the tools it
+uses in short reminders, works one example with real numbers, puts longer derivations in optional
+fold-outs, and ends with two worked questions.
 
-1. **Born** — *Atomic Physics* (Dover reprint 1969, 8th English ed.)
-2. **Feynman** — *The Feynman Lectures on Physics*, Vols. I (1963) & III (1964)
-3. **Landau & Lifshitz** — *Quantum Mechanics: Non-Relativistic Theory* (2nd ed. 1965)
-4. **Dirac** — *The Principles of Quantum Mechanics* (4th ed. revised, 1958)
-
-Exact editions and section pointers are listed on the site's About page.
-
-## Structure
-
-- `index.html` — Landing page with premise and chapter map
-- `about.html` — Method page: editions, how chapters compare authors
-- `chapters/NN-slug.html` — One page per chapter
-
-Each chapter has:
-1. A short framing intro
-2. An "entry points" comparison table (how each author enters the topic)
-3. A synthesis essay weaving the four treatments together
-4. A "read the originals" box with chapter/section pointers
-
-## Content policy
-
-All prose is original synthesis. Direct quotes from the books are rare, short
-(under ~15 words), and attributed. No passages, derivations, or figures are
-reproduced verbatim.
-
-## Local preview
-
-No build step required. Open `index.html` in a browser:
-
-```bash
-# Python 3
-python -m http.server 8000
-
-# Node.js
-npx serve .
-
-# PHP
-php -S localhost:8000
-```
-
-Then visit `http://localhost:8000`.
-
-## Deploy to GitHub Pages
-
-1. Push to the default branch (`main`)
-2. Go to **Settings → Pages** in the repository
-3. Under **Source**, select **Deploy from a branch**
-4. Choose the `main` branch and the `/ (root)` folder
-5. Save
-
-Your site will be live at `https://<username>.github.io/<repo>/`.
-
-## Tech stack
-
-- Plain HTML + one shared CSS file + minimal vanilla JS
-- KaTeX from CDN for math rendering (inline `$...$` and display `$$...$$`)
-- Semantic HTML, mobile-readable
-- Light/dark theme toggle (respects `prefers-color-scheme`, overridden via button)
-- Print-friendly (hides navigation, resets colors)
+The site began as a comparison of four textbooks (Born, Feynman, Landau & Lifshitz, Dirac). That
+comparison is no longer the organising principle; the books appear only as checked "Further reading"
+notes. Editions are listed on the About page.
 
 ## Status
 
-Scaffold, shared CSS, landing page, and About page complete. Full 18-chapter
-map wired in. Written so far: Part I (blackbody, photons, Bohr atom) and the
-sample chapter "The Uncertainty Principle." Remaining chapters are listed on
-the landing page and are being written against verified source editions.
+- **Core sequence, 16 essays: rewritten** (September 2026), in the reading order shown on the landing
+  page. Reading order differs from file numbering in a few places, deliberately:
+  01 → 02 → 03 → 04 → 05 → 06 → 08 → 07 → 09 → 09b → 09c → 10 → 11 → 12 → 13 → 14.
+- **Optional relativity essays, a1–a4: awaiting revision.** Still in the earlier comparative format.
+- Plan, reader model and acceptance criteria: `notes/REWORK-PLAN.md`.
+  Source verification levels: `notes/source-ledger.md`.
 
-Every "read the originals" pointer is verified against the actual text; any
-not-yet-checked reference is visibly marked *unverified* on the page rather
-than guessed.
+## Structure
 
-Note: the source books are copyrighted and are **not** included in this repo.
-The site links to freely available originals (e.g. the Feynman Lectures at
-feynmanlectures.caltech.edu) but never hosts their text.
+- `index.html` — landing page: who it is for, how the essays work, map by question
+- `about.html` — what the project is, editions, content policy, verification
+- `chapters/*.html` — one essay per page; file names are stable URLs
+- `scripts/chNN_*.py` — the numbers and generated figures for each essay (standard library only).
+  `python3 scripts/ch01_blackbody.py` prints the checked numbers; `--write` regenerates the figure
+  between the `FIGURE:` markers in the chapter.
+- `scripts/check_page.py <chapter>` — banned phrases, KaTeX errors, equation and page overflow at
+  desktop and phone width, figure label size, and that every fold-out reaches a printed PDF
+  (needs a headless Chromium and `pdftotext`).
+
+## Content policy
+
+All prose, worked examples and figures are original. Quotations from the books are rare, short and
+attributed; their derivations and figures are not reproduced. The Feynman Lectures are linked at
+feynmanlectures.caltech.edu, never mirrored. The source books are copyrighted and are not in this repo.
+
+## Local preview
+
+No build step. From the repository root:
+
+```bash
+python3 -m http.server 8000
+```
+
+then open `http://localhost:8000`.
+
+## Deploy to GitHub Pages
+
+Settings → Pages → Deploy from a branch → `main`, `/ (root)`.
+
+## Tech stack
+
+Plain HTML, one shared CSS file (`static/style.css`), minimal vanilla JS (theme toggle; fold-outs
+open when printing), KaTeX from CDN. Light/dark theme, mobile-readable, print-friendly.

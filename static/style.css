@@ -357,3 +357,150 @@ footer {
   a { color: #000; }
   a[href]::after { content: " (" attr(href) ")"; font-size: .75rem; }
 }
+
+/* ── Essay template (rework) ───────────────────── */
+.lede {
+  font-size: 1.12rem;
+  color: var(--text);
+  margin-bottom: 1.2em;
+}
+
+.essay ul, .essay ol { padding-left: 1.3em; margin: 1.2em 0; }
+.essay li + li { margin-top: .6em; }
+.essay h2 + p, .essay .katex-display + p, .essay ul + p, .essay ol + p,
+.essay details + p, .essay figure + p, .essay aside + p { margin-top: 1.2em; }
+
+/* Reminders: short and skippable */
+.reminders {
+  border-left: 3px solid var(--accent);
+  background: var(--bg-alt);
+  padding: 1rem 1.3rem;
+  margin: 2rem 0;
+  font-size: .93rem;
+  line-height: 1.6;
+}
+.reminders h2 {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-dim);
+  margin: 0 0 .6rem;
+}
+.reminders ul { margin: 0; }
+
+/* Worked example: set off by a rule, not a box */
+.worked {
+  border-left: 1px solid var(--border);
+  padding-left: 1.3rem;
+}
+
+/* Optional branches and worked answers */
+details {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: .8rem 1.1rem;
+  margin: 1.5rem 0;
+  background: var(--bg-alt);
+  font-size: .95rem;
+}
+summary {
+  font-family: var(--sans);
+  font-size: .9rem;
+  color: var(--accent);
+  cursor: pointer;
+}
+details[open] summary { margin-bottom: .8rem; }
+.questions p + details { margin-top: .8rem; }
+
+/* Figures */
+figure { margin: 2rem 0; }
+figcaption {
+  font-family: var(--sans);
+  font-size: .82rem;
+  line-height: 1.55;
+  color: var(--text-dim);
+  margin-top: .6rem;
+}
+.fig-svg { width: 100%; height: auto; display: block; }
+.fig-axis { stroke: var(--text-dim); stroke-width: 1; fill: none; }
+.fig-tick, .fig-label, .fig-note { font-family: var(--sans); fill: var(--text-dim); }
+.fig-tick { font-size: 12px; }
+.fig-label { font-size: 13px; }
+.fig-note { font-size: 12.5px; fill: var(--text); }
+.fig-band { fill: var(--accent); opacity: .1; }
+.fig-dot, .fig-arrowhead { fill: var(--accent); }
+.fig-arrowhead-mid { fill: var(--text); }
+.fig-curve { fill: none; stroke-width: 2; stroke-linejoin: round; }
+.fig-hot { stroke: var(--accent); stroke-width: 2.4; }
+.fig-mid { stroke: var(--text); }
+.fig-cool { stroke: var(--text-dim); }
+.fig-classical { stroke: var(--text-dim); stroke-dasharray: 6 5; stroke-width: 1.6; }
+
+@media print {
+  details { break-inside: avoid; border: none; padding: 0; }
+  details > * { display: block !important; }
+  figure, .worked { break-inside: avoid; }
+}
+
+@media (max-width: 480px) {
+  .worked { padding-left: .8rem; }
+  .katex-display { font-size: .9em; }
+}
+
+/* Figures on phones: keep labels at their designed size and let the figure scroll */
+@media (max-width: 600px) {
+  .fig-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .fig-scroll .fig-svg { min-width: 640px; }
+  figure:has(.fig-scroll) figcaption::before {
+    content: "Scroll sideways to see the whole figure. ";
+    font-style: italic;
+  }
+}
+
+@media print {
+  details::details-content { content-visibility: visible; }
+  summary { color: #000; }
+  .fig-scroll { overflow: visible; }
+  .fig-scroll .fig-svg { min-width: 0; }
+  figure figcaption::before { content: none !important; }
+}
+
+/* Small notation tables inside essays */
+.notation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: .9rem;
+  display: block;
+  overflow-x: auto;
+}
+.notation-table th {
+  text-align: left;
+  font-family: var(--sans);
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--text-dim);
+  padding: .5rem .7rem;
+  border-bottom: 2px solid var(--border);
+}
+.notation-table td {
+  padding: .5rem .7rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+/* Homepage map: essay title with its question */
+.chapter-list.map { list-style: decimal; padding-left: 1.6em; }
+.chapter-list.map li { padding: .45rem 0; }
+.map-q {
+  display: block;
+  font-size: .9rem;
+  color: var(--text-dim);
+  line-height: 1.45;
+}
+.map-note {
+  font-family: var(--sans);
+  font-size: .85rem;
+  color: var(--text-dim);
+}

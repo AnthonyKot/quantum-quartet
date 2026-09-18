@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angular momentum — The Quantum Quartet</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <h1><a href="../index.html">The Quantum Quartet</a></h1>
+  <nav class="nav">
+    <a href="../about.html">About</a>
+    <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾</button>
+  </nav>
+</header>
+
+<main class="page essay">
+
+<div class="chapter-meta">Part III — The physics</div>
+
+<h1>Angular momentum</h1>
+
+<p class="lede">
+  Radio telescopes pointed at the cold clouds between the stars pick up carbon monoxide
+  by a sharp line at 115.27&nbsp;GHz, with further lines at almost exactly twice and three
+  times that frequency, and nothing in between. The molecules are tumbling end over end.
+  Why can a molecule only rotate at certain rates?
+</p>
+
+<p>
+  Rotation is measured by angular momentum. This short essay finds what values it can take
+  in quantum mechanics, and how much of it can be known at once. The answer has two parts:
+  the component along any one axis comes in whole units of $\hbar$, and the total has its own
+  set of allowed values that never quite match the largest component. Both reappear in every
+  atom, starting with hydrogen in the next essay.
+</p>
+
+<aside class="reminders" aria-label="Reminders">
+  <h2>Two things worth having back in mind</h2>
+  <ul>
+    <li><strong>Angular momentum.</strong> For a particle at position $\vec r$ with momentum
+      $\vec p$, $\vec L = \vec r\times\vec p$. Its component along $z$ is
+      $L_z = xp_y - yp_x$. For a body rotating with moment of inertia $I$, the kinetic
+      energy is $L^2/2I$.</li>
+    <li><strong>Angle around an axis.</strong> The angle $\phi$ measured around the $z$ axis
+      returns to the same place after $2\pi$: the angles $\phi$ and $\phi + 2\pi$ are the same
+      direction.</li>
+  </ul>
+</aside>
+
+<h2>One component: whole units of $\hbar$</h2>
+
+<p>
+  Momentum and position form a pair: momentum is the operator $-i\hbar\,d/dx$, and a state
+  of definite momentum is a wave $e^{ipx/\hbar}$. Angular momentum about the $z$ axis and the
+  angle $\phi$ around that axis form the same kind of pair. Its operator is
+  $\hat L_z = -i\hbar\,\partial/\partial\phi$, and a state of definite $L_z$ has the angular
+  dependence
+</p>
+
+$$\Phi(\phi) = e^{i L_z\phi/\hbar}.$$
+
+<p>
+  There is one difference from a straight line, and it decides everything. Going once round
+  the axis brings you back to where you started, so the wavefunction must come back to the
+  same value: $\Phi(\phi + 2\pi) = \Phi(\phi)$. That requires $e^{2\pi i L_z/\hbar} = 1$, so
+  $L_z/\hbar$ must be a whole number:
+</p>
+
+$$L_z = m\hbar,\qquad m = 0, \pm1, \pm2, \dots$$
+
+<p>
+  It is the particle in a box again, with the walls replaced by the requirement that the wave
+  join up with itself around a circle. A whole number of wavelengths must fit round the loop,
+  which is the de Broglie picture of Bohr's rule, now as an exact statement about one
+  component of angular momentum.
+</p>
+
+<h2>The total, and why it never lines up</h2>
+
+<p>
+  The three components $\hat L_x$, $\hat L_y$, $\hat L_z$ do not commute with one another; for
+  example $[\hat L_x, \hat L_y] = i\hbar\hat L_z$. By the formalism essay, they cannot share a
+  complete set of sharp states. But each of them commutes with the squared total,
+  $\hat L^2 = \hat L_x^2 + \hat L_y^2 + \hat L_z^2$. So the best we can do is to make the total
+  and one component sharp together, conventionally $L_z$. Solving for the allowed values,
+  which the optional section sketches, gives
+</p>
+
+$$L^2 = l(l+1)\,\hbar^2,\qquad l = 0, 1, 2, \dots$$
+<p>
+  and for each $l$, $m$ runs over $-l, -l+1, \dots, l$. The commutators on their own would also allow
+  half-whole values, $l = \tfrac12, \tfrac32, \dots$; it is the requirement that an orbital wavefunction
+  join up with itself around the axis that rules those out for orbital motion. That loophole will matter
+  in the essay on spin.
+</p>
+
+<p>
+  So each value of $l$ comes with $2l + 1$ possible values of $m$. The surprise is the
+  $l(l+1)$: the total angular momentum has size $\sqrt{l(l+1)}\,\hbar$, which is always larger
+  than the largest possible component, $l\hbar$. The angular momentum can never point exactly
+  along the $z$ axis. If it did, $L_x$ and $L_y$ would both be exactly zero, three sharp
+  components at once, which the commutators forbid.
+</p>
+
+<p>
+  There is one exception, and it illustrates a point from the formalism essay. For $l = 0$,
+  every component is zero and all of them are sharp together. Operators that do not commute can
+  still share some eigenstates. What they cannot do is share all of them.
+</p>
+
+<figure>
+<div class="fig-scroll">
+<!-- FIGURE:vector generated by scripts/ch09c_angular.py -->
+<svg class="fig-svg" viewBox="0 0 680 360" role="img" aria-labelledby="fig-vec-title fig-vec-desc">
+<title id="fig-vec-title">The allowed orientations of angular momentum for l = 2</title>
+<desc id="fig-vec-desc">A vertical z axis with ticks at minus 2 to plus 2 units of h-bar. Five arrows of equal length, the square root of 6 units, radiate from the origin, their tips on a semicircle at heights minus 2, minus 1, 0, 1 and 2. Even the highest arrow leans away from the axis.</desc>
+<path class="fig-axis" style="stroke-width:1.4" d="M250,348.2 V11.8"/>
+<text class="fig-label" x="258" y="20.5">z</text>
+<path class="fig-axis" style="stroke-dasharray:4 4" d="M250.0,37.9 L254.5,38.0 L258.9,38.2 L263.4,38.6 L267.8,39.0 L272.2,39.7 L276.6,40.4 L281.0,41.4 L285.3,42.4 L289.6,43.6 L293.9,44.9 L298.1,46.3 L302.3,47.9 L306.4,49.6 L310.5,51.5 L314.5,53.4 L318.4,55.5 L322.3,57.7 L326.1,60.0 L329.9,62.5 L333.5,65.1 L337.1,67.7 L340.6,70.5 L344.0,73.4 L347.3,76.4 L350.5,79.5 L353.6,82.7 L356.6,86.0 L359.5,89.4 L362.3,92.9 L364.9,96.5 L367.5,100.1 L370.0,103.9 L372.3,107.7 L374.5,111.6 L376.6,115.5 L378.5,119.5 L380.4,123.6 L382.1,127.7 L383.7,131.9 L385.1,136.1 L386.4,140.4 L387.6,144.7 L388.6,149.0 L389.6,153.4 L390.3,157.8 L391.0,162.2 L391.4,166.6 L391.8,171.1 L392.0,175.5 L392.1,180.0 L392.0,184.5 L391.8,188.9 L391.4,193.4 L391.0,197.8 L390.3,202.2 L389.6,206.6 L388.6,211.0 L387.6,215.3 L386.4,219.6 L385.1,223.9 L383.7,228.1 L382.1,232.3 L380.4,236.4 L378.5,240.5 L376.6,244.5 L374.5,248.4 L372.3,252.3 L370.0,256.1 L367.5,259.9 L364.9,263.5 L362.3,267.1 L359.5,270.6 L356.6,274.0 L353.6,277.3 L350.5,280.5 L347.3,283.6 L344.0,286.6 L340.6,289.5 L337.1,292.3 L333.5,294.9 L329.9,297.5 L326.1,300.0 L322.3,302.3 L318.4,304.5 L314.5,306.6 L310.5,308.5 L306.4,310.4 L302.3,312.1 L298.1,313.7 L293.9,315.1 L289.6,316.4 L285.3,317.6 L281.0,318.6 L276.6,319.6 L272.2,320.3 L267.8,321.0 L263.4,321.4 L258.9,321.8 L254.5,322.0 L250.0,322.1"/>
+<path class="fig-axis" style="stroke-dasharray:2 3" d="M244,296.0 H332.0"/>
+<text class="fig-tick" x="238" y="300.0" text-anchor="end">m = -2</text>
+<path class="fig-curve fig-hot" style="stroke-width:2.2" d="M250,180 L332.0,296.0"/>
+<circle cx="332.0" cy="296.0" r="3.5" class="fig-dot"/>
+<path class="fig-axis" style="stroke-dasharray:2 3" d="M244,238.0 H379.7"/>
+<text class="fig-tick" x="238" y="242.0" text-anchor="end">m = -1</text>
+<path class="fig-curve fig-hot" style="stroke-width:2.2" d="M250,180 L379.7,238.0"/>
+<circle cx="379.7" cy="238.0" r="3.5" class="fig-dot"/>
+<path class="fig-axis" style="stroke-dasharray:2 3" d="M244,180.0 H392.1"/>
+<text class="fig-tick" x="238" y="184.0" text-anchor="end">m = 0</text>
+<path class="fig-curve fig-hot" style="stroke-width:2.2" d="M250,180 L392.1,180.0"/>
+<circle cx="392.1" cy="180.0" r="3.5" class="fig-dot"/>
+<path class="fig-axis" style="stroke-dasharray:2 3" d="M244,122.0 H379.7"/>
+<text class="fig-tick" x="238" y="126.0" text-anchor="end">m = +1</text>
+<path class="fig-curve fig-hot" style="stroke-width:2.2" d="M250,180 L379.7,122.0"/>
+<circle cx="379.7" cy="122.0" r="3.5" class="fig-dot"/>
+<path class="fig-axis" style="stroke-dasharray:2 3" d="M244,64.0 H332.0"/>
+<text class="fig-tick" x="238" y="68.0" text-anchor="end">m = +2</text>
+<path class="fig-curve fig-hot" style="stroke-width:2.2" d="M250,180 L332.0,64.0"/>
+<circle cx="332.0" cy="64.0" r="3.5" class="fig-dot"/>
+<text class="fig-note" x="440" y="120">length of every arrow:</text>
+<text class="fig-note" x="440" y="138">√(l(l+1)) ħ = √6 ħ ≈ 2.45 ħ</text>
+<text class="fig-note" x="440" y="176">largest z-component:</text>
+<text class="fig-note" x="440" y="194">l ħ = 2 ħ</text>
+<text class="fig-note" x="440" y="232">so no arrow lies</text>
+<text class="fig-note" x="440" y="250">exactly along z</text>
+</svg>
+<!-- /FIGURE:vector -->
+</div>
+  <figcaption>
+    The "vector model" for $l = 2$. The angular momentum has length $\sqrt6\,\hbar$ and a sharp
+    $z$-component $m\hbar$ with $m$ from $-2$ to $2$. The picture is a memory aid, not a
+    photograph: in a state with sharp $L_z$ the $x$ and $y$ components are not sharp, and the
+    arrow is best imagined smeared around a cone about the $z$ axis.
+  </figcaption>
+</figure>
+
+<details>
+  <summary>Optional: where $l(l+1)$ comes from</summary>
+  <p>
+    Define $\hat L_\pm = \hat L_x \pm i\hat L_y$. From the commutators, applying $\hat L_+$ to a
+    state with $L_z = m\hbar$ gives a state with $L_z = (m+1)\hbar$ and the same $L^2$: it climbs
+    a ladder in steps of $\hbar$, as the oscillator's raising operator did in steps of
+    $\hbar\omega$. Because $L_z^2$ cannot exceed $L^2$, the ladder has a top rung, $m = l$, where
+    $\hat L_+$ gives zero. Using $\hat L_-\hat L_+ = \hat L^2 - \hat L_z^2 - \hbar\hat L_z$ on that top
+    state gives $0 = L^2 - l^2\hbar^2 - l\hbar^2$, so $L^2 = l(l+1)\hbar^2$. The bottom rung is
+    $m = -l$ by the same argument, and since the steps are whole units the ladder has $2l+1$ rungs.
+    For orbital motion, the single-valuedness around the axis then forces $l$ to be a whole
+    number.
+  </p>
+</details>
+
+<h2>A rotating molecule</h2>
+
+<p>
+  A diatomic molecule like carbon monoxide rotating about its centre has kinetic energy
+  $L^2/2I$. With $L^2 = l(l+1)\hbar^2$, its rotational energies are
+</p>
+
+$$E_l = l(l+1)\,\frac{\hbar^2}{2I}.$$
+
+<p>
+  The lines seen by the radio telescopes are electric-dipole transitions: the molecule's
+  electric dipole, the slight separation of charge between carbon and oxygen, couples to the
+  radiation's electric field as it rotates. For transitions of this kind between rotational levels
+  of a diatomic molecule, $l$ changes by exactly one. (This is a selection rule for this particular
+  kind of transition, not a law for every photon; weaker processes obey other rules.) A drop from $l+1$ to $l$ releases
+  $E_{l+1} - E_l = 2(l+1)\,\hbar^2/2I$. The lines are evenly spaced, in the ratio
+  $1 : 2 : 3$: exactly the pattern of the opening.
+</p>
+
+<h2>Worked example: sizing a molecule from its radio line</h2>
+
+<div class="worked">
+<p>
+  <strong>From frequency to moment of inertia.</strong> The lowest line, $l = 1 \to 0$, has
+  energy $2\hbar^2/2I = h\nu$ with $\nu = 115.27$&nbsp;GHz. So
+  $\hbar^2/2I = h\nu/2 = 2.38\times10^{-4}$&nbsp;eV, and
+</p>
+$$\begin{aligned}
+I &= \frac{\hbar^2}{h\nu}\\[4pt]
+&= \frac{(1.055\times10^{-34})^2}{(6.626\times10^{-34})(1.153\times10^{11})}\\[4pt]
+&= 1.456\times10^{-46}\ \text{kg m}^2 .
+\end{aligned}$$
+<p>
+  <strong>From moment of inertia to bond length.</strong> For two atoms a distance $r$ apart,
+  $I = \mu r^2$ with the reduced mass $\mu = 6.86$&nbsp;u $= 1.139\times10^{-26}$&nbsp;kg. Then
+  $r = \sqrt{I/\mu} = 113$&nbsp;pm. That is the bond length used in the oscillator essay,
+  measured here from a radio telescope's line alone.
+</p>
+<p>
+  <strong>Check: the next lines.</strong> The formula predicts $2\times115.27 = 230.54$&nbsp;GHz
+  and $3\times115.27 = 345.81$&nbsp;GHz. Laboratory measurements give 230.54 and 345.80&nbsp;GHz.
+  The tiny shortfall in the third comes from the bond stretching slightly as the molecule spins
+  faster, which the rigid-rotor model ignores.
+</p>
+<p>
+  <strong>Check: everyday rotation.</strong> A spinning top with angular momentum
+  $0.01$&nbsp;J&nbsp;s has $l \approx L/\hbar \approx 10^{32}$. Adjacent allowed values differ by
+  one part in $10^{32}$, and the rotation looks continuous.
+</p>
+</div>
+
+<h2>Two questions</h2>
+
+<div class="questions">
+<p>
+  <strong>1. A heavier isotope.</strong> A small fraction of carbon monoxide contains
+  carbon-13 instead of carbon-12. Its reduced mass is 7.17&nbsp;u instead of 6.86&nbsp;u, with
+  the same bond length. At what frequency should its lowest rotational line appear?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    The line frequency is $\nu = \hbar^2/(hI)$ and $I = \mu r^2$, so with $r$ unchanged,
+    $\nu \propto 1/\mu$: $115.27 \times 6.86/7.17 = 110.2$&nbsp;GHz. The measured line is at
+    110.20&nbsp;GHz, and astronomers use exactly this shift to count carbon isotopes in distant
+    clouds.
+  </p>
+  <p>
+    The slip to avoid is scaling by the carbon mass alone, $12/13$, which gives 106.4&nbsp;GHz.
+    The molecule rotates about its centre of mass, and both atoms move; only the reduced mass
+    captures that.
+  </p>
+</details>
+
+<p>
+  <strong>2. Pointing along $z$?</strong> An electron is in a state with $l = 1$ and $m = 1$,
+  so $L_z = \hbar$, the largest value allowed. Is its angular momentum pointing along the
+  $z$ axis?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    No. The total has size $\sqrt{l(l+1)}\,\hbar = \sqrt2\,\hbar \approx 1.41\hbar$, larger than
+    $L_z = \hbar$. The remaining $L_x^2 + L_y^2 = L^2 - L_z^2 = \hbar^2$ is not zero, but neither
+    $L_x$ nor $L_y$ is sharp: measured, each gives scattered results averaging to zero.
+  </p>
+  <p>
+    The tempting wrong turn is to picture a definite arrow that happens to be tilted, with some
+    hidden $x$ and $y$ components. Sharp values of $L_x$, $L_y$ and $L_z$ at once are forbidden by
+    the commutators for any $l &gt; 0$. The tilted arrow in the figure is a way of remembering the
+    numbers, not a description of the state.
+  </p>
+</details>
+</div>
+
+<h2>Further reading</h2>
+
+<div class="read-originals">
+  <ul>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §26 "Angular momentum" and §27 "Eigenvalues of the angular momentum": the ladder argument of the optional section, in full.</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. VI §35 "Angular Momentum".</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. V §5 "Angular Momentum in Wave Mechanics".</li>
+  </ul>
+</div>
+
+<h2>Where this leaves us</h2>
+
+<p>
+  A molecule can only rotate at certain rates because its angular momentum is quantised: the
+  component along an axis in whole units of $\hbar$, because the wavefunction must join up with
+  itself around a full turn, and the total at $\sqrt{l(l+1)}\,\hbar$. Its rotational energies
+  follow, and the radio lines of carbon monoxide are their fingerprint, precise enough to measure a
+  bond length from across the galaxy.
+</p>
+
+<p>
+  An electron moving around a nucleus has angular momentum too, described by the same $l$ and
+  $m$. But it also has a distance from the nucleus to settle, and the Coulomb attraction to
+  balance against. Putting all of that into Schrödinger's equation gives the hydrogen atom, the one
+  real atom that can be solved exactly, and the answer to the question the Bohr model raised and
+  could not close. That is the next essay.
+</p>
+
+<nav class="chapter-nav">
+  <a class="prev" href="09b-oscillator.html">← The harmonic oscillator</a>
+  <a class="next" href="10-hydrogen.html">Hydrogen without little planetary orbits →</a>
+</nav>
+
+</main>
+
+<footer>
+  <p>Original prose, worked examples and figures.</p>
+</footer>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+// Printed copies include every optional section and worked answer.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('details:not([open])')];
+  closedForPrint.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
+</script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IV · Quantum Behavior: The Double Slit and Amplitudes — The Quantum Quartet</title>
+  <title>How alternatives interfere — The Quantum Quartet</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -20,248 +20,515 @@
   </nav>
 </header>
 
-<main class="page">
+<main class="page essay">
 
-<div class="chapter-meta">Chapter IV · Part II — The New Mechanics</div>
+<div class="chapter-meta">Part II — The new mechanics</div>
 
-<h1>Quantum Behavior: The Double Slit and Amplitudes</h1>
+<h1>How alternatives interfere</h1>
 
-<p>
-  Somewhere beneath every quantum calculation lies a single fact that no
-  classical picture can absorb: when a particle can reach a place by more than
-  one indistinguishable route, you do not add the probabilities of the routes —
-  you add complex numbers, one per route, and square the sum. The cross-term
-  that survives the squaring is interference. Everything else in quantum
-  mechanics is, in a sense, bookkeeping around that one operation.
+<p class="lede">
+  Fire electrons, one at a time, at a wall with two narrow slits in it, and record
+  where each one lands on a screen behind. Every electron arrives as a single dot
+  at a single place, as a particle should. Yet as the dots accumulate they form
+  bright and dark stripes, the signature of a wave passing through both slits. If
+  an electron is a particle, why are there fringes?
 </p>
 
 <p>
-  This chapter is where our four authors meet the operation head-on. Feynman
-  builds his entire treatment on it, starting from the two-slit experiment and
-  refusing to leave it. Dirac elevates it to an axiom — the principle of
-  superposition — and derives the vector-space structure of quantum mechanics
-  from it. Landau and Lifshitz state it as "the chief positive principle" and
-  immediately draw the consequence that all the theory's equations must be
-  linear. Born, who gave the amplitude its physical meaning, never writes the
-  principle down as a principle at all.
+  This experiment has been done, with the electrons far enough apart in time that
+  only one is in the apparatus at once, and the stripes still build up dot by dot.
+  So the pattern is not electrons jostling one another. Something about a single
+  electron's passage involves both slits. This essay finds the rule that predicts
+  the pattern, computes the stripe spacing for a real electron, and then asks what
+  happens to the pattern when the apparatus can tell which slit was used. The
+  answer to that last question is the most important thing in the essay.
 </p>
 
-<h2>Entry points</h2>
+<aside class="reminders" aria-label="Reminders">
+  <h2>Three things worth having back in mind</h2>
+  <ul>
+    <li><strong>A complex number is an arrow.</strong> Any complex number can be
+      written $z = r\,e^{i\varphi}$: an arrow in the plane with length $r$ and
+      pointing at angle $\varphi$, called its <em>phase</em>. The factor
+      $e^{i\varphi} = \cos\varphi + i\sin\varphi$ is an arrow of length one.</li>
+    <li><strong>Size and sum.</strong> The squared length is $|z|^2 = z^*z = r^2$,
+      where $z^*$ is the complex conjugate (the same arrow with the angle reversed).
+      Complex numbers add tip to tail, like arrows: two equal arrows pointing the
+      same way give one of double length; pointing opposite ways they cancel.</li>
+    <li><strong>The de Broglie wavelength.</strong> From the essay on photons: a
+      particle with momentum $p$ has a wavelength $\lambda = h/p$, confirmed for
+      electrons by their diffraction from crystals.</li>
+  </ul>
+</aside>
 
-<table class="entry-table">
-  <thead>
-    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="author-cell">Born</td>
-      <td>Electron diffraction; scattering</td>
-      <td></td>
-      <td>$|\psi|^2$ as particle number / probability (Born, 1926)</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Feynman</td>
-      <td>Two-slit experiment with electrons</td>
-      <td></td>
-      <td>Three rules for combining amplitudes</td>
-      <td>Watching which slit; scattering with/without a "record"</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Landau &amp; Lifshitz</td>
-      <td></td>
-      <td>Superposition as the "chief positive principle"</td>
-      <td>Linearity of all equations in $\psi$</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Dirac</td>
-      <td>Photon polarization</td>
-      <td>Superposition of states</td>
-      <td>States as directions of ket vectors</td>
-      <td>Superposing a state with itself</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>The four treatments</h2>
-
-<h3>Feynman: three rules and nothing else</h3>
+<h2>Three experiments with the same wall</h2>
 
 <p>
-  Feynman's Volume III opens on the two-slit experiment and then, in the third
-  chapter, distills the whole apparatus of quantum mechanics into three rules for
-  combining amplitudes. First: the probability of an event is the absolute square
-  of a complex amplitude. Second: when an outcome can be reached by several
-  indistinguishable routes, the amplitudes for the routes add. Third: the
-  amplitude for a route taken in stages is the product of the amplitudes for the
-  stages.
+  The clearest way into the puzzle, due to Richard Feynman, is to run the same
+  two-slit experiment with three different things. In each case the source is the
+  same and is left unchanged; only the slits are opened or blocked. At the screen
+  we place a small detector of fixed width, and slide it to different positions $x$.
 </p>
 
 <p>
-  What is radical is the claim that this is <em>enough</em>. Feynman calls the
-  approach "a pedagogical experiment," and its wager is that the so-called
-  advanced parts of quantum mechanics — spin, identical particles — are actually
-  the simplest, once you give up trying to picture a particle threading space and
-  work directly with amplitudes instead. He writes them in Dirac's bracket
-  notation, $\langle x \mid s\rangle$ for "the amplitude that a particle from $s$
-  arrives at $x$," and shows that a two-stage journey factorizes:
-  $\langle x \mid s\rangle_{\text{via }1} = \langle x \mid 1\rangle\langle 1 \mid s\rangle$.
+  <strong>Bullets.</strong> They arrive whole, one at a time. Block slit 2, fire
+  many bullets, and record the fraction of them that land in the detector at $x$;
+  call that probability $P_1(x)$. Block slit 1 instead and get $P_2(x)$. With both slits
+  open, each bullet went through one slit or the other, so
+  $P_{12} = P_1 + P_2$. Probabilities of alternatives add.
 </p>
 
 <p>
-  The decisive move is his rule about when <em>not</em> to add amplitudes. If the
-  final states differ in any way that could <em>in principle</em> be told
-  apart — a scattered photon that marks which slit, a flipped nuclear spin that
-  records which atom did the scattering — then you square first and add the
-  probabilities. If no such record can exist even in principle, you add the
-  amplitudes first. Feynman's slogan is that nature behaves this way whether or
-  not you bother to look: "Nature does not know what you are looking at." The
-  distinction is not about the observer's knowledge but about whether a
-  distinguishing record exists anywhere in the world.
-</p>
-
-<h3>Dirac: superposition as the founding axiom</h3>
-
-<p>
-  Dirac does not wait for an experiment to motivate superposition; he opens his
-  book with it. His concrete anchor is the polarization of a photon: superpose
-  two perpendicular plane-polarized states with equal weight and a phase, and you
-  get circular, or diagonal, or elliptical polarization. From there he extracts
-  the non-classical essence in a single sentence's worth of thought. Suppose an
-  observation gives result $a$ with certainty on state $A$, and result $b$ with
-  certainty on state $B$. On the superposition, the result is sometimes $a$ and
-  sometimes $b$, never something in between. The intermediate character of the
-  superposed state shows up in the <em>probabilities</em>, not in the outcomes.
+  <strong>Water waves.</strong> Nothing arrives in lumps; a detector measures a
+  continuous intensity. The wave passes through both slits, and at the screen the
+  two heights add <em>before</em> the intensity, which goes as the square of the
+  height, is taken. Where crest meets crest the intensity is large; where crest
+  meets trough it is zero. So $I_{12} \neq I_1 + I_2$: there are fringes.
 </p>
 
 <p>
-  This is where Dirac plants the flag that the others build on: superposition
-  only makes sense because measurement is indeterminate. He then formalizes it.
-  States correspond to vectors — his "ket vectors," written $|A\rangle$ — that can
-  be added and scaled by complex numbers, so that a superposition is literally a
-  linear combination $c_1|A\rangle + c_2|B\rangle$. One further assumption gives
-  the theory its peculiar geometry: superposing a state with itself must return
-  the same state, which forces $|A\rangle$ and any nonzero multiple of it to mean
-  the same physical state. A quantum state is a <em>direction</em> in the vector
-  space, not a vector of definite length — and the zero vector corresponds to no
-  state at all.
+  <strong>Electrons.</strong> They arrive whole, like bullets: the detector clicks,
+  or it does not, and a click is always one full electron. But the distribution of
+  clicks has fringes, like waves. In particular there are places where electrons
+  arrive when either slit alone is open, and <em>stop arriving when both are
+  open</em>. Opening a second door reduces the traffic. No account in which each
+  electron goes through one slit, unaffected by the other, can produce that, since
+  it would give $P_1 + P_2$, which is never less than $P_1$.
+</p>
+
+<h2>The rule: add arrows, then square</h2>
+
+<p>
+  The rule that works borrows the arithmetic of waves but applies it to
+  probability. To each way an event can happen we attach a complex number, called
+  a <em>probability amplitude</em>, or just an amplitude. Three statements then
+  cover everything in this essay.
+</p>
+
+<ol class="rules">
+  <li>The probability of an event is the squared length of its amplitude:
+    $P = |a|^2$.</li>
+  <li>If the event can happen in several alternative ways, and nothing anywhere
+    records which way it happened, the amplitudes add: $a = a_1 + a_2$.</li>
+  <li>If a way consists of successive stages, its amplitude is the product of the
+    amplitudes of the stages.</li>
+</ol>
+
+<p>
+  Let $a_1$ be the amplitude for an electron to land in the detector at $x$ by way
+  of slit 1, and $a_2$ by way of slit 2. Throughout, $P(x)$ means the probability of
+  landing in that small, fixed-width detector; since the width never changes, $P(x)$
+  plotted against $x$ has the shape of the arrival pattern. With only slit 1 open, $P_1 = |a_1|^2$. With both
+  open, rule 2 applies, and
+</p>
+
+$$\begin{aligned}
+P_{12} &= |a_1 + a_2|^2\\[4pt]
+&= (a_1 + a_2)^*(a_1 + a_2)\\[4pt]
+&= |a_1|^2 + |a_2|^2 + 2\,\mathrm{Re}\,(a_1^*a_2).
+\end{aligned}$$
+
+<p>
+  The first two terms are the bullet answer, $P_1 + P_2$. The third is new. It is
+  called the <em>cross term</em> or <em>interference term</em>, and it can have
+  either sign. To see what it does, write each amplitude as an arrow. Take the two
+  slits to be equally well illuminated, so both arrows have the same length $A$,
+  and let their phases be $\varphi_1$ and $\varphi_2$:
+</p>
+
+$$a_1 = A\,e^{i\varphi_1},\qquad a_2 = A\,e^{i\varphi_2}.$$
+
+<p>
+  Then $a_1^*a_2 = A^2 e^{i(\varphi_2-\varphi_1)}$, whose real part is
+  $A^2\cos(\varphi_2-\varphi_1)$, and
+</p>
+
+$$P_{12} = 2A^2\,\bigl[\,1 + \cos(\varphi_2 - \varphi_1)\,\bigr].$$
+
+<p>
+  Only the <em>difference</em> of the phases matters. When the arrows point the
+  same way, $P_{12} = 4A^2$: twice what bullets would give. When they point
+  opposite ways, $P_{12} = 0$: that is the place where opening the second slit
+  stops the electrons arriving. At a phase difference of a quarter turn the cosine
+  vanishes and the bullet answer $2A^2$ comes back.
+</p>
+
+<h2>Where the phases come from</h2>
+
+<figure>
+<div class="fig-scroll">
+<svg class="fig-svg" viewBox="0 0 680 250" role="img" aria-labelledby="fig-setup-title fig-setup-desc">
+<title id="fig-setup-title">Geometry of the two-slit experiment</title>
+<desc id="fig-setup-desc">A source on the left, a wall with two slits a distance d apart, and a screen a distance L to the right. Two paths of lengths r1 and r2 run from the slits to a point at height x on the screen.</desc>
+<circle cx="40" cy="125" r="5" style="fill:var(--text-dim)"/>
+<text class="fig-note" x="28" y="150">source</text>
+<path class="fig-axis" style="stroke-width:4" d="M220,20 V97 M220,113 V137 M220,153 V230"/>
+<text class="fig-note" x="196" y="16">wall</text>
+<path class="fig-axis" d="M205,105 h-14 M205,145 h-14 M198,105 V145"/>
+<text class="fig-note" x="176" y="130">d</text>
+<text class="fig-tick" x="228" y="101">1</text>
+<text class="fig-tick" x="228" y="163">2</text>
+<path class="fig-axis" style="stroke-width:4" d="M620,20 V230"/>
+<text class="fig-note" x="596" y="16">screen</text>
+<path class="fig-curve fig-hot" style="stroke-width:1.6" d="M220,105 L620,55"/>
+<path class="fig-curve fig-hot" style="stroke-width:1.6" d="M220,145 L620,55"/>
+<text class="fig-note" x="400" y="70">r₁</text>
+<text class="fig-note" x="400" y="118">r₂</text>
+<path class="fig-axis" style="stroke-dasharray:4 4" d="M220,125 H620"/>
+<path class="fig-axis" d="M636,125 V55 M630,125 h12 M630,55 h12"/>
+<text class="fig-note" x="646" y="94">x</text>
+<path class="fig-axis" d="M220,242 H620 M220,236 v12 M620,236 v12"/>
+<text class="fig-note" x="414" y="236">L</text>
+</svg>
+</div>
+  <figcaption>
+    The set-up, not to scale. The two routes to the same point on the screen have
+    different lengths $r_1$ and $r_2$. In the real experiment $L$ is millions of
+    times larger than $d$, so the two routes are very nearly parallel.
+  </figcaption>
+</figure>
+
+<p>
+  An electron with momentum $p$ has wavelength $\lambda = h/p$, and its amplitude
+  turns through one full revolution, $2\pi$, for every wavelength of distance
+  travelled. A route of length $r$ therefore contributes a phase
+  $\varphi = 2\pi r/\lambda$, and the phase difference between the two routes is
+  $2\pi(r_2 - r_1)/\lambda$: the number of wavelengths by which one route is
+  longer, counted in turns.
 </p>
 
 <p>
-  Dirac is careful to warn against the analogy the mathematics invites. Because
-  the equations are linear, one is tempted to compare quantum states with
-  vibrating strings and membranes, which also superpose. He insists the
-  resemblance is misleading: classical superposition of a state with itself gives
-  a bigger oscillation, a genuinely different state, whereas quantum superposition
-  of a state with itself gives nothing new. The linearity is the same; the meaning
-  is not.
+  For a point at height $x$ on a distant screen, the geometry in the figure gives
+  a path difference $r_2 - r_1 \approx d\,x/L$, where $d$ is the separation of the
+  slits and $L$ the distance to the screen. (The approximation holds when $x$ and
+  $d$ are both much smaller than $L$.) So
 </p>
 
-<h3>Landau &amp; Lifshitz: linearity as a corollary</h3>
+$$P_{12}(x) = 2A^2\left[\,1 + \cos\!\left(\frac{2\pi\,d\,x}{\lambda L}\right)\right].$$
 
 <p>
-  Landau and Lifshitz reach the same principle by a different door. They introduce
-  the wave function $\psi(q)$ first, with $|\psi|^2\,dq$ as the probability of
-  finding the coordinates in $dq$, and only then state superposition as a set of
-  propositions about wave functions. Their formulation is operational: if a
-  measurement yields result 1 with certainty in state $\psi_1$ and result 2 in
-  $\psi_2$, then any linear combination $c_1\psi_1 + c_2\psi_2$ is a state in which
-  the measurement yields either result 1 or result 2. They call this "the chief
-  positive principle" of quantum mechanics — positive because the uncertainty
-  principle of their opening section was, in their words, negative in content, and
-  a theory cannot be built on prohibitions alone.
+  The pattern repeats each time the cosine's argument grows by $2\pi$, that is,
+  each time $x$ increases by the <em>fringe spacing</em>
+</p>
+
+$$s = \frac{\lambda L}{d}.$$
+
+<p>
+  Longer wavelength or a more distant screen spreads
+  the fringes; slits further apart crowd them together.
+</p>
+
+<h2>Worked example: a 100 eV electron</h2>
+
+<div class="worked">
+<p>
+  <strong>The wavelength.</strong> Take electrons accelerated through 100 volts, so
+  each has kinetic energy $E = 100$&nbsp;eV $= 1.602\times10^{-17}$&nbsp;J. This is
+  tiny compared with the electron's rest energy of 511,000&nbsp;eV, so the ordinary
+  relation $E = p^2/2m$ applies, with $m = 9.109\times10^{-31}$&nbsp;kg:
+</p>
+$$\begin{aligned}
+p &= \sqrt{2mE} = 5.40\times10^{-24}\ \text{kg m/s},\\[4pt]
+\lambda &= \frac{h}{p}\\[4pt]
+&= \frac{6.626\times10^{-34}\ \text{J s}}{5.40\times10^{-24}\ \text{kg m/s}}\\[4pt]
+&= 1.23\times10^{-10}\ \text{m}\\[4pt]
+&= 0.123\ \text{nm}.
+\end{aligned}$$
+<p>
+  That is about the size of an atom, and thousands of times shorter than visible
+  light, which is why electron interference needs very fine slits.
+</p>
+<p>
+  <strong>The fringes.</strong> Slits of this kind have been cut in thin membranes
+  with separations of a few hundred nanometres. Take $d = 200$&nbsp;nm and a screen
+  at $L = 1$&nbsp;m:
+</p>
+$$\begin{aligned}
+s &= \frac{\lambda L}{d}\\[4pt]
+&= \frac{1.23\times10^{-10}\ \text{m}\times 1\ \text{m}}{2.00\times10^{-7}\ \text{m}}\\[4pt]
+&= 0.61\ \text{mm}.
+\end{aligned}$$
+<p>
+  Stripes two-thirds of a millimetre apart: large enough to see once magnified a
+  little, and produced by a wavelength the size of an atom.
+</p>
+<p>
+  <strong>Check: nothing is created or lost.</strong> Averaged over one full fringe
+  the cosine is zero, so the average of $P_{12}$ is $2A^2 = P_1 + P_2$. Interference
+  does not change how many electrons arrive; it moves them from the dark stripes
+  to the bright ones.
+</p>
+<p>
+  <strong>Check: why bullets show no fringes.</strong> A 10&nbsp;g bullet at
+  300&nbsp;m/s has $p = 3$&nbsp;kg&nbsp;m/s and
+  $\lambda = h/p = 2.2\times10^{-34}$&nbsp;m. With slits a centimetre apart and a
+  target 100&nbsp;m away, $s = 2.2\times10^{-30}$&nbsp;m, some $10^{14}$ times smaller
+  than an atomic nucleus. Any real detector averages over an
+  astronomical number of fringes, the cosine averages to zero, and what is left is
+  $P_1 + P_2$. The bullet rule is what the electron rule looks like when the
+  wavelength is far too small to resolve.
+</p>
+</div>
+
+<figure>
+<div class="fig-scroll">
+<!-- FIGURE:fringes generated by scripts/ch04_double_slit.py -->
+<svg class="fig-svg" viewBox="0 0 680 360" role="img" aria-labelledby="fig-fringes-title fig-fringes-desc">
+<title id="fig-fringes-title">Arrival pattern with and without a which-slit record</title>
+<desc id="fig-fringes-desc">Probability of arrival against position on the screen. Without a record the curve oscillates between zero and twice the smooth curve, with fringes 0.61 millimetres apart. With a which-slit record the curve is smooth, with no fringes, and runs through the middle of the oscillating one.</desc>
+<path class="fig-axis" d="M62,18 V304 H660"/>
+<path class="fig-axis" d="M111.8,304 v5"/>
+<text class="fig-tick" x="111.8" y="323" text-anchor="middle">-2</text>
+<path class="fig-axis" d="M236.4,304 v5"/>
+<text class="fig-tick" x="236.4" y="323" text-anchor="middle">-1</text>
+<path class="fig-axis" d="M361.0,304 v5"/>
+<text class="fig-tick" x="361.0" y="323" text-anchor="middle">0</text>
+<path class="fig-axis" d="M485.6,304 v5"/>
+<text class="fig-tick" x="485.6" y="323" text-anchor="middle">1</text>
+<path class="fig-axis" d="M610.2,304 v5"/>
+<text class="fig-tick" x="610.2" y="323" text-anchor="middle">2</text>
+<path class="fig-axis" d="M62,304.0 h-5"/>
+<text class="fig-tick" x="53" y="308.0" text-anchor="end">0.0</text>
+<path class="fig-axis" d="M62,235.9 h-5"/>
+<text class="fig-tick" x="53" y="239.9" text-anchor="end">0.5</text>
+<path class="fig-axis" d="M62,167.8 h-5"/>
+<text class="fig-tick" x="53" y="171.8" text-anchor="end">1.0</text>
+<path class="fig-axis" d="M62,99.7 h-5"/>
+<text class="fig-tick" x="53" y="103.7" text-anchor="end">1.5</text>
+<path class="fig-axis" d="M62,31.6 h-5"/>
+<text class="fig-tick" x="53" y="35.6" text-anchor="end">2.0</text>
+<text class="fig-label" x="361.0" y="348" text-anchor="middle">position on the screen x (mm)</text>
+<text class="fig-label" transform="translate(18,161.0) rotate(-90)" text-anchor="middle">probability of arrival (relative)</text>
+<path class="fig-curve fig-hot" d="M62.0,303.9 L62.6,303.9 L63.2,303.8 L63.9,303.8 L64.5,303.8 L65.1,303.8 L65.7,303.7 L66.4,303.7 L67.0,303.7 L67.6,303.6 L68.2,303.6 L68.9,303.6 L69.5,303.6 L70.1,303.5 L70.7,303.5 L71.3,303.5 L72.0,303.5 L72.6,303.4 L73.2,303.4 L73.8,303.4 L74.5,303.4 L75.1,303.4 L75.7,303.4 L76.3,303.4 L76.9,303.4 L77.6,303.4 L78.2,303.4 L78.8,303.4 L79.4,303.4 L80.1,303.4 L80.7,303.4 L81.3,303.5 L81.9,303.5 L82.6,303.5 L83.2,303.5 L83.8,303.6 L84.4,303.6 L85.0,303.6 L85.7,303.7 L86.3,303.7 L86.9,303.7 L87.5,303.8 L88.2,303.8 L88.8,303.8 L89.4,303.9 L90.0,303.9 L90.7,303.9 L91.3,304.0 L91.9,304.0 L92.5,304.0 L93.1,304.0 L93.8,304.0 L94.4,304.0 L95.0,304.0 L95.6,304.0 L96.3,303.9 L96.9,303.9 L97.5,303.8 L98.1,303.8 L98.8,303.7 L99.4,303.6 L100.0,303.5 L100.6,303.4 L101.2,303.3 L101.9,303.1 L102.5,302.9 L103.1,302.8 L103.7,302.6 L104.4,302.3 L105.0,302.1 L105.6,301.8 L106.2,301.6 L106.9,301.3 L107.5,301.0 L108.1,300.6 L108.7,300.3 L109.3,299.9 L110.0,299.5 L110.6,299.1 L111.2,298.7 L111.8,298.2 L112.5,297.7 L113.1,297.3 L113.7,296.8 L114.3,296.2 L114.9,295.7 L115.6,295.1 L116.2,294.6 L116.8,294.0 L117.4,293.4 L118.1,292.8 L118.7,292.2 L119.3,291.5 L119.9,290.9 L120.6,290.3 L121.2,289.6 L121.8,289.0 L122.4,288.3 L123.0,287.6 L123.7,287.0 L124.3,286.3 L124.9,285.7 L125.5,285.1 L126.2,284.4 L126.8,283.8 L127.4,283.2 L128.0,282.6 L128.7,282.1 L129.3,281.5 L129.9,281.0 L130.5,280.5 L131.1,280.0 L131.8,279.5 L132.4,279.1 L133.0,278.7 L133.6,278.3 L134.3,277.9 L134.9,277.6 L135.5,277.4 L136.1,277.1 L136.8,276.9 L137.4,276.8 L138.0,276.7 L138.6,276.6 L139.2,276.5 L139.9,276.6 L140.5,276.6 L141.1,276.7 L141.7,276.8 L142.4,277.0 L143.0,277.3 L143.6,277.5 L144.2,277.9 L144.8,278.2 L145.5,278.6 L146.1,279.1 L146.7,279.6 L147.3,280.1 L148.0,280.7 L148.6,281.3 L149.2,281.9 L149.8,282.6 L150.5,283.3 L151.1,284.0 L151.7,284.8 L152.3,285.6 L152.9,286.4 L153.6,287.2 L154.2,288.0 L154.8,288.9 L155.4,289.8 L156.1,290.6 L156.7,291.5 L157.3,292.4 L157.9,293.3 L158.6,294.1 L159.2,295.0 L159.8,295.8 L160.4,296.6 L161.0,297.4 L161.7,298.2 L162.3,299.0 L162.9,299.7 L163.5,300.3 L164.2,300.9 L164.8,301.5 L165.4,302.0 L166.0,302.5 L166.7,302.9 L167.3,303.3 L167.9,303.6 L168.5,303.8 L169.1,303.9 L169.8,304.0 L170.4,304.0 L171.0,303.9 L171.6,303.7 L172.3,303.5 L172.9,303.1 L173.5,302.7 L174.1,302.2 L174.7,301.5 L175.4,300.8 L176.0,300.0 L176.6,299.1 L177.2,298.1 L177.9,297.0 L178.5,295.8 L179.1,294.5 L179.7,293.1 L180.4,291.6 L181.0,290.0 L181.6,288.4 L182.2,286.6 L182.8,284.8 L183.5,282.8 L184.1,280.8 L184.7,278.7 L185.3,276.6 L186.0,274.3 L186.6,272.0 L187.2,269.6 L187.8,267.2 L188.5,264.7 L189.1,262.2 L189.7,259.6 L190.3,257.0 L190.9,254.3 L191.6,251.7 L192.2,249.0 L192.8,246.3 L193.4,243.5 L194.1,240.8 L194.7,238.1 L195.3,235.4 L195.9,232.7 L196.6,230.1 L197.2,227.4 L197.8,224.8 L198.4,222.3 L199.0,219.8 L199.7,217.4 L200.3,215.0 L200.9,212.7 L201.5,210.5 L202.2,208.4 L202.8,206.4 L203.4,204.5 L204.0,202.7 L204.6,201.0 L205.3,199.4 L205.9,197.9 L206.5,196.6 L207.1,195.4 L207.8,194.3 L208.4,193.4 L209.0,192.6 L209.6,191.9 L210.3,191.4 L210.9,191.1 L211.5,190.9 L212.1,190.9 L212.7,191.0 L213.4,191.3 L214.0,191.8 L214.6,192.4 L215.2,193.1 L215.9,194.1 L216.5,195.1 L217.1,196.4 L217.7,197.8 L218.4,199.3 L219.0,201.0 L219.6,202.8 L220.2,204.7 L220.8,206.8 L221.5,209.0 L222.1,211.4 L222.7,213.8 L223.3,216.3 L224.0,219.0 L224.6,221.7 L225.2,224.6 L225.8,227.5 L226.4,230.5 L227.1,233.5 L227.7,236.6 L228.3,239.7 L228.9,242.9 L229.6,246.1 L230.2,249.3 L230.8,252.5 L231.4,255.7 L232.1,258.8 L232.7,262.0 L233.3,265.1 L233.9,268.2 L234.5,271.2 L235.2,274.1 L235.8,276.9 L236.4,279.7 L237.0,282.3 L237.7,284.9 L238.3,287.3 L238.9,289.6 L239.5,291.8 L240.2,293.8 L240.8,295.6 L241.4,297.3 L242.0,298.8 L242.6,300.2 L243.3,301.3 L243.9,302.3 L244.5,303.0 L245.1,303.5 L245.8,303.9 L246.4,304.0 L247.0,303.9 L247.6,303.6 L248.3,303.0 L248.9,302.2 L249.5,301.2 L250.1,300.0 L250.7,298.5 L251.4,296.8 L252.0,294.9 L252.6,292.7 L253.2,290.4 L253.9,287.7 L254.5,284.9 L255.1,281.9 L255.7,278.6 L256.3,275.2 L257.0,271.5 L257.6,267.7 L258.2,263.7 L258.8,259.5 L259.5,255.1 L260.1,250.6 L260.7,245.9 L261.3,241.1 L262.0,236.2 L262.6,231.2 L263.2,226.0 L263.8,220.8 L264.4,215.5 L265.1,210.1 L265.7,204.7 L266.3,199.2 L266.9,193.7 L267.6,188.2 L268.2,182.7 L268.8,177.2 L269.4,171.7 L270.1,166.3 L270.7,160.9 L271.3,155.6 L271.9,150.4 L272.5,145.3 L273.2,140.3 L273.8,135.5 L274.4,130.7 L275.0,126.2 L275.7,121.8 L276.3,117.5 L276.9,113.5 L277.5,109.7 L278.2,106.0 L278.8,102.6 L279.4,99.5 L280.0,96.6 L280.6,93.9 L281.3,91.5 L281.9,89.3 L282.5,87.4 L283.1,85.8 L283.8,84.5 L284.4,83.5 L285.0,82.8 L285.6,82.3 L286.2,82.2 L286.9,82.4 L287.5,82.8 L288.1,83.6 L288.7,84.7 L289.4,86.0 L290.0,87.7 L290.6,89.6 L291.2,91.8 L291.9,94.3 L292.5,97.1 L293.1,100.2 L293.7,103.5 L294.3,107.0 L295.0,110.8 L295.6,114.8 L296.2,119.1 L296.8,123.6 L297.5,128.2 L298.1,133.1 L298.7,138.1 L299.3,143.3 L300.0,148.6 L300.6,154.1 L301.2,159.6 L301.8,165.3 L302.4,171.0 L303.1,176.9 L303.7,182.7 L304.3,188.7 L304.9,194.6 L305.6,200.5 L306.2,206.4 L306.8,212.3 L307.4,218.1 L308.1,223.9 L308.7,229.6 L309.3,235.2 L309.9,240.6 L310.5,246.0 L311.2,251.1 L311.8,256.2 L312.4,261.0 L313.0,265.6 L313.7,270.1 L314.3,274.3 L314.9,278.3 L315.5,282.0 L316.1,285.5 L316.8,288.7 L317.4,291.6 L318.0,294.3 L318.6,296.6 L319.3,298.6 L319.9,300.3 L320.5,301.7 L321.1,302.8 L321.8,303.5 L322.4,303.9 L323.0,304.0 L323.6,303.7 L324.2,303.1 L324.9,302.1 L325.5,300.8 L326.1,299.2 L326.7,297.2 L327.4,294.9 L328.0,292.3 L328.6,289.3 L329.2,286.1 L329.9,282.5 L330.5,278.6 L331.1,274.4 L331.7,270.0 L332.3,265.3 L333.0,260.3 L333.6,255.1 L334.2,249.7 L334.8,244.0 L335.5,238.2 L336.1,232.1 L336.7,225.9 L337.3,219.5 L338.0,213.0 L338.6,206.3 L339.2,199.6 L339.8,192.8 L340.4,185.9 L341.1,178.9 L341.7,171.9 L342.3,164.9 L342.9,157.9 L343.6,151.0 L344.2,144.0 L344.8,137.1 L345.4,130.4 L346.0,123.7 L346.7,117.1 L347.3,110.6 L347.9,104.3 L348.5,98.2 L349.2,92.3 L349.8,86.5 L350.4,81.0 L351.0,75.7 L351.7,70.6 L352.3,65.8 L352.9,61.3 L353.5,57.0 L354.1,53.1 L354.8,49.5 L355.4,46.1 L356.0,43.1 L356.6,40.5 L357.3,38.1 L357.9,36.2 L358.5,34.5 L359.1,33.3 L359.8,32.3 L360.4,31.8 L361.0,31.6 L361.6,31.8 L362.2,32.3 L362.9,33.3 L363.5,34.5 L364.1,36.2 L364.7,38.1 L365.4,40.5 L366.0,43.1 L366.6,46.1 L367.2,49.5 L367.9,53.1 L368.5,57.0 L369.1,61.3 L369.7,65.8 L370.3,70.6 L371.0,75.7 L371.6,81.0 L372.2,86.5 L372.8,92.3 L373.5,98.2 L374.1,104.3 L374.7,110.6 L375.3,117.1 L375.9,123.7 L376.6,130.4 L377.2,137.1 L377.8,144.0 L378.4,151.0 L379.1,157.9 L379.7,164.9 L380.3,171.9 L380.9,178.9 L381.6,185.9 L382.2,192.8 L382.8,199.6 L383.4,206.3 L384.0,213.0 L384.7,219.5 L385.3,225.9 L385.9,232.1 L386.5,238.2 L387.2,244.0 L387.8,249.7 L388.4,255.1 L389.0,260.3 L389.7,265.3 L390.3,270.0 L390.9,274.4 L391.5,278.6 L392.1,282.5 L392.8,286.1 L393.4,289.3 L394.0,292.3 L394.6,294.9 L395.3,297.2 L395.9,299.2 L396.5,300.8 L397.1,302.1 L397.8,303.1 L398.4,303.7 L399.0,304.0 L399.6,303.9 L400.2,303.5 L400.9,302.8 L401.5,301.7 L402.1,300.3 L402.7,298.6 L403.4,296.6 L404.0,294.3 L404.6,291.6 L405.2,288.7 L405.9,285.5 L406.5,282.0 L407.1,278.3 L407.7,274.3 L408.3,270.1 L409.0,265.6 L409.6,261.0 L410.2,256.2 L410.8,251.1 L411.5,246.0 L412.1,240.6 L412.7,235.2 L413.3,229.6 L413.9,223.9 L414.6,218.1 L415.2,212.3 L415.8,206.4 L416.4,200.5 L417.1,194.6 L417.7,188.7 L418.3,182.7 L418.9,176.9 L419.6,171.0 L420.2,165.3 L420.8,159.6 L421.4,154.1 L422.0,148.6 L422.7,143.3 L423.3,138.1 L423.9,133.1 L424.5,128.2 L425.2,123.6 L425.8,119.1 L426.4,114.8 L427.0,110.8 L427.7,107.0 L428.3,103.5 L428.9,100.2 L429.5,97.1 L430.1,94.3 L430.8,91.8 L431.4,89.6 L432.0,87.7 L432.6,86.0 L433.3,84.7 L433.9,83.6 L434.5,82.8 L435.1,82.4 L435.8,82.2 L436.4,82.3 L437.0,82.8 L437.6,83.5 L438.2,84.5 L438.9,85.8 L439.5,87.4 L440.1,89.3 L440.7,91.5 L441.4,93.9 L442.0,96.6 L442.6,99.5 L443.2,102.6 L443.8,106.0 L444.5,109.7 L445.1,113.5 L445.7,117.5 L446.3,121.8 L447.0,126.2 L447.6,130.7 L448.2,135.5 L448.8,140.3 L449.5,145.3 L450.1,150.4 L450.7,155.6 L451.3,160.9 L451.9,166.3 L452.6,171.7 L453.2,177.2 L453.8,182.7 L454.4,188.2 L455.1,193.7 L455.7,199.2 L456.3,204.7 L456.9,210.1 L457.6,215.5 L458.2,220.8 L458.8,226.0 L459.4,231.2 L460.0,236.2 L460.7,241.1 L461.3,245.9 L461.9,250.6 L462.5,255.1 L463.2,259.5 L463.8,263.7 L464.4,267.7 L465.0,271.5 L465.7,275.2 L466.3,278.6 L466.9,281.9 L467.5,284.9 L468.1,287.7 L468.8,290.4 L469.4,292.7 L470.0,294.9 L470.6,296.8 L471.3,298.5 L471.9,300.0 L472.5,301.2 L473.1,302.2 L473.7,303.0 L474.4,303.6 L475.0,303.9 L475.6,304.0 L476.2,303.9 L476.9,303.5 L477.5,303.0 L478.1,302.3 L478.7,301.3 L479.4,300.2 L480.0,298.8 L480.6,297.3 L481.2,295.6 L481.8,293.8 L482.5,291.8 L483.1,289.6 L483.7,287.3 L484.3,284.9 L485.0,282.3 L485.6,279.7 L486.2,276.9 L486.8,274.1 L487.5,271.2 L488.1,268.2 L488.7,265.1 L489.3,262.0 L489.9,258.8 L490.6,255.7 L491.2,252.5 L491.8,249.3 L492.4,246.1 L493.1,242.9 L493.7,239.7 L494.3,236.6 L494.9,233.5 L495.6,230.5 L496.2,227.5 L496.8,224.6 L497.4,221.7 L498.0,219.0 L498.7,216.3 L499.3,213.8 L499.9,211.4 L500.5,209.0 L501.2,206.8 L501.8,204.7 L502.4,202.8 L503.0,201.0 L503.6,199.3 L504.3,197.8 L504.9,196.4 L505.5,195.1 L506.1,194.1 L506.8,193.1 L507.4,192.4 L508.0,191.8 L508.6,191.3 L509.3,191.0 L509.9,190.9 L510.5,190.9 L511.1,191.1 L511.7,191.4 L512.4,191.9 L513.0,192.6 L513.6,193.4 L514.2,194.3 L514.9,195.4 L515.5,196.6 L516.1,197.9 L516.7,199.4 L517.4,201.0 L518.0,202.7 L518.6,204.5 L519.2,206.4 L519.8,208.4 L520.5,210.5 L521.1,212.7 L521.7,215.0 L522.3,217.4 L523.0,219.8 L523.6,222.3 L524.2,224.8 L524.8,227.4 L525.5,230.1 L526.1,232.7 L526.7,235.4 L527.3,238.1 L527.9,240.8 L528.6,243.5 L529.2,246.3 L529.8,249.0 L530.4,251.7 L531.1,254.3 L531.7,257.0 L532.3,259.6 L532.9,262.2 L533.5,264.7 L534.2,267.2 L534.8,269.6 L535.4,272.0 L536.0,274.3 L536.7,276.6 L537.3,278.7 L537.9,280.8 L538.5,282.8 L539.2,284.8 L539.8,286.6 L540.4,288.4 L541.0,290.0 L541.6,291.6 L542.3,293.1 L542.9,294.5 L543.5,295.8 L544.1,297.0 L544.8,298.1 L545.4,299.1 L546.0,300.0 L546.6,300.8 L547.3,301.5 L547.9,302.2 L548.5,302.7 L549.1,303.1 L549.7,303.5 L550.4,303.7 L551.0,303.9 L551.6,304.0 L552.2,304.0 L552.9,303.9 L553.5,303.8 L554.1,303.6 L554.7,303.3 L555.4,302.9 L556.0,302.5 L556.6,302.0 L557.2,301.5 L557.8,300.9 L558.5,300.3 L559.1,299.7 L559.7,299.0 L560.3,298.2 L561.0,297.4 L561.6,296.6 L562.2,295.8 L562.8,295.0 L563.4,294.1 L564.1,293.3 L564.7,292.4 L565.3,291.5 L565.9,290.6 L566.6,289.8 L567.2,288.9 L567.8,288.0 L568.4,287.2 L569.1,286.4 L569.7,285.6 L570.3,284.8 L570.9,284.0 L571.5,283.3 L572.2,282.6 L572.8,281.9 L573.4,281.3 L574.0,280.7 L574.7,280.1 L575.3,279.6 L575.9,279.1 L576.5,278.6 L577.2,278.2 L577.8,277.9 L578.4,277.5 L579.0,277.3 L579.6,277.0 L580.3,276.8 L580.9,276.7 L581.5,276.6 L582.1,276.6 L582.8,276.5 L583.4,276.6 L584.0,276.7 L584.6,276.8 L585.3,276.9 L585.9,277.1 L586.5,277.4 L587.1,277.6 L587.7,277.9 L588.4,278.3 L589.0,278.7 L589.6,279.1 L590.2,279.5 L590.9,280.0 L591.5,280.5 L592.1,281.0 L592.7,281.5 L593.3,282.1 L594.0,282.6 L594.6,283.2 L595.2,283.8 L595.8,284.4 L596.5,285.1 L597.1,285.7 L597.7,286.3 L598.3,287.0 L599.0,287.6 L599.6,288.3 L600.2,289.0 L600.8,289.6 L601.4,290.3 L602.1,290.9 L602.7,291.5 L603.3,292.2 L603.9,292.8 L604.6,293.4 L605.2,294.0 L605.8,294.6 L606.4,295.1 L607.1,295.7 L607.7,296.2 L608.3,296.8 L608.9,297.3 L609.5,297.7 L610.2,298.2 L610.8,298.7 L611.4,299.1 L612.0,299.5 L612.7,299.9 L613.3,300.3 L613.9,300.6 L614.5,301.0 L615.1,301.3 L615.8,301.6 L616.4,301.8 L617.0,302.1 L617.6,302.3 L618.3,302.6 L618.9,302.8 L619.5,302.9 L620.1,303.1 L620.8,303.3 L621.4,303.4 L622.0,303.5 L622.6,303.6 L623.2,303.7 L623.9,303.8 L624.5,303.8 L625.1,303.9 L625.7,303.9 L626.4,304.0 L627.0,304.0 L627.6,304.0 L628.2,304.0 L628.9,304.0 L629.5,304.0 L630.1,304.0 L630.7,304.0 L631.3,303.9 L632.0,303.9 L632.6,303.9 L633.2,303.8 L633.8,303.8 L634.5,303.8 L635.1,303.7 L635.7,303.7 L636.3,303.7 L637.0,303.6 L637.6,303.6 L638.2,303.6 L638.8,303.5 L639.4,303.5 L640.1,303.5 L640.7,303.5 L641.3,303.4 L641.9,303.4 L642.6,303.4 L643.2,303.4 L643.8,303.4 L644.4,303.4 L645.1,303.4 L645.7,303.4 L646.3,303.4 L646.9,303.4 L647.5,303.4 L648.2,303.4 L648.8,303.4 L649.4,303.4 L650.0,303.5 L650.7,303.5 L651.3,303.5 L651.9,303.5 L652.5,303.6 L653.1,303.6 L653.8,303.6 L654.4,303.6 L655.0,303.7 L655.6,303.7 L656.3,303.7 L656.9,303.8 L657.5,303.8 L658.1,303.8 L658.8,303.8 L659.4,303.9 L660.0,303.9"/>
+<path class="fig-curve fig-classical" d="M62.0,303.9 L62.6,303.9 L63.2,303.9 L63.9,303.9 L64.5,303.9 L65.1,303.9 L65.7,303.8 L66.4,303.8 L67.0,303.8 L67.6,303.8 L68.2,303.7 L68.9,303.7 L69.5,303.7 L70.1,303.7 L70.7,303.6 L71.3,303.6 L72.0,303.6 L72.6,303.5 L73.2,303.5 L73.8,303.4 L74.5,303.4 L75.1,303.4 L75.7,303.3 L76.3,303.3 L76.9,303.2 L77.6,303.2 L78.2,303.1 L78.8,303.1 L79.4,303.0 L80.1,303.0 L80.7,302.9 L81.3,302.9 L81.9,302.8 L82.6,302.7 L83.2,302.7 L83.8,302.6 L84.4,302.5 L85.0,302.5 L85.7,302.4 L86.3,302.3 L86.9,302.3 L87.5,302.2 L88.2,302.1 L88.8,302.0 L89.4,302.0 L90.0,301.9 L90.7,301.8 L91.3,301.7 L91.9,301.6 L92.5,301.5 L93.1,301.4 L93.8,301.3 L94.4,301.2 L95.0,301.1 L95.6,301.0 L96.3,300.9 L96.9,300.8 L97.5,300.7 L98.1,300.6 L98.8,300.5 L99.4,300.4 L100.0,300.3 L100.6,300.2 L101.2,300.1 L101.9,299.9 L102.5,299.8 L103.1,299.7 L103.7,299.6 L104.4,299.5 L105.0,299.3 L105.6,299.2 L106.2,299.1 L106.9,298.9 L107.5,298.8 L108.1,298.6 L108.7,298.5 L109.3,298.4 L110.0,298.2 L110.6,298.1 L111.2,297.9 L111.8,297.8 L112.5,297.6 L113.1,297.5 L113.7,297.3 L114.3,297.1 L114.9,297.0 L115.6,296.8 L116.2,296.6 L116.8,296.5 L117.4,296.3 L118.1,296.1 L118.7,296.0 L119.3,295.8 L119.9,295.6 L120.6,295.4 L121.2,295.2 L121.8,295.0 L122.4,294.9 L123.0,294.7 L123.7,294.5 L124.3,294.3 L124.9,294.1 L125.5,293.9 L126.2,293.7 L126.8,293.5 L127.4,293.3 L128.0,293.1 L128.7,292.8 L129.3,292.6 L129.9,292.4 L130.5,292.2 L131.1,292.0 L131.8,291.8 L132.4,291.5 L133.0,291.3 L133.6,291.1 L134.3,290.8 L134.9,290.6 L135.5,290.4 L136.1,290.1 L136.8,289.9 L137.4,289.6 L138.0,289.4 L138.6,289.2 L139.2,288.9 L139.9,288.7 L140.5,288.4 L141.1,288.1 L141.7,287.9 L142.4,287.6 L143.0,287.4 L143.6,287.1 L144.2,286.8 L144.8,286.6 L145.5,286.3 L146.1,286.0 L146.7,285.7 L147.3,285.5 L148.0,285.2 L148.6,284.9 L149.2,284.6 L149.8,284.3 L150.5,284.0 L151.1,283.7 L151.7,283.4 L152.3,283.1 L152.9,282.8 L153.6,282.5 L154.2,282.2 L154.8,281.9 L155.4,281.6 L156.1,281.3 L156.7,281.0 L157.3,280.7 L157.9,280.4 L158.6,280.1 L159.2,279.7 L159.8,279.4 L160.4,279.1 L161.0,278.8 L161.7,278.4 L162.3,278.1 L162.9,277.8 L163.5,277.4 L164.2,277.1 L164.8,276.8 L165.4,276.4 L166.0,276.1 L166.7,275.7 L167.3,275.4 L167.9,275.0 L168.5,274.7 L169.1,274.3 L169.8,274.0 L170.4,273.6 L171.0,273.3 L171.6,272.9 L172.3,272.5 L172.9,272.2 L173.5,271.8 L174.1,271.4 L174.7,271.1 L175.4,270.7 L176.0,270.3 L176.6,270.0 L177.2,269.6 L177.9,269.2 L178.5,268.8 L179.1,268.4 L179.7,268.1 L180.4,267.7 L181.0,267.3 L181.6,266.9 L182.2,266.5 L182.8,266.1 L183.5,265.7 L184.1,265.3 L184.7,264.9 L185.3,264.5 L186.0,264.1 L186.6,263.7 L187.2,263.3 L187.8,262.9 L188.5,262.5 L189.1,262.1 L189.7,261.7 L190.3,261.2 L190.9,260.8 L191.6,260.4 L192.2,260.0 L192.8,259.6 L193.4,259.2 L194.1,258.7 L194.7,258.3 L195.3,257.9 L195.9,257.5 L196.6,257.0 L197.2,256.6 L197.8,256.2 L198.4,255.7 L199.0,255.3 L199.7,254.9 L200.3,254.4 L200.9,254.0 L201.5,253.6 L202.2,253.1 L202.8,252.7 L203.4,252.2 L204.0,251.8 L204.6,251.4 L205.3,250.9 L205.9,250.5 L206.5,250.0 L207.1,249.6 L207.8,249.1 L208.4,248.7 L209.0,248.2 L209.6,247.8 L210.3,247.3 L210.9,246.9 L211.5,246.4 L212.1,246.0 L212.7,245.5 L213.4,245.0 L214.0,244.6 L214.6,244.1 L215.2,243.7 L215.9,243.2 L216.5,242.7 L217.1,242.3 L217.7,241.8 L218.4,241.4 L219.0,240.9 L219.6,240.4 L220.2,240.0 L220.8,239.5 L221.5,239.0 L222.1,238.6 L222.7,238.1 L223.3,237.6 L224.0,237.2 L224.6,236.7 L225.2,236.2 L225.8,235.8 L226.4,235.3 L227.1,234.8 L227.7,234.4 L228.3,233.9 L228.9,233.4 L229.6,232.9 L230.2,232.5 L230.8,232.0 L231.4,231.5 L232.1,231.1 L232.7,230.6 L233.3,230.1 L233.9,229.7 L234.5,229.2 L235.2,228.7 L235.8,228.2 L236.4,227.8 L237.0,227.3 L237.7,226.8 L238.3,226.4 L238.9,225.9 L239.5,225.4 L240.2,224.9 L240.8,224.5 L241.4,224.0 L242.0,223.5 L242.6,223.1 L243.3,222.6 L243.9,222.1 L244.5,221.7 L245.1,221.2 L245.8,220.7 L246.4,220.3 L247.0,219.8 L247.6,219.3 L248.3,218.9 L248.9,218.4 L249.5,217.9 L250.1,217.5 L250.7,217.0 L251.4,216.5 L252.0,216.1 L252.6,215.6 L253.2,215.2 L253.9,214.7 L254.5,214.3 L255.1,213.8 L255.7,213.3 L256.3,212.9 L257.0,212.4 L257.6,212.0 L258.2,211.5 L258.8,211.1 L259.5,210.6 L260.1,210.2 L260.7,209.7 L261.3,209.3 L262.0,208.8 L262.6,208.4 L263.2,207.9 L263.8,207.5 L264.4,207.1 L265.1,206.6 L265.7,206.2 L266.3,205.7 L266.9,205.3 L267.6,204.9 L268.2,204.4 L268.8,204.0 L269.4,203.6 L270.1,203.1 L270.7,202.7 L271.3,202.3 L271.9,201.9 L272.5,201.4 L273.2,201.0 L273.8,200.6 L274.4,200.2 L275.0,199.8 L275.7,199.4 L276.3,198.9 L276.9,198.5 L277.5,198.1 L278.2,197.7 L278.8,197.3 L279.4,196.9 L280.0,196.5 L280.6,196.1 L281.3,195.7 L281.9,195.3 L282.5,194.9 L283.1,194.5 L283.8,194.1 L284.4,193.7 L285.0,193.4 L285.6,193.0 L286.2,192.6 L286.9,192.2 L287.5,191.8 L288.1,191.5 L288.7,191.1 L289.4,190.7 L290.0,190.3 L290.6,190.0 L291.2,189.6 L291.9,189.3 L292.5,188.9 L293.1,188.5 L293.7,188.2 L294.3,187.8 L295.0,187.5 L295.6,187.1 L296.2,186.8 L296.8,186.5 L297.5,186.1 L298.1,185.8 L298.7,185.4 L299.3,185.1 L300.0,184.8 L300.6,184.4 L301.2,184.1 L301.8,183.8 L302.4,183.5 L303.1,183.2 L303.7,182.9 L304.3,182.5 L304.9,182.2 L305.6,181.9 L306.2,181.6 L306.8,181.3 L307.4,181.0 L308.1,180.7 L308.7,180.4 L309.3,180.2 L309.9,179.9 L310.5,179.6 L311.2,179.3 L311.8,179.0 L312.4,178.8 L313.0,178.5 L313.7,178.2 L314.3,178.0 L314.9,177.7 L315.5,177.4 L316.1,177.2 L316.8,176.9 L317.4,176.7 L318.0,176.4 L318.6,176.2 L319.3,176.0 L319.9,175.7 L320.5,175.5 L321.1,175.3 L321.8,175.0 L322.4,174.8 L323.0,174.6 L323.6,174.4 L324.2,174.2 L324.9,174.0 L325.5,173.8 L326.1,173.5 L326.7,173.3 L327.4,173.2 L328.0,173.0 L328.6,172.8 L329.2,172.6 L329.9,172.4 L330.5,172.2 L331.1,172.0 L331.7,171.9 L332.3,171.7 L333.0,171.5 L333.6,171.4 L334.2,171.2 L334.8,171.1 L335.5,170.9 L336.1,170.8 L336.7,170.6 L337.3,170.5 L338.0,170.3 L338.6,170.2 L339.2,170.1 L339.8,169.9 L340.4,169.8 L341.1,169.7 L341.7,169.6 L342.3,169.5 L342.9,169.4 L343.6,169.3 L344.2,169.2 L344.8,169.1 L345.4,169.0 L346.0,168.9 L346.7,168.8 L347.3,168.7 L347.9,168.6 L348.5,168.6 L349.2,168.5 L349.8,168.4 L350.4,168.3 L351.0,168.3 L351.7,168.2 L352.3,168.2 L352.9,168.1 L353.5,168.1 L354.1,168.0 L354.8,168.0 L355.4,168.0 L356.0,167.9 L356.6,167.9 L357.3,167.9 L357.9,167.9 L358.5,167.8 L359.1,167.8 L359.8,167.8 L360.4,167.8 L361.0,167.8 L361.6,167.8 L362.2,167.8 L362.9,167.8 L363.5,167.8 L364.1,167.9 L364.7,167.9 L365.4,167.9 L366.0,167.9 L366.6,168.0 L367.2,168.0 L367.9,168.0 L368.5,168.1 L369.1,168.1 L369.7,168.2 L370.3,168.2 L371.0,168.3 L371.6,168.3 L372.2,168.4 L372.8,168.5 L373.5,168.6 L374.1,168.6 L374.7,168.7 L375.3,168.8 L375.9,168.9 L376.6,169.0 L377.2,169.1 L377.8,169.2 L378.4,169.3 L379.1,169.4 L379.7,169.5 L380.3,169.6 L380.9,169.7 L381.6,169.8 L382.2,169.9 L382.8,170.1 L383.4,170.2 L384.0,170.3 L384.7,170.5 L385.3,170.6 L385.9,170.8 L386.5,170.9 L387.2,171.1 L387.8,171.2 L388.4,171.4 L389.0,171.5 L389.7,171.7 L390.3,171.9 L390.9,172.0 L391.5,172.2 L392.1,172.4 L392.8,172.6 L393.4,172.8 L394.0,173.0 L394.6,173.2 L395.3,173.3 L395.9,173.5 L396.5,173.8 L397.1,174.0 L397.8,174.2 L398.4,174.4 L399.0,174.6 L399.6,174.8 L400.2,175.0 L400.9,175.3 L401.5,175.5 L402.1,175.7 L402.7,176.0 L403.4,176.2 L404.0,176.4 L404.6,176.7 L405.2,176.9 L405.9,177.2 L406.5,177.4 L407.1,177.7 L407.7,178.0 L408.3,178.2 L409.0,178.5 L409.6,178.8 L410.2,179.0 L410.8,179.3 L411.5,179.6 L412.1,179.9 L412.7,180.2 L413.3,180.4 L413.9,180.7 L414.6,181.0 L415.2,181.3 L415.8,181.6 L416.4,181.9 L417.1,182.2 L417.7,182.5 L418.3,182.9 L418.9,183.2 L419.6,183.5 L420.2,183.8 L420.8,184.1 L421.4,184.4 L422.0,184.8 L422.7,185.1 L423.3,185.4 L423.9,185.8 L424.5,186.1 L425.2,186.5 L425.8,186.8 L426.4,187.1 L427.0,187.5 L427.7,187.8 L428.3,188.2 L428.9,188.5 L429.5,188.9 L430.1,189.3 L430.8,189.6 L431.4,190.0 L432.0,190.3 L432.6,190.7 L433.3,191.1 L433.9,191.5 L434.5,191.8 L435.1,192.2 L435.8,192.6 L436.4,193.0 L437.0,193.4 L437.6,193.7 L438.2,194.1 L438.9,194.5 L439.5,194.9 L440.1,195.3 L440.7,195.7 L441.4,196.1 L442.0,196.5 L442.6,196.9 L443.2,197.3 L443.8,197.7 L444.5,198.1 L445.1,198.5 L445.7,198.9 L446.3,199.4 L447.0,199.8 L447.6,200.2 L448.2,200.6 L448.8,201.0 L449.5,201.4 L450.1,201.9 L450.7,202.3 L451.3,202.7 L451.9,203.1 L452.6,203.6 L453.2,204.0 L453.8,204.4 L454.4,204.9 L455.1,205.3 L455.7,205.7 L456.3,206.2 L456.9,206.6 L457.6,207.1 L458.2,207.5 L458.8,207.9 L459.4,208.4 L460.0,208.8 L460.7,209.3 L461.3,209.7 L461.9,210.2 L462.5,210.6 L463.2,211.1 L463.8,211.5 L464.4,212.0 L465.0,212.4 L465.7,212.9 L466.3,213.3 L466.9,213.8 L467.5,214.3 L468.1,214.7 L468.8,215.2 L469.4,215.6 L470.0,216.1 L470.6,216.5 L471.3,217.0 L471.9,217.5 L472.5,217.9 L473.1,218.4 L473.7,218.9 L474.4,219.3 L475.0,219.8 L475.6,220.3 L476.2,220.7 L476.9,221.2 L477.5,221.7 L478.1,222.1 L478.7,222.6 L479.4,223.1 L480.0,223.5 L480.6,224.0 L481.2,224.5 L481.8,224.9 L482.5,225.4 L483.1,225.9 L483.7,226.4 L484.3,226.8 L485.0,227.3 L485.6,227.8 L486.2,228.2 L486.8,228.7 L487.5,229.2 L488.1,229.7 L488.7,230.1 L489.3,230.6 L489.9,231.1 L490.6,231.5 L491.2,232.0 L491.8,232.5 L492.4,232.9 L493.1,233.4 L493.7,233.9 L494.3,234.4 L494.9,234.8 L495.6,235.3 L496.2,235.8 L496.8,236.2 L497.4,236.7 L498.0,237.2 L498.7,237.6 L499.3,238.1 L499.9,238.6 L500.5,239.0 L501.2,239.5 L501.8,240.0 L502.4,240.4 L503.0,240.9 L503.6,241.4 L504.3,241.8 L504.9,242.3 L505.5,242.7 L506.1,243.2 L506.8,243.7 L507.4,244.1 L508.0,244.6 L508.6,245.0 L509.3,245.5 L509.9,246.0 L510.5,246.4 L511.1,246.9 L511.7,247.3 L512.4,247.8 L513.0,248.2 L513.6,248.7 L514.2,249.1 L514.9,249.6 L515.5,250.0 L516.1,250.5 L516.7,250.9 L517.4,251.4 L518.0,251.8 L518.6,252.2 L519.2,252.7 L519.8,253.1 L520.5,253.6 L521.1,254.0 L521.7,254.4 L522.3,254.9 L523.0,255.3 L523.6,255.7 L524.2,256.2 L524.8,256.6 L525.5,257.0 L526.1,257.5 L526.7,257.9 L527.3,258.3 L527.9,258.7 L528.6,259.2 L529.2,259.6 L529.8,260.0 L530.4,260.4 L531.1,260.8 L531.7,261.2 L532.3,261.7 L532.9,262.1 L533.5,262.5 L534.2,262.9 L534.8,263.3 L535.4,263.7 L536.0,264.1 L536.7,264.5 L537.3,264.9 L537.9,265.3 L538.5,265.7 L539.2,266.1 L539.8,266.5 L540.4,266.9 L541.0,267.3 L541.6,267.7 L542.3,268.1 L542.9,268.4 L543.5,268.8 L544.1,269.2 L544.8,269.6 L545.4,270.0 L546.0,270.3 L546.6,270.7 L547.3,271.1 L547.9,271.4 L548.5,271.8 L549.1,272.2 L549.7,272.5 L550.4,272.9 L551.0,273.3 L551.6,273.6 L552.2,274.0 L552.9,274.3 L553.5,274.7 L554.1,275.0 L554.7,275.4 L555.4,275.7 L556.0,276.1 L556.6,276.4 L557.2,276.8 L557.8,277.1 L558.5,277.4 L559.1,277.8 L559.7,278.1 L560.3,278.4 L561.0,278.8 L561.6,279.1 L562.2,279.4 L562.8,279.7 L563.4,280.1 L564.1,280.4 L564.7,280.7 L565.3,281.0 L565.9,281.3 L566.6,281.6 L567.2,281.9 L567.8,282.2 L568.4,282.5 L569.1,282.8 L569.7,283.1 L570.3,283.4 L570.9,283.7 L571.5,284.0 L572.2,284.3 L572.8,284.6 L573.4,284.9 L574.0,285.2 L574.7,285.5 L575.3,285.7 L575.9,286.0 L576.5,286.3 L577.2,286.6 L577.8,286.8 L578.4,287.1 L579.0,287.4 L579.6,287.6 L580.3,287.9 L580.9,288.1 L581.5,288.4 L582.1,288.7 L582.8,288.9 L583.4,289.2 L584.0,289.4 L584.6,289.6 L585.3,289.9 L585.9,290.1 L586.5,290.4 L587.1,290.6 L587.7,290.8 L588.4,291.1 L589.0,291.3 L589.6,291.5 L590.2,291.8 L590.9,292.0 L591.5,292.2 L592.1,292.4 L592.7,292.6 L593.3,292.8 L594.0,293.1 L594.6,293.3 L595.2,293.5 L595.8,293.7 L596.5,293.9 L597.1,294.1 L597.7,294.3 L598.3,294.5 L599.0,294.7 L599.6,294.9 L600.2,295.0 L600.8,295.2 L601.4,295.4 L602.1,295.6 L602.7,295.8 L603.3,296.0 L603.9,296.1 L604.6,296.3 L605.2,296.5 L605.8,296.6 L606.4,296.8 L607.1,297.0 L607.7,297.1 L608.3,297.3 L608.9,297.5 L609.5,297.6 L610.2,297.8 L610.8,297.9 L611.4,298.1 L612.0,298.2 L612.7,298.4 L613.3,298.5 L613.9,298.6 L614.5,298.8 L615.1,298.9 L615.8,299.1 L616.4,299.2 L617.0,299.3 L617.6,299.5 L618.3,299.6 L618.9,299.7 L619.5,299.8 L620.1,299.9 L620.8,300.1 L621.4,300.2 L622.0,300.3 L622.6,300.4 L623.2,300.5 L623.9,300.6 L624.5,300.7 L625.1,300.8 L625.7,300.9 L626.4,301.0 L627.0,301.1 L627.6,301.2 L628.2,301.3 L628.9,301.4 L629.5,301.5 L630.1,301.6 L630.7,301.7 L631.3,301.8 L632.0,301.9 L632.6,302.0 L633.2,302.0 L633.8,302.1 L634.5,302.2 L635.1,302.3 L635.7,302.3 L636.3,302.4 L637.0,302.5 L637.6,302.5 L638.2,302.6 L638.8,302.7 L639.4,302.7 L640.1,302.8 L640.7,302.9 L641.3,302.9 L641.9,303.0 L642.6,303.0 L643.2,303.1 L643.8,303.1 L644.4,303.2 L645.1,303.2 L645.7,303.3 L646.3,303.3 L646.9,303.4 L647.5,303.4 L648.2,303.4 L648.8,303.5 L649.4,303.5 L650.0,303.6 L650.7,303.6 L651.3,303.6 L651.9,303.7 L652.5,303.7 L653.1,303.7 L653.8,303.7 L654.4,303.8 L655.0,303.8 L655.6,303.8 L656.3,303.8 L656.9,303.9 L657.5,303.9 L658.1,303.9 L658.8,303.9 L659.4,303.9 L660.0,303.9"/>
+<path class="fig-axis" d="M361.0,26.2 H437.4 M361.0,22.2 v8 M437.4,22.2 v8"/>
+<text class="fig-note" x="445.4" y="30.2">λL/d = 0.61 mm</text>
+<text class="fig-note" x="68.2" y="65.7">both slits open,</text>
+<text class="fig-note" x="68.2" y="81.7">no record: fringes</text>
+<text class="fig-note" x="525.5" y="161.0">which-slit record:</text>
+<text class="fig-note" x="525.5" y="177.0">no fringes (dashed)</text>
+</svg>
+<!-- /FIGURE:fringes -->
+</div>
+  <figcaption>
+    Calculated arrival pattern for the worked example (100&nbsp;eV electrons,
+    $d = 200$&nbsp;nm, $L = 1$&nbsp;m). Solid: both slits open and no record of the
+    route; fringes 0.61&nbsp;mm apart, swinging between zero and twice the dashed
+    curve. Dashed: a complete which-slit record exists (next section); the curve
+    is $P_1 + P_2$. Vertical scale: the fraction of electrons landing in a small
+    detector window at $x$, divided by the value of $P_1 + P_2$ at the centre. The
+    slow fall-off to the sides, ignored in the text where $A$ was taken constant,
+    comes from the finite width of each slit, here 50&nbsp;nm.
+  </figcaption>
+</figure>
+
+<h2>Finding out which slit</h2>
+
+<p>
+  Rule 2 carried a condition: the amplitudes add if <em>nothing records which way
+  it happened</em>. To see why the condition is there, put a marker next to the
+  slits: anything at all, a single atom will do, that can end up in one of two
+  conditions, which we will call <em>flag up</em> and <em>flag down</em>. Arrange
+  that an electron passing slit 1 leaves the flag up, and one passing slit 2
+  leaves it down.
 </p>
 
 <p>
-  The corollary they draw immediately is the one that matters for everything
-  after: because states superpose linearly, every equation that wave functions
-  satisfy must itself be linear in $\psi$. That single sentence licenses the entire
-  operator formalism to come — the Schrödinger equation, the eigenvalue problems,
-  the expansions in complete sets. Where Feynman keeps the linearity implicit in
-  his adding of amplitudes, and Dirac makes it geometry, Landau and Lifshitz name
-  it as a constraint on the form of the laws and move on.
+  Now ask for the probability that an electron arrives at $x$. There are two
+  distinct final outcomes to consider: "electron at $x$, flag up" and "electron
+  at $x$, flag down". The first can happen only by way of slit 1, so its amplitude
+  is $a_1$; the second only by way of slit 2, with amplitude $a_2$. Neither
+  outcome has two alternative routes, so rule 2 has nothing to add. Each outcome
+  gets its own probability by rule 1, and since they are different outcomes their
+  probabilities add in the everyday way:
 </p>
 
-<h3>Born: the meaning without the principle</h3>
+$$P(x) = |a_1|^2 + |a_2|^2 .$$
 
 <p>
-  Born's place in this chapter is the strangest and, historically, the most
-  consequential. <em>Atomic Physics</em> has no section called "the principle of
-  superposition." What it has instead is the thing that makes superposition
-  physics rather than mathematics: the interpretation of the squared wave
-  amplitude as a probability. Born arrived at it in 1926 by comparing the
-  scattering of electrons with the scattering of light, reasoning that the number
-  of particles should be proportional to the intensity the wave theory computes.
-  The quantity we now add and square, the amplitude, is meaningful because Born
-  said what its square counts.
+  The cross term is gone and so are the fringes: the dashed curve in the figure.
+  We did not assume that the marker jolted the electron, and nobody needs to read
+  the flag. What matters is that the two routes now lead to different final states
+  of the world. Amplitudes add only for routes to the <em>same</em> final state.
 </p>
 
 <p>
-  So Born supplies the semantics while declining to axiomatize the syntax. He is
-  wary of the wave-packet reading that superposition tempts — a particle built
-  from superposed wave trains, he notes, disperses like a ripple on water and
-  cannot be the particle itself. His caution is the caution of someone who watched
-  the interpretation get fixed in real time and knew how easily it could be
-  misread. That he never elevates superposition to a stated principle is not an
-  omission; it reflects a book organized around phenomena and their statistical
-  reading rather than around a scheme of axioms.
-</p>
-
-<h2>Synthesis</h2>
-
-<p>
-  Read together, the four treatments form a nearly complete logical circuit around
-  a single idea, each author holding a different arc. Feynman has the operation —
-  add amplitudes for indistinguishable routes — in its barest experimental form.
-  Dirac has the axiom that turns the operation into a vector space and the
-  insight that it only coheres because measurement is indeterminate. Landau and
-  Lifshitz have the structural payoff, linearity of the laws. Born has the
-  interpretation that lets any of it touch a laboratory.
+  Records need not be perfect. Suppose the marker is unreliable: an electron through
+  slit 1 always leaves the flag up, but one through slit 2 sometimes leaves it up
+  too. Then the flag's final state no longer settles the question. Part of the
+  time, "electron at $x$, flag up" could have happened by either route, and for
+  that part the amplitudes add and interfere. The result is fringes of reduced
+  contrast: the dark stripes are no longer completely dark.
 </p>
 
 <p>
-  The sharpest contrast is between Feynman and Dirac, and it is a contrast of
-  direction rather than content. Feynman starts from the two-slit pattern and
-  earns the amplitude formalism as its explanation; the abstraction is the
-  destination. Dirac starts from the abstraction — states superpose — and treats
-  polarization as an illustration of a principle already in hand; the experiment
-  is a footnote. They use the same bracket notation, invented by Dirac and adopted
-  by Feynman, to travel the same road in opposite directions.
+  What sets the contrast is how alike the two possible final states of the marker
+  are: the one slit 1 leaves and the one slit 2 leaves. If they are the same, the
+  marker records nothing and the fringes are complete. If they are completely
+  different, the record is perfect and the fringes vanish. In between, the more
+  distinguishable the two marker states, the fainter the fringes. Nothing in this
+  depends on how hard the marker pushes the electron.
 </p>
+
+<details>
+  <summary>Optional: the partial record, calculated</summary>
+  <p>
+    Suppose slit 1 always leaves the flag up, while slit 2 leaves it up with
+    amplitude $\gamma$ and down with amplitude $\delta$, where
+    $|\gamma|^2 + |\delta|^2 = 1$. By rule 3, the amplitude for "via slit 2, flag
+    up" is $\gamma a_2$. The outcome "electron at $x$, flag up" now has two routes,
+    and "flag down" has one:
+  </p>
+  $$\begin{aligned}
+P(x) &= |a_1 + \gamma a_2|^2 + |\delta a_2|^2\\[4pt]
+&= |a_1|^2 + |a_2|^2 + 2\,\mathrm{Re}\,(\gamma\,a_1^*a_2).
+\end{aligned}$$
+  <p>
+    The cross term survives, multiplied by $\gamma$, which measures how much the
+    flag state left by slit 2 overlaps the one left by slit 1. With equal arrows as
+    before, the pattern swings between $2A^2(1+|\gamma|)$ and $2A^2(1-|\gamma|)$.
+    If $\gamma = 1$ the flag tells us nothing and the fringes are complete. If
+    $\gamma = 0$ the record is perfect and they vanish. If $\gamma = \tfrac12$ the
+    bright stripes are three times as bright as the dark ones, instead of infinitely
+    brighter.
+  </p>
+</details>
+
+<details>
+  <summary>Optional: the same bookkeeping in bracket notation</summary>
+  <p>
+    Later essays write amplitudes in a notation invented by Paul Dirac. The
+    amplitude for something that starts in condition $s$ to end in condition $x$
+    is written $\langle x\,|\,s\rangle$, read from right to left: "start at $s$,
+    end at $x$".
+  </p>
+  <p>
+    Rule 3 says the route through slit 1 has amplitude
+    $\langle x\,|\,1\rangle\langle 1\,|\,s\rangle$: from the source to slit 1, then
+    from slit 1 to $x$. Rule 2 then gives the whole two-slit amplitude as
+  </p>
+  $$\begin{aligned}
+\langle x\,|\,s\rangle = {}&\langle x\,|\,1\rangle\langle 1\,|\,s\rangle\\[4pt]
+&+ \langle x\,|\,2\rangle\langle 2\,|\,s\rangle .
+\end{aligned}$$
+  <p>
+    Our $a_1$ and $a_2$ are the two terms on the right. The same notation will
+    express how alike two marker states are, which returns in the final essay of
+    the core sequence, on measurement, where the "flag" is a detector.
+  </p>
+</details>
+
+<h2>What an amplitude is not</h2>
 
 <p>
-  What all four refuse, in their different registers, is the picture of a wave as
-  a real thing in space. Feynman warns against attributing too much reality to the
-  waves; Dirac warns that the vibrating-membrane analogy misleads; Landau and
-  Lifshitz note that for two particles the amplitude lives in a six-dimensional
-  configuration space, not ordinary space; Born watched the naive wave-packet
-  electron dissolve and refused it. The amplitude is not a substance. It is a
-  bookkeeping device of astonishing reach, and the double slit is the smallest
-  experiment that forces you to keep its books correctly.
+  It is tempting to picture the amplitude as a physical ripple spreading through
+  the apparatus, with the electron somehow smeared along it. Two facts resist that
+  picture. The electron is never found smeared: it always arrives whole, at one
+  place. And for two electrons the amplitude is not a pair of ripples in ordinary
+  space; it is a single complex number for each <em>pair</em> of positions, a
+  function of six coordinates. The amplitude is better read as the quantity from
+  which probabilities are calculated, obeying the three rules above. What it
+  "really is" remains a fair question, taken up in the essay on measurement. The
+  rules themselves have never failed.
 </p>
 
-<h2>Read the originals</h2>
+<h2>Two questions</h2>
+
+<div class="questions">
+<p>
+  <strong>1. Turn up the voltage.</strong> The accelerating voltage in the worked
+  example is raised from 100&nbsp;V to 400&nbsp;V, with the same slits and screen.
+  What is the new fringe spacing?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    The kinetic energy is four times larger, and since $p = \sqrt{2mE}$ the
+    momentum is only <em>twice</em> as large. So $\lambda = h/p$ halves, from
+    0.123&nbsp;nm to 0.061&nbsp;nm, and the spacing $\lambda L/d$ halves with it, from
+    0.61&nbsp;mm to 0.31&nbsp;mm.
+  </p>
+  <p>
+    The easy slip is to halve the wavelength once for each doubling of energy and
+    arrive at a quarter. Wavelength follows momentum, not energy, and for a slow
+    particle momentum grows as the square root of the energy.
+  </p>
+</details>
+
+<p>
+  <strong>2. A gentler detector.</strong> A colleague argues: "The fringes disappear
+  because detecting the electron at a slit gives it a kick. Build a detector
+  gentle enough, and we could know the slit <em>and</em> keep the fringes." Using
+  the section on finding out which slit, say what is wrong with this.
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    The argument puts the cause in the wrong place. In the calculation, the fringes
+    disappeared without the electron's amplitudes $a_1$ and $a_2$ changing at all:
+    no kick was assumed. They disappeared because the two routes ended in different
+    final states of the marker, and amplitudes for different final states never add.
+    So what controls the fringes is how distinguishable the two marker states are,
+    not how hard the marker pushes.
+  </p>
+  <p>
+    Fringes come back when the marker states left by the two routes become less
+    distinguishable, which is the same as the detector telling us less about the
+    slit. Making the kick smaller does not, by itself, bring them back: a detector
+    whose two records are fully distinct wipes out the fringes however gently it
+    works. Knowing the slit and keeping the fringes are incompatible, whatever the
+    detector is made of.
+  </p>
+  <p>
+    The tempting wrong turn is to picture loss of interference as mechanical damage
+    to the electron. Disturbance can happen in real detectors, but it is not what
+    the rules say removes the fringes. The deciding question is always whether the
+    alternatives lead to the same final state of the world.
+  </p>
+</details>
+</div>
+
+<h2>Further reading</h2>
 
 <div class="read-originals">
-  <h3>Where to find these treatments</h3>
   <ul>
-    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_01.html">Ch. 1 "Quantum Behavior"</a>, <a href="https://www.feynmanlectures.caltech.edu/III_02.html">Ch. 2</a>, and <a href="https://www.feynmanlectures.caltech.edu/III_03.html">Ch. 3 "Probability Amplitudes"</a> (the three amplitude rules are in §3-1)</li>
-    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. I "The Principle of Superposition" — §4 "Superposition and Indeterminacy" and §5 "Mathematical Formulation of the Principle"</li>
-    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §2 "The principle of superposition"</li>
-    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. IV "Wave-Corpuscles" (de Broglie waves and the statistical interpretation) and Ch. V §7 "The Statistical Interpretation of Wave Mechanics"</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_01.html">Ch. 1 "Quantum Behavior"</a> (bullets, waves, electrons, and watching the electrons, §1-2 to §1-6) and <a href="https://www.feynmanlectures.caltech.edu/III_03.html">Ch. 3 "Probability Amplitudes"</a> (§3-1 for the three rules, §3-2 for the two-slit pattern with a which-slit record). The source of this essay's approach, and still the best extended account.</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. I "The Principle of Superposition", §4–§5: the same principle stated abstractly, using the polarisation of a photon instead of slits.</li>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §2 "The principle of superposition": a compact statement, with the consequence that the theory's equations must be linear.</li>
   </ul>
 </div>
 
+<h2>Where this leaves us</h2>
+
+<p>
+  The opening question has an answer of a definite kind. An electron arrives as a
+  particle, but the probability of where it arrives is computed by adding one
+  arrow for each route it could have taken and squaring the total. Fringes are
+  the cross term of that square. They appear when the routes lead to the same
+  final state of the world and fade, in proportion, as the routes become
+  distinguishable.
+</p>
+
+<p>
+  Two routes needed two complex numbers. But an electron leaving the slits could
+  be detected at any of a continuum of places, and other systems have their own
+  lists of possibilities. We need a way to describe <em>all</em> the amplitudes
+  belonging to a system at once, and to understand what changes, and what does
+  not, when we choose a different list of alternatives to describe the same
+  situation. That is the idea of a quantum state, and the next essay approaches
+  it through something familiar: a vector drawn on a page, described along two
+  different pairs of axes.
+</p>
+
 <nav class="chapter-nav">
-  <a class="prev" href="03-bohr-atom.html">← The Bohr Atom and the Old Quantum Theory</a>
-  <a class="next" href="05-two-mechanics.html">Two Mechanics: Matrices vs. Waves →</a>
+  <a class="prev" href="03-bohr-atom.html">← The atom that almost worked</a>
+  <a class="next" href="05-two-mechanics.html">One state, different ways to describe it →</a>
 </nav>
 
 </main>
 
 <footer>
-  <p>A comparative reading. Prose is original synthesis.</p>
+  <p>Original prose, worked examples and figures.</p>
 </footer>
 
 <script>
@@ -270,6 +537,13 @@ function toggleTheme() {
   const current = root.getAttribute('data-theme');
   root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
 }
+// Printed copies include every optional section and worked answer.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('details:not([open])')];
+  closedForPrint.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
 </script>
 
 </body>

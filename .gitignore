@@ -14,3 +14,7 @@ feynman*.txt
 .DS_Store
 *.swp
 scratchpad/
+
+# Python bytecode
+__pycache__/
+*.pyc

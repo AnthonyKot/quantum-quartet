@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IX · Wells, Barriers, and Tunneling — The Quantum Quartet</title>
+  <title>Confinement and tunnelling — The Quantum Quartet</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -20,228 +20,369 @@
   </nav>
 </header>
 
-<main class="page">
+<main class="page essay">
 
-<div class="chapter-meta">Chapter IX · Part III — The Physics</div>
+<div class="chapter-meta">Part III — The physics</div>
 
-<h1>Wells, Barriers, and Tunneling</h1>
+<h1>Confinement and tunnelling</h1>
 
-<p>
-  Give a classical particle less energy than the wall in front of it and it stops;
-  it cannot be found on the far side. Quantum mechanics denies this flatly. The
-  wave function does not vanish at a barrier — it decays through it, and if the
-  barrier is thin enough, a wave emerges on the other side. A particle can appear
-  where classical energy conservation forbids it. This is tunneling, and it is the
-  first place in the book where the abstract formalism of Part II pays out in a
-  concrete, measurable, deeply non-classical effect.
+<p class="lede">
+  Inside a uranium-238 nucleus, an alpha particle has about 4.3&nbsp;MeV of energy. The
+  electric repulsion that would hurl it away is walled off by a barrier some 28&nbsp;MeV
+  high, far more than it has. Yet on average, after about four and a half billion years,
+  it leaves. How does a particle get out of a place it lacks the energy to leave?
 </p>
 
 <p>
-  This is a calculational chapter, and it belongs to Landau. His book treats
-  wells, steps, and barriers as a systematic catalogue of exactly solvable
-  problems, deriving transmission and reflection coefficients from first
-  principles. Born reaches tunneling from the opposite end — through the physical
-  phenomenon that made it famous, the alpha decay of radioactive nuclei. Dirac,
-  whose book is about structure rather than specific potentials, does not treat it.
-  Feynman's Volume III has no tunneling chapter at all — yet it treats the
-  phenomenon in disguise, as the nitrogen inversion of the ammonia molecule, and
-  the difference is worth naming precisely.
+  This essay applies Schrödinger's equation to the two simplest shapes of potential: a box
+  with walls, and a wall with something on the other side. The box shows where discrete
+  energies come from, with nothing assumed beyond the equation and the requirement that
+  the wavefunction make sense. The wall shows that a wave can leak through a region where a
+  classical particle could never be. Together they explain the alpha particle's escape, and
+  why a nucleus whose alpha particles carry about twice the energy decays some $10^{24}$ times
+  faster.
 </p>
 
-<h2>Entry points</h2>
+<aside class="reminders" aria-label="Reminders">
+  <h2>Two things worth having back in mind</h2>
+  <ul>
+    <li><strong>Standing waves.</strong> A string fixed at both ends vibrates only in
+      patterns that fit a whole number of half-wavelengths between the ends.</li>
+    <li><strong>Two simple equations.</strong> The solutions of $f'' = -k^2 f$ are
+      $\sin kx$ and $\cos kx$, which oscillate. The solutions of $f'' = +\kappa^2 f$ are
+      $e^{\kappa x}$ and $e^{-\kappa x}$, which grow or die away.</li>
+  </ul>
+</aside>
 
-<table class="entry-table">
-  <thead>
-    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="author-cell">Born</td>
-      <td>Alpha decay; Geiger–Nuttall law; cold electron emission</td>
-      <td></td>
-      <td>Gamow / Condon–Gurney barrier penetration (Appendix XXX)</td>
-      <td>The "crater" potential holding the alpha particle</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Feynman</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>Ammonia inversion as tunneling (Ch. 8), without the barrier calculation</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Landau &amp; Lifshitz</td>
-      <td></td>
-      <td></td>
-      <td>Transmission coefficient from probability current; exact solutions</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Dirac</td>
-      <td></td>
-      <td></td>
-      <td>Not treated (abstract formalism, no specific potentials)</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>The four treatments</h2>
-
-<h3>Landau &amp; Lifshitz: the systematic catalogue</h3>
+<h2>Reading the equation locally</h2>
 
 <p>
-  Landau and Lifshitz treat barrier problems the way they treat everything — by
-  setting up the machinery once and then turning the crank. They define the
-  transmission coefficient $D$ as the ratio of transmitted to incident probability
-  current, and the reflection coefficient $R = 1 - D$, and derive both by matching
-  wave functions across the potential. For a step, a particle with energy above the
-  wall can still be reflected — a phenomenon with no classical analogue that falls
-  straight out of the wave matching. For a rectangular barrier of width $a$ with
-  $E < U_0$, the transmitted amplitude decays exponentially and the transmission
-  coefficient carries the tell-tale $e^{-2\kappa a}$ suppression, where
-  $\hbar\kappa = \sqrt{2m(U_0 - E)}$.
+  From the wavefunction essay, a state of definite energy $E$ has a shape $\varphi(x)$
+  obeying
+</p>
+
+$$-\frac{\hbar^2}{2m}\,\varphi'' = \bigl(E - V(x)\bigr)\,\varphi .$$
+
+<p>
+  Everything in this essay follows from looking at the sign of $E - V$.
+</p>
+
+<ul class="cases">
+  <li><strong>Where $E &gt; V$</strong>, the region a classical particle could reach, the
+    equation reads $\varphi'' = -k^2\varphi$ with $k = \sqrt{2m(E - V)}/\hbar$. The
+    wavefunction oscillates, with wavelength $2\pi/k$: shorter where the kinetic energy
+    $E - V$ is larger.</li>
+  <li><strong>Where $E &lt; V$</strong>, the region classically forbidden, it reads
+    $\varphi'' = +\kappa^2\varphi$ with $\kappa = \sqrt{2m(V - E)}/\hbar$. The wavefunction
+    does not oscillate; it grows or dies away exponentially, over a distance of about
+    $1/\kappa$.</li>
+</ul>
+
+<h2>A particle in a box</h2>
+
+<p>
+  Take the simplest confinement: a particle free to move between two walls a distance
+  $L$ apart, with walls so high it can never be found beyond them. Inside, $V = 0$ and
+  the wavefunction oscillates. At the walls it must fall to zero, since the particle is
+  never found outside and $\varphi$ cannot jump. That is the condition on a guitar string,
+  and it has the same consequence: only a whole number of half-wavelengths fits,
+</p>
+
+$$\varphi_n(x) = \sin\frac{n\pi x}{L},\qquad k_n = \frac{n\pi}{L},$$
+<p>
+  for $n = 1, 2, 3, \dots$
 </p>
 
 <p>
-  What is distinctive is how far they push exact solvability. Rather than settling
-  for the quasi-classical (WKB) estimate, they solve several smoothly varying
-  barriers <em>exactly</em>, in terms of hypergeometric functions — the potential
-  $U_0/\cosh^2\alpha x$, the smooth step $U_0/(1 + e^{-\alpha x})$ — and read the
-  transmission coefficient off the asymptotics. Along the way they turn up genuine
-  surprises: a particle passing <em>over</em> a well of the right depth is not
-  reflected at all, a resonance condition invisible to any classical picture. The
-  quasi-classical penetration formula, the one most physicists remember, they
-  present later as an approximation to be used when the exact solution is out of
-  reach. For Landau the barrier is not a curiosity but a proving ground for
-  technique.
+  Each allowed $k$ gives an allowed energy, $E = \hbar^2k^2/2m$:
 </p>
 
-<h3>Born: tunneling as the escape of an alpha particle</h3>
+$$E_n = \frac{n^2\pi^2\hbar^2}{2mL^2} = n^2 E_1 .$$
 
 <p>
-  Born comes at tunneling through the phenomenon that first demanded it. In 1928
-  Gamow, and independently Condon and Gurney, explained radioactive alpha decay as
-  barrier penetration, and Born makes their account the centrepiece. He pictures
-  the alpha particle held inside the nucleus by a potential shaped like a crater:
-  the Coulomb repulsion outside forms a rim far higher than the energy of the
-  escaping particle, so that classically the alpha particle, once inside, could
-  never get out. Yet it does — with a half-life that can be geological.
+  Nothing was put in by hand. The energies are discrete because the wave has to fit, which
+  is the idea de Broglie's standing wave hinted at in the Bohr essay, now made exact. Two
+  features are worth noticing. The levels spread out as $n^2$. And the lowest energy is not
+  zero: $n = 0$ would give $\varphi = 0$ everywhere, no particle at all. A confined particle
+  always moves, as the uncertainty essay said it must.
+</p>
+
+<figure>
+<div class="fig-scroll">
+<!-- FIGURE:wells generated by scripts/ch09_wells.py -->
+<svg class="fig-svg" viewBox="0 0 680 330" role="img" aria-labelledby="fig-wells-title fig-wells-desc">
+<title id="fig-wells-title">A particle in a box, and a wave meeting a barrier</title>
+<desc id="fig-wells-desc">Left: a box with vertical walls. Three energy levels at heights in the ratio 1 to 4 to 9, each carrying a standing wave with one, two and three half-wavelengths across the box. Right: a wave arriving from the left meets a raised flat barrier. Inside the barrier the wave dies away exponentially, and a much smaller wave emerges on the far side.</desc>
+<path class="fig-axis" style="stroke-width:3" d="M40,40 V290 H290 V40"/>
+<path class="fig-axis" style="stroke-dasharray:4 4" d="M40,265.8 H290"/>
+<path class="fig-curve fig-hot" d="M40.0,265.8 L42.5,265.3 L45.0,264.8 L47.5,264.3 L50.0,263.8 L52.5,263.3 L55.0,262.8 L57.5,262.3 L60.0,261.8 L62.5,261.3 L65.0,260.8 L67.5,260.4 L70.0,259.9 L72.5,259.4 L75.0,259.0 L77.5,258.5 L80.0,258.1 L82.5,257.6 L85.0,257.2 L87.5,256.8 L90.0,256.4 L92.5,256.0 L95.0,255.6 L97.5,255.2 L100.0,254.8 L102.5,254.5 L105.0,254.1 L107.5,253.8 L110.0,253.5 L112.5,253.1 L115.0,252.8 L117.5,252.6 L120.0,252.3 L122.5,252.0 L125.0,251.8 L127.5,251.5 L130.0,251.3 L132.5,251.1 L135.0,250.9 L137.5,250.7 L140.0,250.6 L142.5,250.4 L145.0,250.3 L147.5,250.2 L150.0,250.1 L152.5,250.0 L155.0,249.9 L157.5,249.9 L160.0,249.8 L162.5,249.8 L165.0,249.8 L167.5,249.8 L170.0,249.8 L172.5,249.9 L175.0,249.9 L177.5,250.0 L180.0,250.1 L182.5,250.2 L185.0,250.3 L187.5,250.4 L190.0,250.6 L192.5,250.7 L195.0,250.9 L197.5,251.1 L200.0,251.3 L202.5,251.5 L205.0,251.8 L207.5,252.0 L210.0,252.3 L212.5,252.6 L215.0,252.8 L217.5,253.1 L220.0,253.5 L222.5,253.8 L225.0,254.1 L227.5,254.5 L230.0,254.8 L232.5,255.2 L235.0,255.6 L237.5,256.0 L240.0,256.4 L242.5,256.8 L245.0,257.2 L247.5,257.6 L250.0,258.1 L252.5,258.5 L255.0,259.0 L257.5,259.4 L260.0,259.9 L262.5,260.4 L265.0,260.8 L267.5,261.3 L270.0,261.8 L272.5,262.3 L275.0,262.8 L277.5,263.3 L280.0,263.8 L282.5,264.3 L285.0,264.8 L287.5,265.3 L290.0,265.8"/>
+<text class="fig-note" x="298" y="269.8">n = 1</text>
+<path class="fig-axis" style="stroke-dasharray:4 4" d="M40,193.2 H290"/>
+<path class="fig-curve fig-hot" d="M40.0,193.2 L42.5,192.2 L45.0,191.2 L47.5,190.2 L50.0,189.2 L52.5,188.2 L55.0,187.3 L57.5,186.3 L60.0,185.4 L62.5,184.6 L65.0,183.8 L67.5,183.0 L70.0,182.2 L72.5,181.5 L75.0,180.8 L77.5,180.2 L80.0,179.6 L82.5,179.1 L85.0,178.7 L87.5,178.3 L90.0,177.9 L92.5,177.7 L95.0,177.4 L97.5,177.3 L100.0,177.2 L102.5,177.2 L105.0,177.2 L107.5,177.3 L110.0,177.4 L112.5,177.7 L115.0,177.9 L117.5,178.3 L120.0,178.7 L122.5,179.1 L125.0,179.6 L127.5,180.2 L130.0,180.8 L132.5,181.5 L135.0,182.2 L137.5,183.0 L140.0,183.8 L142.5,184.6 L145.0,185.4 L147.5,186.3 L150.0,187.3 L152.5,188.2 L155.0,189.2 L157.5,190.2 L160.0,191.2 L162.5,192.2 L165.0,193.2 L167.5,194.2 L170.0,195.2 L172.5,196.2 L175.0,197.1 L177.5,198.1 L180.0,199.0 L182.5,200.0 L185.0,200.9 L187.5,201.7 L190.0,202.6 L192.5,203.4 L195.0,204.1 L197.5,204.8 L200.0,205.5 L202.5,206.1 L205.0,206.7 L207.5,207.2 L210.0,207.6 L212.5,208.0 L215.0,208.4 L217.5,208.7 L220.0,208.9 L222.5,209.0 L225.0,209.1 L227.5,209.2 L230.0,209.1 L232.5,209.0 L235.0,208.9 L237.5,208.7 L240.0,208.4 L242.5,208.0 L245.0,207.6 L247.5,207.2 L250.0,206.7 L252.5,206.1 L255.0,205.5 L257.5,204.8 L260.0,204.1 L262.5,203.4 L265.0,202.6 L267.5,201.7 L270.0,200.9 L272.5,200.0 L275.0,199.0 L277.5,198.1 L280.0,197.1 L282.5,196.2 L285.0,195.2 L287.5,194.2 L290.0,193.2"/>
+<text class="fig-note" x="298" y="197.2">n = 2</text>
+<path class="fig-axis" style="stroke-dasharray:4 4" d="M40,72.1 H290"/>
+<path class="fig-curve fig-hot" d="M40.0,72.1 L42.5,70.6 L45.0,69.1 L47.5,67.6 L50.0,66.2 L52.5,64.8 L55.0,63.5 L57.5,62.3 L60.0,61.2 L62.5,60.1 L65.0,59.2 L67.5,58.3 L70.0,57.6 L72.5,57.1 L75.0,56.6 L77.5,56.3 L80.0,56.1 L82.5,56.1 L85.0,56.2 L87.5,56.5 L90.0,56.9 L92.5,57.4 L95.0,58.1 L97.5,58.9 L100.0,59.8 L102.5,60.8 L105.0,61.9 L107.5,63.1 L110.0,64.4 L112.5,65.8 L115.0,67.2 L117.5,68.6 L120.0,70.1 L122.5,71.6 L125.0,73.1 L127.5,74.6 L130.0,76.1 L132.5,77.5 L135.0,78.9 L137.5,80.2 L140.0,81.5 L142.5,82.7 L145.0,83.8 L147.5,84.7 L150.0,85.6 L152.5,86.4 L155.0,87.0 L157.5,87.5 L160.0,87.8 L162.5,88.0 L165.0,88.1 L167.5,88.0 L170.0,87.8 L172.5,87.5 L175.0,87.0 L177.5,86.4 L180.0,85.6 L182.5,84.7 L185.0,83.8 L187.5,82.7 L190.0,81.5 L192.5,80.2 L195.0,78.9 L197.5,77.5 L200.0,76.1 L202.5,74.6 L205.0,73.1 L207.5,71.6 L210.0,70.1 L212.5,68.6 L215.0,67.2 L217.5,65.8 L220.0,64.4 L222.5,63.1 L225.0,61.9 L227.5,60.8 L230.0,59.8 L232.5,58.9 L235.0,58.1 L237.5,57.4 L240.0,56.9 L242.5,56.5 L245.0,56.2 L247.5,56.1 L250.0,56.1 L252.5,56.3 L255.0,56.6 L257.5,57.1 L260.0,57.6 L262.5,58.3 L265.0,59.2 L267.5,60.1 L270.0,61.2 L272.5,62.3 L275.0,63.5 L277.5,64.8 L280.0,66.2 L282.5,67.6 L285.0,69.1 L287.5,70.6 L290.0,72.1"/>
+<text class="fig-note" x="298" y="76.1">n = 3</text>
+<text class="fig-note" x="165.0" y="312" text-anchor="middle">box of width L: energies 1 : 4 : 9</text>
+<path class="fig-axis" style="stroke-width:2" d="M360,230 H495.0 V150 H525.0 V230 H660"/>
+<text class="fig-note" x="510.0" y="142" text-anchor="middle">barrier</text>
+<path class="fig-axis" style="stroke-dasharray:4 4" d="M360,190.0 H660"/>
+<text class="fig-tick" x="660" y="176.0" text-anchor="end">energy E</text>
+<path class="fig-curve fig-hot" d="M360.0,201.3 L360.5,200.4 L361.0,199.4 L361.5,198.4 L362.0,197.4 L362.5,196.4 L363.0,195.4 L363.5,194.4 L364.0,193.4 L364.5,192.4 L365.0,191.4 L365.5,190.4 L366.0,189.4 L366.5,188.3 L367.0,187.3 L367.5,186.3 L368.0,185.3 L368.5,184.3 L369.0,183.3 L369.5,182.3 L370.0,181.3 L370.5,180.4 L371.0,179.4 L371.5,178.4 L372.0,177.5 L372.5,176.6 L373.0,175.7 L373.5,174.8 L374.0,173.9 L374.5,173.1 L375.0,172.2 L375.5,171.4 L376.0,170.6 L376.5,169.8 L377.0,169.1 L377.5,168.3 L378.0,167.6 L378.5,167.0 L379.0,166.3 L379.5,165.7 L380.0,165.1 L380.5,164.5 L381.0,163.9 L381.5,163.4 L382.0,162.9 L382.5,162.5 L383.0,162.1 L383.5,161.7 L384.0,161.3 L384.5,161.0 L385.0,160.7 L385.5,160.4 L386.0,160.2 L386.5,160.0 L387.0,159.8 L387.5,159.6 L388.0,159.5 L388.5,159.5 L389.0,159.4 L389.5,159.4 L390.0,159.5 L390.5,159.5 L391.0,159.7 L391.5,159.8 L392.0,160.0 L392.5,160.2 L393.0,160.4 L393.5,160.7 L394.0,161.0 L394.5,161.3 L395.0,161.7 L395.5,162.1 L396.0,162.5 L396.5,162.9 L397.0,163.4 L397.5,164.0 L398.0,164.5 L398.5,165.1 L399.0,165.7 L399.5,166.3 L400.0,167.0 L400.5,167.6 L401.0,168.4 L401.5,169.1 L402.0,169.8 L402.5,170.6 L403.0,171.4 L403.5,172.2 L404.0,173.1 L404.5,173.9 L405.0,174.8 L405.5,175.7 L406.0,176.6 L406.5,177.5 L407.0,178.5 L407.5,179.4 L408.0,180.4 L408.5,181.3 L409.0,182.3 L409.5,183.3 L410.0,184.3 L410.5,185.3 L411.0,186.3 L411.5,187.3 L412.0,188.4 L412.5,189.4 L413.0,190.4 L413.5,191.4 L414.0,192.4 L414.5,193.4 L415.0,194.4 L415.5,195.5 L416.0,196.5 L416.5,197.4 L417.0,198.4 L417.5,199.4 L418.0,200.4 L418.5,201.3 L419.0,202.3 L419.5,203.2 L420.0,204.1 L420.5,205.0 L421.0,205.9 L421.5,206.7 L422.0,207.6 L422.5,208.4 L423.0,209.2 L423.5,210.0 L424.0,210.7 L424.5,211.5 L425.0,212.2 L425.5,212.9 L426.0,213.5 L426.5,214.2 L427.0,214.8 L427.5,215.4 L428.0,215.9 L428.5,216.4 L429.0,216.9 L429.5,217.4 L430.0,217.8 L430.5,218.2 L431.0,218.6 L431.5,219.0 L432.0,219.3 L432.5,219.5 L433.0,219.8 L433.5,220.0 L434.0,220.2 L434.5,220.3 L435.0,220.4 L435.5,220.5 L436.0,220.5 L436.5,220.6 L437.0,220.5 L437.5,220.5 L438.0,220.4 L438.5,220.3 L439.0,220.1 L439.5,219.9 L440.0,219.7 L440.5,219.4 L441.0,219.1 L441.5,218.8 L442.0,218.4 L442.5,218.0 L443.0,217.6 L443.5,217.2 L444.0,216.7 L444.5,216.2 L445.0,215.6 L445.5,215.1 L446.0,214.5 L446.5,213.9 L447.0,213.2 L447.5,212.5 L448.0,211.8 L448.5,211.1 L449.0,210.4 L449.5,209.6 L450.0,208.8 L450.5,208.0 L451.0,207.1 L451.5,206.3 L452.0,205.4 L452.5,204.5 L453.0,203.6 L453.5,202.7 L454.0,201.8 L454.5,200.8 L455.0,199.9 L455.5,198.9 L456.0,197.9 L456.5,196.9 L457.0,195.9 L457.5,194.9 L458.0,193.9 L458.5,192.9 L459.0,191.9 L459.5,190.9 L460.0,189.9 L460.5,188.8 L461.0,187.8 L461.5,186.8 L462.0,185.8 L462.5,184.8 L463.0,183.8 L463.5,182.8 L464.0,181.8 L464.5,180.8 L465.0,179.9 L465.5,178.9 L466.0,178.0 L466.5,177.0 L467.0,176.1 L467.5,175.2 L468.0,174.3 L468.5,173.5 L469.0,172.6 L469.5,171.8 L470.0,171.0 L470.5,170.2 L471.0,169.4 L471.5,168.7 L472.0,168.0 L472.5,167.3 L473.0,166.6 L473.5,166.0 L474.0,165.4 L474.5,164.8 L475.0,164.2 L475.5,163.7 L476.0,163.2 L476.5,162.7 L477.0,162.3 L477.5,161.8 L478.0,161.5 L478.5,161.1 L479.0,160.8 L479.5,160.5 L480.0,160.3 L480.5,160.0 L481.0,159.9 L481.5,159.7 L482.0,159.6 L482.5,159.5 L483.0,159.5 L483.5,159.4 L484.0,159.5 L484.5,159.5 L485.0,159.6 L485.5,159.7 L486.0,159.9 L486.5,160.1 L487.0,160.3 L487.5,160.5 L488.0,160.8 L488.5,161.1 L489.0,161.5 L489.5,161.9 L490.0,162.3 L490.5,162.7 L491.0,163.2 L491.5,163.7 L492.0,164.2 L492.5,164.8 L493.0,165.4 L493.5,166.0 L494.0,166.6 L494.5,167.3 L495.0,168.0 L495.5,168.7 L496.0,169.4 L496.5,170.0 L497.0,170.6 L497.5,171.2 L498.0,171.8 L498.5,172.4 L499.0,172.9 L499.5,173.5 L500.0,174.0 L500.5,174.5 L501.0,174.9 L501.5,175.4 L502.0,175.8 L502.5,176.2 L503.0,176.7 L503.5,177.0 L504.0,177.4 L504.5,177.8 L505.0,178.1 L505.5,178.5 L506.0,178.8 L506.5,179.1 L507.0,179.4 L507.5,179.7 L508.0,180.0 L508.5,180.2 L509.0,180.5 L509.5,180.7 L510.0,181.0 L510.5,181.2 L511.0,181.4 L511.5,181.6 L512.0,181.8 L512.5,182.0 L513.0,182.2 L513.5,182.3 L514.0,182.5 L514.5,182.7 L515.0,182.8 L515.5,182.9 L516.0,183.1 L516.5,183.2 L517.0,183.3 L517.5,183.4 L518.0,183.5 L518.5,183.6 L519.0,183.7 L519.5,183.8 L520.0,183.8 L520.5,183.9 L521.0,183.9 L521.5,184.0 L522.0,184.0 L522.5,184.1 L523.0,184.1 L523.5,184.1 L524.0,184.1 L524.5,184.1 L525.0,184.2 L525.5,184.2 L526.0,184.2 L526.5,184.2 L527.0,184.2 L527.5,184.2 L528.0,184.3 L528.5,184.3 L529.0,184.4 L529.5,184.4 L530.0,184.5 L530.5,184.5 L531.0,184.6 L531.5,184.7 L532.0,184.8 L532.5,184.9 L533.0,185.0 L533.5,185.1 L534.0,185.2 L534.5,185.3 L535.0,185.4 L535.5,185.5 L536.0,185.7 L536.5,185.8 L537.0,185.9 L537.5,186.1 L538.0,186.2 L538.5,186.4 L539.0,186.5 L539.5,186.7 L540.0,186.8 L540.5,187.0 L541.0,187.2 L541.5,187.3 L542.0,187.5 L542.5,187.7 L543.0,187.9 L543.5,188.1 L544.0,188.2 L544.5,188.4 L545.0,188.6 L545.5,188.8 L546.0,189.0 L546.5,189.2 L547.0,189.4 L547.5,189.6 L548.0,189.8 L548.5,190.0 L549.0,190.2 L549.5,190.4 L550.0,190.6 L550.5,190.8 L551.0,190.9 L551.5,191.1 L552.0,191.3 L552.5,191.5 L553.0,191.7 L553.5,191.9 L554.0,192.1 L554.5,192.3 L555.0,192.4 L555.5,192.6 L556.0,192.8 L556.5,193.0 L557.0,193.1 L557.5,193.3 L558.0,193.4 L558.5,193.6 L559.0,193.7 L559.5,193.9 L560.0,194.0 L560.5,194.2 L561.0,194.3 L561.5,194.4 L562.0,194.6 L562.5,194.7 L563.0,194.8 L563.5,194.9 L564.0,195.0 L564.5,195.1 L565.0,195.2 L565.5,195.3 L566.0,195.4 L566.5,195.4 L567.0,195.5 L567.5,195.6 L568.0,195.6 L568.5,195.7 L569.0,195.7 L569.5,195.8 L570.0,195.8 L570.5,195.8 L571.0,195.8 L571.5,195.8 L572.0,195.8 L572.5,195.8 L573.0,195.8 L573.5,195.8 L574.0,195.8 L574.5,195.8 L575.0,195.7 L575.5,195.7 L576.0,195.7 L576.5,195.6 L577.0,195.5 L577.5,195.5 L578.0,195.4 L578.5,195.3 L579.0,195.2 L579.5,195.2 L580.0,195.1 L580.5,195.0 L581.0,194.9 L581.5,194.7 L582.0,194.6 L582.5,194.5 L583.0,194.4 L583.5,194.2 L584.0,194.1 L584.5,194.0 L585.0,193.8 L585.5,193.7 L586.0,193.5 L586.5,193.4 L587.0,193.2 L587.5,193.0 L588.0,192.9 L588.5,192.7 L589.0,192.5 L589.5,192.3 L590.0,192.2 L590.5,192.0 L591.0,191.8 L591.5,191.6 L592.0,191.4 L592.5,191.2 L593.0,191.0 L593.5,190.8 L594.0,190.7 L594.5,190.5 L595.0,190.3 L595.5,190.1 L596.0,189.9 L596.5,189.7 L597.0,189.5 L597.5,189.3 L598.0,189.1 L598.5,188.9 L599.0,188.7 L599.5,188.5 L600.0,188.3 L600.5,188.2 L601.0,188.0 L601.5,187.8 L602.0,187.6 L602.5,187.4 L603.0,187.3 L603.5,187.1 L604.0,186.9 L604.5,186.8 L605.0,186.6 L605.5,186.4 L606.0,186.3 L606.5,186.1 L607.0,186.0 L607.5,185.9 L608.0,185.7 L608.5,185.6 L609.0,185.5 L609.5,185.3 L610.0,185.2 L610.5,185.1 L611.0,185.0 L611.5,184.9 L612.0,184.8 L612.5,184.7 L613.0,184.7 L613.5,184.6 L614.0,184.5 L614.5,184.4 L615.0,184.4 L615.5,184.3 L616.0,184.3 L616.5,184.3 L617.0,184.2 L617.5,184.2 L618.0,184.2 L618.5,184.2 L619.0,184.2 L619.5,184.2 L620.0,184.2 L620.5,184.2 L621.0,184.2 L621.5,184.2 L622.0,184.3 L622.5,184.3 L623.0,184.3 L623.5,184.4 L624.0,184.4 L624.5,184.5 L625.0,184.6 L625.5,184.7 L626.0,184.7 L626.5,184.8 L627.0,184.9 L627.5,185.0 L628.0,185.1 L628.5,185.2 L629.0,185.3 L629.5,185.5 L630.0,185.6 L630.5,185.7 L631.0,185.9 L631.5,186.0 L632.0,186.1 L632.5,186.3 L633.0,186.4 L633.5,186.6 L634.0,186.8 L634.5,186.9 L635.0,187.1 L635.5,187.3 L636.0,187.4 L636.5,187.6 L637.0,187.8 L637.5,188.0 L638.0,188.2 L638.5,188.3 L639.0,188.5 L639.5,188.7 L640.0,188.9 L640.5,189.1 L641.0,189.3 L641.5,189.5 L642.0,189.7 L642.5,189.9 L643.0,190.1 L643.5,190.3 L644.0,190.5 L644.5,190.7 L645.0,190.9 L645.5,191.0 L646.0,191.2 L646.5,191.4 L647.0,191.6 L647.5,191.8 L648.0,192.0 L648.5,192.2 L649.0,192.3 L649.5,192.5 L650.0,192.7 L650.5,192.9 L651.0,193.0 L651.5,193.2 L652.0,193.4 L652.5,193.5 L653.0,193.7 L653.5,193.8 L654.0,194.0 L654.5,194.1 L655.0,194.2 L655.5,194.4 L656.0,194.5 L656.5,194.6 L657.0,194.7 L657.5,194.9 L658.0,195.0 L658.5,195.1 L659.0,195.2 L659.5,195.2 L660.0,195.3"/>
+<text class="fig-note" x="360" y="252">incoming and reflected</text>
+<text class="fig-note" x="660" y="252" text-anchor="end">transmitted, T = 0.071</text>
+</svg>
+<!-- /FIGURE:wells -->
+</div>
+  <figcaption>
+    Left: the first three stationary states in a box, each drawn at the height of its
+    energy (to scale, 1 : 4 : 9). Right: the exact stationary state for a wave meeting a
+    barrier twice as high as its energy. Inside the barrier the wave dies away
+    exponentially; a smaller wave, carrying 7&nbsp;percent of the probability flow, emerges
+    on the far side. Parameters in the script: $E = U_0/2$ and $\kappa a = 2$.
+  </figcaption>
+</figure>
+
+<h2>Worked example: an electron in a nanometre box</h2>
+
+<div class="worked">
+<p>
+  <strong>The energies.</strong> For an electron in a box $L = 1$&nbsp;nm wide, with
+  $\hbar = 1.055\times10^{-34}$&nbsp;J&nbsp;s and $m = 9.109\times10^{-31}$&nbsp;kg,
+</p>
+$$\begin{aligned}
+E_1 &= \frac{\pi^2(1.055\times10^{-34})^2}{2(9.109\times10^{-31})(10^{-9})^2}\ \text{J}\\[4pt]
+&= 6.02\times10^{-20}\ \text{J} = 0.376\ \text{eV}.
+\end{aligned}$$
+<p>
+  The next levels are $4E_1 = 1.50$&nbsp;eV and $9E_1 = 3.38$&nbsp;eV. An electron dropping
+  from $n = 2$ to $n = 1$ emits a photon of $3E_1 = 1.13$&nbsp;eV, a wavelength of
+  $1240/1.13 = 1100$&nbsp;nm, in the near infrared.
+</p>
+<p>
+  <strong>Squeeze the box.</strong> Halve the width to 0.5&nbsp;nm and every energy rises
+  by four: $E_1 = 1.50$&nbsp;eV, and the same jump now emits 4.51&nbsp;eV, in the ultraviolet
+  at 275&nbsp;nm. Size sets colour. This is how semiconductor <em>quantum dots</em>, crystals
+  a few nanometres across, are tuned: smaller dots glow bluer. (Their electrons move with an
+  effective mass different from the free electron's, so these exact numbers do not carry
+  over, but the $1/L^2$ scaling does.)
+</p>
+<p>
+  <strong>Check: the classical limit.</strong> The spacing between neighbouring levels is
+  $(2n+1)E_1$, and $E_1$ falls as $1/mL^2$. For a box a centimetre wide the spacing is
+  $10^{-14}$ times smaller than for our nanometre box, and for a heavy object smaller still.
+  The levels merge into a continuum, and any energy looks allowed, as classically it is.
+</p>
+</div>
+
+<details>
+  <summary>Optional: walls that are not infinitely high</summary>
+  <p>
+    Real walls have a finite height $U_0$. Then the wavefunction need not vanish at a wall.
+    Inside the wall, where $E &lt; U_0$, it dies away as $e^{-\kappa x}$, and the rule is
+    that $\varphi$ and its slope must join smoothly at the edge.
+  </p>
+  <p>
+    Two things change. The wave now has a little more room, since its tails extend into the
+    walls, so its wavelength is slightly longer and every energy slightly lower than for the
+    infinite box. And there are only finitely many bound states: once $E$ reaches $U_0$ the
+    particle is no longer held. Solving the matching conditions requires a short numerical
+    calculation, but the picture is the one in the figure's left panel with the sine waves'
+    ends leaking a little way into the walls.
+  </p>
+</details>
+
+<h2>A wave meeting a wall</h2>
+
+<p>
+  Now turn the situation round. A particle with energy $E$ approaches a barrier of height
+  $U_0 &gt; E$ and width $a$. Classically it bounces back, every time. Quantum mechanically,
+  the wave arriving at the barrier does not stop dead at its edge. It continues inside as a
+  decaying exponential, $e^{-\kappa x}$. If the barrier is thin enough that something is left
+  at the far edge, the wave carries on beyond it as an ordinary travelling wave, smaller than
+  the one that arrived. The particle has some probability of being found on the far side:
+  it has <em>tunnelled</em>.
 </p>
 
 <p>
-  The wave-mechanical resolution is exactly the barrier physics Landau formalizes,
-  but Born keeps it tethered to the nucleus. The standing wave inside the crater is
-  not extinguished at the wall; it leaks through and emerges outside as a
-  travelling wave, and $|\psi|^2$ at the outer edge sets the probability of escape.
-  Because that probability falls off steeply with barrier thickness, fast alpha
-  particles escape far more readily than slow ones — which, Born notes, is the
-  qualitative content of the Geiger–Nuttall law relating decay rate to alpha
-  energy. He defers the exact formula to an appendix and stresses what the model
-  needs and does not need: essentially only the nuclear radius at the rim. He then
-  extends the same idea to the cold emission of electrons from a metal under a
-  strong field, another barrier the electron has no classical right to cross. Where
-  Landau derives the coefficient, Born shows you the crater and the decaying nucleus
-  it explains.
+  The probability of getting through, the <em>transmission coefficient</em> $T$, is fixed
+  mostly by how far the amplitude decays across the barrier. The amplitude falls by
+  $e^{-\kappa a}$, the probability by its square, and so for a barrier more than about one
+  decay length thick,
 </p>
 
-<h3>Dirac: not this kind of problem</h3>
+$$T \approx e^{-2\kappa a},\qquad \kappa = \frac{\sqrt{2m(U_0 - E)}}{\hbar},$$
 
 <p>
-  Dirac's <em>Principles</em> does not treat wells and barriers, and the omission
-  is a matter of genre rather than oversight. His book is built around the abstract
-  structure of the theory — states, observables, the algebra of the transformation
-  theory — and it descends to specific potentials only for the few systems that
-  illuminate the general method, chiefly the free particle and the harmonic
-  oscillator. A rectangular barrier is a boundary-value problem in a particular
-  $U(x)$, precisely the kind of concrete calculation Dirac leaves to books written
-  in a different key. His absence here is the same austerity that made his
-  uncertainty chapter start from non-commuting observables rather than a slit.
-</p>
-
-<h3>Feynman: the phenomenon without the barrier calculation</h3>
-
-<p>
-  Feynman's Volume III has no dedicated tunneling chapter, yet tunneling is
-  emphatically present in it — reached from the other side. In his treatment of the
-  ammonia molecule as a two-state system, the nitrogen atom sits on one side of the
-  plane of hydrogens or the other, and the essential fact is that it can pass from
-  one configuration to the other by pushing through the hydrogens, a passage that
-  costs more energy than it has. That crossing is tunneling exactly: the nitrogen
-  penetrates an energy barrier it could not classically surmount. But Feynman never
-  sets up the square-barrier boundary-value problem that anchors Landau's chapter.
-  He works entirely in amplitude language, positing a small amplitude for the flip
-  and reading off its consequences — the level splitting that ultimately drives the
-  ammonia maser.
+  up to a factor of order one in front that depends on $E/U_0$. The exponent is what
+  matters. It makes tunnelling extraordinarily sensitive to the barrier: an electron facing a
+  barrier 4&nbsp;eV above its energy has $\kappa = 10.2$&nbsp;nm<sup>−1</sup>, and every extra
+  0.1&nbsp;nm of barrier cuts $T$ by a factor of about 8. The scanning tunnelling microscope
+  turns that sensitivity into images of single atoms, by measuring the electron current across
+  the gap between a sharp tip and a surface.
 </p>
 
 <p>
-  So the cell records not silence but a choice about how to treat the effect. Landau
-  computes the barrier; Feynman takes the tunneling amplitude as a given input and
-  pursues what it does to a real molecule. The canonical calculation — match the
-  wave function across the wall, extract $e^{-2\kappa a}$ — is bypassed, while the
-  physics it would have produced is put to work. Where Landau's volume is a
-  reference catalogue in which the barrier is one solved entry, Feynman's is a
-  conceptual tour that meets tunneling as the mechanism behind a device, not as a
-  problem to be solved from scratch. Reading which of these a book chooses is the
-  whole point of this project.
+  Two checks. For a very thick or very high barrier, $\kappa a \to \infty$ and $T \to 0$: the
+  classical answer, complete reflection. And for a particle with more energy than the barrier,
+  classical physics says it always passes; the wave says it is sometimes reflected even then,
+  about 19&nbsp;percent of the time in one example the script computes. Neither behaviour has a
+  classical counterpart; both follow from the same equation.
 </p>
 
-<h2>Synthesis</h2>
+<details>
+  <summary>Optional: the exact transmission through a rectangular barrier</summary>
+  <p>
+    Write the wavefunction as $e^{ikx} + r\,e^{-ikx}$ to the left (arriving plus
+    reflected), $A e^{\kappa x} + B e^{-\kappa x}$ inside, and $t\,e^{ikx}$ to the right
+    (transmitted). Requiring $\varphi$ and $\varphi'$ to be continuous at both edges gives
+    four equations for the four unknowns $r, A, B, t$. Solving them,
+  </p>
+  $$T = |t|^2 = \left[\,1 + \frac{U_0^2\,\sinh^2(\kappa a)}{4E\,(U_0 - E)}\,\right]^{-1}.$$
+  <p>
+    For $\kappa a \gg 1$, $\sinh\kappa a \approx \tfrac12 e^{\kappa a}$ and this becomes
+    $T \approx 16\,\tfrac{E}{U_0}\bigl(1 - \tfrac{E}{U_0}\bigr)\,e^{-2\kappa a}$, the
+    exponential with a prefactor between 0 and 4. For the figure's barrier, $E = U_0/2$ and
+    $\kappa a = 2$, the exact value is $T = 0.071$, against $4e^{-4} = 0.073$ from the
+    approximation. The reflected probability is $1 - T$: nothing is lost.
+  </p>
+</details>
+
+<h2>How an alpha particle escapes</h2>
 
 <p>
-  Tunneling sorts the four books by what they take a physics chapter to be. For
-  Landau and Lifshitz it is an occasion to demonstrate exact technique, and they
-  wring more solvable cases out of the barrier than most readers knew existed. For
-  Born it is a phenomenon — alpha decay — whose explanation happens to require the
-  barrier, and the barrier is in service of the nucleus, not the reverse. For Dirac
-  it is simply not the kind of thing his book discusses. For Feynman it is the
-  mechanism behind a molecule's behavior, taken up as an amplitude and put to work
-  rather than computed from a barrier. The same effect anchors a calculation,
-  explains a natural process, falls below the threshold of abstraction, and turns up
-  as the hidden engine of a device — four times over.
+  In 1928 George Gamow, and independently Ronald Gurney and Edward Condon, applied this to
+  radioactive decay. Picture an alpha particle, two protons and two neutrons, held inside a
+  nucleus by the short-range nuclear force. Just outside the nuclear surface the nuclear
+  force stops and electric repulsion takes over. The potential energy there forms a hill,
+  highest at the nuclear surface and falling off as $1/r$ further out. For uranium the top of
+  the hill is about 28&nbsp;MeV. The alpha particle has 4.3&nbsp;MeV, so classically it is
+  trapped forever.
 </p>
 
 <p>
-  The most illuminating pairing is Landau and Born, because between them they hold
-  the two halves of how tunneling entered physics. Born supplies the 1928 moment
-  when a baffling fact — nuclei emitting particles they could not classically
-  release — found its explanation in a leaking wave. Landau supplies the mature
-  technique that lets you compute the leak for any barrier you like, exactly where
-  possible. Read together they show a discovery becoming a method: the crater that
-  once seemed miraculous becomes one more potential to match wave functions across.
+  Quantum mechanically it rattles back and forth inside, striking the wall about $10^{21}$
+  times a second, and at each strike it has a tiny probability of tunnelling out. The barrier
+  is not rectangular, so the exponent becomes a sum of $\kappa$ over its width, but the logic
+  is the same. And the energy enters twice. A lower-energy alpha particle faces a higher
+  barrier above it, so a larger $\kappa$, and a thicker barrier, because the Coulomb hill
+  only falls to its energy further out: about 61&nbsp;fm for uranium-238, against 26&nbsp;fm for
+  polonium-212, whose alpha particles carry 9.0&nbsp;MeV.
 </p>
 
 <p>
-  What no one disputes is the physics itself. A particle with too little energy
-  gets through, with a probability that dies exponentially in the barrier's
-  thickness, and the effect is not a mathematical artefact but the mechanism of
-  radioactive decay and the reason certain electrons escape cold metals. The
-  wave function's refusal to vanish at a wall — the same refusal that made the
-  double slit interfere — is here doing work you can measure with a Geiger counter.
+  The result is dramatic. The tunnelling probability per strike is about $10^{-38}$ for
+  uranium-238 and $10^{-14}$ for polonium-212. Multiplied by the rate of strikes, that gives
+  half-lives of about $10^{17}$ seconds, some billions of years, and about $10^{-7}$ seconds.
+  The measured values are 4.5 billion years and 0.3 microseconds: lifetimes $10^{24}$ times
+  apart, reproduced by this simple model to within a factor of a few. Hans Geiger and John
+  Nuttall had found in 1911 that alpha emitters with higher energies live shorter lives,
+  following a steep empirical rule nobody could explain. Barrier penetration explained it
+  seventeen years later.
 </p>
 
-<h2>Read the originals</h2>
+<p>
+  It is worth seeing what that agreement rests on, because the model is crude. It assumes the
+  alpha particle already exists inside the nucleus, ready to leave, when in reality it has to form
+  from the protons and neutrons there, with a probability that can be well below one. It takes the
+  barrier to begin at a nuclear radius estimated from a simple formula, and the answer is sensitive to
+  that choice: making the uranium radius 10&nbsp;percent smaller lengthens the predicted half-life about
+  fifty-fold. And the strike rate, $10^{21}$ per second, is a classical estimate of a particle bouncing
+  inside a box. Each of these could shift an answer by a factor of ten or more, so the near-exact match
+  for uranium owes something to luck. What the model gets robustly right is the enormous spread and
+  where it comes from.
+</p>
+
+<p>
+  Most of that spread is the energy. The two nuclei also differ, polonium's daughter having charge 82
+  against thorium's 90, and a lower charge means a lower barrier. Separating the two effects in the
+  script: raising uranium's alpha energy alone from 4.3 to 9.0&nbsp;MeV speeds the tunnelling by a factor of
+  about $10^{22}$; lowering the charge from 90 to 82 adds a factor of a few hundred more.
+</p>
+
+<h2>Two questions</h2>
+
+<div class="questions">
+<p>
+  <strong>1. Widening the gap.</strong> In a tunnelling microscope the gap between tip and
+  surface grows from 0.5&nbsp;nm to 0.7&nbsp;nm, with an effective barrier 4&nbsp;eV above the
+  electrons' energy. By roughly what factor does the tunnelling current change?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    The current is proportional to $T \approx e^{-2\kappa a}$ with
+    $\kappa = 10.2$&nbsp;nm<sup>−1</sup>. Widening by 0.2&nbsp;nm multiplies $T$ by
+    $e^{-2(10.2)(0.2)} = e^{-4.1} \approx 1/60$. The current falls about sixty-fold.
+  </p>
+  <p>
+    The easy slip is to reason proportionally: 40&nbsp;percent more gap, 40&nbsp;percent less
+    current. In an exponential, equal <em>additions</em> to the width give equal
+    <em>factors</em>, here about 8 for each 0.1&nbsp;nm, and that is why the microscope can
+    feel the height of single atoms.
+  </p>
+</details>
+
+<p>
+  <strong>2. Why not zero?</strong> A classical ball in a box can sit still at the bottom with
+  zero kinetic energy. Why can't the quantum particle in a box have zero energy? What is wrong
+  with taking $n = 0$?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    The formula $\sin(n\pi x/L)$ with $n = 0$ gives zero everywhere. That is not a state of
+    lowest energy; it is no particle at all, since $|\varphi|^2 = 0$ means there is nowhere to
+    find it. The lowest real state is $n = 1$, with energy $E_1 &gt; 0$.
+  </p>
+  <p>
+    The physical reason is the one from the uncertainty essay: a particle confined within a
+    width $L$ must have a momentum spread of at least about $\hbar/L$, and a spread of momentum
+    means kinetic energy. The tempting wrong turn is to treat $n$ as a count of something that
+    can be zero, like a number of quanta. Here it counts half-wavelengths, and a wave needs at
+    least one to exist in the box.
+  </p>
+</details>
+</div>
+
+<h2>Further reading</h2>
 
 <div class="read-originals">
-  <h3>Where to find these treatments</h3>
   <ul>
-    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §25 "The transmission coefficient" (with worked barriers) and §50 "Penetration through a potential barrier" (the quasi-classical formula); wells in §22 "The potential well"</li>
-    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. XVI on alpha decay (the Gamow / Condon–Gurney crater model) with the exact analysis in Appendix XXX "Theory of α-Disintegration"; cold electron emission in Ch. VII</li>
-    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.) — wells and barriers are not treated; specific potentials are limited to the free particle and harmonic oscillator</li>
-    <li>Feynman, <em>Lectures on Physics</em>, Vol. III — no dedicated tunneling chapter (see the <a href="https://www.feynmanlectures.caltech.edu/III_toc.html">Vol. III table of contents</a>); tunneling appears as the nitrogen inversion in <a href="https://www.feynmanlectures.caltech.edu/III_08.html">Ch. 8 "The Hamiltonian Matrix"</a> (§8-6, the ammonia molecule), handled in amplitude language rather than by a barrier calculation</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. X §1 "The Size of the Nucleus and α-Decay": the Gamow and Condon–Gurney explanation, with a lovely optical analogy of light leaking across a thin air gap between two blocks of glass.</li>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §22 "The potential well", §25 "The transmission coefficient" and §50 "Penetration through a potential barrier".</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_16.html">Ch. 16</a>, §16-6 "Quantized energy levels": why bound waves have discrete energies, in pictures.</li>
   </ul>
 </div>
 
+<h2>Where this leaves us</h2>
+
+<p>
+  The alpha particle leaves because its wavefunction does not stop at the edge of the region
+  it is classically allowed in. It dies away exponentially through the barrier, and what is
+  left on the far side is a small but real probability of being outside. That probability
+  depends exponentially on the barrier's height and thickness, which is why about twice the
+  energy, with a slightly lower barrier, becomes a factor of $10^{24}$ in lifetime. The same equation, applied to a box, gives
+  discrete energies with no rule added: waves that must fit can only have certain wavelengths.
+</p>
+
+<p>
+  A box has hard walls and levels that spread out as $n^2$. Most real systems are held more
+  gently: an atom in a molecule, pulled back towards its place by a force that grows the
+  further it strays. That is the harmonic oscillator, the most widely used model in physics,
+  and its energy levels turn out to be evenly spaced, as Planck had assumed in 1900 without
+  knowing why. It is the subject of the next essay.
+</p>
+
 <nav class="chapter-nav">
-  <a class="prev" href="08-dirac-formalism.html">← States, Observables, Bras and Kets</a>
-  <a class="next" href="10-hydrogen.html">The Hydrogen Atom →</a>
+  <a class="prev" href="07-uncertainty.html">← Why localisation has a cost</a>
+  <a class="next" href="09b-oscillator.html">The harmonic oscillator →</a>
 </nav>
 
 </main>
 
 <footer>
-  <p>A comparative reading. Prose is original synthesis.</p>
+  <p>Original prose, worked examples and figures.</p>
 </footer>
 
 <script>
@@ -250,6 +391,13 @@ function toggleTheme() {
   const current = root.getAttribute('data-theme');
   root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
 }
+// Printed copies include every optional section and worked answer.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('details:not([open])')];
+  closedForPrint.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
 </script>
 
 </body>

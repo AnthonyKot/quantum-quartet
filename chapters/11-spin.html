@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XI · Spin — The Quantum Quartet</title>
+  <title>Spin: a two-state quantum system — The Quantum Quartet</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -20,236 +20,307 @@
   </nav>
 </header>
 
-<main class="page">
+<main class="page essay">
 
-<div class="chapter-meta">Chapter XI · Part III — The Physics</div>
+<div class="chapter-meta">Part III — The physics</div>
 
-<h1>Spin</h1>
+<h1>Spin: a two-state quantum system</h1>
 
-<p>
-  Spin is the property with no classical picture. An electron carries angular
-  momentum that is not the momentum of anything going around — it does not shrink
-  as you imagine the particle shrinking, it does not vanish for a point, and it
-  takes half-integer values that no rotating object can. It is the cleanest example
-  in the whole subject of a quantity that exists only in the quantum theory, and
-  for that reason it is where the four authors' methods separate most sharply. This
-  is the widest stylistic spread in the project, and the chapter is built to let
-  the contrast do the work.
+<p class="lede">
+  In 1922 Otto Stern and Walther Gerlach sent a beam of silver atoms between the poles of a
+  specially shaped magnet. If each atom were a tiny compass needle pointing in a random
+  direction, the beam should have smeared into a continuous band. It split cleanly into two,
+  and nothing landed between. Why exactly two?
 </p>
 
 <p>
-  At one pole stands Feynman, who introduces spin through the Stern-Gerlach
-  experiment and refuses any classical analogy from the first sentence. At the
-  other stands Dirac, who never mentions a beam of atoms and derives the spin
-  matrices from algebra alone. Between them, Landau and Lifshitz reach spin from
-  the symmetry of space — the behavior of the wave function under rotations — while
-  Born grounds it in the experimental anomalies, the doublets and Zeeman patterns,
-  that forced physicists to grant the electron an intrinsic spin in the first place.
+  The answer is a property of the electron that has no classical counterpart: <em>spin</em>, an
+  intrinsic angular momentum whose component along any axis can take only two values. Spin is the
+  simplest quantum system there is, two states and nothing else, and it makes the formalism of the
+  earlier essays completely concrete. This essay builds it from the experiment, computes what
+  happens when atoms pass through magnets set at different angles, and compares the result with the
+  photon polarisation of the representations essay.
 </p>
 
-<h2>Entry points</h2>
+<aside class="reminders" aria-label="Reminders">
+  <h2>Two things worth having back in mind</h2>
+  <ul>
+    <li><strong>A magnet in a non-uniform field.</strong> A small magnet with moment $\mu$ along
+      $z$ in a field whose strength changes with height feels a force
+      $\mu_z\,\partial B/\partial z$: up or down depending on which way it points.</li>
+    <li><strong>From the formalism essay.</strong> A two-state system is a two-component list; a
+      measurable quantity is a 2×2 Hermitian matrix; results are eigenvalues and probabilities are
+      squared overlaps.</li>
+  </ul>
+</aside>
 
-<table class="entry-table">
-  <thead>
-    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="author-cell">Born</td>
-      <td>Alkali doublets; the anomalous Zeeman effect</td>
-      <td></td>
-      <td>Spin magnetic moment; the Pauli spin theory</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Feynman</td>
-      <td>Stern-Gerlach beam splitting</td>
-      <td></td>
-      <td>Rotation amplitudes derived "by pure reasoning"</td>
-      <td>Filtering and recombining the split beams</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Landau &amp; Lifshitz</td>
-      <td></td>
-      <td>Spin from the algebra of rotations</td>
-      <td>Spinors; the $2\pi$ sign change; $s(s+1)$</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Dirac</td>
-      <td></td>
-      <td>Spin variables $\sigma$ with $\sigma_x^2 = 1$, anticommuting</td>
-      <td>The Pauli matrices from the algebra alone</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>The four treatments</h2>
-
-<h3>Feynman: spin before "angular momentum"</h3>
+<h2>The experiment</h2>
 
 <p>
-  Feynman makes spin the entry point to quantum mechanics itself. He opens the
-  relevant chapter by declaring that he will describe a quantum phenomenon in a
-  fully quantum way, making no apology and no attempt to connect it to classical
-  mechanics — announcing outright that he will not lean on classical concepts like
-  "angular momentum" until later, so that nothing classical smuggles itself in.
-  (He names the phrase in his first sentence, to set it aside; the discipline is
-  in the reasoning that follows, which appeals only to the experiment.) The
-  phenomenon is the Stern-Gerlach experiment: a beam of atoms passes through an
-  inhomogeneous magnetic field and splits into a fixed number of beams, three for
-  what he calls a particle of spin one. Block two beams, and the survivor passing
-  through a second identical apparatus is not re-split — it has been filtered into
-  a definite state.
+  A silver atom has 47 electrons. All but one are paired off, and their magnetic effects cancel.
+  The last one, in an s state with no orbital angular momentum, leaves the atom a small magnet.
+  In Stern and Gerlach's magnet the field grew sharply stronger towards one pole, so an atom
+  whose magnetic moment pointed up was pushed one way and one pointing down the other, by an amount
+  proportional to the component $\mu_z$. A classical magnet can point anywhere, so $\mu_z$ could
+  take any value between its extremes, and the beam should have spread into a band.
 </p>
 
 <p>
-  From this apparatus, used as a filter, Feynman builds the entire machinery of
-  states, base states, and transformation amplitudes. In the spin one-half chapter
-  he goes further, deriving the coefficients that relate spin measured along one
-  axis to spin measured along another "by pure reasoning" from a few assumptions
-  about the structure of space — an argument he cheerfully calls a "cultural
-  excursion." The point is that spin, the least classical of quantities, is for
-  Feynman the ideal teaching example precisely because it forces the reader to
-  think in amplitudes from the start, with no classical crutch to lean on. Spin is
-  not a complication added late; it is the doorway.
+  Instead there were two spots, placed symmetrically: $\mu_z$ had one of exactly two values, equal
+  and opposite. Since magnetic moment goes with angular momentum, the component of the atom's
+  angular momentum along the field has exactly two values. By the angular momentum essay, a quantum
+  number $s$ gives $2s + 1$ values, so two values means $s = \tfrac12$: a component of
+  $\pm\tfrac12\hbar$, one of the half-whole values the commutators allow. Orbital angular momentum cannot do
+  this, because a wavefunction that must join up with itself around an axis only allows whole
+  numbers. The half comes from something else: an angular momentum the electron carries intrinsically,
+  wherever it is and however it moves. For the electron,
 </p>
 
-<h3>Dirac: the matrices from the algebra</h3>
+$$\begin{aligned}S_z &= \pm\tfrac12\hbar,\\[4pt] S^2 &= s(s+1)\hbar^2 = \tfrac34\hbar^2 .\end{aligned}$$
 
 <p>
-  Dirac reaches the same spin-one-half physics without a single beam of atoms. He
-  posits spin variables $\sigma$ obeying a short list of algebraic relations —
-  each component squares to one, and different components anticommute — and then
-  asks what matrices can represent them. The answer is forced. Taking $\sigma_z$
-  diagonal with eigenvalues $\pm 1$, the requirement that $\sigma_x$ be Hermitian,
-  square to one, and anticommute with $\sigma_z$ leaves only the off-diagonal form;
-  fixing the remaining phase gives the three Pauli matrices outright. The
-  two-valuedness of the electron, the whole structure of a spin-½ system, drops out
-  of the algebra with no physical input beyond the defining relations.
+  The name "spin" suggests a little ball rotating on its axis, and that picture fails. A ball the
+  size the electron could be would need its surface to move faster than light to carry this much
+  angular momentum, and no rotating body gives half-units. Spin is best taken on its own terms: a
+  two-valued quantum property with the character of angular momentum.
 </p>
 
 <p>
-  This is Dirac's method in its purest form. A state of the spin is a pair of
-  numbers — the representative of a ket over the two-point domain of $\sigma_z$ —
-  and a general spin direction is a superposition of the up and down states with
-  weights read straight off the matrix. Where Feynman earns every amplitude from an
-  experiment, Dirac earns them from consistency conditions, and arrives at
-  identical matrices. Spin, which began as the most stubbornly physical of
-  discoveries, becomes for Dirac an exercise in finding the smallest matrices that
-  satisfy an algebra.
+  History took a detour here. In 1922 the two spots were read as a confirmation of Bohr's quantised
+  orbits. Only in 1925, when George Uhlenbeck and Samuel Goudsmit proposed that the electron itself
+  carries half a unit of angular momentum, to explain the doubled lines of alkali spectra, did it become
+  clear what Stern and Gerlach had seen.
 </p>
 
-<h3>Landau &amp; Lifshitz: spin as a fact about rotations</h3>
+<details>
+  <summary>Optional: how far the atoms were deflected</summary>
+  <p>
+    The magnetic moment of the unpaired electron is about the Bohr magneton,
+    $\mu_B = 9.27\times10^{-24}$&nbsp;J/T. In a field gradient of about 10&nbsp;tesla per centimetre,
+    $1000$&nbsp;T/m, the force is $\mu_B\times1000 = 9.3\times10^{-21}$&nbsp;N. A silver atom has mass
+    $1.79\times10^{-25}$&nbsp;kg, so its acceleration is $5\times10^{4}$&nbsp;m/s². Atoms from an oven
+    at about 1300&nbsp;K travel at roughly 550&nbsp;m/s and spend $6\times10^{-5}$&nbsp;s in a magnet
+    3.5&nbsp;cm long, which deflects them by $\tfrac12 at^2 \approx 0.1$&nbsp;mm each way. Stern and
+    Gerlach's two traces, a fraction of a millimetre apart, were at the edge of what could then be
+    seen.
+  </p>
+</details>
+
+<h2>Two states, and magnets at other angles</h2>
 
 <p>
-  Landau and Lifshitz derive spin from the symmetry of space. They observe first
-  that the quantum formalism <em>permits</em> a particle to carry an internal
-  discrete variable beyond its coordinates, and that there is no reason to assume
-  an elementary particle lacks one. This intrinsic angular momentum, they stress,
-  is "peculiar to quantum theory" — it disappears in the limit $\hbar \to 0$ and is
-  therefore incapable of any classical interpretation; imagining it as the particle
-  spinning on "its own axis" is, in their word, meaningless.
+  Call the two results $|{\uparrow}\rangle$ and $|{\downarrow}\rangle$ for a magnet along $z$. They
+  form a basis, and any spin state is a combination $a|{\uparrow}\rangle + b|{\downarrow}\rangle$ with
+  $|a|^2 + |b|^2 = 1$. Now pass atoms that came out "up" into a second magnet turned by an angle
+  $\theta$ from the first, and ask how many come out up along the new direction. Quantum mechanics'
+  answer, which the worked example below checks for one angle, is
 </p>
+
+$$P(\text{up along }\theta \mid \text{up along } z) = \cos^2\frac{\theta}{2}.$$
 
 <p>
-  The technical core is that the spin operators must satisfy the same commutation
-  relations as orbital angular momentum, but for a deeper reason: those relations
-  express how the system behaves under infinitesimal rotations of space, and that
-  holds whether the angular momentum lives in the coordinates or in an internal
-  variable. Crucially, the derivation that forces orbital angular momentum to be
-  integer-valued relies on the coordinate representation and <em>fails</em> for
-  spin — so half-integer values become allowed, and $\mathbf{s}^2 = s(s+1)$ with
-  $s$ integer or half-integer. Their §55 draws the consequence that most captures
-  the strangeness: under a full $2\pi$ rotation of the coordinate system, an
-  integer-spin wave function returns to itself, but a half-integer-spin one changes
-  sign. Spin, for Landau and Lifshitz, is what the rotation group demands once you
-  allow the wave function more than one component.
+  With the second magnet aligned, $\theta = 0$, every atom passes. Turned by $90°$, half pass and half
+  do not: an atom that is definitely up along $z$ has no preference at all along $x$. Turned by
+  $180°$, none pass, since "up along $-z$" is "down along $z$". The two states $|{\uparrow}\rangle$ and
+  $|{\downarrow}\rangle$ are orthogonal, and they are separated by a half-turn.
 </p>
 
-<h3>Born: the anomalies that forced the spin</h3>
+<figure>
+<div class="fig-scroll">
+<!-- FIGURE:angles generated by scripts/ch11_spin.py -->
+<svg class="fig-svg" viewBox="0 0 680 320" role="img" aria-labelledby="fig-ang-title fig-ang-desc">
+<title id="fig-ang-title">Passing probability against analyser angle, for spin and for photon polarisation</title>
+<desc id="fig-ang-desc">Two curves over a full turn of the analyser. The solid spin curve falls from 1 at zero degrees to 0 at 180 degrees and back to 1 at 360. The dashed photon curve falls to 0 already at 90 degrees, returns to 1 at 180, and repeats.</desc>
+<path class="fig-axis" d="M60,20 V270 H660"/>
+<path class="fig-axis" d="M60.0,270 v5"/>
+<text class="fig-tick" x="60.0" y="289" text-anchor="middle">0°</text>
+<path class="fig-axis" d="M210.0,270 v5"/>
+<text class="fig-tick" x="210.0" y="289" text-anchor="middle">90°</text>
+<path class="fig-axis" d="M360.0,270 v5"/>
+<text class="fig-tick" x="360.0" y="289" text-anchor="middle">180°</text>
+<path class="fig-axis" d="M510.0,270 v5"/>
+<text class="fig-tick" x="510.0" y="289" text-anchor="middle">270°</text>
+<path class="fig-axis" d="M660.0,270 v5"/>
+<text class="fig-tick" x="660.0" y="289" text-anchor="middle">360°</text>
+<path class="fig-axis" d="M60,270.0 h-5"/>
+<text class="fig-tick" x="51" y="274.0" text-anchor="end">0</text>
+<path class="fig-axis" d="M60,154.3 h-5"/>
+<text class="fig-tick" x="51" y="158.3" text-anchor="end">0.5</text>
+<path class="fig-axis" d="M60,38.5 h-5"/>
+<text class="fig-tick" x="51" y="42.5" text-anchor="end">1</text>
+<text class="fig-label" x="360.0" y="308" text-anchor="middle">angle of the analyser from the preparation direction</text>
+<text class="fig-label" transform="translate(18,145.0) rotate(-90)" text-anchor="middle">probability of passing</text>
+<path class="fig-curve fig-hot" style="stroke-width:2.6" d="M60.0,38.5 L60.8,38.5 L61.7,38.5 L62.5,38.6 L63.3,38.6 L64.2,38.6 L65.0,38.7 L65.8,38.7 L66.7,38.8 L67.5,38.9 L68.3,39.0 L69.2,39.1 L70.0,39.2 L70.8,39.3 L71.7,39.4 L72.5,39.5 L73.3,39.6 L74.2,39.8 L75.0,39.9 L75.8,40.1 L76.7,40.3 L77.5,40.5 L78.3,40.6 L79.2,40.8 L80.0,41.0 L80.8,41.3 L81.7,41.5 L82.5,41.7 L83.3,42.0 L84.2,42.2 L85.0,42.5 L85.8,42.7 L86.7,43.0 L87.5,43.3 L88.3,43.6 L89.2,43.9 L90.0,44.2 L90.8,44.5 L91.7,44.8 L92.5,45.2 L93.3,45.5 L94.2,45.8 L95.0,46.2 L95.8,46.6 L96.7,46.9 L97.5,47.3 L98.3,47.7 L99.2,48.1 L100.0,48.5 L100.8,48.9 L101.7,49.4 L102.5,49.8 L103.3,50.2 L104.2,50.7 L105.0,51.1 L105.8,51.6 L106.7,52.1 L107.5,52.5 L108.3,53.0 L109.2,53.5 L110.0,54.0 L110.8,54.5 L111.7,55.1 L112.5,55.6 L113.3,56.1 L114.2,56.6 L115.0,57.2 L115.8,57.7 L116.7,58.3 L117.5,58.9 L118.3,59.4 L119.2,60.0 L120.0,60.6 L120.8,61.2 L121.7,61.8 L122.5,62.4 L123.3,63.1 L124.2,63.7 L125.0,64.3 L125.8,65.0 L126.7,65.6 L127.5,66.2 L128.3,66.9 L129.2,67.6 L130.0,68.2 L130.8,68.9 L131.7,69.6 L132.5,70.3 L133.3,71.0 L134.2,71.7 L135.0,72.4 L135.8,73.1 L136.7,73.9 L137.5,74.6 L138.3,75.3 L139.2,76.1 L140.0,76.8 L140.8,77.6 L141.7,78.3 L142.5,79.1 L143.3,79.9 L144.2,80.6 L145.0,81.4 L145.8,82.2 L146.7,83.0 L147.5,83.8 L148.3,84.6 L149.2,85.4 L150.0,86.2 L150.8,87.0 L151.7,87.9 L152.5,88.7 L153.3,89.5 L154.2,90.4 L155.0,91.2 L155.8,92.1 L156.7,92.9 L157.5,93.8 L158.3,94.6 L159.2,95.5 L160.0,96.4 L160.8,97.3 L161.7,98.1 L162.5,99.0 L163.3,99.9 L164.2,100.8 L165.0,101.7 L165.8,102.6 L166.7,103.5 L167.5,104.4 L168.3,105.3 L169.2,106.3 L170.0,107.2 L170.8,108.1 L171.7,109.0 L172.5,110.0 L173.3,110.9 L174.2,111.8 L175.0,112.8 L175.8,113.7 L176.7,114.7 L177.5,115.6 L178.3,116.6 L179.2,117.5 L180.0,118.5 L180.8,119.5 L181.7,120.4 L182.5,121.4 L183.3,122.4 L184.2,123.3 L185.0,124.3 L185.8,125.3 L186.7,126.3 L187.5,127.2 L188.3,128.2 L189.2,129.2 L190.0,130.2 L190.8,131.2 L191.7,132.2 L192.5,133.2 L193.3,134.2 L194.2,135.2 L195.0,136.2 L195.8,137.2 L196.7,138.2 L197.5,139.2 L198.3,140.2 L199.2,141.2 L200.0,142.2 L200.8,143.2 L201.7,144.2 L202.5,145.2 L203.3,146.2 L204.2,147.2 L205.0,148.2 L205.8,149.2 L206.7,150.2 L207.5,151.2 L208.3,152.2 L209.2,153.2 L210.0,154.3 L210.8,155.3 L211.7,156.3 L212.5,157.3 L213.3,158.3 L214.2,159.3 L215.0,160.3 L215.8,161.3 L216.7,162.3 L217.5,163.3 L218.3,164.3 L219.2,165.4 L220.0,166.4 L220.8,167.4 L221.7,168.4 L222.5,169.4 L223.3,170.4 L224.2,171.4 L225.0,172.4 L225.8,173.4 L226.7,174.4 L227.5,175.4 L228.3,176.3 L229.2,177.3 L230.0,178.3 L230.8,179.3 L231.7,180.3 L232.5,181.3 L233.3,182.3 L234.2,183.2 L235.0,184.2 L235.8,185.2 L236.7,186.2 L237.5,187.1 L238.3,188.1 L239.2,189.1 L240.0,190.0 L240.8,191.0 L241.7,191.9 L242.5,192.9 L243.3,193.8 L244.2,194.8 L245.0,195.7 L245.8,196.7 L246.7,197.6 L247.5,198.6 L248.3,199.5 L249.2,200.4 L250.0,201.3 L250.8,202.3 L251.7,203.2 L252.5,204.1 L253.3,205.0 L254.2,205.9 L255.0,206.8 L255.8,207.7 L256.7,208.6 L257.5,209.5 L258.3,210.4 L259.2,211.3 L260.0,212.1 L260.8,213.0 L261.7,213.9 L262.5,214.7 L263.3,215.6 L264.2,216.4 L265.0,217.3 L265.8,218.1 L266.7,219.0 L267.5,219.8 L268.3,220.6 L269.2,221.5 L270.0,222.3 L270.8,223.1 L271.7,223.9 L272.5,224.7 L273.3,225.5 L274.2,226.3 L275.0,227.1 L275.8,227.9 L276.7,228.7 L277.5,229.4 L278.3,230.2 L279.2,231.0 L280.0,231.7 L280.8,232.5 L281.7,233.2 L282.5,233.9 L283.3,234.7 L284.2,235.4 L285.0,236.1 L285.8,236.8 L286.7,237.5 L287.5,238.2 L288.3,238.9 L289.2,239.6 L290.0,240.3 L290.8,240.9 L291.7,241.6 L292.5,242.3 L293.3,242.9 L294.2,243.6 L295.0,244.2 L295.8,244.8 L296.7,245.5 L297.5,246.1 L298.3,246.7 L299.2,247.3 L300.0,247.9 L300.8,248.5 L301.7,249.1 L302.5,249.6 L303.3,250.2 L304.2,250.8 L305.0,251.3 L305.8,251.9 L306.7,252.4 L307.5,252.9 L308.3,253.5 L309.2,254.0 L310.0,254.5 L310.8,255.0 L311.7,255.5 L312.5,256.0 L313.3,256.5 L314.2,256.9 L315.0,257.4 L315.8,257.8 L316.7,258.3 L317.5,258.7 L318.3,259.2 L319.2,259.6 L320.0,260.0 L320.8,260.4 L321.7,260.8 L322.5,261.2 L323.3,261.6 L324.2,261.9 L325.0,262.3 L325.8,262.7 L326.7,263.0 L327.5,263.4 L328.3,263.7 L329.2,264.0 L330.0,264.3 L330.8,264.6 L331.7,264.9 L332.5,265.2 L333.3,265.5 L334.2,265.8 L335.0,266.1 L335.8,266.3 L336.7,266.6 L337.5,266.8 L338.3,267.0 L339.2,267.3 L340.0,267.5 L340.8,267.7 L341.7,267.9 L342.5,268.1 L343.3,268.2 L344.2,268.4 L345.0,268.6 L345.8,268.7 L346.7,268.9 L347.5,269.0 L348.3,269.1 L349.2,269.3 L350.0,269.4 L350.8,269.5 L351.7,269.6 L352.5,269.6 L353.3,269.7 L354.2,269.8 L355.0,269.8 L355.8,269.9 L356.7,269.9 L357.5,270.0 L358.3,270.0 L359.2,270.0 L360.0,270.0 L360.8,270.0 L361.7,270.0 L362.5,270.0 L363.3,269.9 L364.2,269.9 L365.0,269.8 L365.8,269.8 L366.7,269.7 L367.5,269.6 L368.3,269.6 L369.2,269.5 L370.0,269.4 L370.8,269.3 L371.7,269.1 L372.5,269.0 L373.3,268.9 L374.2,268.7 L375.0,268.6 L375.8,268.4 L376.7,268.2 L377.5,268.1 L378.3,267.9 L379.2,267.7 L380.0,267.5 L380.8,267.3 L381.7,267.0 L382.5,266.8 L383.3,266.6 L384.2,266.3 L385.0,266.1 L385.8,265.8 L386.7,265.5 L387.5,265.2 L388.3,264.9 L389.2,264.6 L390.0,264.3 L390.8,264.0 L391.7,263.7 L392.5,263.4 L393.3,263.0 L394.2,262.7 L395.0,262.3 L395.8,261.9 L396.7,261.6 L397.5,261.2 L398.3,260.8 L399.2,260.4 L400.0,260.0 L400.8,259.6 L401.7,259.2 L402.5,258.7 L403.3,258.3 L404.2,257.8 L405.0,257.4 L405.8,256.9 L406.7,256.5 L407.5,256.0 L408.3,255.5 L409.2,255.0 L410.0,254.5 L410.8,254.0 L411.7,253.5 L412.5,252.9 L413.3,252.4 L414.2,251.9 L415.0,251.3 L415.8,250.8 L416.7,250.2 L417.5,249.6 L418.3,249.1 L419.2,248.5 L420.0,247.9 L420.8,247.3 L421.7,246.7 L422.5,246.1 L423.3,245.5 L424.2,244.8 L425.0,244.2 L425.8,243.6 L426.7,242.9 L427.5,242.3 L428.3,241.6 L429.2,240.9 L430.0,240.3 L430.8,239.6 L431.7,238.9 L432.5,238.2 L433.3,237.5 L434.2,236.8 L435.0,236.1 L435.8,235.4 L436.7,234.7 L437.5,233.9 L438.3,233.2 L439.2,232.5 L440.0,231.7 L440.8,231.0 L441.7,230.2 L442.5,229.4 L443.3,228.7 L444.2,227.9 L445.0,227.1 L445.8,226.3 L446.7,225.5 L447.5,224.7 L448.3,223.9 L449.2,223.1 L450.0,222.3 L450.8,221.5 L451.7,220.6 L452.5,219.8 L453.3,219.0 L454.2,218.1 L455.0,217.3 L455.8,216.4 L456.7,215.6 L457.5,214.7 L458.3,213.9 L459.2,213.0 L460.0,212.1 L460.8,211.3 L461.7,210.4 L462.5,209.5 L463.3,208.6 L464.2,207.7 L465.0,206.8 L465.8,205.9 L466.7,205.0 L467.5,204.1 L468.3,203.2 L469.2,202.3 L470.0,201.3 L470.8,200.4 L471.7,199.5 L472.5,198.6 L473.3,197.6 L474.2,196.7 L475.0,195.7 L475.8,194.8 L476.7,193.8 L477.5,192.9 L478.3,191.9 L479.2,191.0 L480.0,190.0 L480.8,189.1 L481.7,188.1 L482.5,187.1 L483.3,186.2 L484.2,185.2 L485.0,184.2 L485.8,183.2 L486.7,182.3 L487.5,181.3 L488.3,180.3 L489.2,179.3 L490.0,178.3 L490.8,177.3 L491.7,176.3 L492.5,175.4 L493.3,174.4 L494.2,173.4 L495.0,172.4 L495.8,171.4 L496.7,170.4 L497.5,169.4 L498.3,168.4 L499.2,167.4 L500.0,166.4 L500.8,165.4 L501.7,164.3 L502.5,163.3 L503.3,162.3 L504.2,161.3 L505.0,160.3 L505.8,159.3 L506.7,158.3 L507.5,157.3 L508.3,156.3 L509.2,155.3 L510.0,154.3 L510.8,153.2 L511.7,152.2 L512.5,151.2 L513.3,150.2 L514.2,149.2 L515.0,148.2 L515.8,147.2 L516.7,146.2 L517.5,145.2 L518.3,144.2 L519.2,143.2 L520.0,142.2 L520.8,141.2 L521.7,140.2 L522.5,139.2 L523.3,138.2 L524.2,137.2 L525.0,136.2 L525.8,135.2 L526.7,134.2 L527.5,133.2 L528.3,132.2 L529.2,131.2 L530.0,130.2 L530.8,129.2 L531.7,128.2 L532.5,127.2 L533.3,126.3 L534.2,125.3 L535.0,124.3 L535.8,123.3 L536.7,122.4 L537.5,121.4 L538.3,120.4 L539.2,119.5 L540.0,118.5 L540.8,117.5 L541.7,116.6 L542.5,115.6 L543.3,114.7 L544.2,113.7 L545.0,112.8 L545.8,111.8 L546.7,110.9 L547.5,110.0 L548.3,109.0 L549.2,108.1 L550.0,107.2 L550.8,106.3 L551.7,105.3 L552.5,104.4 L553.3,103.5 L554.2,102.6 L555.0,101.7 L555.8,100.8 L556.7,99.9 L557.5,99.0 L558.3,98.1 L559.2,97.3 L560.0,96.4 L560.8,95.5 L561.7,94.6 L562.5,93.8 L563.3,92.9 L564.2,92.1 L565.0,91.2 L565.8,90.4 L566.7,89.5 L567.5,88.7 L568.3,87.9 L569.2,87.0 L570.0,86.2 L570.8,85.4 L571.7,84.6 L572.5,83.8 L573.3,83.0 L574.2,82.2 L575.0,81.4 L575.8,80.6 L576.7,79.9 L577.5,79.1 L578.3,78.3 L579.2,77.6 L580.0,76.8 L580.8,76.1 L581.7,75.3 L582.5,74.6 L583.3,73.9 L584.2,73.1 L585.0,72.4 L585.8,71.7 L586.7,71.0 L587.5,70.3 L588.3,69.6 L589.2,68.9 L590.0,68.2 L590.8,67.6 L591.7,66.9 L592.5,66.2 L593.3,65.6 L594.2,65.0 L595.0,64.3 L595.8,63.7 L596.7,63.1 L597.5,62.4 L598.3,61.8 L599.2,61.2 L600.0,60.6 L600.8,60.0 L601.7,59.4 L602.5,58.9 L603.3,58.3 L604.2,57.7 L605.0,57.2 L605.8,56.6 L606.7,56.1 L607.5,55.6 L608.3,55.1 L609.2,54.5 L610.0,54.0 L610.8,53.5 L611.7,53.0 L612.5,52.5 L613.3,52.1 L614.2,51.6 L615.0,51.1 L615.8,50.7 L616.7,50.2 L617.5,49.8 L618.3,49.4 L619.2,48.9 L620.0,48.5 L620.8,48.1 L621.7,47.7 L622.5,47.3 L623.3,46.9 L624.2,46.6 L625.0,46.2 L625.8,45.8 L626.7,45.5 L627.5,45.2 L628.3,44.8 L629.2,44.5 L630.0,44.2 L630.8,43.9 L631.7,43.6 L632.5,43.3 L633.3,43.0 L634.2,42.7 L635.0,42.5 L635.8,42.2 L636.7,42.0 L637.5,41.7 L638.3,41.5 L639.2,41.3 L640.0,41.0 L640.8,40.8 L641.7,40.6 L642.5,40.5 L643.3,40.3 L644.2,40.1 L645.0,39.9 L645.8,39.8 L646.7,39.6 L647.5,39.5 L648.3,39.4 L649.2,39.3 L650.0,39.2 L650.8,39.1 L651.7,39.0 L652.5,38.9 L653.3,38.8 L654.2,38.7 L655.0,38.7 L655.8,38.6 L656.7,38.6 L657.5,38.6 L658.3,38.5 L659.2,38.5 L660.0,38.5"/>
+<path class="fig-curve fig-classical" d="M60.0,38.5 L60.8,38.5 L61.7,38.6 L62.5,38.7 L63.3,38.8 L64.2,39.0 L65.0,39.2 L65.8,39.4 L66.7,39.6 L67.5,39.9 L68.3,40.3 L69.2,40.6 L70.0,41.0 L70.8,41.5 L71.7,42.0 L72.5,42.5 L73.3,43.0 L74.2,43.6 L75.0,44.2 L75.8,44.8 L76.7,45.5 L77.5,46.2 L78.3,46.9 L79.2,47.7 L80.0,48.5 L80.8,49.4 L81.7,50.2 L82.5,51.1 L83.3,52.1 L84.2,53.0 L85.0,54.0 L85.8,55.1 L86.7,56.1 L87.5,57.2 L88.3,58.3 L89.2,59.4 L90.0,60.6 L90.8,61.8 L91.7,63.1 L92.5,64.3 L93.3,65.6 L94.2,66.9 L95.0,68.2 L95.8,69.6 L96.7,71.0 L97.5,72.4 L98.3,73.9 L99.2,75.3 L100.0,76.8 L100.8,78.3 L101.7,79.9 L102.5,81.4 L103.3,83.0 L104.2,84.6 L105.0,86.2 L105.8,87.9 L106.7,89.5 L107.5,91.2 L108.3,92.9 L109.2,94.6 L110.0,96.4 L110.8,98.1 L111.7,99.9 L112.5,101.7 L113.3,103.5 L114.2,105.3 L115.0,107.2 L115.8,109.0 L116.7,110.9 L117.5,112.8 L118.3,114.7 L119.2,116.6 L120.0,118.5 L120.8,120.4 L121.7,122.4 L122.5,124.3 L123.3,126.3 L124.2,128.2 L125.0,130.2 L125.8,132.2 L126.7,134.2 L127.5,136.2 L128.3,138.2 L129.2,140.2 L130.0,142.2 L130.8,144.2 L131.7,146.2 L132.5,148.2 L133.3,150.2 L134.2,152.2 L135.0,154.3 L135.8,156.3 L136.7,158.3 L137.5,160.3 L138.3,162.3 L139.2,164.3 L140.0,166.4 L140.8,168.4 L141.7,170.4 L142.5,172.4 L143.3,174.4 L144.2,176.3 L145.0,178.3 L145.8,180.3 L146.7,182.3 L147.5,184.2 L148.3,186.2 L149.2,188.1 L150.0,190.0 L150.8,191.9 L151.7,193.8 L152.5,195.7 L153.3,197.6 L154.2,199.5 L155.0,201.3 L155.8,203.2 L156.7,205.0 L157.5,206.8 L158.3,208.6 L159.2,210.4 L160.0,212.1 L160.8,213.9 L161.7,215.6 L162.5,217.3 L163.3,219.0 L164.2,220.6 L165.0,222.3 L165.8,223.9 L166.7,225.5 L167.5,227.1 L168.3,228.7 L169.2,230.2 L170.0,231.7 L170.8,233.2 L171.7,234.7 L172.5,236.1 L173.3,237.5 L174.2,238.9 L175.0,240.3 L175.8,241.6 L176.7,242.9 L177.5,244.2 L178.3,245.5 L179.2,246.7 L180.0,247.9 L180.8,249.1 L181.7,250.2 L182.5,251.3 L183.3,252.4 L184.2,253.5 L185.0,254.5 L185.8,255.5 L186.7,256.5 L187.5,257.4 L188.3,258.3 L189.2,259.2 L190.0,260.0 L190.8,260.8 L191.7,261.6 L192.5,262.3 L193.3,263.0 L194.2,263.7 L195.0,264.3 L195.8,264.9 L196.7,265.5 L197.5,266.1 L198.3,266.6 L199.2,267.0 L200.0,267.5 L200.8,267.9 L201.7,268.2 L202.5,268.6 L203.3,268.9 L204.2,269.1 L205.0,269.4 L205.8,269.6 L206.7,269.7 L207.5,269.8 L208.3,269.9 L209.2,270.0 L210.0,270.0 L210.8,270.0 L211.7,269.9 L212.5,269.8 L213.3,269.7 L214.2,269.6 L215.0,269.4 L215.8,269.1 L216.7,268.9 L217.5,268.6 L218.3,268.2 L219.2,267.9 L220.0,267.5 L220.8,267.0 L221.7,266.6 L222.5,266.1 L223.3,265.5 L224.2,264.9 L225.0,264.3 L225.8,263.7 L226.7,263.0 L227.5,262.3 L228.3,261.6 L229.2,260.8 L230.0,260.0 L230.8,259.2 L231.7,258.3 L232.5,257.4 L233.3,256.5 L234.2,255.5 L235.0,254.5 L235.8,253.5 L236.7,252.4 L237.5,251.3 L238.3,250.2 L239.2,249.1 L240.0,247.9 L240.8,246.7 L241.7,245.5 L242.5,244.2 L243.3,242.9 L244.2,241.6 L245.0,240.3 L245.8,238.9 L246.7,237.5 L247.5,236.1 L248.3,234.7 L249.2,233.2 L250.0,231.7 L250.8,230.2 L251.7,228.7 L252.5,227.1 L253.3,225.5 L254.2,223.9 L255.0,222.3 L255.8,220.6 L256.7,219.0 L257.5,217.3 L258.3,215.6 L259.2,213.9 L260.0,212.1 L260.8,210.4 L261.7,208.6 L262.5,206.8 L263.3,205.0 L264.2,203.2 L265.0,201.3 L265.8,199.5 L266.7,197.6 L267.5,195.7 L268.3,193.8 L269.2,191.9 L270.0,190.0 L270.8,188.1 L271.7,186.2 L272.5,184.2 L273.3,182.3 L274.2,180.3 L275.0,178.3 L275.8,176.3 L276.7,174.4 L277.5,172.4 L278.3,170.4 L279.2,168.4 L280.0,166.4 L280.8,164.3 L281.7,162.3 L282.5,160.3 L283.3,158.3 L284.2,156.3 L285.0,154.3 L285.8,152.2 L286.7,150.2 L287.5,148.2 L288.3,146.2 L289.2,144.2 L290.0,142.2 L290.8,140.2 L291.7,138.2 L292.5,136.2 L293.3,134.2 L294.2,132.2 L295.0,130.2 L295.8,128.2 L296.7,126.3 L297.5,124.3 L298.3,122.4 L299.2,120.4 L300.0,118.5 L300.8,116.6 L301.7,114.7 L302.5,112.8 L303.3,110.9 L304.2,109.0 L305.0,107.2 L305.8,105.3 L306.7,103.5 L307.5,101.7 L308.3,99.9 L309.2,98.1 L310.0,96.4 L310.8,94.6 L311.7,92.9 L312.5,91.2 L313.3,89.5 L314.2,87.9 L315.0,86.2 L315.8,84.6 L316.7,83.0 L317.5,81.4 L318.3,79.9 L319.2,78.3 L320.0,76.8 L320.8,75.3 L321.7,73.9 L322.5,72.4 L323.3,71.0 L324.2,69.6 L325.0,68.2 L325.8,66.9 L326.7,65.6 L327.5,64.3 L328.3,63.1 L329.2,61.8 L330.0,60.6 L330.8,59.4 L331.7,58.3 L332.5,57.2 L333.3,56.1 L334.2,55.1 L335.0,54.0 L335.8,53.0 L336.7,52.1 L337.5,51.1 L338.3,50.2 L339.2,49.4 L340.0,48.5 L340.8,47.7 L341.7,46.9 L342.5,46.2 L343.3,45.5 L344.2,44.8 L345.0,44.2 L345.8,43.6 L346.7,43.0 L347.5,42.5 L348.3,42.0 L349.2,41.5 L350.0,41.0 L350.8,40.6 L351.7,40.3 L352.5,39.9 L353.3,39.6 L354.2,39.4 L355.0,39.2 L355.8,39.0 L356.7,38.8 L357.5,38.7 L358.3,38.6 L359.2,38.5 L360.0,38.5 L360.8,38.5 L361.7,38.6 L362.5,38.7 L363.3,38.8 L364.2,39.0 L365.0,39.2 L365.8,39.4 L366.7,39.6 L367.5,39.9 L368.3,40.3 L369.2,40.6 L370.0,41.0 L370.8,41.5 L371.7,42.0 L372.5,42.5 L373.3,43.0 L374.2,43.6 L375.0,44.2 L375.8,44.8 L376.7,45.5 L377.5,46.2 L378.3,46.9 L379.2,47.7 L380.0,48.5 L380.8,49.4 L381.7,50.2 L382.5,51.1 L383.3,52.1 L384.2,53.0 L385.0,54.0 L385.8,55.1 L386.7,56.1 L387.5,57.2 L388.3,58.3 L389.2,59.4 L390.0,60.6 L390.8,61.8 L391.7,63.1 L392.5,64.3 L393.3,65.6 L394.2,66.9 L395.0,68.2 L395.8,69.6 L396.7,71.0 L397.5,72.4 L398.3,73.9 L399.2,75.3 L400.0,76.8 L400.8,78.3 L401.7,79.9 L402.5,81.4 L403.3,83.0 L404.2,84.6 L405.0,86.2 L405.8,87.9 L406.7,89.5 L407.5,91.2 L408.3,92.9 L409.2,94.6 L410.0,96.4 L410.8,98.1 L411.7,99.9 L412.5,101.7 L413.3,103.5 L414.2,105.3 L415.0,107.2 L415.8,109.0 L416.7,110.9 L417.5,112.8 L418.3,114.7 L419.2,116.6 L420.0,118.5 L420.8,120.4 L421.7,122.4 L422.5,124.3 L423.3,126.3 L424.2,128.2 L425.0,130.2 L425.8,132.2 L426.7,134.2 L427.5,136.2 L428.3,138.2 L429.2,140.2 L430.0,142.2 L430.8,144.2 L431.7,146.2 L432.5,148.2 L433.3,150.2 L434.2,152.2 L435.0,154.3 L435.8,156.3 L436.7,158.3 L437.5,160.3 L438.3,162.3 L439.2,164.3 L440.0,166.4 L440.8,168.4 L441.7,170.4 L442.5,172.4 L443.3,174.4 L444.2,176.3 L445.0,178.3 L445.8,180.3 L446.7,182.3 L447.5,184.2 L448.3,186.2 L449.2,188.1 L450.0,190.0 L450.8,191.9 L451.7,193.8 L452.5,195.7 L453.3,197.6 L454.2,199.5 L455.0,201.3 L455.8,203.2 L456.7,205.0 L457.5,206.8 L458.3,208.6 L459.2,210.4 L460.0,212.1 L460.8,213.9 L461.7,215.6 L462.5,217.3 L463.3,219.0 L464.2,220.6 L465.0,222.3 L465.8,223.9 L466.7,225.5 L467.5,227.1 L468.3,228.7 L469.2,230.2 L470.0,231.7 L470.8,233.2 L471.7,234.7 L472.5,236.1 L473.3,237.5 L474.2,238.9 L475.0,240.3 L475.8,241.6 L476.7,242.9 L477.5,244.2 L478.3,245.5 L479.2,246.7 L480.0,247.9 L480.8,249.1 L481.7,250.2 L482.5,251.3 L483.3,252.4 L484.2,253.5 L485.0,254.5 L485.8,255.5 L486.7,256.5 L487.5,257.4 L488.3,258.3 L489.2,259.2 L490.0,260.0 L490.8,260.8 L491.7,261.6 L492.5,262.3 L493.3,263.0 L494.2,263.7 L495.0,264.3 L495.8,264.9 L496.7,265.5 L497.5,266.1 L498.3,266.6 L499.2,267.0 L500.0,267.5 L500.8,267.9 L501.7,268.2 L502.5,268.6 L503.3,268.9 L504.2,269.1 L505.0,269.4 L505.8,269.6 L506.7,269.7 L507.5,269.8 L508.3,269.9 L509.2,270.0 L510.0,270.0 L510.8,270.0 L511.7,269.9 L512.5,269.8 L513.3,269.7 L514.2,269.6 L515.0,269.4 L515.8,269.1 L516.7,268.9 L517.5,268.6 L518.3,268.2 L519.2,267.9 L520.0,267.5 L520.8,267.0 L521.7,266.6 L522.5,266.1 L523.3,265.5 L524.2,264.9 L525.0,264.3 L525.8,263.7 L526.7,263.0 L527.5,262.3 L528.3,261.6 L529.2,260.8 L530.0,260.0 L530.8,259.2 L531.7,258.3 L532.5,257.4 L533.3,256.5 L534.2,255.5 L535.0,254.5 L535.8,253.5 L536.7,252.4 L537.5,251.3 L538.3,250.2 L539.2,249.1 L540.0,247.9 L540.8,246.7 L541.7,245.5 L542.5,244.2 L543.3,242.9 L544.2,241.6 L545.0,240.3 L545.8,238.9 L546.7,237.5 L547.5,236.1 L548.3,234.7 L549.2,233.2 L550.0,231.7 L550.8,230.2 L551.7,228.7 L552.5,227.1 L553.3,225.5 L554.2,223.9 L555.0,222.3 L555.8,220.6 L556.7,219.0 L557.5,217.3 L558.3,215.6 L559.2,213.9 L560.0,212.1 L560.8,210.4 L561.7,208.6 L562.5,206.8 L563.3,205.0 L564.2,203.2 L565.0,201.3 L565.8,199.5 L566.7,197.6 L567.5,195.7 L568.3,193.8 L569.2,191.9 L570.0,190.0 L570.8,188.1 L571.7,186.2 L572.5,184.2 L573.3,182.3 L574.2,180.3 L575.0,178.3 L575.8,176.3 L576.7,174.4 L577.5,172.4 L578.3,170.4 L579.2,168.4 L580.0,166.4 L580.8,164.3 L581.7,162.3 L582.5,160.3 L583.3,158.3 L584.2,156.3 L585.0,154.3 L585.8,152.2 L586.7,150.2 L587.5,148.2 L588.3,146.2 L589.2,144.2 L590.0,142.2 L590.8,140.2 L591.7,138.2 L592.5,136.2 L593.3,134.2 L594.2,132.2 L595.0,130.2 L595.8,128.2 L596.7,126.3 L597.5,124.3 L598.3,122.4 L599.2,120.4 L600.0,118.5 L600.8,116.6 L601.7,114.7 L602.5,112.8 L603.3,110.9 L604.2,109.0 L605.0,107.2 L605.8,105.3 L606.7,103.5 L607.5,101.7 L608.3,99.9 L609.2,98.1 L610.0,96.4 L610.8,94.6 L611.7,92.9 L612.5,91.2 L613.3,89.5 L614.2,87.9 L615.0,86.2 L615.8,84.6 L616.7,83.0 L617.5,81.4 L618.3,79.9 L619.2,78.3 L620.0,76.8 L620.8,75.3 L621.7,73.9 L622.5,72.4 L623.3,71.0 L624.2,69.6 L625.0,68.2 L625.8,66.9 L626.7,65.6 L627.5,64.3 L628.3,63.1 L629.2,61.8 L630.0,60.6 L630.8,59.4 L631.7,58.3 L632.5,57.2 L633.3,56.1 L634.2,55.1 L635.0,54.0 L635.8,53.0 L636.7,52.1 L637.5,51.1 L638.3,50.2 L639.2,49.4 L640.0,48.5 L640.8,47.7 L641.7,46.9 L642.5,46.2 L643.3,45.5 L644.2,44.8 L645.0,44.2 L645.8,43.6 L646.7,43.0 L647.5,42.5 L648.3,42.0 L649.2,41.5 L650.0,41.0 L650.8,40.6 L651.7,40.3 L652.5,39.9 L653.3,39.6 L654.2,39.4 L655.0,39.2 L655.8,39.0 L656.7,38.8 L657.5,38.7 L658.3,38.6 L659.2,38.5 L660.0,38.5"/>
+<text class="fig-note" x="386.7" y="251.5">spin: cos²(θ/2), opposite at 180°</text>
+<text class="fig-note" x="223.3" y="263.1">photon: cos²θ</text>
+</svg>
+<!-- /FIGURE:angles -->
+</div>
+  <figcaption>
+    How often a prepared system passes an analyser turned by $\theta$. Solid: a spin prepared up,
+    $\cos^2(\theta/2)$; the opposite state is reached at $180°$ and the curve repeats only after a full
+    turn. Dashed: a photon prepared horizontal, $\cos^2\theta$, from the representations essay; its
+    orthogonal state, vertical, is only $90°$ away.
+  </figcaption>
+</figure>
 
 <p>
-  Born comes at spin the way the physics actually arrived: through spectroscopic
-  facts that classical and old-quantum ideas could not explain. His chapter on the
-  subject opens with alkali doublets — the splitting of spectral lines in sodium
-  and its cousins into close pairs — and the anomalous Zeeman effect, in which a
-  magnetic field splits lines into more components than Bohr's theory allows. These
-  anomalies, Born explains, cannot be understood without granting the electron an
-  intrinsic mechanical angular momentum and magnetic moment of its own, the
-  proposal Uhlenbeck and Goudsmit made in 1925.
+  The comparison with the photon is instructive. Both are two-state systems described by exactly the
+  same mathematics. What differs is how the states sit in ordinary space. For light, two orthogonal
+  polarisations are at right angles. For spin, two orthogonal states point in opposite directions.
+  The angle in the state space is half the angle in the laboratory, and that is where the
+  $\theta/2$ comes from.
 </p>
+
+<h2>The spin operators</h2>
 
 <p>
-  Born's treatment keeps the phenomenon in the foreground and introduces the
-  formalism — including the Pauli spin theory and its matrices — only as the tool
-  the phenomenon requires. He is interested in the doublets and the Zeeman
-  patterns as measured facts, and in showing that the spinning electron accounts
-  for them quantitatively. Where Feynman uses an idealized apparatus to introduce
-  spin cleanly and Dirac uses none at all, Born uses the messy real spectra that
-  historically made the concept unavoidable. His entry point is the evidence, not
-  the idealization.
+  In the $\uparrow/\downarrow$ basis, the operator for the spin component along $z$ is diagonal, with
+  eigenvalues $\pm\tfrac12\hbar$. The components along $x$ and $y$ are fixed by requiring that they
+  behave like angular momentum, with commutators like $[\hat S_x, \hat S_y] = i\hbar\hat S_z$. The
+  result, found by Wolfgang Pauli in 1927, is $\hat S_i = \tfrac12\hbar\,\sigma_i$ with the
+  <em>Pauli matrices</em>
 </p>
 
-<h2>Synthesis</h2>
+$$\sigma_x = \begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
+\sigma_y = \begin{pmatrix}0&-i\\i&0\end{pmatrix},$$
+$$\sigma_z = \begin{pmatrix}1&0\\0&-1\end{pmatrix}.$$
 
 <p>
-  Spin lays the four temperaments side by side more starkly than any other topic.
-  Feynman stages a clean experiment and refuses all classical language, making spin
-  the purest demonstration of amplitude thinking. Dirac stages no experiment at
-  all and lets an algebra force the matrices into existence. Landau and Lifshitz
-  derive spin from the rotation group, treating it as a structural necessity of any
-  multi-component wave function. Born tracks the historical evidence — the doublets,
-  the anomalous Zeeman splittings — that compelled physicists to accept spin before
-  any of these formalisms were in place. Idealized experiment, pure algebra,
-  symmetry, and evidence: four doors into one room.
+  The first and third are the two photon operators of the formalism essay, now doing duty for spin.
+  Each has eigenvalues $+1$ and $-1$; the eigenvectors of $\sigma_x$ are
+  $(|{\uparrow}\rangle \pm |{\downarrow}\rangle)/\sqrt2$, the states "up along $x$" and "down along $x$".
+  No two of the matrices commute, so no state is sharp in two components at once: as with orbital
+  angular momentum, only one component can be known.
 </p>
+
+<h2>Worked example: a magnet at 60°</h2>
+
+<div class="worked">
+<p>
+  Atoms prepared up along $z$ enter a magnet whose field lies in the $x$–$z$ plane, turned $60°$ from
+  $z$. The spin component along that direction is
+  $\hat S_\theta = \tfrac12\hbar(\cos\theta\,\sigma_z + \sin\theta\,\sigma_x)$, whose matrix is
+</p>
+$$\begin{aligned}
+\hat S_{60°} &= \frac{\hbar}{2}\begin{pmatrix}\cos60° & \sin60°\\ \sin60° & -\cos60°\end{pmatrix}\\[6pt]
+&= \frac{\hbar}{2}\begin{pmatrix}0.500 & 0.866\\ 0.866 & -0.500\end{pmatrix}.
+\end{aligned}$$
+<p>
+  <strong>Results:</strong> the eigenvalues, $\pm\tfrac12\hbar$, as for any direction.
+</p>
+<p>
+  <strong>The "up" eigenvector</strong> is $(\cos30°, \sin30°) = (0.866, 0.500)$; multiplying out
+  confirms it: the matrix times this list gives $\tfrac12\hbar$ times the same list. Its overlap with
+  $|{\uparrow}\rangle = (1, 0)$ is $0.866$, so
+  $P(\text{up along }60°) = 0.866^2 = 0.750$, and $P(\text{down}) = 0.250$. That is $\cos^2 30°$, the
+  formula with $\theta/2 = 30°$.
+</p>
+<p>
+  <strong>Average:</strong>
+  $\langle S_{60°}\rangle = 0.75(\tfrac12\hbar) + 0.25(-\tfrac12\hbar) = \tfrac14\hbar$, which is
+  $\tfrac12\hbar\cos60°$: the component of an arrow of length $\tfrac12\hbar$ along the magnet's
+  direction. The average behaves like a classical arrow; no individual atom does. Each one gives
+  $+\tfrac12\hbar$ or $-\tfrac12\hbar$, and never $\tfrac14\hbar$.
+</p>
+<p>
+  <strong>Checks:</strong> at $\theta = 0$ the matrix is $\tfrac12\hbar\,\sigma_z$ and $P = 1$; at
+  $\theta = 90°$ it is $\tfrac12\hbar\,\sigma_x$ and the overlap is $0.707$, $P = \tfrac12$.
+</p>
+</div>
+
+<details>
+  <summary>Optional: turning a spin by 360° changes its sign</summary>
+  <p>
+    Because the state space turns at half the rate of real space, rotating a spin by $360°$ turns its
+    state through only $180°$ in the state space, which multiplies it by $-1$. An overall sign changes no
+    prediction on its own. But if one part of a beam is rotated by $360°$ and the other is not, and the two
+    are recombined, the relative sign turns bright fringes dark. Neutron interference experiments in 1975
+    saw exactly this, and it takes a $720°$ rotation to bring a spin state fully back to itself. This is
+    one more reason no picture of a little rotating ball can be right.
+  </p>
+</details>
+
+<h2>Two questions</h2>
+
+<div class="questions">
+<p>
+  <strong>1. Three magnets.</strong> Atoms leave a first magnet along $z$; only the "up" beam is kept.
+  They pass a second magnet along $x$, and only its "up" beam is kept. A third magnet is along $z$
+  again. What fraction of the atoms leaving the first magnet emerge from the third as "down"?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    From up along $z$, the chance of up along $x$ is $\cos^2 45° = \tfrac12$. Those atoms are now in the
+    state up along $x$, which has no preference along $z$: half come out down. Overall
+    $\tfrac12\times\tfrac12 = \tfrac14$.
+  </p>
+  <p>
+    The tempting answer is zero, on the reasoning that the first magnet already removed every "down"
+    atom. That would be right if each atom carried a hidden $z$ label through the middle magnet. It does
+    not: after the $x$ measurement, the atom is in an $x$ eigenstate, and its earlier $z$ value is gone.
+    It is the three-filter photon puzzle of the representations essay, in atoms.
+  </p>
+</details>
 
 <p>
-  The Feynman–Dirac contrast is the sharpest in the project, and spin is where it
-  is most visible because both reach the <em>same</em> object — the two-component
-  spin-½ state and its Pauli matrices — from opposite starting points. Feynman will
-  not write down a matrix until an experiment has earned it; Dirac will not appeal
-  to an experiment when consistency conditions suffice. A reader who learns spin
-  from Feynman comes away feeling she has watched atoms sort themselves in a magnet;
-  a reader who learns it from Dirac comes away feeling she has solved a small
-  algebra problem. Both have the identical physics, and neither picture is more
-  correct — which is the whole thesis of this project, sharpened to its finest
-  point.
+  <strong>2. Opposite at 90° or at 180°?</strong> Horizontal and vertical polarisation are orthogonal
+  photon states, 90° apart. Spin up and spin down are orthogonal spin states, 180° apart. Does this mean
+  spin states are "more different" from each other than polarisation states are?
 </p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    No. In both cases the two states are orthogonal, their overlap is zero, and each can be distinguished
+    from the other with certainty by the right analyser. As states, they are exactly as different as two
+    states can be. What differs is only the laboratory angle through which you must turn an analyser to go
+    from one to the other: 90° for polarisation, 180° for spin.
+  </p>
+  <p>
+    The wrong turn is to identify the angle in the laboratory with the angle between the states. The
+    state-space angle is what sets probabilities through $\cos^2$, and for spin it is half the laboratory
+    angle.
+  </p>
+</details>
+</div>
 
-<p>
-  What none of them will allow is the picture the word "spin" invites: a little
-  ball rotating. Feynman announces he will set classical concepts aside and reason
-  only from the experiment; Landau and Lifshitz call the spinning-ball image
-  meaningless outright; Dirac never offers a picture to be tempted by; Born treats
-  the electron's angular momentum as a measured property, not a mechanical rotation. The half-integer values and the
-  $2\pi$ sign change are the theory's way of insisting that spin is genuinely new.
-  On that the four authors, for all their differences of method, do not disagree.
-</p>
-
-<h2>Read the originals</h2>
+<h2>Further reading</h2>
 
 <div class="read-originals">
-  <h3>Where to find these treatments</h3>
   <ul>
-    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_05.html">Ch. 5 "Spin One"</a> (Stern-Gerlach filtering, §5-1) and <a href="https://www.feynmanlectures.caltech.edu/III_06.html">Ch. 6 "Spin One-Half"</a> (rotation amplitudes from "pure reasoning")</li>
-    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. VI §37 "The Spin of the Electron" — the Pauli matrices derived from the spin algebra</li>
-    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §54 "Spin" (commutation relations from rotations; half-integer values) and §55 "Spinors" (the $2\pi$ sign change)</li>
-    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. VI §1 "Alkali Doublets and the Spinning Electron" and §2 "The Anomalous Zeeman Effect"; the Pauli spin theory in Ch. VI §8</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_05.html">Ch. 5 "Spin One"</a>, §5-1 "Filtering atoms with a Stern-Gerlach apparatus" and §5-3 "Stern-Gerlach filters in series", then <a href="https://www.feynmanlectures.caltech.edu/III_06.html">Ch. 6 "Spin One-Half"</a>, where §6-2 to §6-6 derive the rotation of spin states.</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. VI §1 "Alkali Doublets and the Spinning Electron", and §7 "Magnetism" for the Stern–Gerlach method.</li>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §54 "Spin" and §55 "Spinors".</li>
   </ul>
 </div>
 
+<h2>Where this leaves us</h2>
+
+<p>
+  The silver beam splits into exactly two because the electron carries an intrinsic angular momentum
+  whose component along any axis is $+\tfrac12\hbar$ or $-\tfrac12\hbar$ and nothing else. Spin is a
+  complete two-state quantum system: its states are two-component lists, its measurements are the Pauli
+  matrices, and a magnet turned by $\theta$ passes a prepared atom with probability $\cos^2(\theta/2)$.
+</p>
+
+<p>
+  Spin doubles the count of electron states in hydrogen, from $n^2$ to $2n^2$ at each level. That
+  doubling is only the start of its importance. When there are many electrons, as in every atom but
+  hydrogen, spin combines with a rule about identical particles that has no classical counterpart, and
+  together they decide the structure of the periodic table. That is the next essay.
+</p>
+
 <nav class="chapter-nav">
-  <a class="prev" href="10-hydrogen.html">← The Hydrogen Atom</a>
-  <a class="next" href="12-identical-particles.html">Identical Particles and the Periodic Table →</a>
+  <a class="prev" href="10-hydrogen.html">← Hydrogen without little planetary orbits</a>
+  <a class="next" href="12-identical-particles.html">Why identical particles change matter →</a>
 </nav>
 
 </main>
 
 <footer>
-  <p>A comparative reading. Prose is original synthesis.</p>
+  <p>Original prose, worked examples and figures.</p>
 </footer>
 
 <script>
@@ -258,6 +329,13 @@ function toggleTheme() {
   const current = root.getAttribute('data-theme');
   root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
 }
+// Printed copies include every optional section and worked answer.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('details:not([open])')];
+  closedForPrint.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
 </script>
 
 </body>

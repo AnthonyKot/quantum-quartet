@@ -1,5 +1,7 @@
 # The Quantum Quartet — Project Context
 
+> The book has been reworked (Sept 2026). Start at "CURRENT STATE" below.
+
 ## Premise
 
 Comparative reading of early 20th-century theoretical physics through four books:
@@ -21,7 +23,7 @@ Each chapter pairs the four authors on a single topic and asks how each one ente
 
 ## Tech Stack
 
-- Plain HTML + one shared CSS (`static/style.css`) + minimal vanilla JS (theme toggle only)
+- Plain HTML + one shared CSS (`static/style.css`) + minimal vanilla JS (theme toggle; fold-outs open for printing)
 - No framework, no build step
 - KaTeX from CDN: inline `$...$` and display `$$...$$`
 - Relative links only (works under project subpath)
@@ -43,6 +45,29 @@ books/                         — local PDFs
   Shankar - Principles of quantum mechanics.pdf
   born.pdf
 ```
+
+## CURRENT STATE (2026-09-18) — read this first
+
+The book is a readable guide to quantum mechanics, not a four-author comparison. **`notes/REWORK-PLAN.md`
+is the single authority** (reader model, editorial rules, essay template and the lessons from each review,
+reading order, per-chapter briefs, acceptance list). **`notes/source-ledger.md`** records, for every
+further-reading pointer, whether its location or its supporting passage was checked, and lists prose claims
+not yet checked against a source on disk.
+
+- **Core, 16 essays: rewritten** in the new template. Reading order: 01 → 02 → 03 → 04 → 05 → 06 → 08 → 07
+  → 09 → 09b (oscillator, new) → 09c (angular momentum, new) → 10 → 11 → 12 → 13 → 14. File names are stable
+  URLs; titles carry no numbers; order is carried by `index.html` and prev/next links.
+- **Optional relativity, a1–a4: not yet rewritten** (old comparative format), marked "awaiting revision" on
+  the landing page.
+- Landing page, About page and README describe the new book. The site title "The Quantum Quartet" is kept
+  until the title decision (plan §12).
+- Per-essay numbers and generated figures: `scripts/chNN_*.py` (`--write` regenerates the figure between
+  `FIGURE:` markers). Page checks: `scripts/check_page.py <chapter>`.
+
+SUPERSEDED below — historical record only, do not follow: "Premise", "Files Created", "Chapter Map"
+(lead-author notes, old order and titles), "Writing Notes", "Chapter Template", "Next Steps", "Remaining
+TODO". Still valid: Style, Tech Stack, Content Policy, Source inventory, Edition pinning, the Feynman
+link-only rule. The old Feynman pointer list is evidence to re-check, not text to freeze.
 
 ## Chapter Map (14 core + 4 appendix)
 
@@ -98,8 +123,9 @@ No "read the originals" pointer ships unverified. Unverified references get flag
   labeled supplementary source for ch.03; NOT *Atomic Physics*.
 - **Dirac** — `books/Dirac-Principles of Quantum Mechanics.pdf` is the **4th ed.
   (1958)**, readable via the Read tool (renders PDF pages as images). VERIFIED.
-- **Landau & Lifshitz** — `/mnt/c/Users/CoderA/Downloads/LandauLifshitz-QuantumMechanics.pdf`,
-  2nd ed. 1965 Pergamon (Sykes & Bell). Read via Read tool. VERIFIED.
+- **Landau & Lifshitz** — `~/book2/sources/LandauLifshitz-QuantumMechanics.pdf` (the old
+  `/mnt/c/...Downloads` path no longer exists; moved 2026-09-18), 2nd ed. 1965 Pergamon
+  (Sykes & Bell). Scanned: read pages with the Read tool (contents = PDF pages 7–8). VERIFIED.
 - **Feynman** — link-only (read-online license, never mirrored). Vol. III pointers
   verified from the official Caltech ToC by the user. Vol. I pointers (ch.01/02)
   still pending.

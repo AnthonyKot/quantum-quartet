@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>III · The Bohr Atom and the Old Quantum Theory — The Quantum Quartet</title>
+  <title>The atom that almost worked — The Quantum Quartet</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -20,192 +20,392 @@
   </nav>
 </header>
 
-<main class="page">
+<main class="page essay">
 
-<div class="chapter-meta">Chapter III · Part I — The Crisis</div>
+<div class="chapter-meta">Part I — The crisis</div>
 
-<h1>The Bohr Atom and the Old Quantum Theory</h1>
+<h1>The atom that almost worked</h1>
 
-<p>
-  Niels Bohr's model of the atom, published in 1913, is the most
-  successful failure in the history of physics. It explained the hydrogen
-  spectrum — a puzzle that had resisted every attempt at a classical
-  solution — and it did so with two postulates that were incompatible
-  with classical physics. The model was wrong, but it was the right
-  kind of wrong: it pointed toward the theory that would replace it.
+<p class="lede">
+  Pass an electric spark through hydrogen gas and look at the glow through a
+  prism. Instead of a smooth rainbow you see four thin lines: red, blue-green,
+  and two in the violet, with darkness between them. Why does hydrogen emit only
+  certain colours?
 </p>
 
 <p>
-  Bohr's atom consists of a nucleus orbited by electrons in discrete
-  circular orbits. Electrons can jump between orbits, emitting or absorbing
-  a photon with energy equal to the difference between the orbits:
-  $h\nu = E_i - E_f$. The orbits themselves are selected by the
-  quantization condition $mvr = n\hbar$, where $n$ is an integer.
+  The previous two essays found energy exchanged in steps and light delivered in
+  photons of energy $h\nu$. A sharp spectral line is a photon of one exact energy,
+  so the question becomes: why can a hydrogen atom give out only certain amounts
+  of energy? In 1913 Niels Bohr answered it with a model that reproduced the
+  lines to a fraction of a percent. The model is not correct, and this essay will
+  say where it breaks. But it computed, for the first time, the size and energy
+  of an atom from fundamental constants, and its central idea survives: an atom
+  exists only in a set of definite energy levels.
+</p>
+
+<aside class="reminders" aria-label="Reminders">
+  <h2>Three things worth having back in mind</h2>
+  <ul>
+    <li><strong>The Coulomb force.</strong> Two charges $q_1, q_2$ a distance $r$
+      apart attract or repel with force $q_1q_2/4\pi\varepsilon_0 r^2$. Their
+      potential energy is $q_1q_2/4\pi\varepsilon_0 r$. For an electron (charge $-e$)
+      and a proton ($+e$) that energy is negative, $-e^2/4\pi\varepsilon_0 r$, and
+      rises towards zero as they are pulled apart.</li>
+    <li><strong>Circular motion.</strong> Holding a mass $m$ on a circle of radius
+      $r$ at speed $v$ takes an inward force $mv^2/r$. Its angular momentum is
+      $L = mvr$.</li>
+    <li><strong>Bound means negative.</strong> With energy measured from zero for
+      an electron at rest far away, a bound electron has negative total energy.
+      The energy needed to free it is the <em>binding energy</em>.</li>
+  </ul>
+</aside>
+
+<h2>Why a classical atom cannot exist</h2>
+
+<p>
+  By 1911 Ernest Rutherford's scattering experiments had shown that an atom has a
+  tiny, heavy, positive nucleus with electrons somewhere around it. The natural
+  picture is a miniature solar system: the electron circling the proton, held by
+  the Coulomb force as a planet is held by gravity.
 </p>
 
 <p>
-  This is the "old quantum theory" — a patchwork of quantization rules
-  applied to classical orbits. It works for hydrogen, fails for helium,
-  and cannot explain why the quantization condition should hold. It is
-  a scaffold, not a building.
+  Classical physics rules this out twice over. First, a circling charge is an
+  accelerating charge, and accelerating charges radiate. The electron should lose
+  energy continuously and spiral inward. Run the calculation for an electron
+  starting at hydrogen's actual size and it hits the nucleus in about
+  $10^{-11}$&nbsp;seconds: every atom in the universe would have collapsed at once.
+  Second, as the electron spirals its orbital frequency changes smoothly, so the
+  light it emits should sweep through a continuous range of colours. A hydrogen
+  atom does neither. It is stable, and it emits sharp lines.
 </p>
 
-<h2>Entry points</h2>
-
-<table class="entry-table">
-  <thead>
-    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="author-cell">Born</td>
-      <td>Hydrogen spectrum (Balmer series)</td>
-      <td>Correspondence principle</td>
-      <td>Bohr's quantization rule, orbital radii, energy levels</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Feynman</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>Historical curiosity — treated briefly as a stepping stone</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Landau &amp; Lifshitz</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Dirac</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>—</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>Born's treatment</h2>
+<h2>Bohr's two rules</h2>
 
 <p>
-  Born treats the Bohr atom as a major achievement in <em>Atomic Physics</em>,
-  but he is clear-eyed about its limitations. He explains the model, derives
-  the hydrogen energy levels, and shows how the Balmer formula follows from
-  Bohr's postulates. But he also names the questions it leaves unexplained:
-  why certain orbits must be excluded on grounds outside the theory itself, why
-  the anomalous Zeeman effect resists it (the explanation, he notes, will require
-  the electron's own spin), and how the helium problem — the simplest system with
-  more than one electron — yields results contrary to experiment.
+  Bohr kept the orbit and added two rules that classical physics could not justify.
 </p>
 
 <p>
-  Born's treatment is notable for its emphasis on the correspondence principle:
-  the idea that quantum mechanics must reproduce classical physics in the limit
-  of large quantum numbers. This principle guided Bohr himself and was one of
-  the key insights that led to matrix mechanics. Born understood its importance
-  because he was one of the people who used it.
+  <strong>Stationary states.</strong> Only certain orbits are allowed, and in them
+  the electron does not radiate, whatever electromagnetism says. The allowed orbits
+  are those whose angular momentum is a whole-number multiple of $h/2\pi$:
 </p>
 
-<h2>The near-absence of Feynman, Landau &amp; Lifshitz, and Dirac</h2>
+$$mvr = n\hbar,\qquad n = 1, 2, 3, \dots$$
 
 <p>
-  Feynman mentions the Bohr atom in passing, as a historical curiosity. He
-  does not treat it as a serious theory worth studying in its own right.
-  This is characteristic of Feynman's approach: he prefers to teach the
-  correct theory directly, without getting bogged down in the detours that
-  led to it.
+  The combination $\hbar = h/2\pi = 1.055\times10^{-34}$&nbsp;J&nbsp;s, read
+  "h-bar", appears so often in quantum mechanics that it has its own symbol.
 </p>
 
 <p>
-  Landau and Lifshitz skip the old quantum theory almost entirely. Their
-  quantum mechanics book begins with the uncertainty principle and the
-  Schrödinger equation, which provide a complete and consistent framework.
-  There is no need to revisit the scaffolding.
+  <strong>Jumps.</strong> Light is emitted or absorbed only when the electron jumps
+  from one allowed orbit to another, and it goes as a single photon carrying the
+  energy difference:
+</p>
+
+$$h\nu = E_{\text{upper}} - E_{\text{lower}} .$$
+
+<p>
+  The second rule is Einstein's photon applied to an atom, and it is the idea that
+  lasts. The first rule was a guess, chosen because it gave the right answer. We
+  will see shortly what it looks like from the far side of the theory.
+</p>
+
+<h2>From the rules to the levels</h2>
+
+<p>
+  For a circular orbit the Coulomb attraction supplies the inward force:
+</p>
+
+$$\frac{mv^2}{r} = \frac{e^2}{4\pi\varepsilon_0\, r^2}.$$
+
+<p>
+  Bohr's condition gives $v = n\hbar/mr$. Substituting and solving for $r$:
+</p>
+
+$$r_n = n^2\,\frac{4\pi\varepsilon_0\,\hbar^2}{m e^2} = n^2 a_0,$$
+
+<p>
+  where $a_0$ is called the <em>Bohr radius</em>. The orbits grow as the square of $n$.
 </p>
 
 <p>
-  Dirac is similarly silent. The old quantum theory was, in his view, a
-  collection of ad hoc rules without a coherent foundation. It was not
-  worth preserving in a book that aimed to present quantum mechanics from
-  first principles.
+  For the energy, the force balance tells us that $mv^2 = e^2/4\pi\varepsilon_0 r$,
+  so the kinetic energy $\tfrac12 mv^2$ is exactly half the size of the potential
+  energy $-e^2/4\pi\varepsilon_0 r$, with the opposite sign. The total is therefore
+  minus the kinetic energy:
+</p>
+
+$$E_n = -\frac{e^2}{8\pi\varepsilon_0\, r_n} = -\frac{e^2}{8\pi\varepsilon_0\, a_0}\cdot\frac{1}{n^2}.$$
+
+<p>
+  Every quantity here is a fundamental constant except $n$. Putting in the numbers
+  (below), the whole content of the model for hydrogen is two lines:
+</p>
+
+$$a_0 = 0.0529\ \text{nm},\qquad E_n = -\frac{13.6\ \text{eV}}{n^2}.$$
+
+<figure>
+<div class="fig-scroll">
+<!-- FIGURE:levels generated by scripts/ch03_bohr.py -->
+<svg class="fig-svg" viewBox="0 0 680 420" role="img" aria-labelledby="fig-lev-title fig-lev-desc">
+<title id="fig-lev-title">Energy levels of hydrogen in the Bohr model</title>
+<desc id="fig-lev-desc">Horizontal lines at minus 13.6, minus 3.4, minus 1.5, minus 0.85 electronvolts and so on, crowding together towards zero. Downward arrows from higher levels to the second level are the visible Balmer lines at 656, 486, 434 and 410 nanometres. A long arrow from the second level to the first is the ultraviolet Lyman alpha line at 122 nanometres.</desc>
+<path class="fig-axis" d="M62,398.0 V18.0"/>
+<path class="fig-axis" d="M62,37.9 h-5"/>
+<text class="fig-tick" x="53" y="41.9" text-anchor="end">0</text>
+<path class="fig-axis" d="M62,87.5 h-5"/>
+<text class="fig-tick" x="53" y="91.5" text-anchor="end">-2</text>
+<path class="fig-axis" d="M62,137.2 h-5"/>
+<text class="fig-tick" x="53" y="141.2" text-anchor="end">-4</text>
+<path class="fig-axis" d="M62,186.9 h-5"/>
+<text class="fig-tick" x="53" y="190.9" text-anchor="end">-6</text>
+<path class="fig-axis" d="M62,236.6 h-5"/>
+<text class="fig-tick" x="53" y="240.6" text-anchor="end">-8</text>
+<path class="fig-axis" d="M62,286.2 h-5"/>
+<text class="fig-tick" x="53" y="290.2" text-anchor="end">-10</text>
+<path class="fig-axis" d="M62,335.9 h-5"/>
+<text class="fig-tick" x="53" y="339.9" text-anchor="end">-12</text>
+<path class="fig-axis" d="M62,385.6 h-5"/>
+<text class="fig-tick" x="53" y="389.6" text-anchor="end">-14</text>
+<text class="fig-label" transform="translate(16,208.0) rotate(-90)" text-anchor="middle">energy (eV)</text>
+<path class="fig-axis" style="stroke-width:1.6" d="M72,375.8 H530"/>
+<text class="fig-note" x="538" y="379.8">n = 1, -13.61 eV</text>
+<path class="fig-axis" style="stroke-width:1.6" d="M72,122.3 H530"/>
+<text class="fig-note" x="538" y="126.3">n = 2, -3.40 eV</text>
+<path class="fig-axis" style="stroke-width:1.6" d="M72,75.4 H530"/>
+<text class="fig-note" x="538" y="79.4">n = 3, -1.51 eV</text>
+<path class="fig-axis" style="stroke-width:1.6" d="M72,59.0 H530"/>
+<path class="fig-axis" style="stroke-width:1.6" d="M72,51.4 H530"/>
+<path class="fig-axis" style="stroke-width:1.6" d="M72,47.3 H530"/>
+<path class="fig-axis" style="stroke-dasharray:5 4" d="M72,37.9 H530"/>
+<text class="fig-note" x="538" y="41.9">n → ∞, 0 eV (free)</text>
+<text class="fig-note" x="538" y="60.6">n = 4, 5, 6, …</text>
+<path class="fig-curve fig-mid" d="M112,122.3 V368.8"/>
+<path class="fig-arrowhead-mid" d="M107,366.8 L112,375.8 L117,366.8 Z"/>
+<text class="fig-note" x="120" y="249.1">Lyman α, 122 nm (ultraviolet)</text>
+<path class="fig-curve fig-hot" d="M322,75.4 V115.3"/>
+<path class="fig-arrowhead" d="M317,113.3 L322,122.3 L327,113.3 Z"/>
+<text class="fig-tick" x="322" y="138.3" text-anchor="middle">656</text>
+<path class="fig-curve fig-hot" d="M372,59.0 V115.3"/>
+<path class="fig-arrowhead" d="M367,113.3 L372,122.3 L377,113.3 Z"/>
+<text class="fig-tick" x="372" y="138.3" text-anchor="middle">486</text>
+<path class="fig-curve fig-hot" d="M422,51.4 V115.3"/>
+<path class="fig-arrowhead" d="M417,113.3 L422,122.3 L427,113.3 Z"/>
+<text class="fig-tick" x="422" y="138.3" text-anchor="middle">434</text>
+<path class="fig-curve fig-hot" d="M472,47.3 V115.3"/>
+<path class="fig-arrowhead" d="M467,113.3 L472,122.3 L477,113.3 Z"/>
+<text class="fig-tick" x="472" y="138.3" text-anchor="middle">410</text>
+<text class="fig-note" x="397" y="156.3" text-anchor="middle">Balmer lines (nm), visible</text>
+</svg>
+<!-- /FIGURE:levels -->
+</div>
+  <figcaption>
+    Hydrogen's energy levels in the Bohr model, drawn to scale. The levels crowd
+    together towards zero, the energy of a free electron. Jumps down to $n = 2$ give
+    the four visible Balmer lines; the jump from $n = 2$ to $n = 1$ releases more than
+    five times as much energy and gives an ultraviolet photon. Every wavelength shown
+    is computed from $E_n = -13.6\ \text{eV}/n^2$.
+  </figcaption>
+</figure>
+
+<h2>Worked example: the red line</h2>
+
+<div class="worked">
+<p>
+  <strong>The constants.</strong> With $e = 1.602\times10^{-19}$&nbsp;C and
+  $\varepsilon_0 = 8.854\times10^{-12}$&nbsp;F/m, the Coulomb combination is
+  $e^2/4\pi\varepsilon_0 = 2.307\times10^{-28}$&nbsp;J&nbsp;m, which is
+  $1.440$&nbsp;eV&nbsp;nm. With $m = 9.109\times10^{-31}$&nbsp;kg,
+</p>
+$$\begin{aligned}
+a_0 &= \frac{\hbar^2}{m\,(e^2/4\pi\varepsilon_0)}\\[4pt]
+&= \frac{(1.055\times10^{-34})^2\ \text{m}}{(9.109\times10^{-31})(2.307\times10^{-28})}\\[4pt]
+&= 5.29\times10^{-11}\ \text{m},\\[4pt]
+E_1 &= -\frac{1.440\ \text{eV nm}}{2\times 0.0529\ \text{nm}}\\[4pt]
+&= -13.6\ \text{eV}.
+\end{aligned}$$
+<p>
+  The measured energy needed to ionise hydrogen from its ground state is
+  13.6&nbsp;eV, and atoms are indeed about a tenth of a nanometre across.
+</p>
+<p>
+  <strong>The red line</strong> is the jump from $n = 3$ to $n = 2$:
+</p>
+$$\begin{aligned}
+E_3 - E_2 &= 13.6\ \text{eV}\left(\frac14 - \frac19\right)\\[4pt]
+&= 1.89\ \text{eV},\\[4pt]
+\lambda &= \frac{hc}{E_3 - E_2} = \frac{1240\ \text{eV nm}}{1.89\ \text{eV}}\\[4pt]
+&= 656\ \text{nm}.
+\end{aligned}$$
+<p>
+  This is the line spectroscopists call H-alpha, measured at 656.5&nbsp;nm (in
+  vacuum). The small remaining gap closes when one allows for the nucleus moving
+  slightly as the electron circles it: the corrected value is 656.5&nbsp;nm too, in
+  agreement to better than one part in ten thousand.
+</p>
+<p>
+  <strong>The whole series.</strong> Jumps from $n = 4, 5, 6$ down to $2$ give
+  486, 434 and 410&nbsp;nm: the other three visible lines. In general a jump from
+  $n_i$ to $n_f$ gives
+</p>
+$$\frac{1}{\lambda} = R\left(\frac{1}{n_f^2} - \frac{1}{n_i^2}\right),$$
+<p>
+  with $R = 13.6\ \text{eV}/hc = 1.097\times10^{7}$&nbsp;m<sup>−1</sup>.
+</p>
+<p>
+  Johann Balmer had found the $n_f = 2$ case of this pattern by fitting the
+  measured lines in 1885, with no idea why it held. Bohr's model derived it and
+  predicted the value of $R$ from $e$, $m$ and $h$.
+</p>
+<p>
+  <strong>Check: the electron's speed.</strong> In the $n = 1$ orbit,
+  $v = \hbar/ma_0 = 2.19\times10^{6}$&nbsp;m/s, less than one percent of the speed of
+  light. Ignoring relativity was a fair approximation.
+</p>
+</div>
+
+<p>
+  Bohr held his rules to one more test. Where classical physics is known to work, for large systems,
+  quantum rules must give the same answers; for hydrogen that means large orbits, high $n$. This
+  requirement is called the <em>correspondence principle</em>, and the model passes it: for large $n$
+  the frequency of the light from a jump to the next level down approaches the orbit's own frequency,
+  which is what a classical circling charge would emit. The optional section shows the numbers. The
+  principle will serve as a check throughout the book.
+</p>
+
+<details>
+  <summary>Optional: large orbits behave classically</summary>
+  <p>
+    Bohr insisted that his rules must agree with classical physics where classical
+    physics is known to work: for large orbits. There, a classical electron circling
+    at frequency $f$ would radiate light of frequency $f$. Does the quantum jump
+    give the same?
+  </p>
+  <p>
+    The orbital frequency in orbit $n$ is $v/2\pi r_n$, which works out to
+    $f_n = 2|E_1|/hn^3$. The photon from the jump $n \to n-1$ has frequency
+    $\nu = (|E_1|/h)\left[1/(n-1)^2 - 1/n^2\right]$. For large $n$, the bracket is
+    close to $2/n^3$, so $\nu \approx f_n$. Numerically, the ratio $\nu/f_n$ is 3.0
+    at $n = 2$, 1.17 at $n = 10$, 1.015 at $n = 100$, and 1.0015 at $n = 1000$.
+  </p>
+  <p>
+    For small orbits the two disagree completely; for large ones they merge. This
+    requirement, that quantum rules must go over into classical ones for large
+    systems, is called the <em>correspondence principle</em>. It will serve as a
+    check throughout the book.
+  </p>
+</details>
+
+<h2>What the model could not do</h2>
+
+<p>
+  The success was real, and so were the failures. Helium, with two electrons, could
+  not be made to work: no choice of orbits gave its measured energy. The model said
+  nothing about how <em>bright</em> each line should be, or why some jumps never
+  occur. When a magnetic field splits the lines, the pattern is often more
+  intricate than the model allows. And its prediction for the ground state is
+  wrong in a way that matters: it gives the electron one unit of angular momentum,
+  $\hbar$, where the correct theory, and experiment, give zero. An orbit with no
+  angular momentum is not an orbit at all.
 </p>
 
 <p>
-  This triple near-absence is worth reflecting on. The old quantum theory
-  was the bridge between Planck's quanta and the full theory of quantum
-  mechanics. It was a scaffold, not a building — and three of the four
-  authors treated it as such. Born, who lived through the period, preserved
-  it as a historical record. The others recognized that it had served its
-  purpose and moved on.
-</p>
-
-<h2>The legacy of the Bohr atom</h2>
-
-<p>
-  Despite its failures, the Bohr atom left lasting legacies. The concept of
-  energy levels — discrete states of a bound system — is central to quantum
-  mechanics. The idea that transitions between states involve the emission
-  or absorption of a photon is fundamental. The correspondence principle
-  became a guiding heuristic in the development of the theory.
+  Most basically, the model never said <em>why</em>. Why should $mvr$ be a
+  multiple of $\hbar$, and why should an orbiting charge stop radiating? It was a
+  scaffold, not a building: essential for getting up, but not the thing itself.
 </p>
 
 <p>
-  But the Bohr model's greatest contribution was pedagogical. It showed
-  that quantum effects could be calculated in concrete situations — that
-  the abstract idea of quantization could be applied to a real physical
-  system and yield testable predictions. This was the spark that made
-  quantum mechanics seem not just philosophically interesting but
-  scientifically productive.
+  One hint of the answer came a decade later, from the relation at the end of the
+  essay on photons. If an electron has a wavelength $\lambda = h/mv$, then Bohr's
+  condition $mvr = n\hbar$ can be rewritten as $2\pi r = n\lambda$: a whole number
+  of wavelengths fits around the orbit, like a standing wave on a closed loop.
+  Orbits that do not close on themselves are forbidden because the wave would
+  interfere with itself. This picture is still not right, and the real theory has
+  no orbits, but it shows where to look. The allowed energies come from waves that
+  fit.
 </p>
 
-<h2>Synthesis</h2>
+<h2>Two questions</h2>
+
+<div class="questions">
+<p>
+  <strong>1. The invisible line.</strong> Find the wavelength of the photon emitted
+  when a hydrogen atom drops from $n = 2$ to $n = 1$. Why is this line, the strongest
+  in hydrogen's spectrum, missing from what you see through the prism?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    $E_2 - E_1 = 13.6\ \text{eV}\,(1 - \tfrac14) = 10.2$&nbsp;eV, and
+    $\lambda = 1240/10.2 = 122$&nbsp;nm. That is far into the ultraviolet, which the
+    eye cannot see and ordinary glass absorbs. It is called Lyman alpha. The
+    visible lines all end on $n = 2$ because only those jumps fall between about 1.8
+    and 3.1&nbsp;eV, the energy range of visible photons.
+  </p>
+</details>
 
 <p>
-  The chapter on the Bohr atom teaches two lessons. The first is that
-  science advances through failures as well as successes. The Bohr model
-  was wrong, but it was the right kind of wrong — it pointed toward the
-  correct theory and provided the tools (energy levels, transitions, the
-  correspondence principle) that the correct theory inherited.
+  <strong>2. Does 656&nbsp;nm prove the orbits?</strong> The Bohr model predicts
+  H-alpha correctly to a fraction of a percent. Does that show the electron really
+  travels in a circle of radius $9a_0$ in the $n = 3$ state?
 </p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    No. The prediction uses only the <em>energies</em> of the levels: the wavelength
+    depends on $E_3 - E_2$ and nothing else. Any theory that produces the same
+    energies, $-13.6\ \text{eV}/n^2$, predicts the same line, whatever picture of the
+    electron it uses. Quantum mechanics does exactly that, with no orbits at all.
+  </p>
+  <p>
+    The tempting wrong turn is to treat an accurate prediction as confirming every
+    part of the model behind it. A result confirms only the parts it depends on.
+    Here the energy levels were confirmed; the circular paths were never tested by
+    the spectrum, and the ground state's angular momentum shows the orbit picture
+    is wrong.
+  </p>
+</details>
+</div>
 
-<p>
-  The second lesson is about the difference between history and foundations.
-  Born treats the old quantum theory as a historical record because he
-  remembers it. Feynman, Landau and Lifshitz, and Dirac treat it as a
-  foundational detour because they do not need it. Both perspectives are
-  valid, and both are valuable.
-</p>
-
-<p>
-  The old quantum theory was a scaffold. Scaffolds are meant to be removed.
-  The question is whether removing them erases the memory of how the
-  building was constructed — and whether that memory is worth preserving.
-</p>
-
-<h2>Read the originals</h2>
+<h2>Further reading</h2>
 
 <div class="read-originals">
-  <h3>Where to find these treatments</h3>
   <ul>
-    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. V "Atomic Structure and Spectral Lines" §1 "The Bohr Atom; Stationary Orbits for Simply Periodic Motions" and §2 "Quantum Conditions for Simply and Multiply Periodic Motions". For the full old-quantum-theory treatment, see Born's earlier <em>The Mechanics of the Atom</em> (G. Bell &amp; Sons, 1927), §§21–32.</li>
-    <li>Feynman, <em>Lectures on Physics</em>, Vol. III — the old quantum theory is not treated as a subject; Feynman builds from amplitudes instead</li>
-    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> — not treated; the volume opens with the uncertainty principle and the Schrödinger equation, bypassing the old quantum theory entirely</li>
-    <li>Dirac, <em>Principles of Quantum Mechanics</em> — not treated; Dirac builds from the superposition principle and the quantum conditions, not from Bohr orbits</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. IV §2–§3, on why a classical atom fails and Bohr's stationary states, and Ch. V §1 "The Bohr Atom; Stationary Orbits for Simply Periodic Motions", which works through the hydrogen levels, the Balmer formula and the correspondence principle at greater length.</li>
   </ul>
 </div>
 
+<h2>Where this leaves us</h2>
+
+<p>
+  Hydrogen emits only certain colours because the atom can only exist at certain
+  energies, $-13.6\ \text{eV}/n^2$, and each photon carries away the difference
+  between two of them. Bohr's model found those energies. It did so with orbits
+  that turned out not to exist, and with a rule it could not explain.
+</p>
+
+<p>
+  The question the model leaves is what replaces a trajectory. If an electron in an
+  atom does not follow a path, what does quantum mechanics describe instead, and how
+  does it still produce definite predictions? The clearest place to see the answer is
+  not inside an atom but in a simpler experiment, where electrons are fired at a wall
+  with two slits and asked to choose a route. That is where the next essay begins.
+</p>
+
 <nav class="chapter-nav">
-  <a class="prev" href="02-photons.html">← Photons: Photoelectric Effect and Compton Scattering</a>
-  <a class="next" href="04-quantum-behavior.html">Quantum Behavior: The Double Slit and Amplitudes →</a>
+  <a class="prev" href="02-photons.html">← Light arrives in individual events</a>
+  <a class="next" href="04-quantum-behavior.html">How alternatives interfere →</a>
 </nav>
 
 </main>
 
 <footer>
-  <p>A comparative reading. Prose is original synthesis.</p>
+  <p>Original prose, worked examples and figures.</p>
 </footer>
 
 <script>
@@ -214,6 +414,13 @@ function toggleTheme() {
   const current = root.getAttribute('data-theme');
   root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
 }
+// Printed copies include every optional section and worked answer.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('details:not([open])')];
+  closedForPrint.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
 </script>
 
 </body>

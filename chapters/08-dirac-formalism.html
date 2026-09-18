@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VIII · States, Observables, Bras and Kets — The Quantum Quartet</title>
+  <title>A practical language for quantum states — The Quantum Quartet</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -20,241 +20,467 @@
   </nav>
 </header>
 
-<main class="page">
+<main class="page essay">
 
-<div class="chapter-meta">Chapter VIII · Part II — The New Mechanics</div>
+<div class="chapter-meta">Part II — The new mechanics</div>
 
-<h1>States, Observables, Bras and Kets</h1>
+<h1>A practical language for quantum states</h1>
 
-<p>
-  By this point in the story the wave function has stopped being the fundamental
-  object and become a shadow of one — the components of an abstract state along the
-  position axis. The formalism that makes that reading precise is Dirac's: states
-  are vectors, written as kets $|A\rangle$; measurable quantities are operators
-  called observables; and the pairing of a bra with a ket, $\langle B|A\rangle$, is
-  the complex amplitude that ties the whole theory to experiment. This chapter is
-  about that formalism and the different relationships our four authors have to it.
+<p class="lede">
+  An ammonia molecule is prepared with its nitrogen atom on one particular side of
+  the molecule. Its energy is then measured. The result is always one of exactly two
+  values, never anything in between, and which of the two comes up is a matter of
+  chance. Where do the two values come from, and what sets the chances?
 </p>
 
 <p>
-  Here the roles are unusually clear. Dirac is the author; the notation and the
-  architecture are his invention, and the chapter is in a real sense about his
-  book. The other three become a translation layer, each rendering the same
-  structure in a different dialect. Feynman adopts Dirac's brackets wholesale but
-  reaches them through Stern-Gerlach filters instead of axioms. Landau and Lifshitz
-  use much of the same algebra while pointedly keeping the wave function, not the
-  ket, as their primary object — and the places where their notation diverges from
-  Dirac's are worth marking exactly. Born has no bra-ket formalism at all.
+  The earlier essays have given us states as arrows, amplitudes as overlaps between
+  them, and wavefunctions as continuous lists of amplitudes. What is missing is a way
+  to talk about measurements of anything, not just "which exit" or "where", in one
+  consistent language. That language is usually called the <em>formalism</em> of quantum mechanics,
+  and later essays refer back to this one as the formalism essay. This essay builds that language in four steps, each with its own
+  notation: states, overlaps, measurable quantities, and averages. The ammonia molecule
+  carries the whole calculation, and at the end we translate everything back to
+  wavefunctions.
 </p>
 
-<h2>Entry points</h2>
+<aside class="reminders" aria-label="Reminders">
+  <h2>Two things worth having back in mind</h2>
+  <ul>
+    <li><strong>A matrix acting on a list.</strong> A 2×2 matrix turns a two-component
+      list into another: $\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}
+      = \begin{pmatrix}ax+by\\cx+dy\end{pmatrix}$.</li>
+    <li><strong>Eigenvectors.</strong> A list $v$ is an eigenvector of a matrix $M$ if
+      $Mv = \lambda v$ for some number $\lambda$, its eigenvalue: the matrix only
+      stretches it, without turning it.</li>
+  </ul>
+</aside>
 
-<table class="entry-table">
+<h2>Step 1: a name for the state</h2>
+
+<p>
+  In the essay on representations, a photon's polarisation was an arrow, and a basis
+  gave that arrow a list of components. Paul Dirac's notation writes the arrow itself,
+  independent of any basis, as $|\psi\rangle$, read "ket psi". The basis states get kets
+  too, $|H\rangle$ and $|V\rangle$, and the photon polarised at 30° is
+</p>
+
+$$|\psi\rangle = 0.866\,|H\rangle + 0.500\,|V\rangle .$$
+
+<p>
+  That line is a superposition, in the sense of the wavefunction essay, now written explicitly: a state built from the basis states with
+  complex coefficients, the amplitudes. The same ket written in the D/A basis would
+  have different coefficients and be the same state. Nothing here is new except the
+  brackets, which keep the state and its coordinates visibly apart.
+</p>
+
+<h2>Step 2: overlaps</h2>
+
+<p>
+  The central number in the earlier essays was the amplitude for a system in one state
+  to be found in another: the overlap of two arrows. Dirac writes it
+  $\langle\varphi|\psi\rangle$, and since it is a <em>bra</em>c<em>ket</em>, the left half
+  $\langle\varphi|$ is called a bra. Given the components of both states in any basis,
+</p>
+
+$$\langle\varphi|\psi\rangle = \varphi_1^*\,\psi_1 + \varphi_2^*\,\psi_2 ,$$
+
+<p>
+  multiplying matching components and adding, with the complex conjugate (marked $*$) on
+  the left-hand state. For real components the conjugate changes nothing, and this is
+  the overlap recipe from the representations essay. Three facts follow:
+</p>
+
+<ul class="cases">
+  <li>The probability of finding $|\psi\rangle$ in $|\varphi\rangle$ is
+    $|\langle\varphi|\psi\rangle|^2$.</li>
+  <li>A state is normalised when $\langle\psi|\psi\rangle = 1$: it is certainly found in
+    itself.</li>
+  <li>Two states with $\langle\varphi|\psi\rangle = 0$ are <em>orthogonal</em>. A system in
+    one is never found in the other, so the two can be told apart perfectly. The marker
+    states in the double-slit essay destroyed the fringes completely exactly when they
+    were orthogonal.</li>
+</ul>
+
+<h2>Step 3: a measurable quantity is a matrix</h2>
+
+<p>
+  Consider an ideal measurement: one that returns a definite result from a list of
+  possible values $a_1, a_2, \dots$, all different, and that disturbs the system no more
+  than it must. For each result there is a state in which that result is certain: call it $|a_1\rangle$, $|a_2\rangle$,
+  and so on. These states are orthogonal to one another, since a system certain to give
+  $a_1$ never gives $a_2$, and together they form a basis. Everything about the
+  measurement is contained in these results and states, and quantum mechanics packages
+  them into a single matrix, called the <em>operator</em> for the quantity: the matrix whose
+  eigenvectors are the states $|a_i\rangle$ and whose eigenvalues are the results $a_i$.
+</p>
+
+<p>
+  With that packaging, three rules describe such an ideal measurement:
+</p>
+
+<ol class="rules">
+  <li>The only possible results are the eigenvalues of the operator.</li>
+  <li>The probability of result $a_i$ in state $|\psi\rangle$ is $|\langle a_i|\psi\rangle|^2$.</li>
+  <li>Immediately afterwards, the system is in the state $|a_i\rangle$ for the result that
+    occurred. (This is the photon leaving a filter polarised along it.)</li>
+</ol>
+
+<p>
+  Real measurements can be less clean than this, and some quantities have several
+  different states sharing the same result. The rules extend to those cases with more
+  bookkeeping; the simple form is all the essays that follow need.
+
+<p>
+  Operators for measurable quantities are always of a special kind, called
+  <em>Hermitian</em>: each entry equals the complex conjugate of its mirror image across
+  the diagonal. For real matrices that just means symmetric. Hermitian matrices are
+  exactly the ones with real eigenvalues and orthogonal eigenvectors, which is what
+  results and certainty-states have to be.
+</p>
+
+<h2>The ammonia molecule</h2>
+
+<figure>
+<div class="fig-scroll">
+<svg class="fig-svg" viewBox="0 0 680 300" role="img" aria-labelledby="fig-nh3-title fig-nh3-desc">
+<title id="fig-nh3-title">Ammonia: two basis states and two energy levels</title>
+<desc id="fig-nh3-desc">Left: two sketches of the ammonia molecule, with the nitrogen atom above the plane of three hydrogen atoms (state up) and below it (state down). Right: an energy diagram in which a single level E0 splits into two levels, E0 minus C and E0 plus C, labelled with the combinations up plus down and up minus down.</desc>
+<path class="fig-axis" style="stroke-dasharray:4 4" d="M40,110 H230"/>
+<circle cx="80" cy="118" r="9" style="fill:var(--text-dim)"/><circle cx="185" cy="118" r="9" style="fill:var(--text-dim)"/><circle cx="135" cy="100" r="9" style="fill:var(--text-dim)"/>
+<circle cx="133" cy="52" r="15" style="fill:var(--accent)"/>
+<path class="fig-axis" d="M133,52 L80,118 M133,52 L185,118 M133,52 L135,100"/>
+<text class="fig-note" x="160" y="50">N</text>
+<text class="fig-note" x="245" y="88">|up⟩</text>
+<path class="fig-axis" style="stroke-dasharray:4 4" d="M40,215 H230"/>
+<circle cx="80" cy="207" r="9" style="fill:var(--text-dim)"/><circle cx="185" cy="207" r="9" style="fill:var(--text-dim)"/><circle cx="135" cy="225" r="9" style="fill:var(--text-dim)"/>
+<circle cx="133" cy="268" r="15" style="fill:var(--accent)"/>
+<path class="fig-axis" d="M133,268 L80,207 M133,268 L185,207 M133,268 L135,225"/>
+<text class="fig-note" x="160" y="285">N</text>
+<text class="fig-note" x="245" y="248">|down⟩</text>
+<text class="fig-tick" x="40" y="140">plane of the three hydrogens (grey)</text>
+<path class="fig-axis" style="stroke-width:1.6" d="M360,160 H430"/>
+<text class="fig-note" x="395" y="150" text-anchor="middle">E₀</text>
+<path class="fig-axis" style="stroke-dasharray:3 4" d="M430,160 L480,110 M430,160 L480,210"/>
+<path class="fig-axis" style="stroke-width:1.6" d="M480,110 H550 M480,210 H550"/>
+<text class="fig-note" x="560" y="105">E₀ + C</text>
+<text class="fig-note" x="560" y="122">(|up⟩ − |down⟩)/√2</text>
+<text class="fig-note" x="560" y="205">E₀ − C</text>
+<text class="fig-note" x="560" y="222">(|up⟩ + |down⟩)/√2</text>
+<path class="fig-axis" d="M470,110 V210 M466,110 h8 M466,210 h8"/>
+<text class="fig-tick" x="462" y="164" text-anchor="end">2C</text>
+</svg>
+</div>
+  <figcaption>
+    Left: the two basis states of ammonia, nitrogen above or below the plane of the
+    hydrogens. Right: the energy levels. If the nitrogen could not cross the plane, both
+    basis states would have energy $E_0$. Because it can, the energy states are the even
+    and odd combinations of up and down, split by $2C$. Schematic, not to scale.
+  </figcaption>
+</figure>
+
+<p>
+  An ammonia molecule, NH<sub>3</sub>, is a pyramid: three hydrogen atoms form a
+  triangle, and the nitrogen sits either above or below its plane. Take these two
+  arrangements as a basis, $|\text{up}\rangle$ and $|\text{down}\rangle$. By symmetry they
+  have the same energy, call it $E_0$. If that were the whole story, the operator for the
+  energy would be $E_0$ times the identity, and $|\text{up}\rangle$ would stay up forever.
+</p>
+
+<p>
+  But the nitrogen can get through the plane, even though classically it lacks the
+  energy to: an effect called tunnelling, which the essay on confinement explains. That
+  possibility appears as an amplitude connecting the two basis states, an off-diagonal
+  entry in the energy matrix, which we write as $-C$:
+</p>
+
+$$\hat H = \begin{pmatrix} E_0 & -C \\ -C & E_0 \end{pmatrix}.$$
+
+<p>
+  The energy operator is traditionally written $\hat H$, after William Rowan Hamilton;
+  the hat marks an operator. Its eigenvectors, checked by multiplying out, are the even
+  and odd combinations
+</p>
+
+$$\begin{aligned}
+|\text{I}\rangle &= \tfrac{1}{\sqrt2}\bigl(|\text{up}\rangle + |\text{down}\rangle\bigr),\\[4pt]
+|\text{II}\rangle &= \tfrac{1}{\sqrt2}\bigl(|\text{up}\rangle - |\text{down}\rangle\bigr),
+\end{aligned}$$
+
+<p>
+  with energies $E_0 - C$ and $E_0 + C$. Those are the two values of the opening. Neither
+  energy state has the nitrogen on one side; each is an equal superposition of both. The
+  splitting $2C$ is measured directly: a molecule dropping from the upper state to the
+  lower emits microwaves at 23.87&nbsp;GHz, the frequency that ran the first maser in 1954,
+  so $2C = h\nu = 9.87\times10^{-5}$&nbsp;eV.
+</p>
+
+<h2>Step 4: averages</h2>
+
+<p>
+  Repeat a measurement on many systems prepared in the same state and average the
+  results. That average is the <em>expectation value</em> of the quantity, written
+  $\langle A\rangle$. From the rules, each result $a_i$ turns up a fraction
+  $|\langle a_i|\psi\rangle|^2$ of the time, so
+</p>
+
+$$\langle A\rangle = \sum_i a_i\,|\langle a_i|\psi\rangle|^2 = \langle\psi|\hat A|\psi\rangle .$$
+
+<p>
+  The second form, sandwiching the matrix between the state and its conjugate, gives the
+  same number without finding any eigenvectors: multiply the list $|\psi\rangle$ by the
+  matrix, then take the overlap with $|\psi\rangle$. It is an average over many
+  repetitions. It need not be a value any single measurement can give.
+</p>
+
+<h2>Worked example: measuring ammonia's energy</h2>
+
+<div class="worked">
+<p>
+  Work in the up/down basis, and prepare a molecule in the state
+</p>
+$$|\psi\rangle = 0.866\,|\text{up}\rangle + 0.500\,|\text{down}\rangle ,$$
+<p>
+  mostly up. (It is the same pair of numbers as the photon at 30°.)
+</p>
+<p>
+  <strong>Possible results:</strong> the eigenvalues, $E_0 - C$ and $E_0 + C$. Nothing else.
+</p>
+<p>
+  <strong>Probabilities:</strong> overlaps with the eigenvectors, whose components are
+  $(0.707, 0.707)$ and $(0.707, -0.707)$:
+</p>
+$$\begin{aligned}
+\langle\text{I}|\psi\rangle &= 0.707(0.866 + 0.500)\\[2pt] &= 0.966,\\[6pt]
+\langle\text{II}|\psi\rangle &= 0.707(0.866 - 0.500)\\[2pt] &= 0.259 .
+\end{aligned}$$
+<p>
+  Squaring: $P(E_0 - C) = 0.933$ and $P(E_0 + C) = 0.067$. They add to 1.
+</p>
+<p>
+  <strong>Expectation value, first way,</strong> from the probabilities:
+</p>
+$$\begin{aligned}
+\langle E\rangle &= 0.933\,(E_0 - C)\\[4pt]
+&\quad + 0.067\,(E_0 + C)\\[4pt]
+&= E_0 - 0.866\,C .
+\end{aligned}$$
+<p>
+  <strong>Second way,</strong> by matrix multiplication. First apply the matrix:
+</p>
+$$\begin{aligned}
+\hat H|\psi\rangle &= \begin{pmatrix} E_0 & -C \\ -C & E_0 \end{pmatrix}\begin{pmatrix}0.866\\0.500\end{pmatrix}\\[6pt]
+&= \begin{pmatrix} 0.866E_0 - 0.500C \\ 0.500E_0 - 0.866C\end{pmatrix}.
+\end{aligned}$$
+<p>
+  Then take the overlap with $|\psi\rangle$, multiplying matching components and adding:
+</p>
+$$\begin{aligned}
+\langle\psi|\hat H|\psi\rangle &= 0.866(0.866E_0 - 0.500C)\\[4pt]
+&+ 0.500(0.500E_0 - 0.866C)\\[4pt]
+&= E_0 - 0.866\,C .
+\end{aligned}$$
+<p>
+  The two routes agree. In real units, $C = 4.94\times10^{-5}$&nbsp;eV, so the average lies
+  $4.3\times10^{-5}$&nbsp;eV below $E_0$.
+</p>
+<p>
+  <strong>Check: an eigenstate gives certainty.</strong> Prepare $|\text{I}\rangle$ instead.
+  Its overlap with itself is 1 and with $|\text{II}\rangle$ is 0, so the result is
+  $E_0 - C$ every time and the average equals it. A state is certain to give a value
+  exactly when it is an eigenvector of the quantity being measured.
+</p>
+<p>
+  <strong>Check: average versus individual.</strong> Prepare $|\text{up}\rangle$. The
+  overlaps are $0.707$ each, the probabilities ½ each, and $\langle E\rangle = E_0$: a value
+  no single measurement ever returns.
+</p>
+</div>
+
+<h2>Back to wavefunctions</h2>
+
+<p>
+  Everything above was written for two-component lists, but none of it depended on the
+  list being short. A wavefunction is the list of components of $|\psi\rangle$ in the
+  position basis: $\psi(x) = \langle x|\psi\rangle$, the amplitude to be found at $x$. Sums
+  over components become integrals, and each piece of the language carries over:
+</p>
+
+<table class="notation-table">
   <thead>
-    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
+    <tr><th>Idea</th><th>Two-state list</th><th>Wavefunction</th></tr>
   </thead>
   <tbody>
-    <tr>
-      <td class="author-cell">Born</td>
-      <td></td>
-      <td></td>
-      <td>Operators used pragmatically (e.g. Pauli matrices, $\hat p = -i\hbar\,\partial_x$)</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Feynman</td>
-      <td>Stern-Gerlach filtering</td>
-      <td></td>
-      <td>Completeness: $\langle\chi|\phi\rangle = \sum_i \langle\chi|i\rangle\langle i|\phi\rangle$</td>
-      <td>Base states as "the three components of a vector"</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Landau &amp; Lifshitz</td>
-      <td></td>
-      <td>Operators/wave functions primary; brackets secondary</td>
-      <td>Matrix element $\langle n|f|m\rangle = f_{nm}$</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Dirac</td>
-      <td></td>
-      <td>States = kets; observables = complete eigenstate sets</td>
-      <td>$\langle B|A\rangle$; the projector $|A\rangle\langle A|$</td>
-      <td>Measurement as a "jump" into an eigenstate</td>
-    </tr>
+    <tr><td>State</td><td>$(\psi_1, \psi_2)$</td><td>$\psi(x)$</td></tr>
+    <tr><td>Overlap $\langle\varphi|\psi\rangle$</td><td>$\sum_i \varphi_i^*\psi_i$</td><td>$\int \varphi^*(x)\,\psi(x)\,dx$</td></tr>
+    <tr><td>Normalised</td><td>$|\psi_1|^2 + |\psi_2|^2 = 1$</td><td>$\int|\psi|^2\,dx = 1$</td></tr>
+    <tr><td>Operator</td><td>a 2×2 matrix</td><td>an instruction acting on $\psi(x)$</td></tr>
+    <tr><td>Expectation value</td><td>$\sum_{ij}\psi_i^*C_{ij}\psi_j$</td><td>$\int\psi^*\,\hat A\psi\,dx$</td></tr>
   </tbody>
 </table>
 
-<h2>The four treatments</h2>
-
-<h3>Dirac: the architecture</h3>
-
 <p>
-  Dirac builds the formalism from the top down, and every later author is reacting
-  to his sequence. A state is a ket vector; to each ket he pairs a dual object, a
-  bra $\langle B|$, so that the scalar product $\langle B|A\rangle$ is a single
-  complex number — the notation itself splits the word "bracket" across the two
-  halves. A dynamical variable becomes a linear operator, and the physically
-  meaningful operators are the real (Hermitian) ones, whose eigenvalues are real
-  numbers.
+  The operators become instructions. Position multiplies the wavefunction by $x$, so
+  $\langle x\rangle = \int x\,|\psi|^2\,dx$, the average position. Momentum is the one found
+  in the previous essay, $\hat p = -i\hbar\,d/dx$. Energy is the right-hand side of
+  Schrödinger's equation, $\hat H = -(\hbar^2/2m)\,d^2/dx^2 + V(x)$. And the equation for a
+  stationary state, $\hat H\varphi = E\varphi$, is now visibly an eigenvalue equation:
+  the allowed energies of a bound particle are the eigenvalues of its energy operator,
+  exactly as ammonia's two energies were the eigenvalues of its 2×2 matrix.
 </p>
 
-<p>
-  His deepest definition is of an <em>observable</em>. A real dynamical variable
-  counts as observable only if its eigenstates form a complete set — if any state
-  can be expanded in them. This is not a technicality; it is what lets measurement
-  work. Dirac argues that measuring a variable makes the system "jump" into one of
-  its eigenstates, with the measured value being the corresponding eigenvalue, so
-  the possible results of a measurement are exactly the eigenvalues, and a
-  repeated measurement immediately after must give the same answer. The projector
-  $|A\rangle\langle A|$ is itself an observable — the one that asks whether the
-  system is in the state $|A\rangle$, with eigenvalues 1 and 0. Superposition,
-  orthogonality, and measurement all acquire their physical meaning inside this one
-  scheme.
-</p>
+<h2>When two quantities cannot both be sharp</h2>
 
 <p>
-  What Dirac achieves is a language in which the wave equation, the matrices, and
-  the measurement postulate are all shadows of a single vector-space structure. It
-  is the most economical of the four presentations and the least tethered to any
-  picture — which is its power and, for a first-time reader, its difficulty.
+  One more consequence decides a great deal. For the photon, the H/V question and the D/A
+  question have no state in common that is certain for both: a photon definitely H gives
+  D or A with probability ½ each, and vice versa. In matrix language, the two operators have no
+  common eigenvectors, and a tell-tale sign is that the order of multiplying them
+  matters. With results $+1$ and $-1$ for each question,
 </p>
 
-<h3>Feynman: the same brackets, earned from filters</h3>
+$$\begin{pmatrix}1&0\\0&-1\end{pmatrix}\begin{pmatrix}0&1\\1&0\end{pmatrix} = \begin{pmatrix}0&1\\-1&0\end{pmatrix},$$
+$$\begin{pmatrix}0&1\\1&0\end{pmatrix}\begin{pmatrix}1&0\\0&-1\end{pmatrix} = \begin{pmatrix}0&-1\\1&0\end{pmatrix}.$$
 
 <p>
-  Feynman uses Dirac's notation without apology — the amplitude
-  $\langle\chi|\phi\rangle$ runs through all of Volume III — but he refuses to
-  introduce it as an axiom. His route is the Stern-Gerlach apparatus: a device that
-  splits a beam by spin and can be used to filter, block, or recombine base states.
-  From manipulating such filters he extracts the completeness relation,
-  $\langle\chi|\phi\rangle = \sum_i \langle\chi|i\rangle\langle i|\phi\rangle$,
-  as a physical statement about passing through a complete set of intermediate
-  channels — and then remarks that the equation holds whether or not the apparatus
-  is actually there. The formula outlives the picture that motivated it.
+  The difference $\hat A\hat B - \hat B\hat A$ is called the <em>commutator</em>, written
+  $[\hat A, \hat B]$. When it is zero, the two quantities are <em>compatible</em>: they have a
+  complete set of eigenstates in common, and every one of those states is sharp for both.
+  When it is not zero, no such complete common set exists. Some particular states may still
+  be sharp for both, but not all of either quantity's eigenstates can be; how much is ruled
+  out depends on the pair. For the photon's two questions, no common state exists at all.
+  Position and momentum are the most important pair, and the strictest: applied to any
+  wavefunction, $\hat x\hat p - \hat p\hat x$ gives $i\hbar$ times the wavefunction, never zero,
+  so no state is sharp in both. The next essay measures how unsharp they must be.
 </p>
+
+<details>
+  <summary>Optional: computing $[\hat x, \hat p] = i\hbar$</summary>
+  <p>
+    Apply both orders to an arbitrary wavefunction $\psi(x)$. Momentum first, then
+    position: $\hat x\hat p\,\psi = x\,(-i\hbar\,\psi')$. Position first, then momentum:
+    $\hat p\hat x\,\psi = -i\hbar\,(x\psi)' = -i\hbar\,(\psi + x\psi')$, by the product
+    rule. Subtracting,
+  </p>
+  $$\begin{aligned}
+(\hat x\hat p - \hat p\hat x)\,\psi &= -i\hbar x\psi' + i\hbar\psi + i\hbar x\psi'\\[4pt]
+&= i\hbar\,\psi .
+\end{aligned}$$
+  <p>
+    The $x\psi'$ terms cancel whatever $\psi$ is, leaving $i\hbar\psi$. The whole difference
+    comes from the product rule: multiplying by $x$ and differentiating do not commute.
+  </p>
+</details>
+
+<details>
+  <summary>Optional: matrices and waves are one theory</summary>
+  <p>
+    The essay on representations told how Heisenberg's matrix mechanics and
+    Schrödinger's wave mechanics turned out to be the same theory. The language of this
+    essay shows why, and adds one piece. In Schrödinger's way of working, the state changes
+    in time and the operators stay fixed. In Heisenberg's, the state stays fixed and the
+    operators change. For a quantity with no explicit time dependence, Heisenberg's
+    equation of motion is
+  </p>
+  $$\frac{d\hat A}{dt} = \frac{1}{i\hbar}\,[\hat A, \hat H].$$
+  <p>
+    Every expectation value comes out identical either way; only the bookkeeping differs.
+    Some older texts absorb the factor $1/i\hbar$ into the bracket's definition, which is why
+    the equation is sometimes printed without it. Here the commutator is always the plain
+    difference $\hat A\hat H - \hat H\hat A$.
+  </p>
+  <p>
+    Two consequences are worth seeing. A quantity that commutes with $\hat H$ has
+    $d\hat A/dt = 0$: it is conserved. And for ammonia, the operator "up minus down" does
+    not commute with $\hat H$, so a molecule started in $|\text{up}\rangle$ swings to
+    $|\text{down}\rangle$ and back, completing a round trip every $1/\nu = 42$&nbsp;picoseconds,
+    at the maser frequency.
+  </p>
+</details>
+
+<h2>Two questions</h2>
+
+<div class="questions">
+<p>
+  <strong>1. Another preparation.</strong> An ammonia molecule is prepared in
+  $|\psi\rangle = 0.6\,|\text{up}\rangle + 0.8\,|\text{down}\rangle$. What are the
+  probabilities of the two energies, and what is $\langle E\rangle$?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    First check it is normalised: $0.36 + 0.64 = 1$. The overlaps are
+    $\langle\text{I}|\psi\rangle = 0.707(0.6 + 0.8) = 0.990$ and
+    $\langle\text{II}|\psi\rangle = 0.707(0.6 - 0.8) = -0.141$. Squaring:
+    $P(E_0 - C) = 0.98$ and $P(E_0 + C) = 0.02$. Then
+    $\langle E\rangle = 0.98(E_0 - C) + 0.02(E_0 + C) = E_0 - 0.96\,C$.
+  </p>
+  <p>
+    The easy slips are to square the components $0.6$ and $0.8$ directly, which answers a
+    different question (up or down?), or to forget that the negative overlap still gives a
+    positive probability. Probabilities for a measurement always come from overlaps with
+    <em>that</em> measurement's eigenstates.
+  </p>
+</details>
 
 <p>
-  His analogy for the state is deliberately homely: the base-state amplitudes
-  $\langle i|\phi\rangle$ are like the components of an ordinary vector along
-  chosen axes, and knowing them is knowing everything about the state — which is
-  why, he notes, a "state" is also called a "state vector." Feynman thus arrives at
-  exactly Dirac's structure, complete with orthonormal base states
-  $\langle i|j\rangle = \delta_{ij}$ and the resolution
-  $|\phi\rangle = \sum_i |i\rangle\langle i|\phi\rangle$, but the reader who
-  follows him has handled a beam of atoms the whole way. He is the translation
-  layer that keeps a thumb on the experiment.
+  <strong>2. The average that never happens.</strong> For a molecule prepared in
+  $|\text{up}\rangle$, $\langle E\rangle = E_0$. Will an energy measurement on such a
+  molecule ever give $E_0$? What does the expectation value tell you, and what does it not?
 </p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    Never. The only possible results are the eigenvalues, $E_0 - C$ and $E_0 + C$, each
+    with probability ½. The expectation value is the average over many repetitions, and
+    here it falls exactly halfway between the only two values that occur.
+  </p>
+  <p>
+    It tells you where the results balance. It does not tell you what any one measurement
+    gives, or how widely the results scatter. The tempting wrong turn is to read
+    "expectation value" as "the value to expect". A dice roll has an average of 3.5, and no
+    die shows 3.5.
+  </p>
+</details>
+</div>
 
-<h3>Landau &amp; Lifshitz: the same algebra, a different primary object</h3>
-
-<p>
-  Landau and Lifshitz use a great deal of the same machinery — Hermitian operators,
-  eigenvalues, complete sets, matrix elements — and they even adopt Dirac's bracket
-  <em>as a notation</em>: they write the matrix element of a quantity $f$ as
-  $\langle n|f|m\rangle$, equal to their $f_{nm} = \int \psi_n^* \hat f \psi_m\,dq$.
-  But the divergence from Dirac is real and worth stating precisely. For Dirac the
-  ket is the fundamental object and the wave function is its component along a
-  position eigenket; for Landau and Lifshitz the <em>wave function is primary</em>
-  and the bracket is shorthand for an integral over it. The abstract state vector,
-  which Dirac takes as bedrock, never becomes their basic object; it is Feynman's
-  and Dirac's "state vector," not theirs.
-</p>
-
-<p>
-  The practical consequence shows in what each treats as a definition versus a
-  derived formula. Dirac defines the scalar product $\langle B|A\rangle$
-  abstractly and lets integrals appear only when he chooses a representation.
-  Landau and Lifshitz define $\langle n|f|m\rangle$ <em>as</em> the integral, so the
-  bracket is a compact name for something more concrete rather than a primitive.
-  The algebra of matrix multiplication, transformation between representations, and
-  the trace are all present in their §§11–13, but they arise as properties of
-  operators acting on wave functions, not as the axioms of an abstract space. It is
-  the same country reached by a different road, and their map keeps the wave
-  function at the center where Dirac keeps the ket.
-</p>
-
-<h3>Born: formalism only where a problem demands it</h3>
-
-<p>
-  Born's <em>Atomic Physics</em> has no chapter on the abstract formalism, and that
-  is consistent with the book's whole character. Operators appear when a specific
-  problem needs them — the Pauli spin matrices when he treats the spinning electron,
-  the differential operator $\hat p = -i\hbar\,\partial_x$ for momentum in wave
-  mechanics — but never as an axiomatic system introduced for its own sake. There
-  are no kets and no bras. The commutation relations he mentions are presented as
-  facts about these particular operators, not as the founding structure of the
-  theory.
-</p>
-
-<p>
-  This is not a gap so much as a different genre. Born is writing a physics book
-  organized around phenomena and their explanation, and he reaches for whatever
-  mathematical tool the phenomenon requires. The abstract vector-space formulation,
-  which for Dirac is the whole point, is for Born an implicit background he can
-  invoke piecewise. His cell in the comparison table is nearly empty of "axiom" and
-  "thought experiment" for the same reason his uncertainty chapter led with a slit:
-  he trusts the concrete instance over the general scheme.
-</p>
-
-<h2>Synthesis</h2>
-
-<p>
-  This chapter measures four distances from a single invention. Dirac made the
-  formalism, and for him it is the theory itself — states are vectors, observables
-  are operators with complete eigenstates, and physics is the algebra of brackets.
-  Feynman adopts the invention entire but insists on earning each piece from an
-  experiment with atoms and magnets, so that the abstraction never floats free of
-  the laboratory. Landau and Lifshitz borrow the notation and most of the algebra
-  while quietly refusing the central ontological move: for them the wave function,
-  not the ket, is what is real, and the bracket is a convenience. Born reaches for
-  operators only when a calculation demands one and never builds the general
-  scheme at all.
-</p>
-
-<p>
-  The most instructive comparison is between Feynman and Landau and Lifshitz,
-  because both use Dirac's brackets and yet mean different things by them. In
-  Feynman the bracket is an amplitude — a physical quantity you could in principle
-  measure the square of — motivated by filters and beams. In Landau and Lifshitz the
-  identical symbol $\langle n|f|m\rangle$ is defined as an integral, a piece of
-  bookkeeping over wave functions. A student who moves between the two books without
-  noticing this will read the same marks on the page as two different objects. The
-  notation converged; the underlying commitments did not.
-</p>
-
-<p>
-  What the chapter reveals is that a formalism is never neutral. Dirac's brackets
-  look like pure convenience — and Feynman and Landau both take advantage of that
-  convenience — but adopting them fully, as Dirac does, means accepting that the
-  abstract state is the primary reality and the wave function a mere representation.
-  Landau and Lifshitz take the notation and decline the metaphysics; Born declines
-  both. The choice of what to treat as fundamental is made not in the equations but
-  in the decision about where to begin, and on that decision the four authors do
-  not agree.
-</p>
-
-<h2>Read the originals</h2>
+<h2>Further reading</h2>
 
 <div class="read-originals">
-  <h3>Where to find these treatments</h3>
   <ul>
-    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. I §6 "Bra and Ket Vectors," Ch. II §10 "Observables" and §13 "Commutability and Compatibility"</li>
-    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_03.html">Ch. 3 "Probability Amplitudes"</a>, <a href="https://www.feynmanlectures.caltech.edu/III_08.html">Ch. 8 "The Hamiltonian Matrix"</a>, and <a href="https://www.feynmanlectures.caltech.edu/III_20.html">Ch. 20 "Operators"</a></li>
-    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §11 "Matrices," §12 "Transformation of matrices," §13 "The Heisenberg representation of operators" (note: the bracket $\langle n|f|m\rangle$ is defined as an integral over wave functions, not as an abstract scalar product)</li>
-    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.) — no dedicated formalism chapter; operators appear where problems require them, e.g. the Pauli matrices in Ch. VI §8 "Wave Theory of the Spin Electron"</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. I §6 "Bra and Ket Vectors" and Ch. II §7–§10 (linear operators, eigenvalues and eigenvectors, observables): the language of this essay from its inventor.</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_08.html">Ch. 8 "The Hamiltonian Matrix"</a>, §8-5 "The Hamiltonian matrix" and §8-6 "The ammonia molecule".</li>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §3 "Operators" and §11 "Matrices".</li>
   </ul>
 </div>
 
+<h2>Where this leaves us</h2>
+
+<p>
+  An ammonia molecule's energy comes out as one of two values because those are the
+  eigenvalues of its energy operator, and the chances are the squared overlaps of the
+  prepared state with the two eigenstates. The same four pieces, kets, overlaps,
+  operators and expectation values, describe ideal measurements on any system, whether the
+  state is a list of two numbers or a whole wavefunction.
+</p>
+
+<p>
+  The language has also exposed a limit. When two quantities' operators do not commute,
+  they cannot share a complete set of sharp states, and for position and momentum no state
+  at all is sharp in both. How sharp can an electron's position and momentum be at the same time, and what,
+  precisely, does "sharp" mean? That is the uncertainty principle, and it is the subject of
+  the next essay.
+</p>
+
 <nav class="chapter-nav">
-  <a class="prev" href="07-uncertainty.html">← The Uncertainty Principle</a>
-  <a class="next" href="09-wells-tunneling.html">Wells, Barriers, and Tunneling →</a>
+  <a class="prev" href="06-wavefunction.html">← What a wavefunction tells us</a>
+  <a class="next" href="07-uncertainty.html">Why localisation has a cost →</a>
 </nav>
 
 </main>
 
 <footer>
-  <p>A comparative reading. Prose is original synthesis.</p>
+  <p>Original prose, worked examples and figures.</p>
 </footer>
 
 <script>
@@ -263,6 +489,13 @@ function toggleTheme() {
   const current = root.getAttribute('data-theme');
   root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
 }
+// Printed copies include every optional section and worked answer.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('details:not([open])')];
+  closedForPrint.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
 </script>
 
 </body>

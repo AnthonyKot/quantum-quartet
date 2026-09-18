@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>II · Photons: Photoelectric Effect and Compton Scattering — The Quantum Quartet</title>
+  <title>Light arrives in individual events — The Quantum Quartet</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -20,218 +20,437 @@
   </nav>
 </header>
 
-<main class="page">
+<main class="page essay">
 
-<div class="chapter-meta">Chapter II · Part I — The Crisis</div>
+<div class="chapter-meta">Part I — The crisis</div>
 
-<h1>Photons: Photoelectric Effect and Compton Scattering</h1>
+<h1>Light arrives in individual events</h1>
 
-<p>
-  If Planck's quanta were a reluctant concession, Einstein's photons were
-  an act of intellectual courage. In 1905 — the same year he published
-  special relativity — Einstein proposed that light itself consists of
-  discrete packets of energy, each carrying energy $E = h\nu$ and
-  momentum $p = h\nu/c$. This was not a reinterpretation of Planck's
-  formula; it was a claim about the nature of light itself.
+<p class="lede">
+  Shine a dim blue lamp on a clean piece of sodium in a vacuum and electrons fly
+  off the metal at once. Replace it with a powerful red floodlight, thousands of
+  times brighter, and nothing comes off at all, however long you wait. Why does
+  the colour of the light matter, and the brightness not?
 </p>
 
 <p>
-  The photoelectric effect provided the decisive evidence. When light shines
-  on a metal surface, electrons are ejected — but only if the light's
-  frequency exceeds a certain threshold, regardless of the light's intensity.
-  Einstein's explanation was simple: each electron absorbs a single photon,
-  and the photon's energy must exceed the binding energy of the electron.
-  Increasing the intensity of the light increases the number of electrons
-  ejected but not their energy; increasing the frequency increases the
-  energy of each electron.
+  The previous essay ended with a question: Planck's energy steps described how
+  matter and radiation trade energy inside a hot box, but did they say anything
+  about light itself? This essay answers yes. Two experiments, one with metals and
+  one with X-rays, show light delivering its energy and its momentum in separate
+  packets. Along the way we will compute the energy budget of a single electron
+  leaving sodium, and see why one of the two effects shows up only with X-rays.
+</p>
+
+<aside class="reminders" aria-label="Reminders">
+  <h2>Two things worth having back in mind</h2>
+  <ul>
+    <li><strong>Planck's quantum.</strong> Energy at frequency $\nu$ comes in units
+      of $h\nu$, with $h = 6.626\times10^{-34}$&nbsp;J&nbsp;s. With $c = \lambda\nu$
+      this is also $hc/\lambda$.</li>
+    <li><strong>The electronvolt.</strong> $1\ \text{eV} = 1.602\times10^{-19}$&nbsp;J,
+      the energy an electron gains or loses crossing one volt; the blackbody essay
+      used it for the size of a quantum.</li>
+  </ul>
+</aside>
+
+<h2>What a wave of light should do</h2>
+
+<p>
+  In 1900 light was, beyond reasonable doubt, a wave of electric and magnetic
+  fields. That picture explained interference, diffraction and polarisation, and
+  it made firm predictions about what happens when such a wave washes over a metal.
 </p>
 
 <p>
-  The Compton effect (1923) sealed the case. Arthur Compton showed that
-  X-rays scattered from electrons undergo a wavelength shift that can be
-  calculated by treating the scattering as a collision between a photon
-  and an electron — a genuine billiard-ball collision, with conservation
-  of energy and momentum applied to quantized packets of light.
-</p>
-
-<h2>Entry points</h2>
-
-<table class="entry-table">
-  <thead>
-    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="author-cell">Born</td>
-      <td>Photoelectric effect, Compton scattering</td>
-      <td></td>
-      <td>Photon kinematics, energy–momentum conservation</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Feynman</td>
-      <td>Photon momentum $p = E/c$ (Vol. I Ch. 34); no photoelectric treatment</td>
-      <td></td>
-      <td></td>
-      <td>"Why is this weird?" — the tension between particle and wave pictures of light</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Landau &amp; Lifshitz</td>
-      <td></td>
-      <td>Deferred to QED (Vol. IV)</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Dirac</td>
-      <td></td>
-      <td>Creation and annihilation operators</td>
-      <td>Quantized field theory</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>Born's historical treatment</h2>
-
-<p>
-  Born devotes substantial space to the photoelectric effect and the Compton
-  effect in <em>Atomic Physics</em>. He treats them as the empirical
-  foundation of the photon concept — the experiments that forced physicists
-  to abandon the wave theory of light. Born's account is careful and
-  patient: he explains the experimental setup, the puzzling observations,
-  and Einstein's explanation in turn.
+  The oscillating electric field shakes the electrons in the surface. A brighter
+  wave has a stronger field, shakes them harder, and should send them out faster.
+  A dimmer wave should still get electrons out eventually: an electron keeps
+  absorbing energy from the wave until it has enough to escape, so dim light
+  should mean a delay before anything happens, not a refusal. And frequency
+  should play no special role, since energy delivered is energy delivered.
 </p>
 
 <p>
-  Born does not present the photon as a tentative proposal. He grants that
-  Einstein's hypothesis — light as quanta flying through space "like a hail
-  of shot" — appears daring at first sight, but he immediately marshals the
-  evidence for it: a whole series of experiments, he writes, that are scarcely
-  explicable on the wave theory yet understood at once if the light quantum is
-  accepted. The photoelectric effect is his first case, and he calls the later
-  metal-dust experiments of Meyer and Gerlach evidence "even more patent." His
-  treatment leans into the experimental case Einstein himself assembled, rather
-  than hedging against it.
+  The experiment, the <em>photoelectric effect</em>, contradicts all three.
+  Light falls on a metal surface in a vacuum and a nearby electrode collects the
+  electrons that come off. Two quantities can be measured: the current, which
+  counts electrons per second, and the energy of the fastest electrons, found by
+  making the collecting electrode negative and raising that voltage until even
+  the fastest electrons are turned back. The voltage that just stops the current
+  is the <em>stopping potential</em>, and in electronvolts it equals the maximum
+  kinetic energy $K_{\max}$ of the electrons.
 </p>
 
-<h2>Feynman's counterpoint</h2>
+<ul class="cases">
+  <li><strong>Brightness changes the number, not the energy.</strong> Doubling the
+    intensity doubles the current. $K_{\max}$ does not change at all.</li>
+  <li><strong>Frequency changes the energy.</strong> Raise the frequency and
+    $K_{\max}$ rises with it.</li>
+  <li><strong>There is a threshold.</strong> Below a certain frequency, which
+    depends on the metal, no electrons come out at any intensity. Above it they
+    come out immediately, even in very dim light.</li>
+</ul>
+
+<h2>Einstein's proposal: light comes in quanta</h2>
 
 <p>
-  Feynman's route to the photon is worth noticing precisely because it skips the
-  usual door. He does not reach the light quantum through Einstein's 1905
-  photoelectric argument at all — the photoelectric effect gets no dedicated
-  treatment in the Lectures. Instead the photon arrives through radiation: in
-  Volume I he shows that light carries momentum $p = E/c$, and by the time Volume
-  III opens he takes the photon for granted and moves straight to interference and
-  amplitudes. He emphasizes the tension between the particle and wave pictures of
-  light, framing the photon not as a tiny ball of light but as a quantum of
-  excitation of the electromagnetic field.
-</p>
-
-<p>
-  Feynman's approach is more modern than Born's. He does not present the
-  photon as a replacement for the wave but as a complement — a different
-  aspect of the same underlying reality. This is the perspective of quantum
-  electrodynamics, which was still being developed at the time Feynman was
-  writing, but which he understood deeply.
-</p>
-
-<h2>Landau &amp; Lifshitz: deferral by design</h2>
-
-<p>
-  In the Course of Theoretical Physics, the photon is not a subject for the
-  quantum-mechanics volume at all. That volume is explicitly non-relativistic, and
-  the photon — a massless, intrinsically relativistic quantum of the electromagnetic
-  field — is deferred to the volume on quantum electrodynamics. Where Born opens
-  with light quanta as experimental fact, Landau and Lifshitz simply route the
-  question elsewhere.
+  In 1905 Albert Einstein proposed an explanation that goes further than Planck
+  had. Light itself, he suggested, consists of separate quanta, each carrying
+  energy $h\nu$. Today they are called <em>photons</em>. A photon is absorbed
+  whole, by a single electron, or not at all.
 </p>
 
 <p>
-  This deferral is not an oversight but a statement about architecture. The Course
-  is built so that each volume rests on a clean set of assumptions; the photon does
-  not fit the non-relativistic ones, so it waits. The reader who wants Landau and
-  Lifshitz on photons is pointed, in effect, to a different book.
+  To finish the account we need one fact about metals. Their outer electrons move
+  freely inside the metal but are held in at its surface: pulling one out costs a
+  minimum energy, called the <em>work function</em> $W$. For sodium $W$ is about
+  2.3&nbsp;eV; for zinc, about 4.3&nbsp;eV. The electron that absorbs a photon spends
+  at least $W$ of its energy getting out of the metal, and whatever is left is its kinetic energy.
+  The fastest electrons are those that lose nothing else on the way out:
 </p>
 
-<h2>Dirac and the quantized field</h2>
+$$K_{\max} = h\nu - W .$$
 
 <p>
-  Dirac's treatment of the photon in the <em>Principles of Quantum
-  Mechanics</em> goes beyond the particle picture. He derives the photon
-  concept from the quantization of the electromagnetic field — the same
-  approach that Feynman would later use in quantum electrodynamics.
-</p>
-
-<p>
-  This is the deepest treatment of the four. Dirac does not treat the
-  photon as a particle that happens to have wave-like properties; he treats
-  it as a quantum of excitation of a field, which is the modern definition.
-  But this depth comes at a cost: Dirac's treatment assumes a level of
-  mathematical sophistication that the other three authors do not require.
-</p>
-
-<h2>Synthesis</h2>
-
-<p>
-  The chapter on photons reveals something subtle about the four authors'
-  relationship to the history of quantum mechanics. Born is a historian
-  first and a physicist second: he tells the story of how the photon
-  concept emerged, with all its uncertainty and resistance. Feynman is a
-  teacher first: he presents the photon as a mystery to be contemplated,
-  not a puzzle to be solved. Landau and Lifshitz are builders: they take
-  the photon as a given and use it to construct the theory. Dirac is a
-  logician: he derives the photon from first principles and shows that it
-  was inevitable.
+  Each observation now follows. A brighter beam of the same colour carries more
+  photons per second, each with the same energy $h\nu$: more electrons, none of
+  them faster. Raising the frequency raises the energy of every photon. And if
+  $h\nu < W$, no single photon can free an electron, and because an electron
+  cannot collect several photons at once in ordinary light, piling on more of them
+  does not help. The threshold frequency is $\nu_0 = W/h$.
 </p>
 
 <p>
-  The tension between the particle and wave pictures of light is the
-  central mystery of quantum mechanics, and the photon is its most
-  immediate manifestation. Einstein's 1905 paper did not solve this
-  tension; it made it sharper. The wave picture was too successful to
-  abandon, but the particle picture was too useful to dismiss.
+  The equation also makes a prediction beyond the observations it was built to
+  explain. Plot $K_{\max}$ against $\nu$ and you should get a straight line whose
+  slope is $h$, <em>the same</em> for every metal, while the work function only
+  shifts the line sideways. Robert Millikan, who expected to refute Einstein,
+  tested this carefully and published the result in 1916: straight lines, and a
+  slope matching Planck's constant from the blackbody spectrum. A number first
+  obtained from the glow of a hot box reappeared in electrons leaving a metal.
+</p>
+
+<figure>
+<div class="fig-scroll">
+<!-- FIGURE:threshold generated by scripts/ch02_photons.py -->
+<svg class="fig-svg" viewBox="0 0 680 360" role="img" aria-labelledby="fig-thr-title fig-thr-desc">
+<title id="fig-thr-title">Maximum electron energy against light frequency for sodium and zinc</title>
+<desc id="fig-thr-desc">Two parallel straight lines. Each is zero up to a threshold frequency, which is in the green for sodium and in the ultraviolet for zinc, and rises steadily beyond it with the same slope, Planck's constant.</desc>
+<rect class="fig-band" x="232.7" y="18" width="128.1" height="286"/>
+<text class="fig-note" x="296.8" y="32" text-anchor="middle">visible</text>
+<path class="fig-axis" d="M62,18 V304 H660"/>
+<path class="fig-axis" d="M62.0,304 v5"/>
+<text class="fig-tick" x="62.0" y="323" text-anchor="middle">0</text>
+<path class="fig-axis" d="M181.6,304 v5"/>
+<text class="fig-tick" x="181.6" y="323" text-anchor="middle">3</text>
+<path class="fig-axis" d="M301.2,304 v5"/>
+<text class="fig-tick" x="301.2" y="323" text-anchor="middle">6</text>
+<path class="fig-axis" d="M420.8,304 v5"/>
+<text class="fig-tick" x="420.8" y="323" text-anchor="middle">9</text>
+<path class="fig-axis" d="M540.4,304 v5"/>
+<text class="fig-tick" x="540.4" y="323" text-anchor="middle">12</text>
+<path class="fig-axis" d="M660.0,304 v5"/>
+<text class="fig-tick" x="660.0" y="323" text-anchor="middle">15</text>
+<path class="fig-axis" d="M62,304.0 h-5"/>
+<text class="fig-tick" x="53" y="308.0" text-anchor="end">0</text>
+<path class="fig-axis" d="M62,232.5 h-5"/>
+<text class="fig-tick" x="53" y="236.5" text-anchor="end">1</text>
+<path class="fig-axis" d="M62,161.0 h-5"/>
+<text class="fig-tick" x="53" y="165.0" text-anchor="end">2</text>
+<path class="fig-axis" d="M62,89.5 h-5"/>
+<text class="fig-tick" x="53" y="93.5" text-anchor="end">3</text>
+<path class="fig-axis" d="M62,18.0 h-5"/>
+<text class="fig-tick" x="53" y="22.0" text-anchor="end">4</text>
+<text class="fig-label" x="361.0" y="348" text-anchor="middle">frequency of the light ν (10¹⁴ Hz)</text>
+<text class="fig-label" transform="translate(18,161.0) rotate(-90)" text-anchor="middle">maximum electron energy (eV)</text>
+<path class="fig-curve fig-hot" d="M283.7,304.0 L660.0,24.9"/>
+<circle cx="283.7" cy="304.0" r="3.5" class="fig-dot"/>
+<text class="fig-note" x="621.5" y="64.9">sodium</text>
+<path class="fig-curve fig-mid" d="M476.5,304.0 L660.0,167.9"/>
+<circle cx="476.5" cy="304.0" r="3.5" class="fig-dot"/>
+<text class="fig-note" x="621.5" y="207.9">zinc</text>
+<path class="fig-axis" style="stroke-dasharray:3 4" d="M327.6,304.0 V271.5 H62"/>
+<circle cx="327.6" cy="271.5" r="3.5" class="fig-dot"/>
+<text class="fig-note" x="319.6" y="261.5" text-anchor="end">blue, 450 nm</text>
+<text class="fig-note" x="376.9" y="68.1">parallel lines: same slope, h</text>
+</svg>
+<!-- /FIGURE:threshold -->
+</div>
+  <figcaption>
+    Einstein's equation $K_{\max} = h\nu - W$ for two metals, using typical work
+    functions: sodium $W \approx 2.3$&nbsp;eV and zinc $W \approx 4.3$&nbsp;eV. Below
+    its threshold frequency (dot on the axis) a metal emits no electrons at any
+    brightness. Above it, the maximum energy rises along a straight line whose
+    slope, $h = 4.14\times10^{-15}$&nbsp;eV per hertz, is the same for both. Sodium's
+    threshold falls in the green; zinc needs ultraviolet. The marked point is the
+    worked example below.
+  </figcaption>
+</figure>
+
+<h2>Worked example: sodium under red and blue light</h2>
+
+<div class="worked">
+<p>
+  <strong>A shortcut.</strong> Photon energies come up constantly, so it pays to combine the
+  constants once: $hc = (6.626\times10^{-34}\ \text{J s})(2.998\times10^{8}\ \text{m/s})
+  = 1.986\times10^{-25}$&nbsp;J&nbsp;m, which in electronvolts and nanometres is
+  $hc = 1240$&nbsp;eV&nbsp;nm. Then a photon's energy in eV is 1240 divided by its wavelength in nm.
+</p>
+<p>
+  <strong>Red light, 700&nbsp;nm.</strong> One photon carries
+</p>
+$$h\nu = \frac{hc}{\lambda} = \frac{1240\ \text{eV nm}}{700\ \text{nm}} = 1.77\ \text{eV}.$$
+<p>
+  That is less than sodium's 2.3&nbsp;eV work function. No photon of this light can
+  free an electron, so the red floodlight ejects nothing, whatever its brightness.
+</p>
+<p>
+  <strong>Blue light, 450&nbsp;nm.</strong> Now $h\nu = 1240/450 = 2.76$&nbsp;eV, and
+</p>
+$$K_{\max} = 2.76\ \text{eV} - 2.3\ \text{eV} = 0.46\ \text{eV}.$$
+<p>
+  A collecting electrode held 0.46&nbsp;V negative will just stop the fastest
+  electrons. With $K = \tfrac12 m v^2$ and $m = 9.11\times10^{-31}$&nbsp;kg, they
+  leave at about $4\times10^{5}$&nbsp;m/s.
+</p>
+<p>
+  <strong>The threshold.</strong> Sodium's cut-off is where $h\nu = W$:
+  $\lambda_0 = 1240/2.3 = 540$&nbsp;nm, in the green. Anything bluer ejects
+  electrons; anything redder does not.
+</p>
+<p>
+  <strong>Check: how many photons?</strong> A 1&nbsp;mW red laser pointer at
+  650&nbsp;nm sends out $10^{-3}$&nbsp;J each second in photons of
+  $1.91\ \text{eV} = 3.06\times10^{-19}$&nbsp;J, which is
+  $3\times10^{15}$ photons per second. Ordinary light is a torrent of photons, which
+  is why it looks continuous. The graininess only matters when a single photon has
+  to do a job on its own, as in freeing one electron.
+</p>
+</div>
+
+<details>
+  <summary>Optional: the waiting time a wave would need</summary>
+  <p>
+    The wave picture says a dim light should eventually eject electrons, after a
+    delay while energy accumulates. One can estimate that delay. Take light of
+    intensity $I$ (watts per square metre) and suppose, generously, that an atom at
+    the surface collects all the energy falling on an area the size of the atom,
+    about $10^{-19}$&nbsp;m². At a feeble $10^{-6}$&nbsp;W/m², it collects
+    $10^{-25}$&nbsp;J per second, and needs $W \approx 4\times10^{-19}$&nbsp;J: a wait
+    of more than a month.
+  </p>
+  <p>
+    Experiments find no such delay. Even in very dim light, some electrons emerge
+    within a few billionths of a second of the light being switched on, just as if
+    the energy arrived in one lump at one place. Born's <em>Atomic Physics</em>
+    describes an early test of exactly this kind by Meyer and Gerlach (1914), with
+    tiny suspended specks of metal whose charge could be watched as they lost
+    electrons.
+  </p>
+</details>
+
+<h2>Photons also carry momentum</h2>
+
+<p>
+  The photoelectric effect shows light delivering energy in lumps. A particle
+  should also carry momentum, and a light wave was already known to push:
+  classical electromagnetism gives a beam carrying energy $E$ a momentum $E/c$.
+  Applied to a single photon of energy $h\nu$, that is
+</p>
+
+$$p = \frac{E}{c} = \frac{h\nu}{c} = \frac{h}{\lambda}.$$
+
+<p>
+  This follows too from the relation between energy and momentum in special
+  relativity, $E^2 = p^2c^2 + m^2c^4$, which the optional essays on relativity derive.
+  Here we only need it stated. For an object with no mass, $m = 0$, it gives
+  $E = pc$ exactly.
 </p>
 
 <p>
-  The resolution — quantum field theory — was not available to any of
-  these authors in the form we know it today. Dirac began the path toward
-  it, but the full theory would emerge only in the 1940s and 1950s.
-  Until then, the photon remained a paradox: a particle that interferes
-  with itself, a wave that is counted by individual clicks.
+  In the early 1920s Arthur Compton scattered X-rays off the loosely held electrons
+  in light materials such as graphite and measured the wavelength of the scattered rays. The wave
+  picture predicts no change: an electron shaken by a wave re-radiates at the same
+  frequency. Compton found the scattered X-rays had a <em>longer</em> wavelength, by
+  an amount that grew with the scattering angle $\theta$ and did not depend on the
+  original wavelength at all.
 </p>
 
-<h2>Read the originals</h2>
+<p>
+  Treat the scattering as a collision between a photon and an electron at rest,
+  with energy and momentum both conserved, and the result is
+</p>
+
+$$\lambda' - \lambda = \frac{h}{m_e c}\,(1 - \cos\theta).$$
+
+<p>
+  The photon hands some of its energy to the recoiling electron, so it leaves with
+  less energy and therefore a longer wavelength. The combination
+  $h/m_ec = 2.43\times10^{-12}$&nbsp;m is called the <em>Compton wavelength</em> of the
+  electron. Two checks show the formula is sensible. At $\theta = 0$ the photon
+  carries straight on, nothing has been transferred, and the shift is zero. At
+  $\theta = 180°$ the photon bounces straight back, the electron takes the largest
+  possible kick, and the shift is largest, $2h/m_ec = 4.85$&nbsp;pm. Compton measured
+  just this dependence, and the recoiling electrons were seen too.
+</p>
+
+<details>
+  <summary>Optional: deriving the Compton shift</summary>
+  <p>
+    Before the collision: a photon of momentum $p = h/\lambda$ and energy $pc$, and an
+    electron at rest with energy $m_ec^2$. After: a photon with momentum $p'$ at angle
+    $\theta$, and an electron with momentum $\vec P$ and energy
+    $\sqrt{P^2c^2 + m_e^2c^4}$ (the relativistic relation again; the recoiling
+    electron can be fast).
+  </p>
+  <p>
+    Momentum conservation, $\vec p = \vec p\,' + \vec P$, gives the electron's momentum
+    as $\vec P = \vec p - \vec p\,'$. Squaring,
+  </p>
+  $$P^2 = p^2 + p'^2 - 2pp'\cos\theta .$$
+  <p>
+    Energy conservation, $pc + m_ec^2 = p'c + \sqrt{P^2c^2 + m_e^2c^4}$. Move $p'c$ to
+    the left, square both sides, and cancel $m_e^2c^4$:
+  </p>
+  $$(p - p')^2 c^2 + 2(p - p')\,m_ec^3 = P^2c^2 .$$
+  <p>
+    Substitute $P^2$ from the momentum equation. The $p^2$ and $p'^2$ terms cancel,
+    leaving $(p - p')\,m_ec = pp'(1 - \cos\theta)$. Divide by $pp'm_ec$:
+  </p>
+  $$\frac{1}{p'} - \frac{1}{p} = \frac{1 - \cos\theta}{m_ec}.$$
+  <p>
+    Since $1/p = \lambda/h$, multiplying by $h$ gives the Compton formula.
+  </p>
+</details>
+
+<h2>Running the idea backwards</h2>
+
+<p>
+  By the mid-1920s light had a double identity. It spreads, diffracts and
+  interferes like a wave, with a wavelength $\lambda$. It delivers energy and
+  momentum in single events, like a particle, with the two descriptions tied by
+  $p = h/\lambda$.
+</p>
+
+<p>
+  In 1924 Louis de Broglie proposed reading the same relation in the other
+  direction. If a wave of light has particle properties, perhaps a particle of
+  matter, an electron, has wave properties, with a wavelength
+</p>
+
+$$\lambda = \frac{h}{p}.$$
+
+<p>
+  For everyday objects this wavelength is absurdly small, far too small ever to
+  notice. For an electron with a few tens of electronvolts of energy it is a
+  fraction of a nanometre, about the spacing of atoms in a crystal. In 1927 electrons
+  reflected from crystals were found to form diffraction patterns, at the angles
+  this wavelength predicts. The double identity is not special to light. We will
+  lean on this relation heavily from the double-slit essay onward.
+</p>
+
+<h2>Two questions</h2>
+
+<div class="questions">
+<p>
+  <strong>1. Zinc in ultraviolet.</strong> Zinc has a work function of about
+  4.3&nbsp;eV. Does ultraviolet light of 300&nbsp;nm eject electrons from it? What about
+  250&nbsp;nm, and what stopping potential would you measure then?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    At 300&nbsp;nm, $h\nu = 1240/300 = 4.13$&nbsp;eV, just short of 4.3&nbsp;eV. No
+    electrons come out, whatever the intensity. At 250&nbsp;nm, $h\nu = 1240/250 =
+    4.96$&nbsp;eV, so $K_{\max} = 4.96 - 4.3 = 0.66$&nbsp;eV, and the stopping potential
+    is 0.66&nbsp;V.
+  </p>
+  <p>
+    Zinc's threshold is $1240/4.3 = 288$&nbsp;nm. So 300&nbsp;nm light, which is
+    ultraviolet and invisible to the eye, still fails. "Ultraviolet" is not a
+    guarantee; the comparison is always with the particular metal's work function.
+  </p>
+</details>
+
+<p>
+  <strong>2. Why X-rays?</strong> The Compton shift at 90° is 2.4&nbsp;pm whatever
+  the wavelength of the light. Why, then, was it discovered with X-rays of about
+  0.07&nbsp;nm, and never noticed with visible light? Does visible light not carry
+  momentum?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    It does, and the shift is the same 2.4&nbsp;pm. What differs is the shift as a
+    fraction of the wavelength. For a 71&nbsp;pm X-ray, 2.4&nbsp;pm is 3.4&nbsp;percent,
+    easily measured. For 500&nbsp;nm green light it is about 5&nbsp;parts in a million,
+    buried in the natural width of any real spectral line.
+  </p>
+  <p>
+    The physical reason: a visible photon's momentum,
+    $h/\lambda \approx 10^{-27}$&nbsp;kg&nbsp;m/s, is far too small to make an electron
+    recoil noticeably. An X-ray photon carries about 7,000 times more and can
+    knock the electron away with hundreds of electronvolts. The tempting wrong
+    turn is to read "the shift doesn't depend on wavelength" as "the effect is
+    equally visible at every wavelength". Whether a change is noticeable depends on
+    its size relative to what it changes.
+  </p>
+</details>
+</div>
+
+<h2>Further reading</h2>
 
 <div class="read-originals">
-  <h3>Where to find these treatments</h3>
   <ul>
-    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. IV §2 "Light Quanta" and §4 "Compton Effect"; the photoelectric effect in metals is Ch. VII §8</li>
-    <li>Feynman, <em>Lectures on Physics</em>, Vol. I, <a href="https://www.feynmanlectures.caltech.edu/I_34.html">Ch. 34 "Relativistic Effects in Radiation"</a> §34-9 "The momentum of light" — the photon momentum $p = E/c$ and the de Broglie relation. The photoelectric effect as such is not given a dedicated treatment in the Lectures; Feynman reaches the photon through radiation momentum and the two-slit experiment (Vol. III Ch. 1) rather than through Einstein's 1905 photoemission argument</li>
-    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> — the photon as a quantized field belongs to <em>Quantum Electrodynamics</em> (Vol. IV of the Course), not this volume</li>
-    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. X "Theory of Radiation" §62 "Application to Photons"</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. IV §2 "Light Quanta" and §4 "Compton Effect", with the full Compton calculation in Appendix X. A clear account of the experiments, including the Meyer–Gerlach metal-dust test and the coincidence measurements of Bothe and Geiger.</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. I, <a href="https://www.feynmanlectures.caltech.edu/I_34.html">Ch. 34 "Relativistic Effects in Radiation"</a>, §34-9 "The momentum of light": why a beam of light pushes, and the momentum of a photon.</li>
   </ul>
 </div>
 
+<h2>Where this leaves us</h2>
+
+<p>
+  Colour matters and brightness does not because light delivers its energy to an
+  electron in whole photons of $h\nu$. Brightness sets how many photons arrive;
+  colour sets what each one can do. Below sodium's threshold in the green, no
+  single photon can pay the 2.3&nbsp;eV exit fee, and a thousand of them arriving
+  separately cannot pool their money.
+</p>
+
+<p>
+  If light exchanges energy in fixed amounts, what about the atoms that emit and
+  absorb it? A hot gas of hydrogen does not glow with a smooth blackbody spectrum.
+  It emits a handful of sharp colours, and nothing in between, as if each atom
+  could only release energy in a few particular amounts. The next essay follows
+  the first serious attempt to explain why, a model that got the colours right
+  for reasons that turned out to be wrong.
+</p>
+
 <nav class="chapter-nav">
-  <a class="prev" href="01-blackbody-planck.html">← Blackbody Radiation and Planck's Quantum</a>
-  <a class="next" href="03-bohr-atom.html">The Bohr Atom and the Old Quantum Theory →</a>
+  <a class="prev" href="01-blackbody-planck.html">← Why hot objects forced physics to change</a>
+  <a class="next" href="03-bohr-atom.html">The atom that almost worked →</a>
 </nav>
 
 </main>
 
 <footer>
-  <p>A comparative reading. Prose is original synthesis.</p>
+  <p>Original prose, worked examples and figures.</p>
 </footer>
 
 <script>
 function toggleTheme() {
   const root = document.documentElement;
   const current = root.getAttribute('data-theme');
-  const btn = document.querySelector('.theme-toggle');
-  if (btn) btn.textContent = root.getAttribute('data-theme') === 'dark' ? '☀ / ☾' : '☀ / ☾';
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
 }
+// Printed copies include every optional section and worked answer.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('details:not([open])')];
+  closedForPrint.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
 </script>
 
 </body>

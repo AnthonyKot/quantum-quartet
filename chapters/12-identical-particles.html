@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XII · Identical Particles and the Periodic Table — The Quantum Quartet</title>
+  <title>Why identical particles change matter — The Quantum Quartet</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -20,237 +20,299 @@
   </nav>
 </header>
 
-<main class="page">
+<main class="page essay">
 
-<div class="chapter-meta">Chapter XII · Part III — The Physics</div>
+<div class="chapter-meta">Part III — The physics</div>
 
-<h1>Identical Particles and the Periodic Table</h1>
+<h1>Why identical particles change matter</h1>
 
-<p>
-  Two electrons are not merely alike; they are interchangeable in a way no two
-  classical objects can be. You cannot paint one red and follow it — the
-  uncertainty principle forbids the tracking, so swapping two electrons produces a
-  state that must be physically identical to the one you started with. That single
-  demand, worked through, forces the wave function to be either symmetric or
-  antisymmetric under exchange, splits all matter into bosons and fermions, and —
-  through the antisymmetric case — yields the Pauli exclusion principle that builds
-  the periodic table. It is one of the shortest paths in physics from a symmetry to
-  the shape of chemistry.
+<p class="lede">
+  Helium, with two electrons, holds on to them so tightly that it takes 24.6&nbsp;eV to remove
+  one, and it reacts with nothing. Lithium, with three, gives up its outermost electron for
+  only 5.4&nbsp;eV and is a soft, reactive metal. If every electron could settle into the lowest
+  state, lithium's third electron would sit alongside the other two, close to a nucleus with three
+  times hydrogen's charge, and lithium would be as unreactive as helium. Why don't all electrons sit
+  in the lowest orbital?
 </p>
 
 <p>
-  All four authors take that path, and they agree on where it leads. The interest
-  lies elsewhere — in how each one handles the question the path leaves open: why
-  do half-integer-spin particles get the antisymmetric option and integer-spin
-  particles the symmetric one? On this the chapter divides cleanly. Feynman
-  confesses openly that he cannot explain it. Dirac, Landau and Lifshitz, and Born
-  each state the connection and move on — but even they, tellingly, point somewhere
-  outside their own books for the reason.
+  The answer is a rule with no classical counterpart, about what it means for two particles to be
+  exactly alike. It says that no two electrons can occupy the same state, and it follows from a
+  single symmetry of the wavefunction. Combined with spin, it builds the shells of the periodic
+  table. This essay derives the rule, shows what it does to where two particles are found, and fills
+  the first shells of atoms.
 </p>
 
-<h2>Entry points</h2>
+<aside class="reminders" aria-label="Reminders">
+  <h2>One thing worth having back in mind</h2>
+  <ul>
+    <li><strong>From the hydrogen and spin essays.</strong> Level $n$ of hydrogen has $n^2$ orbitals,
+      and each electron also has a spin, up or down.</li>
+  </ul>
+</aside>
 
-<table class="entry-table">
-  <thead>
-    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
-  </thead>
+<h2>Two particles at once</h2>
+
+<p>
+  Until now every wavefunction has described one particle. A state of two particles is a single
+  wavefunction of both positions, $\psi(x_1, x_2)$, and $|\psi(x_1, x_2)|^2$ is the probability density for
+  finding one particle at $x_1$ and the other at $x_2$. When the two are independent, one in state
+  $\varphi_a$ and the other in $\varphi_b$, it is the product $\varphi_a(x_1)\,\varphi_b(x_2)$, just as the
+  probability of two independent events is the product of their probabilities.
+</p>
+
+<h2>Particles with no labels</h2>
+
+<p>
+  Two billiard balls can be told apart even if they look alike: follow each along its path, and you
+  always know which is which. Two electrons cannot be followed, because they have no paths. Every
+  electron is exactly like every other, and quantum mechanics has to treat them as having no labels
+  at all.
+</p>
+
+<p>
+  That has a precise consequence. If we swap the two positions in the wavefunction, nothing observable
+  may change, since "electron 1 here and electron 2 there" is the same situation as the reverse:
+  $|\psi(x_2, x_1)|^2 = |\psi(x_1, x_2)|^2$. So swapping can at most multiply $\psi$ by a phase,
+  $\psi(x_2, x_1) = e^{i\delta}\,\psi(x_1, x_2)$. Swap again and you are back where you started, so
+  $e^{2i\delta} = 1$, and the phase can only be $+1$ or $-1$. Wavefunctions of identical particles are
+  either <em>symmetric</em> or <em>antisymmetric</em> under exchange.
+</p>
+
+<p>
+  Nature uses both. Particles with symmetric wavefunctions are called <em>bosons</em>: photons, and
+  helium-4 atoms, for instance. Particles with antisymmetric wavefunctions are <em>fermions</em>:
+  electrons, protons and neutrons. Which kind a particle is follows its spin: whole-number spin means
+  boson, half-number spin means fermion. That link, the spin–statistics connection, is established
+  only in relativistic quantum field theory; here it is taken as a fact of observation, not proved.
+</p>
+
+<h2>What antisymmetry forbids</h2>
+
+<p>
+  Take two identical particles, one in state $\varphi_a$ and one in state $\varphi_b$. The plain product
+  $\varphi_a(x_1)\varphi_b(x_2)$ says which is which, so it will not do. The combinations that treat
+  them alike are
+</p>
+
+$$\begin{aligned}
+\psi_\pm(x_1, x_2) = \tfrac{1}{\sqrt2}\bigl[\,&\varphi_a(x_1)\,\varphi_b(x_2)\\[2pt]
+\pm\;&\varphi_a(x_2)\,\varphi_b(x_1)\bigr],
+\end{aligned}$$
+
+<p>
+  symmetric with the plus sign and antisymmetric with the minus. Now put both fermions in the
+  <em>same</em> state, $a = b$. The antisymmetric combination becomes
+  $\varphi_a(x_1)\varphi_a(x_2) - \varphi_a(x_2)\varphi_a(x_1) = 0$: no wavefunction at all. Two electrons
+  cannot be in the same state. That is the <em>Pauli exclusion principle</em>, proposed by Wolfgang Pauli
+  in 1925 to explain atomic spectra, and here it falls out of the minus sign.
+</p>
+
+<p>
+  The minus sign does more than forbid identical states. Even with $a \neq b$, set $x_1 = x_2$: the
+  antisymmetric wavefunction vanishes, so two fermions are never found at the same place. The symmetric
+  one does the opposite and makes coincidences more likely. The figure shows the effect for two
+  particles in a box.
+</p>
+
+<figure>
+<div class="fig-scroll">
+<!-- FIGURE:exchange generated by scripts/ch12_identical.py -->
+<svg class="fig-svg" viewBox="0 0 680 320" role="img" aria-labelledby="fig-ex-title fig-ex-desc">
+<title id="fig-ex-title">How far apart two particles are found, for symmetric and antisymmetric states</title>
+<desc id="fig-ex-desc">Probability density of the separation between two particles in a box, one in the lowest state and one in the next. The antisymmetric curve starts at zero at zero separation: the particles are never found together. The symmetric curve is highest at zero separation. The distinguishable case lies between.</desc>
+<path class="fig-axis" d="M60,20 V270 H660"/>
+<path class="fig-axis" d="M60.0,270 v5"/>
+<text class="fig-tick" x="60.0" y="289" text-anchor="middle">0</text>
+<path class="fig-axis" d="M210.0,270 v5"/>
+<text class="fig-tick" x="210.0" y="289" text-anchor="middle">0.25</text>
+<path class="fig-axis" d="M360.0,270 v5"/>
+<text class="fig-tick" x="360.0" y="289" text-anchor="middle">0.5</text>
+<path class="fig-axis" d="M510.0,270 v5"/>
+<text class="fig-tick" x="510.0" y="289" text-anchor="middle">0.75</text>
+<path class="fig-axis" d="M660.0,270 v5"/>
+<text class="fig-tick" x="660.0" y="289" text-anchor="middle">1</text>
+<path class="fig-axis" d="M60,270.0 h-5"/>
+<text class="fig-tick" x="51" y="274.0" text-anchor="end">0</text>
+<path class="fig-axis" d="M60,207.5 h-5"/>
+<text class="fig-tick" x="51" y="211.5" text-anchor="end">1</text>
+<path class="fig-axis" d="M60,145.0 h-5"/>
+<text class="fig-tick" x="51" y="149.0" text-anchor="end">2</text>
+<path class="fig-axis" d="M60,82.5 h-5"/>
+<text class="fig-tick" x="51" y="86.5" text-anchor="end">3</text>
+<path class="fig-axis" d="M60,20.0 h-5"/>
+<text class="fig-tick" x="51" y="24.0" text-anchor="end">4</text>
+<text class="fig-label" x="360.0" y="308" text-anchor="middle">separation of the two particles, as a fraction of the box width</text>
+<text class="fig-label" transform="translate(18,145.0) rotate(-90)" text-anchor="middle">probability density</text>
+<path class="fig-curve fig-cool" d="M63.0,145.0 L69.0,145.0 L75.0,145.0 L81.0,145.0 L87.0,145.0 L93.0,145.0 L99.0,145.0 L105.0,145.0 L111.0,145.0 L117.0,145.0 L123.0,145.1 L129.0,145.1 L135.0,145.2 L141.0,145.3 L147.0,145.4 L153.0,145.5 L159.0,145.7 L165.0,145.9 L171.0,146.2 L177.0,146.5 L183.0,146.9 L189.0,147.4 L195.0,148.0 L201.0,148.6 L207.0,149.3 L213.0,150.2 L219.0,151.1 L225.0,152.2 L231.0,153.3 L237.0,154.6 L243.0,156.1 L249.0,157.6 L255.0,159.3 L261.0,161.1 L267.0,163.1 L273.0,165.2 L279.0,167.4 L285.0,169.8 L291.0,172.3 L297.0,174.9 L303.0,177.6 L309.0,180.5 L315.0,183.4 L321.0,186.4 L327.0,189.5 L333.0,192.7 L339.0,195.9 L345.0,199.2 L351.0,202.5 L357.0,205.8 L363.0,209.2 L369.0,212.5 L375.0,215.8 L381.0,219.1 L387.0,222.3 L393.0,225.5 L399.0,228.6 L405.0,231.6 L411.0,234.5 L417.0,237.4 L423.0,240.1 L429.0,242.7 L435.0,245.2 L441.0,247.6 L447.0,249.8 L453.0,251.9 L459.0,253.9 L465.0,255.7 L471.0,257.4 L477.0,258.9 L483.0,260.4 L489.0,261.7 L495.0,262.8 L501.0,263.9 L507.0,264.8 L513.0,265.7 L519.0,266.4 L525.0,267.0 L531.0,267.6 L537.0,268.1 L543.0,268.5 L549.0,268.8 L555.0,269.1 L561.0,269.3 L567.0,269.5 L573.0,269.6 L579.0,269.7 L585.0,269.8 L591.0,269.9 L597.0,269.9 L603.0,270.0 L609.0,270.0 L615.0,270.0 L621.0,270.0 L627.0,270.0 L633.0,270.0 L639.0,270.0 L645.0,270.0 L651.0,270.0 L657.0,270.0"/>
+<path class="fig-curve fig-mid" style="stroke-dasharray:6 4" d="M63.0,20.1 L69.0,20.7 L75.0,21.9 L81.0,23.7 L87.0,26.2 L93.0,29.1 L99.0,32.7 L105.0,36.7 L111.0,41.3 L117.0,46.3 L123.0,51.7 L129.0,57.5 L135.0,63.7 L141.0,70.2 L147.0,77.0 L153.0,83.9 L159.0,91.1 L165.0,98.5 L171.0,105.9 L177.0,113.4 L183.0,121.0 L189.0,128.5 L195.0,136.0 L201.0,143.5 L207.0,150.8 L213.0,158.0 L219.0,165.1 L225.0,171.9 L231.0,178.6 L237.0,185.0 L243.0,191.3 L249.0,197.2 L255.0,202.9 L261.0,208.4 L267.0,213.6 L273.0,218.4 L279.0,223.1 L285.0,227.4 L291.0,231.5 L297.0,235.2 L303.0,238.8 L309.0,242.0 L315.0,245.0 L321.0,247.8 L327.0,250.3 L333.0,252.6 L339.0,254.7 L345.0,256.6 L351.0,258.3 L357.0,259.8 L363.0,261.2 L369.0,262.4 L375.0,263.5 L381.0,264.5 L387.0,265.3 L393.0,266.0 L399.0,266.7 L405.0,267.2 L411.0,267.7 L417.0,268.1 L423.0,268.4 L429.0,268.7 L435.0,269.0 L441.0,269.2 L447.0,269.3 L453.0,269.5 L459.0,269.6 L465.0,269.7 L471.0,269.8 L477.0,269.8 L483.0,269.9 L489.0,269.9 L495.0,269.9 L501.0,269.9 L507.0,270.0 L513.0,270.0 L519.0,270.0 L525.0,270.0 L531.0,270.0 L537.0,270.0 L543.0,270.0 L549.0,270.0 L555.0,270.0 L561.0,270.0 L567.0,270.0 L573.0,270.0 L579.0,270.0 L585.0,270.0 L591.0,270.0 L597.0,270.0 L603.0,270.0 L609.0,270.0 L615.0,270.0 L621.0,270.0 L627.0,270.0 L633.0,270.0 L639.0,270.0 L645.0,270.0 L651.0,270.0 L657.0,270.0"/>
+<path class="fig-curve fig-hot" style="stroke-width:2.6" d="M63.0,269.9 L69.0,269.3 L75.0,268.1 L81.0,266.3 L87.0,263.8 L93.0,260.9 L99.0,257.3 L105.0,253.3 L111.0,248.8 L117.0,243.8 L123.0,238.4 L129.0,232.7 L135.0,226.7 L141.0,220.3 L147.0,213.8 L153.0,207.1 L159.0,200.3 L165.0,193.4 L171.0,186.5 L177.0,179.6 L183.0,172.9 L189.0,166.3 L195.0,159.9 L201.0,153.7 L207.0,147.8 L213.0,142.3 L219.0,137.1 L225.0,132.4 L231.0,128.1 L237.0,124.2 L243.0,120.8 L249.0,118.0 L255.0,115.7 L261.0,113.9 L267.0,112.6 L273.0,112.0 L279.0,111.8 L285.0,112.2 L291.0,113.1 L297.0,114.6 L303.0,116.5 L309.0,118.9 L315.0,121.8 L321.0,125.1 L327.0,128.7 L333.0,132.8 L339.0,137.1 L345.0,141.8 L351.0,146.7 L357.0,151.8 L363.0,157.1 L369.0,162.5 L375.0,168.1 L381.0,173.7 L387.0,179.3 L393.0,184.9 L399.0,190.5 L405.0,196.0 L411.0,201.4 L417.0,206.6 L423.0,211.8 L429.0,216.7 L435.0,221.4 L441.0,226.0 L447.0,230.3 L453.0,234.3 L459.0,238.1 L465.0,241.7 L471.0,245.0 L477.0,248.1 L483.0,250.9 L489.0,253.5 L495.0,255.8 L501.0,257.9 L507.0,259.7 L513.0,261.4 L519.0,262.8 L525.0,264.1 L531.0,265.2 L537.0,266.1 L543.0,266.9 L549.0,267.6 L555.0,268.2 L561.0,268.6 L567.0,269.0 L573.0,269.2 L579.0,269.5 L585.0,269.6 L591.0,269.8 L597.0,269.8 L603.0,269.9 L609.0,269.9 L615.0,270.0 L621.0,270.0 L627.0,270.0 L633.0,270.0 L639.0,270.0 L645.0,270.0 L651.0,270.0 L657.0,270.0"/>
+<text class="fig-note" x="138.0" y="35.6">symmetric (dashed): often together</text>
+<text class="fig-note" x="102.0" y="168.8">distinguishable</text>
+<text class="fig-note" x="330.0" y="107.5">antisymmetric</text>
+<text class="fig-note" x="67.2" y="254.4">← never together</text>
+</svg>
+<!-- /FIGURE:exchange -->
+</div>
+  <figcaption>
+    Two particles in a box, one in the lowest state and one in the next, with no force between them.
+    Plotted: how likely each separation is. Distinguishable particles are found within a tenth of the box
+    width of each other 20&nbsp;percent of the time. In the symmetric state, 38&nbsp;percent; in the
+    antisymmetric state, 2&nbsp;percent. Nothing pushes the fermions apart; the symmetry alone keeps them
+    away from each other.
+  </figcaption>
+</figure>
+
+<h2>Spin, and two electrons per orbital</h2>
+
+<p>
+  An electron's state has two parts: its orbital, where it is likely to be, and its spin. The exclusion
+  principle applies to the whole state. Two electrons can therefore share an orbital if their spins
+  differ, one up and one down, and a third is excluded. Each orbital holds at most two electrons, and
+  level $n$ of hydrogen, with $n^2$ orbitals, holds at most $2n^2$: 2, 8, 18, 32.
+</p>
+
+<h2>Worked example: filling the first shells</h2>
+
+<div class="worked">
+<p>
+  Treat each electron as moving independently in the attraction of the nucleus, shielded by the others,
+  and fill the lowest available states, two per orbital.
+</p>
+<table class="notation-table">
+  <thead><tr><th>Atom</th><th>Electrons</th><th>Filling</th><th>Energy to remove one</th></tr></thead>
   <tbody>
-    <tr>
-      <td class="author-cell">Born</td>
-      <td>Atomic spectra; the periodic table; closed shells</td>
-      <td>Pauli's exclusion principle</td>
-      <td>Filling electron shells to build the elements</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Feynman</td>
-      <td>Scattering identical particles; helium</td>
-      <td></td>
-      <td>Amplitudes added with $+$ (Bose) or $-$ (Fermi)</td>
-      <td>Exchanging which particle reaches the detector</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Landau &amp; Lifshitz</td>
-      <td></td>
-      <td>Indistinguishability forces symmetric or antisymmetric $\psi$</td>
-      <td>Slater determinant; the exchange interaction</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Dirac</td>
-      <td></td>
-      <td>Permutation as a linear operator on the assembly ket</td>
-      <td>Symmetrical / antisymmetrical states; the determinant</td>
-      <td></td>
-    </tr>
+    <tr><td>Hydrogen</td><td>1</td><td>1s¹</td><td>13.6 eV</td></tr>
+    <tr><td>Helium</td><td>2</td><td>1s², shell $n = 1$ full</td><td>24.6 eV</td></tr>
+    <tr><td>Lithium</td><td>3</td><td>1s² 2s¹</td><td>5.4 eV</td></tr>
+    <tr><td>Neon</td><td>10</td><td>1s² 2s² 2p⁶, shell $n = 2$ full</td><td>21.6 eV</td></tr>
+    <tr><td>Sodium</td><td>11</td><td>1s² 2s² 2p⁶ 3s¹</td><td>5.1 eV</td></tr>
   </tbody>
 </table>
+<p>
+  <strong>Helium</strong> puts both electrons in 1s, spins opposite. That fills the $n = 1$ shell's two
+  places.
+</p>
+<p>
+  <strong>Lithium's</strong> third electron is excluded from 1s and must go into $n = 2$, where the
+  orbital is about four times larger and the two inner electrons screen most of the nucleus's charge.
+  It is loosely held: 5.4&nbsp;eV against helium's 24.6&nbsp;eV. That is the answer to the opening.
+</p>
+<p>
+  <strong>Neon</strong> fills all eight $n = 2$ places, $2\times2^2 = 8$, and is inert again.
+  <strong>Sodium's</strong> eleventh electron starts the next shell and, like lithium's, is easily
+  removed. The rhythm of the periodic table, a reactive metal just after each inert gas, is the exclusion
+  principle counting to $2n^2$.
+</p>
+<p>
+  <strong>Where the simple count fails.</strong> The independent-electron picture is an approximation.
+  Screening makes 2s fill before 2p, which hydrogen alone would not explain, and from potassium on the
+  4s orbital fills before 3d. So the table's rows hold 2, 8, 8, 18, 18, 32 elements rather than
+  $2n^2$ in order. The exclusion principle still decides how many electrons fit in each orbital; which
+  orbital comes next depends on the interactions the simple picture leaves out.
+</p>
+</div>
 
-<h2>The four treatments</h2>
+<details>
+  <summary>Optional: many electrons and determinants</summary>
+  <p>
+    For $N$ fermions the antisymmetric wavefunction is built as a determinant, whose rows are the
+    occupied states and whose columns are the particles:
+  </p>
+  $$\psi(x_1, \dots, x_N) = \frac{1}{\sqrt{N!}}\det\bigl[\varphi_i(x_j)\bigr].$$
+  <p>
+    Swapping two particles swaps two columns, which flips the sign of a determinant: antisymmetry is
+    automatic. Putting two electrons in the same state makes two rows equal, and a determinant with two
+    equal rows is zero: exclusion is automatic too. This form, introduced by John Slater in 1929, is the
+    starting point for calculating the electronic structure of atoms and molecules.
+  </p>
+  <p>
+    One consequence is visible in helium's spectrum. With one electron excited, the two electrons can have
+    their spins parallel or opposite. When the spins are parallel, the spatial part of the wavefunction must
+    be antisymmetric, so the electrons keep apart, as in the figure, and feel less of each other's repulsion.
+    Those states lie lower in energy, and the two families of helium lines were once thought to come from two
+    different gases.
+  </p>
+</details>
 
-<h3>Feynman: the honest confession</h3>
+<h2>Two questions</h2>
+
+<div class="questions">
+<p>
+  <strong>1. The third shell.</strong> How many electrons can the $n = 3$ level hold? The third row of the
+  periodic table, sodium to argon, has only eight elements. Is that a failure of the exclusion principle?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    Level $n = 3$ has $3^2 = 9$ orbitals (one 3s, three 3p, five 3d), each holding two electrons: 18 in
+    all. The third row has eight elements because only 3s and 3p fill there. After argon, the 4s orbital
+    lies lower than 3d in a many-electron atom, so potassium and calcium fill 4s first, and 3d fills in the
+    next row, among the transition metals.
+  </p>
+  <p>
+    The exclusion principle is not at fault: no orbital ever holds more than two electrons. The slip is
+    reading $2n^2$ as the length of row $n$. It counts the places available in a hydrogen level; the order
+    in which those places fill depends on the other electrons.
+  </p>
+</details>
 
 <p>
-  Feynman reaches identical particles through a scattering experiment. Fire two
-  identical particles at each other and ask for the amplitude that one arrives at a
-  detector: there are two indistinguishable ways it can happen — the particle
-  scattered through an angle, or its twin scattered through the supplementary angle
-  — and the amplitudes must be combined. For some particles they add with a plus
-  sign (bosons), for others with a minus sign (fermions), and the difference shows
-  up directly in the scattering rate, doubling it at ninety degrees for identical
-  bosons where classical reasoning predicts no enhancement at all.
+  <strong>2. An electron on the Moon.</strong> Strictly, the wavefunction of every electron in the universe
+  should be antisymmetric under exchange. Does that mean an electron in the 1s state of a hydrogen atom in
+  your laboratory prevents another, in the 1s state of a hydrogen atom on the Moon, from having the same spin?
 </p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    No. "1s of the atom here" and "1s of the atom on the Moon" are different states, since their orbitals are
+    centred in different places, so exclusion does not forbid anything. And when two particles' wavefunctions
+    do not overlap, the exchange term in $|\psi_\pm|^2$ is zero wherever either particle could be found:
+    every prediction is the same as for distinguishable particles.
+  </p>
+  <p>
+    The tempting wrong turn is to picture exclusion as a force or a signal between electrons. It is a
+    property of the joint wavefunction, and it has observable effects only where the particles' states
+    overlap: inside an atom, a metal or a star, not across the distance to the Moon.
+  </p>
+</details>
+</div>
 
-<p>
-  Then Feynman does something none of the other three does: he stops and admits he
-  cannot explain the rule. Why half-integer spin goes with the minus sign and
-  integer spin with the plus sign is, he says, something for which they can give no
-  elementary explanation — Pauli derived it from quantum field theory and
-  relativity, but no one has found a simple argument, and the gap, Feynman suggests,
-  probably means the fundamental principle is not yet completely understood. He tells
-  the reader to take it, for now, as one of the rules of the world. It is
-  the most striking display of intellectual honesty in the four books: at the exact
-  point where a lesser text would assert the spin-statistics connection as though it
-  were obvious, Feynman marks it as an open hole in the foundations.
-</p>
-
-<h3>Dirac: the assembly ket and its permutations</h3>
-
-<p>
-  Dirac builds the theory from the top, as always. A system of similar particles
-  has a state ket for the whole assembly, and interchanging any two particles is a
-  linear operator — a permutation — acting on that ket. A ket unchanged by every
-  permutation is <em>symmetrical</em>; one that keeps its sign under even
-  permutations and flips it under odd ones is <em>antisymmetrical</em>. Because the
-  Hamiltonian treats all the particles alike, a state that starts symmetrical stays
-  symmetrical and one that starts antisymmetrical stays antisymmetrical, so nature
-  can consistently permit only one type for a given kind of particle. The
-  antisymmetrical ket, written as a determinant, vanishes if two particle-states
-  coincide — and there, in one line of algebra, is the exclusion principle.
-</p>
-
-<p>
-  On the crucial question Dirac is matter-of-fact and empirical. He does not derive
-  which particles are which; he reports what experiment shows. To build atoms
-  correctly one must assume two electrons are never in the same state, so electrons
-  are fermions; Planck's radiation law requires photons to be bosons; protons,
-  neutrons, positrons are fermions, alpha particles bosons. Every particle in
-  nature, he observes, appears to be one or the other, and he treats the dichotomy
-  as a fact established in the laboratory rather than a theorem. His
-  formalism explains everything about identical particles <em>except</em> the
-  spin-statistics link, and he does not pretend otherwise — he simply grounds it in
-  evidence instead of confessing a gap.
-</p>
-
-<h3>Landau &amp; Lifshitz: indistinguishability and the exchange interaction</h3>
-
-<p>
-  Landau and Lifshitz derive the symmetry dichotomy from the uncertainty principle
-  itself. Because an electron has no path, localizing and numbering electrons at one
-  instant tells you nothing about which is which an instant later; identical
-  particles "entirely lose their individuality." Interchanging two of them can
-  therefore change the wave function only by a phase, and repeating the interchange
-  shows that phase must be $\pm 1$ — symmetric or antisymmetric, with no third
-  possibility. Antisymmetric wave functions, written as a determinant, vanish when
-  two states coincide, giving Pauli's principle; symmetric ones give Bose statistics.
-</p>
-
-<p>
-  They state the spin connection plainly and attribute it honestly: relativistic
-  quantum mechanics shows that particles with half-integral spin are fermions and
-  those with integral spin bosons — a result their non-relativistic book invokes
-  but does not prove. Where Landau and Lifshitz go beyond the others is the
-  <em>exchange interaction</em>: because the total wave function's symmetry couples
-  the spatial part to the spin part, the energy of a system of electrons comes to
-  depend on the total spin, even though the electric forces do not involve spin at
-  all. This dependence is "a purely quantum effect" with no classical limit, and it
-  is the mechanism behind the chemical bond and ferromagnetism. Their distinctive
-  contribution is to show that indistinguishability is not just a bookkeeping rule
-  about signs but a genuine, energy-shifting force.
-</p>
-
-<h3>Born: exclusion in the service of chemistry</h3>
-
-<p>
-  Born, true to his book, comes at identical particles from the periodic table
-  backward. His chapter runs the exclusion principle straight into the closed-shell
-  structure of atoms: Pauli's rule that no two electrons share a state is what makes
-  electrons stack into shells rather than all collapsing into the lowest orbit, and
-  the shell structure is what gives the periodic system its columns — the alkalis
-  with their single loosely-bound radiating electron, the noble gases with their
-  filled shells, the chemical families lined up by how their outer electrons are
-  arranged.
-</p>
-
-<p>
-  For Born the exclusion principle is interesting because it explains chemistry.
-  He is less concerned with the permutation algebra that Dirac savors or the
-  exchange energy that Landau and Lifshitz extract, and more with the payoff a
-  chemist cares about: that the entire architecture of the periodic table —
-  Mendeleev's columns, Moseley's ordering by atomic number, the filling of shells —
-  follows from one principle about identical electrons. He states the spin-statistics
-  rule as needed and spends his energy on the consequence, which is nothing less
-  than the structure of matter as chemistry finds it. His entry point is the
-  evidence of the elements themselves.
-</p>
-
-<h2>Synthesis</h2>
-
-<p>
-  Identical particles produce the clearest four-way split in the project on a single
-  question: not what the rule is, but why it holds. Feynman confesses he cannot
-  explain the spin-statistics connection and names it an open problem. Dirac asserts
-  the boson-fermion dichotomy as an experimental fact. Landau and Lifshitz assert it
-  too and attribute it to relativistic quantum mechanics. Born states it and turns
-  immediately to what it explains. Three assertions and one confession — and the
-  confession is the most honest moment in the four books, because it refuses to
-  dress an unexplained rule as an obvious one.
-</p>
-
-<p>
-  Yet the three assertions are more honest than they first appear, and that is the
-  chapter's quiet lesson. Dirac grounds the dichotomy in the laboratory, not in his
-  formalism; Landau and Lifshitz point explicitly to relativistic quantum mechanics,
-  a theory outside their volume; Born leans on the spectroscopic and chemical
-  evidence. None of the four claims to derive the spin-statistics connection from
-  what is in front of the reader, because none of them can — it requires quantum
-  field theory, which lies beyond all four books. What separates Feynman is not that
-  he knows less but that he says so loudest, converting a shared limitation into an
-  explicit lesson about the edge of understanding.
-</p>
-
-<p>
-  What they share is the destination, and it is a remarkable one. From the bare
-  fact that electrons cannot be told apart, each author reaches — by permutation
-  algebra, by phase argument, by scattering amplitude, by shell-filling — the same
-  antisymmetric wave function, the same exclusion principle, and the same periodic
-  table. That a symmetry of indistinguishability should dictate the form of the
-  chemical elements is one of the deepest results in the subject, and the four books
-  converge on it from four directions. They differ only, and revealingly, in how
-  candidly each admits where the road runs out.
-</p>
-
-<h2>Read the originals</h2>
+<h2>Further reading</h2>
 
 <div class="read-originals">
-  <h3>Where to find these treatments</h3>
   <ul>
-    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_04.html">Ch. 4 "Identical Particles"</a> (§4-1 the Bose/Fermi sign; the spin-statistics confession in §4-1) and <a href="https://www.feynmanlectures.caltech.edu/III_19.html">Ch. 19</a> for the periodic-table payoff</li>
-    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. IX "Systems Containing Several Similar Particles" §54 "Symmetrical and Antisymmetrical States" through §58 "Application to Electrons"</li>
-    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §61 "The principle of indistinguishability of similar particles," §62 "Exchange interaction," §63 "Symmetry with respect to interchange"</li>
-    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. VI §5 "Pauli's Exclusion Principle" and §6 "The Periodic System. Closed Shells"</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_04.html">Ch. 4 "Identical Particles"</a>, §4-1 "Bose particles and Fermi particles" and §4-7 "The exclusion principle", with the periodic table in <a href="https://www.feynmanlectures.caltech.edu/III_19.html">§19-6</a>.</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. VI §4 "The Helium Atom", §5 "Pauli's Exclusion Principle" and §6 "The Periodic System. Closed Shells".</li>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §61 "The principle of indistinguishability of similar particles".</li>
   </ul>
 </div>
 
+<h2>Where this leaves us</h2>
+
+<p>
+  Electrons do not all sit in the lowest orbital because identical fermions have antisymmetric wavefunctions,
+  and an antisymmetric wavefunction for two electrons in the same state is zero. With two spin states, each
+  orbital holds two electrons, the shells fill in turn, and a lone electron outside a closed shell is loosely
+  held. That is lithium, sodium and the whole rhythm of the periodic table.
+</p>
+
+<p>
+  But the shell picture rested on an approximation: electrons moving independently, their repulsion
+  folded into a vague "screening". Put the repulsion in properly and even helium, with just two electrons, has
+  no exact solution. Nearly every real problem in quantum mechanics is like this. The next essay is about how
+  to get reliable numbers anyway, and how to tell when an approximation can be trusted.
+</p>
+
 <nav class="chapter-nav">
-  <a class="prev" href="11-spin.html">← Spin</a>
-  <a class="next" href="13-approximations.html">Approximation Methods →</a>
+  <a class="prev" href="11-spin.html">← Spin: a two-state quantum system</a>
+  <a class="next" href="13-approximations.html">How to calculate when exact solutions run out →</a>
 </nav>
 
 </main>
 
 <footer>
-  <p>A comparative reading. Prose is original synthesis.</p>
+  <p>Original prose, worked examples and figures.</p>
 </footer>
 
 <script>
@@ -259,6 +321,13 @@ function toggleTheme() {
   const current = root.getAttribute('data-theme');
   root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
 }
+// Printed copies include every optional section and worked answer.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('details:not([open])')];
+  closedForPrint.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
 </script>
 
 </body>

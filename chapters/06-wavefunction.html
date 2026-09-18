@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VI · The Wavefunction and Schrödinger's Equation — The Quantum Quartet</title>
+  <title>What a wavefunction tells us — The Quantum Quartet</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -20,228 +20,403 @@
   </nav>
 </header>
 
-<main class="page">
+<main class="page essay">
 
-<div class="chapter-meta">Chapter VI · Part II — The New Mechanics</div>
+<div class="chapter-meta">Part II — The new mechanics</div>
 
-<h1>The Wavefunction and Schrödinger's Equation</h1>
+<h1>What a wavefunction tells us</h1>
 
-<p>
-  The wavefunction $\psi$ is the central object of non-relativistic quantum
-  mechanics, and its equation of motion — the Schrödinger equation — is the
-  workhorse that every practical calculation eventually runs on. But where does
-  the equation come from? It cannot be deduced from anything more fundamental; it
-  is a law of nature, tested by its consequences. The four authors differ sharply
-  in how they handle that fact — whether they motivate the equation by symmetry,
-  postulate it outright, present it as the integrated form of a deeper abstraction,
-  or frankly admit it was guessed.
+<p class="lede">
+  The previous essay ended with an electron described by one complex number for every
+  point along a line: its wavefunction, $\psi(x)$. What does the value of that function
+  at a particular point tell us about where the electron will be found? And what rule
+  decides how the function changes as time passes?
 </p>
 
 <p>
-  This is the chapter where Landau's register is at full strength and where
-  Feynman's ordering becomes a subject in itself. Landau and Lifshitz reach the
-  Schrödinger equation early and derive as much of its form as symmetry allows.
-  Feynman reaches it in his Chapter 16, sixteen chapters into Volume III, and says
-  so pointedly. Born supplies the reading of $\psi$ that makes the equation about
-  physics rather than mathematics. Dirac has already written the equation down, in
-  the previous chapter's terms, as one face of his abstract law of motion.
+  This essay answers the two questions in that order. First, what $\psi$ means: its
+  size gives probabilities, and its phase carries the information that makes
+  interference possible. Then the equation that moves it, written down by Erwin
+  Schrödinger in 1926, read term by term. At the end, a special kind of solution
+  appears whose probabilities do not change at all, and it turns out to be what an
+  atom's energy levels are.
 </p>
 
-<h2>Entry points</h2>
+<aside class="reminders" aria-label="Reminders">
+  <h2>Three things worth having back in mind</h2>
+  <ul>
+    <li><strong>Area under a curve.</strong> The integral $\int_a^b f(x)\,dx$ is the area
+      under $f$ between $a$ and $b$. For a narrow strip of width $w$ it is about
+      $f(x)\,w$.</li>
+    <li><strong>Curvature.</strong> The second derivative $d^2f/dx^2$ measures how sharply
+      a curve bends. A rapidly wiggling function has a large second derivative.</li>
+    <li><strong>Complex exponentials.</strong> $e^{i\theta} = \cos\theta + i\sin\theta$, an
+      arrow of length one at angle $\theta$. Differentiating $e^{ikx}$ with respect to $x$
+      multiplies it by $ik$.</li>
+  </ul>
+</aside>
 
-<table class="entry-table">
-  <thead>
-    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="author-cell">Born</td>
-      <td>Electron scattering</td>
-      <td></td>
-      <td>$|\psi|^2$ as probability density (statistical interpretation)</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Feynman</td>
-      <td></td>
-      <td></td>
-      <td>Amplitude diffusing point to point (Ch. 16, deferred)</td>
-      <td>Electron on a line of atoms → the free-space limit</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Landau &amp; Lifshitz</td>
-      <td></td>
-      <td>Galilean invariance fixes the free-particle Hamiltonian</td>
-      <td>$\hat H = -\tfrac{\hbar^2}{2m}\Delta + U$; classical limit via Hamilton–Jacobi</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="author-cell">Dirac</td>
-      <td></td>
-      <td>Schrödinger's equation as the integrated law of motion</td>
-      <td>$i\hbar\,\partial_t|Pt\rangle = H|Pt\rangle$ in a representation</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>The four treatments</h2>
-
-<h3>Landau &amp; Lifshitz: as much as symmetry allows</h3>
+<h2>Size means probability</h2>
 
 <p>
-  Landau and Lifshitz do the thing that most distinguishes their book: they refuse
-  to simply write the Schrödinger equation down. Instead they ask what the
-  Hamiltonian of a free particle <em>can</em> be, given the symmetry of space. For
-  a free particle the Hamiltonian cannot depend on position — space is homogeneous —
-  so it must be built from momentum alone; and because space is isotropic, it can
-  depend only on the magnitude of the momentum. Galilean relativity then forces the
-  quadratic dependence $E = p^2/2m$, and promoting this to operators gives the
-  free-particle Hamiltonian $\hat H = -(\hbar^2/2m)\Delta$ almost without choice.
-  Adding a potential $U$ for an interacting system yields the full equation
-  $i\hbar\,\partial_t\Psi = -(\hbar^2/2m)\Delta\Psi + U\Psi$.
+  In the double-slit essay, $P(x)$ was the probability of landing in a small detector
+  window of fixed width at position $x$, and it was the squared size of an amplitude.
+  The wavefunction packages all those amplitudes into one function. The rule that
+  connects it to experiment was proposed by Max Born in 1926: the probability of
+  finding the particle in a small window of width $dx$ around $x$ is
+</p>
+
+$$P(\text{in } dx \text{ at } x) = |\psi(x)|^2\,dx .$$
+
+<p>
+  So $|\psi(x)|^2$ is a <em>probability density</em>: probability per unit length, in the
+  way that a population density is people per square kilometre. It is not itself a
+  probability, and it can be larger than 1. To get a probability you multiply by a
+  width, or, for a region of any size, take the area under it:
+</p>
+
+$$P(a < x < b) = \int_a^b |\psi(x)|^2\,dx .$$
+
+<p>
+  The particle is certainly somewhere, so the area under the whole curve must be 1.
+  A wavefunction that satisfies this is <em>normalised</em>. Any wavefunction can be
+  normalised by multiplying it by a suitable constant; the shape of $|\psi|^2$ is the
+  physics, and the constant only fixes the overall scale.
 </p>
 
 <p>
-  What symmetry cannot fix — the interaction term — they take over from classical
-  mechanics by the requirement that the theory reduce correctly in the classical
-  limit. And they show that limit explicitly: substituting $\Psi = a\,e^{iS/\hbar}$
-  and letting $\hbar \to 0$ recovers the Hamilton–Jacobi equation for the classical
-  action $S$, while the modulus $|a|^2 = |\Psi|^2$ obeys a continuity equation,
-  flowing with the classical velocity. The Schrödinger equation is not handed down;
-  it is cornered from two directions — symmetry above, classical mechanics below —
-  until only one form is left. This is the calculational register operating on the
-  foundations themselves.
+  Born reached this reading by thinking about electrons scattered from atoms. The
+  wave calculation gives a scattered wave spreading in all directions, but each
+  electron is detected in one direction. The wave's intensity in a direction, he
+  proposed, is the probability that an electron goes that way. This is what lets the
+  wave and the particle coexist: the electron is always found whole, at one place,
+  and the wave says how likely each place is.
 </p>
 
-<h3>Feynman: the equation that came out of a mind</h3>
+<h2>Phase is invisible, until it isn't</h2>
 
 <p>
-  Feynman's treatment is defined by <em>when</em> it happens. He arrives at the
-  Schrödinger equation only in Chapter 16 of Volume III, and he opens that chapter
-  by announcing that he is breaking his usual rule — he will write down the
-  differential equation for amplitudes in space without having time to develop its
-  consequences. The placement is the message: everything essential about quantum
-  behavior, in his telling, was already available from amplitudes and the two-slit
-  experiment. The Schrödinger equation is a late specialization, not a foundation.
+  Each value $\psi(x)$ is a complex number, an arrow with a length and a direction.
+  Born's rule uses only the length. The direction, the phase, is invisible in
+  $|\psi|^2$ at any single point, and multiplying the whole wavefunction by the same
+  unit arrow $e^{i\alpha}$ changes no prediction at all.
 </p>
 
 <p>
-  His route to it is physical rather than deductive. He imagines an electron
-  hopping along a line of atoms in a crystal, writes the amplitude to be at each
-  site, and takes the continuum limit; the resulting equation has the form of a
-  diffusion equation — but with an imaginary coefficient in front of the time
-  derivative, which turns spreading into wave propagation. Then he is scrupulously
-  honest about status. He tells the reader outright that the equation is not derived
-  from anything: in his framing it came out of Schrödinger's mind, from heuristic
-  arguments and intuitive guesses, some of them even wrong, and the only thing that
-  matters is that the final equation describes nature correctly. Where Landau corners
-  the equation with symmetry, Feynman motivates it with a picture and then confesses
-  that motivation is not proof.
+  But the phase <em>differences</em> between points, or between the parts of a
+  <em>superposition</em> (a state formed by adding states together, as the two-slit amplitude added
+  the two routes), are physical. They are what made the double-slit fringes. An electron
+  moving to the right, for example, has a wavefunction whose phase turns steadily
+  along $x$, like $e^{ikx}$. Its density $|e^{ikx}|^2 = 1$ is the same everywhere, but the
+  rate at which the phase turns records how fast it is moving, as we will see in a
+  moment. The figure shows a more realistic case, a <em>wave packet</em>: an electron
+  located roughly in one region and moving.
 </p>
 
-<h3>Born: what $\psi$ means</h3>
+<figure>
+<div class="fig-scroll">
+<!-- FIGURE:packet generated by scripts/ch06_wavefunction.py -->
+<svg class="fig-svg" viewBox="0 0 680 330" role="img" aria-labelledby="fig-packet-title fig-packet-desc">
+<title id="fig-packet-title">A wave packet: the wavefunction and its probability density</title>
+<desc id="fig-packet-desc">A thin curve oscillates rapidly between positive and negative values inside a bell-shaped envelope: the real part of the wavefunction. A thick smooth bell curve, always positive and without oscillations, is the probability density.</desc>
+<path class="fig-axis" d="M30,150.0 H660"/>
+<path class="fig-axis" d="M30.0,150.0 v5"/>
+<path class="fig-axis" d="M187.5,150.0 v5"/>
+<path class="fig-axis" d="M345.0,150.0 v5"/>
+<path class="fig-axis" d="M502.5,150.0 v5"/>
+<path class="fig-axis" d="M660.0,150.0 v5"/>
+<text class="fig-tick" x="345.0" y="170.0" text-anchor="middle">centre</text>
+<path class="fig-axis" style="stroke-dasharray:3 4" d="M187.5,274.1 v10 M502.5,274.1 v10 M187.5,279.1 H502.5"/>
+<text class="fig-note" x="345.0" y="296.1" text-anchor="middle">most of the probability lies in this range</text>
+<path class="fig-curve fig-mid" style="stroke-width:1.2" d="M30.0,148.2 L30.8,148.1 L31.6,147.9 L32.4,147.8 L33.2,147.7 L33.9,147.6 L34.7,147.6 L35.5,147.5 L36.3,147.5 L37.1,147.4 L37.9,147.4 L38.7,147.4 L39.5,147.4 L40.2,147.5 L41.0,147.5 L41.8,147.6 L42.6,147.7 L43.4,147.8 L44.2,148.0 L45.0,148.1 L45.8,148.3 L46.5,148.5 L47.3,148.7 L48.1,149.0 L48.9,149.2 L49.7,149.5 L50.5,149.7 L51.3,150.0 L52.1,150.3 L52.8,150.6 L53.6,150.9 L54.4,151.3 L55.2,151.6 L56.0,151.9 L56.8,152.2 L57.6,152.5 L58.3,152.9 L59.1,153.2 L59.9,153.5 L60.7,153.7 L61.5,154.0 L62.3,154.3 L63.1,154.5 L63.9,154.7 L64.7,154.9 L65.4,155.0 L66.2,155.1 L67.0,155.2 L67.8,155.3 L68.6,155.3 L69.4,155.3 L70.2,155.3 L71.0,155.2 L71.7,155.1 L72.5,154.9 L73.3,154.7 L74.1,154.5 L74.9,154.2 L75.7,153.9 L76.5,153.5 L77.2,153.1 L78.0,152.7 L78.8,152.2 L79.6,151.8 L80.4,151.2 L81.2,150.7 L82.0,150.1 L82.8,149.5 L83.6,148.9 L84.3,148.3 L85.1,147.7 L85.9,147.0 L86.7,146.4 L87.5,145.8 L88.3,145.2 L89.1,144.5 L89.8,144.0 L90.6,143.4 L91.4,142.8 L92.2,142.3 L93.0,141.8 L93.8,141.4 L94.6,141.0 L95.4,140.7 L96.1,140.4 L96.9,140.1 L97.7,140.0 L98.5,139.8 L99.3,139.8 L100.1,139.8 L100.9,139.9 L101.7,140.1 L102.4,140.3 L103.2,140.6 L104.0,141.0 L104.8,141.4 L105.6,141.9 L106.4,142.5 L107.2,143.2 L108.0,143.9 L108.8,144.7 L109.5,145.6 L110.3,146.5 L111.1,147.4 L111.9,148.4 L112.7,149.5 L113.5,150.6 L114.3,151.7 L115.1,152.8 L115.8,154.0 L116.6,155.1 L117.4,156.3 L118.2,157.4 L119.0,158.5 L119.8,159.6 L120.6,160.7 L121.4,161.7 L122.1,162.7 L122.9,163.6 L123.7,164.5 L124.5,165.3 L125.3,166.0 L126.1,166.6 L126.9,167.1 L127.7,167.5 L128.4,167.8 L129.2,168.0 L130.0,168.1 L130.8,168.1 L131.6,167.9 L132.4,167.7 L133.2,167.3 L134.0,166.7 L134.7,166.1 L135.5,165.3 L136.3,164.4 L137.1,163.3 L137.9,162.2 L138.7,160.9 L139.5,159.5 L140.2,158.1 L141.0,156.5 L141.8,154.9 L142.6,153.2 L143.4,151.4 L144.2,149.5 L145.0,147.6 L145.8,145.7 L146.6,143.8 L147.3,141.8 L148.1,139.9 L148.9,138.0 L149.7,136.1 L150.5,134.2 L151.3,132.4 L152.1,130.7 L152.9,129.1 L153.6,127.6 L154.4,126.2 L155.2,124.9 L156.0,123.7 L156.8,122.7 L157.6,121.8 L158.4,121.2 L159.1,120.6 L159.9,120.3 L160.7,120.2 L161.5,120.2 L162.3,120.5 L163.1,121.0 L163.9,121.6 L164.7,122.5 L165.4,123.6 L166.2,124.9 L167.0,126.3 L167.8,128.0 L168.6,129.8 L169.4,131.9 L170.2,134.0 L171.0,136.4 L171.8,138.9 L172.5,141.5 L173.3,144.2 L174.1,147.0 L174.9,150.0 L175.7,152.9 L176.5,155.9 L177.3,159.0 L178.0,162.0 L178.8,165.1 L179.6,168.1 L180.4,171.0 L181.2,173.9 L182.0,176.7 L182.8,179.3 L183.6,181.8 L184.3,184.2 L185.1,186.4 L185.9,188.3 L186.7,190.1 L187.5,191.6 L188.3,192.9 L189.1,194.0 L189.9,194.7 L190.7,195.2 L191.4,195.4 L192.2,195.3 L193.0,194.9 L193.8,194.2 L194.6,193.2 L195.4,191.9 L196.2,190.3 L197.0,188.3 L197.7,186.1 L198.5,183.7 L199.3,180.9 L200.1,177.9 L200.9,174.7 L201.7,171.2 L202.5,167.5 L203.2,163.7 L204.0,159.6 L204.8,155.5 L205.6,151.2 L206.4,146.9 L207.2,142.5 L208.0,138.1 L208.8,133.6 L209.5,129.2 L210.3,124.9 L211.1,120.6 L211.9,116.5 L212.7,112.5 L213.5,108.7 L214.3,105.1 L215.1,101.8 L215.8,98.7 L216.6,95.9 L217.4,93.4 L218.2,91.2 L219.0,89.4 L219.8,87.9 L220.6,86.9 L221.4,86.2 L222.2,85.9 L222.9,86.1 L223.7,86.7 L224.5,87.6 L225.3,89.1 L226.1,90.9 L226.9,93.2 L227.7,95.8 L228.4,98.9 L229.2,102.3 L230.0,106.1 L230.8,110.3 L231.6,114.8 L232.4,119.5 L233.2,124.6 L234.0,129.8 L234.8,135.3 L235.5,141.0 L236.3,146.7 L237.1,152.6 L237.9,158.6 L238.7,164.6 L239.5,170.5 L240.3,176.4 L241.1,182.3 L241.8,187.9 L242.6,193.5 L243.4,198.8 L244.2,203.8 L245.0,208.6 L245.8,213.0 L246.6,217.1 L247.3,220.8 L248.1,224.1 L248.9,226.9 L249.7,229.3 L250.5,231.2 L251.3,232.6 L252.1,233.4 L252.9,233.8 L253.6,233.5 L254.4,232.8 L255.2,231.5 L256.0,229.6 L256.8,227.2 L257.6,224.3 L258.4,220.8 L259.2,216.9 L259.9,212.5 L260.7,207.6 L261.5,202.3 L262.3,196.6 L263.1,190.5 L263.9,184.1 L264.7,177.4 L265.5,170.5 L266.2,163.4 L267.0,156.1 L267.8,148.7 L268.6,141.2 L269.4,133.8 L270.2,126.3 L271.0,118.9 L271.8,111.7 L272.6,104.7 L273.3,97.8 L274.1,91.3 L274.9,85.1 L275.7,79.2 L276.5,73.8 L277.3,68.7 L278.1,64.2 L278.9,60.2 L279.6,56.8 L280.4,53.9 L281.2,51.6 L282.0,50.0 L282.8,49.0 L283.6,48.6 L284.4,48.9 L285.1,49.8 L285.9,51.4 L286.7,53.7 L287.5,56.6 L288.3,60.1 L289.1,64.2 L289.9,68.9 L290.7,74.2 L291.4,80.0 L292.2,86.3 L293.0,93.0 L293.8,100.2 L294.6,107.7 L295.4,115.6 L296.2,123.7 L297.0,132.0 L297.8,140.5 L298.5,149.2 L299.3,157.9 L300.1,166.5 L300.9,175.2 L301.7,183.7 L302.5,192.0 L303.3,200.1 L304.1,208.0 L304.8,215.5 L305.6,222.6 L306.4,229.2 L307.2,235.4 L308.0,241.1 L308.8,246.2 L309.6,250.7 L310.4,254.6 L311.1,257.9 L311.9,260.4 L312.7,262.2 L313.5,263.4 L314.3,263.7 L315.1,263.4 L315.9,262.3 L316.7,260.5 L317.4,258.0 L318.2,254.8 L319.0,250.8 L319.8,246.3 L320.6,241.0 L321.4,235.2 L322.2,228.8 L322.9,221.9 L323.7,214.5 L324.5,206.6 L325.3,198.4 L326.1,189.9 L326.9,181.0 L327.7,172.0 L328.5,162.7 L329.2,153.4 L330.0,144.1 L330.8,134.7 L331.6,125.4 L332.4,116.3 L333.2,107.4 L334.0,98.8 L334.8,90.4 L335.6,82.5 L336.3,74.9 L337.1,67.9 L337.9,61.3 L338.7,55.4 L339.5,50.0 L340.3,45.3 L341.1,41.2 L341.9,37.9 L342.6,35.2 L343.4,33.3 L344.2,32.2 L345.0,31.8 L345.8,32.2 L346.6,33.3 L347.4,35.2 L348.1,37.9 L348.9,41.2 L349.7,45.3 L350.5,50.0 L351.3,55.4 L352.1,61.3 L352.9,67.9 L353.7,74.9 L354.4,82.5 L355.2,90.4 L356.0,98.8 L356.8,107.4 L357.6,116.3 L358.4,125.4 L359.2,134.7 L360.0,144.1 L360.8,153.4 L361.5,162.7 L362.3,172.0 L363.1,181.0 L363.9,189.9 L364.7,198.4 L365.5,206.6 L366.3,214.5 L367.1,221.9 L367.8,228.8 L368.6,235.2 L369.4,241.0 L370.2,246.3 L371.0,250.8 L371.8,254.8 L372.6,258.0 L373.4,260.5 L374.1,262.3 L374.9,263.4 L375.7,263.7 L376.5,263.4 L377.3,262.2 L378.1,260.4 L378.9,257.9 L379.7,254.6 L380.4,250.7 L381.2,246.2 L382.0,241.1 L382.8,235.4 L383.6,229.2 L384.4,222.6 L385.2,215.5 L385.9,208.0 L386.7,200.1 L387.5,192.0 L388.3,183.7 L389.1,175.2 L389.9,166.5 L390.7,157.9 L391.5,149.2 L392.2,140.5 L393.0,132.0 L393.8,123.7 L394.6,115.6 L395.4,107.7 L396.2,100.2 L397.0,93.0 L397.8,86.3 L398.5,80.0 L399.3,74.2 L400.1,68.9 L400.9,64.2 L401.7,60.1 L402.5,56.6 L403.3,53.7 L404.1,51.4 L404.8,49.8 L405.6,48.9 L406.4,48.6 L407.2,49.0 L408.0,50.0 L408.8,51.6 L409.6,53.9 L410.4,56.8 L411.1,60.2 L411.9,64.2 L412.7,68.7 L413.5,73.8 L414.3,79.2 L415.1,85.1 L415.9,91.3 L416.7,97.8 L417.4,104.7 L418.2,111.7 L419.0,118.9 L419.8,126.3 L420.6,133.8 L421.4,141.2 L422.2,148.7 L423.0,156.1 L423.8,163.4 L424.5,170.5 L425.3,177.4 L426.1,184.1 L426.9,190.5 L427.7,196.6 L428.5,202.3 L429.3,207.6 L430.1,212.5 L430.8,216.9 L431.6,220.8 L432.4,224.3 L433.2,227.2 L434.0,229.6 L434.8,231.5 L435.6,232.8 L436.4,233.5 L437.1,233.8 L437.9,233.4 L438.7,232.6 L439.5,231.2 L440.3,229.3 L441.1,226.9 L441.9,224.1 L442.7,220.8 L443.4,217.1 L444.2,213.0 L445.0,208.6 L445.8,203.8 L446.6,198.8 L447.4,193.5 L448.2,187.9 L449.0,182.3 L449.7,176.4 L450.5,170.5 L451.3,164.6 L452.1,158.6 L452.9,152.6 L453.7,146.7 L454.5,141.0 L455.2,135.3 L456.0,129.8 L456.8,124.6 L457.6,119.5 L458.4,114.8 L459.2,110.3 L460.0,106.1 L460.8,102.3 L461.6,98.9 L462.3,95.8 L463.1,93.2 L463.9,90.9 L464.7,89.1 L465.5,87.6 L466.3,86.7 L467.1,86.1 L467.8,85.9 L468.6,86.2 L469.4,86.9 L470.2,87.9 L471.0,89.4 L471.8,91.2 L472.6,93.4 L473.4,95.9 L474.1,98.7 L474.9,101.8 L475.7,105.1 L476.5,108.7 L477.3,112.5 L478.1,116.5 L478.9,120.6 L479.7,124.9 L480.4,129.2 L481.2,133.6 L482.0,138.1 L482.8,142.5 L483.6,146.9 L484.4,151.2 L485.2,155.5 L486.0,159.6 L486.8,163.7 L487.5,167.5 L488.3,171.2 L489.1,174.7 L489.9,177.9 L490.7,180.9 L491.5,183.7 L492.3,186.1 L493.1,188.3 L493.8,190.3 L494.6,191.9 L495.4,193.2 L496.2,194.2 L497.0,194.9 L497.8,195.3 L498.6,195.4 L499.4,195.2 L500.1,194.7 L500.9,194.0 L501.7,192.9 L502.5,191.6 L503.3,190.1 L504.1,188.3 L504.9,186.4 L505.6,184.2 L506.4,181.8 L507.2,179.3 L508.0,176.7 L508.8,173.9 L509.6,171.0 L510.4,168.1 L511.2,165.1 L511.9,162.0 L512.7,159.0 L513.5,155.9 L514.3,152.9 L515.1,150.0 L515.9,147.0 L516.7,144.2 L517.5,141.5 L518.2,138.9 L519.0,136.4 L519.8,134.0 L520.6,131.9 L521.4,129.8 L522.2,128.0 L523.0,126.3 L523.8,124.9 L524.5,123.6 L525.3,122.5 L526.1,121.6 L526.9,121.0 L527.7,120.5 L528.5,120.2 L529.3,120.2 L530.1,120.3 L530.9,120.6 L531.6,121.2 L532.4,121.8 L533.2,122.7 L534.0,123.7 L534.8,124.9 L535.6,126.2 L536.4,127.6 L537.2,129.1 L537.9,130.7 L538.7,132.4 L539.5,134.2 L540.3,136.1 L541.1,138.0 L541.9,139.9 L542.7,141.8 L543.4,143.8 L544.2,145.7 L545.0,147.6 L545.8,149.5 L546.6,151.4 L547.4,153.2 L548.2,154.9 L549.0,156.5 L549.8,158.1 L550.5,159.5 L551.3,160.9 L552.1,162.2 L552.9,163.3 L553.7,164.4 L554.5,165.3 L555.3,166.1 L556.0,166.7 L556.8,167.3 L557.6,167.7 L558.4,167.9 L559.2,168.1 L560.0,168.1 L560.8,168.0 L561.6,167.8 L562.4,167.5 L563.1,167.1 L563.9,166.6 L564.7,166.0 L565.5,165.3 L566.3,164.5 L567.1,163.6 L567.9,162.7 L568.6,161.7 L569.4,160.7 L570.2,159.6 L571.0,158.5 L571.8,157.4 L572.6,156.3 L573.4,155.1 L574.2,154.0 L575.0,152.8 L575.7,151.7 L576.5,150.6 L577.3,149.5 L578.1,148.4 L578.9,147.4 L579.7,146.5 L580.5,145.6 L581.2,144.7 L582.0,143.9 L582.8,143.2 L583.6,142.5 L584.4,141.9 L585.2,141.4 L586.0,141.0 L586.8,140.6 L587.5,140.3 L588.3,140.1 L589.1,139.9 L589.9,139.8 L590.7,139.8 L591.5,139.8 L592.3,140.0 L593.1,140.1 L593.9,140.4 L594.6,140.7 L595.4,141.0 L596.2,141.4 L597.0,141.8 L597.8,142.3 L598.6,142.8 L599.4,143.4 L600.1,144.0 L600.9,144.5 L601.7,145.2 L602.5,145.8 L603.3,146.4 L604.1,147.0 L604.9,147.7 L605.7,148.3 L606.5,148.9 L607.2,149.5 L608.0,150.1 L608.8,150.7 L609.6,151.2 L610.4,151.8 L611.2,152.2 L612.0,152.7 L612.8,153.1 L613.5,153.5 L614.3,153.9 L615.1,154.2 L615.9,154.5 L616.7,154.7 L617.5,154.9 L618.3,155.1 L619.1,155.2 L619.8,155.3 L620.6,155.3 L621.4,155.3 L622.2,155.3 L623.0,155.2 L623.8,155.1 L624.6,155.0 L625.4,154.9 L626.1,154.7 L626.9,154.5 L627.7,154.3 L628.5,154.0 L629.3,153.7 L630.1,153.5 L630.9,153.2 L631.6,152.9 L632.4,152.5 L633.2,152.2 L634.0,151.9 L634.8,151.6 L635.6,151.3 L636.4,150.9 L637.2,150.6 L637.9,150.3 L638.7,150.0 L639.5,149.7 L640.3,149.5 L641.1,149.2 L641.9,149.0 L642.7,148.7 L643.5,148.5 L644.2,148.3 L645.0,148.1 L645.8,148.0 L646.6,147.8 L647.4,147.7 L648.2,147.6 L649.0,147.5 L649.8,147.5 L650.5,147.4 L651.3,147.4 L652.1,147.4 L652.9,147.4 L653.7,147.5 L654.5,147.5 L655.3,147.6 L656.1,147.6 L656.9,147.7 L657.6,147.8 L658.4,147.9 L659.2,148.1 L660.0,148.2"/>
+<path class="fig-curve fig-hot" style="stroke-width:3" d="M30.0,150.0 L30.8,150.0 L31.6,150.0 L32.4,150.0 L33.2,150.0 L33.9,150.0 L34.7,149.9 L35.5,149.9 L36.3,149.9 L37.1,149.9 L37.9,149.9 L38.7,149.9 L39.5,149.9 L40.2,149.9 L41.0,149.9 L41.8,149.9 L42.6,149.9 L43.4,149.9 L44.2,149.9 L45.0,149.9 L45.8,149.9 L46.5,149.9 L47.3,149.9 L48.1,149.9 L48.9,149.9 L49.7,149.9 L50.5,149.9 L51.3,149.9 L52.1,149.9 L52.8,149.9 L53.6,149.9 L54.4,149.9 L55.2,149.9 L56.0,149.9 L56.8,149.9 L57.6,149.8 L58.3,149.8 L59.1,149.8 L59.9,149.8 L60.7,149.8 L61.5,149.8 L62.3,149.8 L63.1,149.8 L63.9,149.8 L64.7,149.8 L65.4,149.8 L66.2,149.8 L67.0,149.8 L67.8,149.8 L68.6,149.8 L69.4,149.7 L70.2,149.7 L71.0,149.7 L71.7,149.7 L72.5,149.7 L73.3,149.7 L74.1,149.7 L74.9,149.7 L75.7,149.7 L76.5,149.6 L77.2,149.6 L78.0,149.6 L78.8,149.6 L79.6,149.6 L80.4,149.6 L81.2,149.6 L82.0,149.6 L82.8,149.5 L83.6,149.5 L84.3,149.5 L85.1,149.5 L85.9,149.5 L86.7,149.5 L87.5,149.4 L88.3,149.4 L89.1,149.4 L89.8,149.4 L90.6,149.4 L91.4,149.3 L92.2,149.3 L93.0,149.3 L93.8,149.3 L94.6,149.2 L95.4,149.2 L96.1,149.2 L96.9,149.2 L97.7,149.1 L98.5,149.1 L99.3,149.1 L100.1,149.1 L100.9,149.0 L101.7,149.0 L102.4,149.0 L103.2,148.9 L104.0,148.9 L104.8,148.9 L105.6,148.8 L106.4,148.8 L107.2,148.8 L108.0,148.7 L108.8,148.7 L109.5,148.6 L110.3,148.6 L111.1,148.6 L111.9,148.5 L112.7,148.5 L113.5,148.4 L114.3,148.4 L115.1,148.3 L115.8,148.3 L116.6,148.2 L117.4,148.2 L118.2,148.1 L119.0,148.1 L119.8,148.0 L120.6,148.0 L121.4,147.9 L122.1,147.8 L122.9,147.8 L123.7,147.7 L124.5,147.7 L125.3,147.6 L126.1,147.5 L126.9,147.5 L127.7,147.4 L128.4,147.3 L129.2,147.2 L130.0,147.2 L130.8,147.1 L131.6,147.0 L132.4,146.9 L133.2,146.8 L134.0,146.7 L134.7,146.7 L135.5,146.6 L136.3,146.5 L137.1,146.4 L137.9,146.3 L138.7,146.2 L139.5,146.1 L140.2,146.0 L141.0,145.9 L141.8,145.8 L142.6,145.7 L143.4,145.5 L144.2,145.4 L145.0,145.3 L145.8,145.2 L146.6,145.1 L147.3,144.9 L148.1,144.8 L148.9,144.7 L149.7,144.5 L150.5,144.4 L151.3,144.3 L152.1,144.1 L152.9,144.0 L153.6,143.8 L154.4,143.7 L155.2,143.5 L156.0,143.4 L156.8,143.2 L157.6,143.0 L158.4,142.9 L159.1,142.7 L159.9,142.5 L160.7,142.4 L161.5,142.2 L162.3,142.0 L163.1,141.8 L163.9,141.6 L164.7,141.4 L165.4,141.2 L166.2,141.0 L167.0,140.8 L167.8,140.6 L168.6,140.4 L169.4,140.2 L170.2,139.9 L171.0,139.7 L171.8,139.5 L172.5,139.3 L173.3,139.0 L174.1,138.8 L174.9,138.5 L175.7,138.3 L176.5,138.0 L177.3,137.8 L178.0,137.5 L178.8,137.2 L179.6,137.0 L180.4,136.7 L181.2,136.4 L182.0,136.1 L182.8,135.8 L183.6,135.5 L184.3,135.2 L185.1,134.9 L185.9,134.6 L186.7,134.3 L187.5,134.0 L188.3,133.7 L189.1,133.4 L189.9,133.0 L190.7,132.7 L191.4,132.3 L192.2,132.0 L193.0,131.6 L193.8,131.3 L194.6,130.9 L195.4,130.6 L196.2,130.2 L197.0,129.8 L197.7,129.4 L198.5,129.0 L199.3,128.7 L200.1,128.3 L200.9,127.9 L201.7,127.4 L202.5,127.0 L203.2,126.6 L204.0,126.2 L204.8,125.8 L205.6,125.3 L206.4,124.9 L207.2,124.4 L208.0,124.0 L208.8,123.5 L209.5,123.1 L210.3,122.6 L211.1,122.1 L211.9,121.7 L212.7,121.2 L213.5,120.7 L214.3,120.2 L215.1,119.7 L215.8,119.2 L216.6,118.7 L217.4,118.2 L218.2,117.7 L219.0,117.1 L219.8,116.6 L220.6,116.1 L221.4,115.5 L222.2,115.0 L222.9,114.4 L223.7,113.9 L224.5,113.3 L225.3,112.8 L226.1,112.2 L226.9,111.6 L227.7,111.1 L228.4,110.5 L229.2,109.9 L230.0,109.3 L230.8,108.7 L231.6,108.1 L232.4,107.5 L233.2,106.9 L234.0,106.3 L234.8,105.6 L235.5,105.0 L236.3,104.4 L237.1,103.8 L237.9,103.1 L238.7,102.5 L239.5,101.8 L240.3,101.2 L241.1,100.5 L241.8,99.9 L242.6,99.2 L243.4,98.6 L244.2,97.9 L245.0,97.2 L245.8,96.6 L246.6,95.9 L247.3,95.2 L248.1,94.5 L248.9,93.9 L249.7,93.2 L250.5,92.5 L251.3,91.8 L252.1,91.1 L252.9,90.4 L253.6,89.7 L254.4,89.0 L255.2,88.3 L256.0,87.6 L256.8,86.9 L257.6,86.2 L258.4,85.5 L259.2,84.8 L259.9,84.0 L260.7,83.3 L261.5,82.6 L262.3,81.9 L263.1,81.2 L263.9,80.5 L264.7,79.8 L265.5,79.0 L266.2,78.3 L267.0,77.6 L267.8,76.9 L268.6,76.2 L269.4,75.5 L270.2,74.7 L271.0,74.0 L271.8,73.3 L272.6,72.6 L273.3,71.9 L274.1,71.2 L274.9,70.5 L275.7,69.8 L276.5,69.1 L277.3,68.4 L278.1,67.7 L278.9,67.0 L279.6,66.3 L280.4,65.6 L281.2,64.9 L282.0,64.2 L282.8,63.5 L283.6,62.8 L284.4,62.1 L285.1,61.5 L285.9,60.8 L286.7,60.1 L287.5,59.5 L288.3,58.8 L289.1,58.1 L289.9,57.5 L290.7,56.9 L291.4,56.2 L292.2,55.6 L293.0,54.9 L293.8,54.3 L294.6,53.7 L295.4,53.1 L296.2,52.5 L297.0,51.9 L297.8,51.3 L298.5,50.7 L299.3,50.1 L300.1,49.5 L300.9,49.0 L301.7,48.4 L302.5,47.9 L303.3,47.3 L304.1,46.8 L304.8,46.2 L305.6,45.7 L306.4,45.2 L307.2,44.7 L308.0,44.2 L308.8,43.7 L309.6,43.2 L310.4,42.7 L311.1,42.3 L311.9,41.8 L312.7,41.3 L313.5,40.9 L314.3,40.5 L315.1,40.1 L315.9,39.6 L316.7,39.2 L317.4,38.8 L318.2,38.5 L319.0,38.1 L319.8,37.7 L320.6,37.4 L321.4,37.0 L322.2,36.7 L322.9,36.4 L323.7,36.0 L324.5,35.7 L325.3,35.5 L326.1,35.2 L326.9,34.9 L327.7,34.6 L328.5,34.4 L329.2,34.2 L330.0,33.9 L330.8,33.7 L331.6,33.5 L332.4,33.3 L333.2,33.1 L334.0,33.0 L334.8,32.8 L335.6,32.7 L336.3,32.5 L337.1,32.4 L337.9,32.3 L338.7,32.2 L339.5,32.1 L340.3,32.0 L341.1,32.0 L341.9,31.9 L342.6,31.9 L343.4,31.8 L344.2,31.8 L345.0,31.8 L345.8,31.8 L346.6,31.8 L347.4,31.9 L348.1,31.9 L348.9,32.0 L349.7,32.0 L350.5,32.1 L351.3,32.2 L352.1,32.3 L352.9,32.4 L353.7,32.5 L354.4,32.7 L355.2,32.8 L356.0,33.0 L356.8,33.1 L357.6,33.3 L358.4,33.5 L359.2,33.7 L360.0,33.9 L360.8,34.2 L361.5,34.4 L362.3,34.6 L363.1,34.9 L363.9,35.2 L364.7,35.5 L365.5,35.7 L366.3,36.0 L367.1,36.4 L367.8,36.7 L368.6,37.0 L369.4,37.4 L370.2,37.7 L371.0,38.1 L371.8,38.5 L372.6,38.8 L373.4,39.2 L374.1,39.6 L374.9,40.1 L375.7,40.5 L376.5,40.9 L377.3,41.3 L378.1,41.8 L378.9,42.3 L379.7,42.7 L380.4,43.2 L381.2,43.7 L382.0,44.2 L382.8,44.7 L383.6,45.2 L384.4,45.7 L385.2,46.2 L385.9,46.8 L386.7,47.3 L387.5,47.9 L388.3,48.4 L389.1,49.0 L389.9,49.5 L390.7,50.1 L391.5,50.7 L392.2,51.3 L393.0,51.9 L393.8,52.5 L394.6,53.1 L395.4,53.7 L396.2,54.3 L397.0,54.9 L397.8,55.6 L398.5,56.2 L399.3,56.9 L400.1,57.5 L400.9,58.1 L401.7,58.8 L402.5,59.5 L403.3,60.1 L404.1,60.8 L404.8,61.5 L405.6,62.1 L406.4,62.8 L407.2,63.5 L408.0,64.2 L408.8,64.9 L409.6,65.6 L410.4,66.3 L411.1,67.0 L411.9,67.7 L412.7,68.4 L413.5,69.1 L414.3,69.8 L415.1,70.5 L415.9,71.2 L416.7,71.9 L417.4,72.6 L418.2,73.3 L419.0,74.0 L419.8,74.7 L420.6,75.5 L421.4,76.2 L422.2,76.9 L423.0,77.6 L423.8,78.3 L424.5,79.0 L425.3,79.8 L426.1,80.5 L426.9,81.2 L427.7,81.9 L428.5,82.6 L429.3,83.3 L430.1,84.0 L430.8,84.8 L431.6,85.5 L432.4,86.2 L433.2,86.9 L434.0,87.6 L434.8,88.3 L435.6,89.0 L436.4,89.7 L437.1,90.4 L437.9,91.1 L438.7,91.8 L439.5,92.5 L440.3,93.2 L441.1,93.9 L441.9,94.5 L442.7,95.2 L443.4,95.9 L444.2,96.6 L445.0,97.2 L445.8,97.9 L446.6,98.6 L447.4,99.2 L448.2,99.9 L449.0,100.5 L449.7,101.2 L450.5,101.8 L451.3,102.5 L452.1,103.1 L452.9,103.8 L453.7,104.4 L454.5,105.0 L455.2,105.6 L456.0,106.3 L456.8,106.9 L457.6,107.5 L458.4,108.1 L459.2,108.7 L460.0,109.3 L460.8,109.9 L461.6,110.5 L462.3,111.1 L463.1,111.6 L463.9,112.2 L464.7,112.8 L465.5,113.3 L466.3,113.9 L467.1,114.4 L467.8,115.0 L468.6,115.5 L469.4,116.1 L470.2,116.6 L471.0,117.1 L471.8,117.7 L472.6,118.2 L473.4,118.7 L474.1,119.2 L474.9,119.7 L475.7,120.2 L476.5,120.7 L477.3,121.2 L478.1,121.7 L478.9,122.1 L479.7,122.6 L480.4,123.1 L481.2,123.5 L482.0,124.0 L482.8,124.4 L483.6,124.9 L484.4,125.3 L485.2,125.8 L486.0,126.2 L486.8,126.6 L487.5,127.0 L488.3,127.4 L489.1,127.9 L489.9,128.3 L490.7,128.7 L491.5,129.0 L492.3,129.4 L493.1,129.8 L493.8,130.2 L494.6,130.6 L495.4,130.9 L496.2,131.3 L497.0,131.6 L497.8,132.0 L498.6,132.3 L499.4,132.7 L500.1,133.0 L500.9,133.4 L501.7,133.7 L502.5,134.0 L503.3,134.3 L504.1,134.6 L504.9,134.9 L505.6,135.2 L506.4,135.5 L507.2,135.8 L508.0,136.1 L508.8,136.4 L509.6,136.7 L510.4,137.0 L511.2,137.2 L511.9,137.5 L512.7,137.8 L513.5,138.0 L514.3,138.3 L515.1,138.5 L515.9,138.8 L516.7,139.0 L517.5,139.3 L518.2,139.5 L519.0,139.7 L519.8,139.9 L520.6,140.2 L521.4,140.4 L522.2,140.6 L523.0,140.8 L523.8,141.0 L524.5,141.2 L525.3,141.4 L526.1,141.6 L526.9,141.8 L527.7,142.0 L528.5,142.2 L529.3,142.4 L530.1,142.5 L530.9,142.7 L531.6,142.9 L532.4,143.0 L533.2,143.2 L534.0,143.4 L534.8,143.5 L535.6,143.7 L536.4,143.8 L537.2,144.0 L537.9,144.1 L538.7,144.3 L539.5,144.4 L540.3,144.5 L541.1,144.7 L541.9,144.8 L542.7,144.9 L543.4,145.1 L544.2,145.2 L545.0,145.3 L545.8,145.4 L546.6,145.5 L547.4,145.7 L548.2,145.8 L549.0,145.9 L549.8,146.0 L550.5,146.1 L551.3,146.2 L552.1,146.3 L552.9,146.4 L553.7,146.5 L554.5,146.6 L555.3,146.7 L556.0,146.7 L556.8,146.8 L557.6,146.9 L558.4,147.0 L559.2,147.1 L560.0,147.2 L560.8,147.2 L561.6,147.3 L562.4,147.4 L563.1,147.5 L563.9,147.5 L564.7,147.6 L565.5,147.7 L566.3,147.7 L567.1,147.8 L567.9,147.8 L568.6,147.9 L569.4,148.0 L570.2,148.0 L571.0,148.1 L571.8,148.1 L572.6,148.2 L573.4,148.2 L574.2,148.3 L575.0,148.3 L575.7,148.4 L576.5,148.4 L577.3,148.5 L578.1,148.5 L578.9,148.6 L579.7,148.6 L580.5,148.6 L581.2,148.7 L582.0,148.7 L582.8,148.8 L583.6,148.8 L584.4,148.8 L585.2,148.9 L586.0,148.9 L586.8,148.9 L587.5,149.0 L588.3,149.0 L589.1,149.0 L589.9,149.1 L590.7,149.1 L591.5,149.1 L592.3,149.1 L593.1,149.2 L593.9,149.2 L594.6,149.2 L595.4,149.2 L596.2,149.3 L597.0,149.3 L597.8,149.3 L598.6,149.3 L599.4,149.4 L600.1,149.4 L600.9,149.4 L601.7,149.4 L602.5,149.4 L603.3,149.5 L604.1,149.5 L604.9,149.5 L605.7,149.5 L606.5,149.5 L607.2,149.5 L608.0,149.6 L608.8,149.6 L609.6,149.6 L610.4,149.6 L611.2,149.6 L612.0,149.6 L612.8,149.6 L613.5,149.6 L614.3,149.7 L615.1,149.7 L615.9,149.7 L616.7,149.7 L617.5,149.7 L618.3,149.7 L619.1,149.7 L619.8,149.7 L620.6,149.7 L621.4,149.8 L622.2,149.8 L623.0,149.8 L623.8,149.8 L624.6,149.8 L625.4,149.8 L626.1,149.8 L626.9,149.8 L627.7,149.8 L628.5,149.8 L629.3,149.8 L630.1,149.8 L630.9,149.8 L631.6,149.8 L632.4,149.8 L633.2,149.9 L634.0,149.9 L634.8,149.9 L635.6,149.9 L636.4,149.9 L637.2,149.9 L637.9,149.9 L638.7,149.9 L639.5,149.9 L640.3,149.9 L641.1,149.9 L641.9,149.9 L642.7,149.9 L643.5,149.9 L644.2,149.9 L645.0,149.9 L645.8,149.9 L646.6,149.9 L647.4,149.9 L648.2,149.9 L649.0,149.9 L649.8,149.9 L650.5,149.9 L651.3,149.9 L652.1,149.9 L652.9,149.9 L653.7,149.9 L654.5,149.9 L655.3,149.9 L656.1,150.0 L656.9,150.0 L657.6,150.0 L658.4,150.0 L659.2,150.0 L660.0,150.0"/>
+<text class="fig-note" x="439.5" y="37.7">|ψ|², the probability density</text>
+<text class="fig-note" x="37.9" y="76.7">real part of ψ:</text>
+<text class="fig-note" x="37.9" y="92.7">oscillates, can be negative</text>
+<text class="fig-label" x="660.0" y="142.0" text-anchor="end">x</text>
+</svg>
+<!-- /FIGURE:packet -->
+</div>
+  <figcaption>
+    A wave packet at one instant. The thin curve is the real part of $\psi$: it
+    oscillates inside a bell-shaped envelope and is often negative. The thick curve is
+    $|\psi|^2$, the probability density: smooth, never negative, and with no trace of the
+    oscillation. The oscillation is the phase turning along $x$, which is how the packet
+    carries its momentum. Horizontal scale in units of the packet's width; the density is
+    scaled to 1 at the centre.
+  </figcaption>
+</figure>
+
+<h2>Worked example: a wavefunction with numbers</h2>
+
+<div class="worked">
+<p>
+  Take an electron whose wavefunction falls off exponentially on both sides of a
+  central point,
+</p>
+$$\psi(x) = A\,e^{-|x|/b},\qquad b = 0.1\ \text{nm}.$$
+<p>
+  This is the actual shape of an electron bound to a single very short-range
+  attraction, but here it serves as a definite example to calculate with.
+</p>
+<p>
+  <strong>Normalise it.</strong> The density is $A^2 e^{-2|x|/b}$. The area under it
+  is twice the area on the right-hand side:
+</p>
+$$\int_{-\infty}^{\infty} A^2 e^{-2|x|/b}\,dx = 2A^2\cdot\frac{b}{2} = A^2 b .$$
+<p>
+  Setting this to 1 gives $A = 1/\sqrt{b}$. With $b = 10^{-10}$&nbsp;m,
+  $A = 10^{5}$&nbsp;m<sup>−1/2</sup>. The odd unit is right: $|\psi|^2$ must have units
+  of one over length, so that multiplying by a length gives a pure number.
+</p>
+<p>
+  <strong>Probability in a region.</strong> The chance of finding the electron within
+  $b$ of the centre:
+</p>
+$$\begin{aligned}
+P(|x| < b) &= 2\int_0^b \frac{1}{b}\,e^{-2x/b}\,dx\\[4pt]
+&= 1 - e^{-2} = 0.865 .
+\end{aligned}$$
+<p>
+  About 86&nbsp;percent within 0.1&nbsp;nm of the centre, 14&nbsp;percent further out.
+</p>
+<p>
+  <strong>Probability in a small window.</strong> A detector window
+  0.001&nbsp;nm wide at the centre catches the electron with probability about
+  $|\psi(0)|^2 \times w = (10^{10}\ \text{m}^{-1})(10^{-12}\ \text{m}) = 0.01$. The same
+  window placed at $x = b$ catches it with probability $e^{-2}$ times that, 0.0014.
+</p>
+<p>
+  <strong>Check.</strong> All the probabilities are between 0 and 1, the density has
+  the right units, and the total is 1 by construction. Notice that $|\psi(0)|^2 =
+  10^{10}$&nbsp;m<sup>−1</sup> is an enormous number: a density is not a probability
+  until it is multiplied by a width.
+</p>
+</div>
+
+<h2>The equation that moves it</h2>
 
 <p>
-  Born's contribution to this chapter is the one without which the equation would be
-  uninterpretable. Schrödinger had his wave and his equation; what he did not have,
-  at first, was a secure account of what the wave <em>was</em>. Born supplied it in
-  1926: the squared modulus $|\psi|^2$ is a probability density — the probability of
-  finding the particle in a region, not the density of a smeared-out charge. In
-  <em>Atomic Physics</em> this statistical interpretation is presented as the pivot
-  on which the whole scheme turns, the thing that lets the wave and corpuscle
-  pictures coexist.
+  Now the second question: how does $\psi$ change in time? Schrödinger's equation can
+  be motivated, though not derived, from two relations earlier essays established.
+  De Broglie's wavelength, $\lambda = h/p$, and Planck's quantum, $E = h\nu$, can be
+  written with $\hbar = h/2\pi$ and with the wavenumber $k = 2\pi/\lambda$ and angular
+  frequency $\omega = 2\pi\nu$:
+</p>
+
+$$p = \hbar k, \qquad E = \hbar\omega .$$
+
+<p>
+  A particle with definite momentum and energy should then be described by a wave with
+  definite $k$ and $\omega$, the travelling wave $\psi = e^{i(kx - \omega t)}$. Look at
+  what differentiating this wave does:
+</p>
+
+$$\begin{aligned}
+-i\hbar\,\frac{\partial\psi}{\partial x} &= \hbar k\,\psi = p\,\psi,\\[4pt]
+i\hbar\,\frac{\partial\psi}{\partial t} &= \hbar\omega\,\psi = E\,\psi .
+\end{aligned}$$
+
+<p>
+  Differentiating in space picks out the momentum; differentiating in time picks out
+  the energy. For a free particle, energy and momentum are related by
+  $E = p^2/2m$. Applying each side of that relation to the wave, with the derivatives
+  standing in for $E$ and $p$, gives an equation the wave satisfies. Adding a potential
+  energy $V(x)$, the energy of the particle's position in a force field, gives
+  Schrödinger's equation:
+</p>
+
+$$i\hbar\,\frac{\partial\psi}{\partial t} = -\frac{\hbar^2}{2m}\,\frac{\partial^2\psi}{\partial x^2} + V(x)\,\psi .$$
+
+<p>
+  Read it as the energy bookkeeping, total energy equals kinetic plus potential, turned
+  into a rule for how the wave changes:
+</p>
+
+<ul class="cases">
+  <li><strong>Left side:</strong> the rate at which $\psi$ changes in time, with the
+    factor $i\hbar$ that the travelling wave showed is tied to energy.</li>
+  <li><strong>First term on the right, the kinetic energy.</strong> It is the curvature of
+    $\psi$. A tightly wiggling wavefunction has a short wavelength, a large momentum, and
+    a large kinetic energy.</li>
+  <li><strong>Second term, the potential energy.</strong> It weights $\psi$ at each point by
+    the potential energy there.</li>
+</ul>
+
+<p>
+  The argument from the travelling wave only fixes the free case. Adding $V(x)$ in the
+  simplest way is a guess, and Schrödinger's justification was that it worked: applied
+  to the electron in a hydrogen atom it produced Bohr's energy levels without orbits. Two
+  further properties make it fit what we already know. The equation is <em>linear</em>:
+  if $\psi_1$ and $\psi_2$ are solutions, so is any combination of them, which is what the
+  double-slit rule of adding amplitudes needs. And it keeps the total probability equal
+  to 1 as time runs: probability can flow from one place to another but is never created
+  or lost.
+</p>
+
+<h2>States whose probabilities stand still</h2>
+
+<p>
+  Some solutions have a special form: a fixed shape in space, multiplied by a phase
+  that turns in time at a steady rate,
+</p>
+
+$$\psi(x,t) = \varphi(x)\,e^{-iEt/\hbar}.$$
+
+<p>
+  Because the time dependence is a single overall phase, the density
+  $|\psi(x,t)|^2 = |\varphi(x)|^2$ does not change at all. Every probability for position,
+  and in fact for any measurement, is the same at every moment. Such a state is called
+  <em>stationary</em>, and it has a definite energy $E$. Putting this form into
+  Schrödinger's equation, the time derivative gives $E$ times $\psi$, the phase cancels,
+  and what is left is an equation for the shape alone:
+</p>
+
+$$-\frac{\hbar^2}{2m}\,\frac{d^2\varphi}{dx^2} + V(x)\,\varphi = E\,\varphi .$$
+
+<p>
+  Here is where energy levels come from. For a particle held in by a potential, as an
+  electron in an atom is, this equation has acceptable solutions only for particular
+  values of $E$. For other values, the solution runs off to infinity far from the atom
+  and cannot be normalised. The allowed values are the energy levels. Bohr had to assume
+  them; the wave equation produces them as the energies at which a bound wave fits. The
+  essay on confinement will show this in the simplest case, a particle in a box.
 </p>
 
 <p>
-  Born is characteristically careful about what the interpretation forbids. The
-  wavefunction is not a physical wave in ordinary space; for two particles it is a
-  function on a six-dimensional configuration space, which no ripple in the room
-  could be. He resists the temptation — Schrödinger's own, at first — to see the
-  electron as literally a packet of waves, since such a packet disperses. Born gives
-  the equation its meaning precisely by denying $\psi$ the kind of reality that would
-  make the meaning simpler and wrong.
-</p>
-
-<h3>Dirac: the equation was already written</h3>
-
-<p>
-  For Dirac there is nothing new to introduce here, because the Schrödinger equation
-  appeared in the previous chapter as a special case of his abstract law of motion.
-  His fundamental equation, $i\hbar\,\frac{d}{dt}|Pt\rangle = H|Pt\rangle$, governs
-  the state ket directly; choosing a representation in which the coordinates are
-  diagonal, and reading $\langle\xi'|Pt\rangle$ as the wavefunction $\psi(\xi' t)$,
-  turns that abstract equation into Schrödinger's wave equation. The wave equation is
-  the Schrödinger picture written in the position basis — a representation of the law,
-  not the law itself.
+  Stationary states answer part of the objection that sank the classical atom. In the
+  model used here, a single electron in a fixed potential, a stationary state's density
+  does not move, so nothing is oscillating that could radiate, and within that model the
+  state lasts forever. Change comes only from a superposition of states with different
+  energies.
 </p>
 
 <p>
-  This inverts the usual order of exposition. For most students the Schrödinger
-  equation is the beginning and the abstract formalism a later generalization; for
-  Dirac the abstract equation of motion is primary and the wave equation is one of
-  its representations, obtained by a choice of basis. The wavefunction, in this view,
-  is not the fundamental object but the set of components of the state ket along the
-  position eigenvectors. It is the same relationship Landau and Lifshitz build into
-  their matrices, arrived at from the opposite end.
+  That model leaves something out: the electron's coupling to the electromagnetic field,
+  which Schrödinger's equation as written here does not include. With the coupling taken
+  into account, an excited state is no longer permanent. It decays to a lower level by
+  emitting a photon, a process called <em>spontaneous emission</em>, typically within a few
+  billionths of a second for atomic levels. The ground state has no lower level to decay
+  to, and that is the state that stays. So the stability of atoms rests on two facts: the
+  lowest energy level exists, and nothing lies below it.
 </p>
 
-<h2>Synthesis</h2>
+<details>
+  <summary>Optional: how fast a wave packet spreads</summary>
+  <p>
+    A packet like the one in the figure does not keep its shape. Its parts carry a range
+    of momenta, so they drift apart. For a Gaussian packet of initial width $\sigma_0$
+    (the standard deviation of position), Schrödinger's equation gives a width that grows as
+  </p>
+  $$\sigma(t) = \sigma_0\sqrt{1 + \left(\frac{t}{\tau}\right)^2},\qquad \tau = \frac{2m\sigma_0^2}{\hbar}.$$
+  <p>
+    For times much shorter than $\tau$ the packet barely changes; for longer times it
+    grows in proportion to $t$.
+  </p>
+  <p>
+    <strong>An electron</strong> located to within $\sigma_0 = 1$&nbsp;nm has
+    $\tau = 2(9.11\times10^{-31})(10^{-9})^2/(1.055\times10^{-34}) = 1.7\times10^{-14}$&nbsp;s.
+    After one picosecond its packet is about 60&nbsp;nm wide; after a microsecond, about
+    6&nbsp;cm. Free electrons do not stay localised.
+  </p>
+  <p>
+    <strong>A dust grain</strong> of one microgram, located to within one micrometre, has
+    $\tau \approx 2\times10^{13}$&nbsp;s, about 600,000 years. For all practical purposes it
+    keeps its shape forever and moves like a classical particle. The difference is the
+    mass, a factor of $10^{21}$, which enters $\tau$ directly.
+  </p>
+</details>
+
+<h2>Two questions</h2>
+
+<div class="questions">
+<p>
+  <strong>1. Far from the centre.</strong> For the electron in the worked example, what
+  is the probability of finding it more than $2b$ from the centre?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    The two tails beyond $\pm 2b$ together hold
+    $2\int_{2b}^{\infty}\frac1b e^{-2x/b}\,dx = e^{-4} = 0.018$, a little under
+    2&nbsp;percent.
+  </p>
+  <p>
+    The easy slip is to use $\psi$ instead of $|\psi|^2$: the wavefunction itself falls
+    by $e^{-2}$ between the centre and $2b$, which might suggest an answer near
+    $e^{-2} = 0.135$. Probabilities come from the density $|\psi|^2$, which falls twice as
+    fast in the exponent.
+  </p>
+</details>
 
 <p>
-  The four treatments are four answers to a single awkward question: if the
-  Schrödinger equation cannot be derived, how should a book present it honestly?
-  Landau and Lifshitz derive everything derivable and import the rest from the
-  classical limit, leaving the smallest possible residue of pure postulate. Feynman
-  motivates the equation with a concrete lattice picture and then states plainly that
-  it was guessed. Dirac makes it a representation of a deeper axiom, so that the
-  postulation happens elsewhere, at the level of the abstract law of motion. Born,
-  uniquely, is not concerned with deriving the equation at all — his contribution is
-  to fix what its solution <em>means</em>.
+  <strong>2. Does the phase mean motion?</strong> In a stationary state, $\psi$ is
+  multiplied by $e^{-iEt/\hbar}$, which keeps turning as time passes. A friend concludes
+  that the electron in a stationary state must be moving back and forth, just too fast
+  to see. What is wrong with this? What would have to be true of the state for something
+  observable to change in time?
 </p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    The turning factor is the same at every point, an overall phase, and Born's rule uses
+    only $|\psi|^2$. Multiplying the whole wavefunction by one unit arrow changes no
+    prediction. Every probability in a stationary state is constant; there is nothing
+    moving back and forth, because nothing observable depends on time.
+  </p>
+  <p>
+    For something to change, the state must be a superposition of parts with
+    <em>different</em> energies, say $E_1$ and $E_2$. Then the two parts' phases turn at
+    different rates, their relative phase changes, and the cross term in $|\psi|^2$, the
+    same kind of term that made the double-slit fringes, rises and falls with frequency
+    $(E_2 - E_1)/h$. That is exactly the frequency of the photon emitted in a jump between
+    the two levels: Bohr's rule reappears.
+  </p>
+  <p>
+    The tempting wrong turn is to treat the phase as a picture of motion, the way a
+    rotating hand on a dial represents a moving part. An overall phase represents
+    nothing that can be measured.
+  </p>
+</details>
+</div>
 
-<p>
-  The Feynman–Landau contrast is the sharpest in Part II, and it is a contrast of
-  temperament as much as method. Landau's instinct is that a fundamental equation
-  should be shown to be nearly inevitable — that symmetry and correspondence leave
-  the theorist almost no freedom. Feynman's instinct is that honesty about
-  guessing is more valuable to a student than a derivation that only looks
-  inevitable in hindsight. That one book reaches the equation in its third chapter
-  of foundations and the other in its sixteenth is not a scheduling accident; it
-  encodes two philosophies of what a wavefunction is for.
-</p>
-
-<p>
-  Beneath the differences they agree on the essential point, the one Born insisted
-  on and the others build into their formalisms: $\psi$ is an instrument for
-  computing probabilities, not a picture of a thing. The Schrödinger equation tells
-  you how that instrument evolves. What it evolves is not a wave you could point to,
-  and the discipline of remembering that is what separates all four of these authors
-  from the naive reading their own equation invites.
-</p>
-
-<h2>Read the originals</h2>
+<h2>Further reading</h2>
 
 <div class="read-originals">
-  <h3>Where to find these treatments</h3>
   <ul>
-    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §17 "Schrödinger's equation" (Hamiltonian from Galilean invariance; classical limit) and §18 "The fundamental properties of Schrödinger's equation"</li>
-    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_16.html">Ch. 16 "The Dependence of Amplitudes on Position"</a> — the Schrödinger equation is §16-5, sixteen chapters in</li>
-    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. V §4 "Wave Mechanics" and §7 "The Statistical Interpretation of Wave Mechanics"</li>
-    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. V §27 "Schrödinger's Form for the Equations of Motion" (the wave equation as a representation of $i\hbar\,\partial_t|Pt\rangle = H|Pt\rangle$)</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. III, <a href="https://www.feynmanlectures.caltech.edu/III_16.html">Ch. 16 "The Dependence of Amplitudes on Position"</a>, §16-2 "The wave function" and §16-5 "The Schrödinger equation": the equation reached from amplitudes for an electron hopping along a line of atoms, with a candid account of what is motivated and what is guessed.</li>
+    <li>Landau &amp; Lifshitz, <em>Quantum Mechanics</em> (2nd ed.), §10 "Stationary states" and §17 "Schrödinger's equation": a compact derivation of the equation's form from general principles.</li>
+    <li>Born, <em>Atomic Physics</em> (Dover, 8th ed.), Ch. V §4 "Wave Mechanics" and §7 "The Statistical Interpretation of Wave Mechanics", the latter by the physicist who proposed it.</li>
   </ul>
 </div>
 
-<nav class="chapter-nav">
-  <a class="prev" href="05-two-mechanics.html">← Two Mechanics: Matrices vs. Waves</a>
-  <a class="next" href="07-uncertainty.html">The Uncertainty Principle →</a>
+<h2>Where this leaves us</h2>
 
+<p>
+  The value of the wavefunction at a point tells us, through its squared size, how
+  likely the particle is to be found near there; its phase is invisible at a single
+  point but decides how parts of the wave interfere. Schrödinger's equation moves it,
+  with kinetic energy appearing as curvature, and its stationary solutions, whose
+  probabilities never change, are the energy levels of bound systems.
+</p>
+
+<p>
+  We now have two descriptions of states in hand: short lists of amplitudes, like the
+  photon's polarisation, and continuous functions, like $\psi(x)$. We also have questions
+  that go beyond "where is it?": what is its energy, its momentum, its average position?
+  The next essay gives a single compact language that handles all of these the same
+  way, for lists and functions alike, and says exactly what a measurement returns.
+</p>
+
+<nav class="chapter-nav">
+  <a class="prev" href="05-two-mechanics.html">← One state, different ways to describe it</a>
+  <a class="next" href="08-dirac-formalism.html">A practical language for quantum states →</a>
 </nav>
 
 </main>
 
 <footer>
-  <p>A comparative reading. Prose is original synthesis.</p>
+  <p>Original prose, worked examples and figures.</p>
 </footer>
 
 <script>
@@ -250,6 +425,13 @@ function toggleTheme() {
   const current = root.getAttribute('data-theme');
   root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
 }
+// Printed copies include every optional section and worked answer.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('details:not([open])')];
+  closedForPrint.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
 </script>
 
 </body>
