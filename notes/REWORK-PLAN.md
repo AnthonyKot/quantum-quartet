@@ -459,5 +459,6 @@ Optional extension: the full 4×4 construction and the Pauli limit. · Needs Pau
 
 ## 12. Still open
 
-- **Title.** "The Quantum Quartet" names the comparison being removed. Decide after the
-  pilots. Candidate: "Quantum Mechanics, Revisited".
+- **Title — decided 2026-09-18.** "The Quantum Quartet" named the comparison that was removed. The site is now
+  "Quantum Mechanics, Explained", pairing with the companion book "Quantum Information, Explained". URLs and the
+  repo name `quantum-quartet` are unchanged. (Earlier candidate: "Quantum Mechanics, Revisited".)

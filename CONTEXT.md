@@ -1,4 +1,4 @@
-# The Quantum Quartet — Project Context
+# Quantum Mechanics, Explained — Project Context
 
 > The book has been reworked (Sept 2026). Start at "CURRENT STATE" below.
 
@@ -58,8 +58,9 @@ not yet checked against a source on disk.
   → 09 → 09b (oscillator, new) → 09c (angular momentum, new) → 10 → 11 → 12 → 13 → 14. File names are stable
   URLs; titles carry no numbers; order is carried by `index.html` and prev/next links.
 - **Optional essays, a1–a4: rewritten** in the same template (a3, gravity, is a side trip; a4 needs a1–a2).
-- Landing page, About page and README describe the new book. The site title "The Quantum Quartet" is kept
-  until the title decision (plan §12).
+- Landing page, About page and README describe the new book. The site title is "Quantum Mechanics, Explained"
+  (formerly "The Quantum Quartet"; decided 2026-09-18, URLs and repo name unchanged), pairing with the companion
+  book "Quantum Information, Explained".
 - Per-essay numbers and generated figures: `scripts/chNN_*.py` (`--write` regenerates the figure between
   `FIGURE:` markers). Page checks: `scripts/check_page.py <chapter>`.
 

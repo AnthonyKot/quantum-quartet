@@ -1,4 +1,4 @@
-# The Quantum Quartet
+# Quantum Mechanics, Explained
 
 A readable guide to the basics of quantum mechanics, written as a connected sequence of essays for
 an adult returning to physics: university mathematics some years ago, no previous quantum mechanics.
@@ -6,7 +6,7 @@ Each essay answers one concrete question with enough mathematics to answer it, r
 uses in short reminders, works one example with real numbers, puts longer derivations in optional
 fold-outs, and ends with two worked questions.
 
-The site began as a comparison of four textbooks (Born, Feynman, Landau & Lifshitz, Dirac). That
+The site began as "The Quantum Quartet", a comparison of four textbooks (Born, Feynman, Landau & Lifshitz, Dirac). That
 comparison is no longer the organising principle; the books appear only as checked "Further reading"
 notes. Editions are listed on the About page.
 
