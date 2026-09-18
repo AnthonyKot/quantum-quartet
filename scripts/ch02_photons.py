@@ -7,8 +7,9 @@
 Pure standard library. --write replaces what sits between the FIGURE:threshold
 markers in chapters/02-photons.html.
 
-Work functions are typical handbook values for clean surfaces; measured values vary
-by a few tenths of an eV with surface preparation, so the essay says "about".
+Work functions: sodium 2.3 eV is an often-quoted older value; Michaelson (J. Appl. Phys. 48,
+4729, 1977) and the current CRC table give 2.75 eV. The essay states the range and uses 2.3 eV.
+Zinc 4.33 eV (Michaelson).
 
 FIGURE RECORD
   Plotted quantity : maximum kinetic energy of photoelectrons, K_max = h nu - W, in eV
