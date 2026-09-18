@@ -28,8 +28,8 @@
 
 <p class="lede">
   The clocks on GPS satellites are deliberately built to tick slightly slow before launch: by about
-  38 millionths of a second per day. Without that correction the system would drift by kilometres
-  a day. Why should a perfectly good clock need adjusting just because it is high up and moving fast?
+  38 millionths of a second per day. Without that correction the error would be the equivalent of
+  kilometres of distance within a day. Why should a perfectly good clock need adjusting just because it is high up and moving fast?
 </p>
 
 <p>
@@ -108,7 +108,9 @@ $$\frac{\Delta\nu}{\nu} = \frac{u}{c} = \frac{gh}{c^2}.$$
 </p>
 <p>
   <strong>Net:</strong> the satellite clock gains about <strong>38.5&nbsp;μs per day</strong>. GPS works by timing radio signals,
-  which cover $c\times38.5\ \mu\text{s} = 11.5$&nbsp;km in that time. Uncorrected, position fixes would drift by kilometres every day.
+  which cover $c\times38.5\ \mu\text{s} = 11.5$&nbsp;km in that time. That is the error a day's uncorrected gain would put into the measured distance to one satellite. It is not
+  by itself the error in a position fix: a receiver combines several satellites and solves for its own clock error at the same time, so how much
+  reaches the position depends on the details. But the satellite clocks would no longer keep the common time on which the system relies.
   That is why the satellite clocks are set to run slow by this amount before launch. (This simple calculation ignores the
   Earth's rotation and the slight ellipticity of the orbits, both of which the real system corrects for.)
 </p>

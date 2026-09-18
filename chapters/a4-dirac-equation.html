@@ -28,7 +28,7 @@
 
 <p class="lede">
   Hospitals routinely image the body with positrons, the electron's antiparticle: when one meets an
-  electron, the two vanish into a pair of gamma rays of 511&nbsp;keV each. Antimatter had been predicted
+  electron, the two usually vanish into a pair of gamma rays of 511&nbsp;keV each. Antimatter had been predicted
   before it was found, by an equation written in 1928 to make the electron obey both quantum mechanics
   and relativity (though the man who found it, in 1932, was not looking for it). What was the equation, and why did it demand a new particle?
 </p>
@@ -63,12 +63,15 @@
 $$E = \sqrt{p^2c^2 + m^2c^4}.$$
 
 <p>
-  Replacing $p$ by a derivative inside a square root does not give anything usable. The obvious escape is to use the
+  Replacing $p$ by a derivative inside a square root gives something awkward. Expanded as a series, the square root contains derivatives of every
+  order, so the equation at one point would involve the wavefunction far away, and it treats time and space quite differently, which sits badly
+  with relativity. Dirac wanted an ordinary differential equation, relating the wavefunction to its derivatives at the same point. The obvious escape is to use the
   squared relation, $E^2 = p^2c^2 + m^2c^4$, with two time derivatives on the left. That was tried in 1926 and gives the
   <em>Klein–Gordon equation</em>. It is a perfectly good relativistic equation, and it is the correct one for particles
   with no spin. But it has second derivatives in time, unlike Schrödinger's equation, and as a description of a single
   electron its candidate for the probability density can be negative. Dirac wanted an equation first order in time, like
-  Schrödinger's, with a probability density that is never negative.
+  Schrödinger's, with a probability density that is never negative. Since relativity treats space and time alike, that meant first order in the
+  space derivatives too.
 </p>
 
 <h2>Dirac's step: take the square root with matrices</h2>
@@ -90,8 +93,8 @@ $$\alpha_x^2 = \alpha_y^2 = \alpha_z^2 = \beta^2 = 1,$$
 <p>
   and every pair must <em>anticommute</em>: $\alpha_x\alpha_y = -\alpha_y\alpha_x$, and so on. No ordinary numbers do
   that. Matrices can. The Pauli matrices are exactly three such objects, each squaring to 1 and each pair anticommuting,
-  but Dirac needs four, and there is no fourth 2×2 matrix that anticommutes with all three. The smallest matrices that
-  work are 4×4, and the wavefunction they act on has four components.
+  but Dirac needs four, and there is no fourth 2×2 matrix that anticommutes with all three. Matrices of odd size cannot do it at all, as the example below shows, so the
+  smallest that work are 4×4, and the wavefunction they act on has four components.
 </p>
 
 <h2>Worked example: why two dimensions are not enough</h2>
@@ -113,6 +116,12 @@ $$\sigma_y\sigma_x = \begin{pmatrix}-i&0\\0&i\end{pmatrix}.$$
   $b_y = b_z = 0$. The only such $M$ is zero, which cannot square to 1.
 </p>
 <p>
+  <strong>Why not 3×3.</strong> Since $\beta^2 = 1$, the eigenvalues of $\beta$ are $+1$ and $-1$. Take a vector $v$ with $\beta v = v$. Because
+  $\alpha_x$ anticommutes with $\beta$, $\beta(\alpha_xv) = -\alpha_x\beta v = -(\alpha_xv)$: the matrix $\alpha_x$ turns every $+1$ eigenvector into a
+  $-1$ eigenvector, and the same argument run backwards turns every $-1$ eigenvector into a $+1$ one. Since $\alpha_x^2 = 1$, nothing is lost on
+  the way, so there are as many of one kind as of the other. The size of the matrices is therefore even. Two is ruled out, so the smallest possible is four.
+</p>
+<p>
   <strong>Four that work.</strong> Build 4×4 matrices from 2×2 blocks: $\beta$ has the identity in the upper block and minus the identity
   in the lower, and each $\alpha_i$ has $\sigma_i$ in the two off-diagonal blocks. Multiplying these out, which the script for this essay
   does, confirms that all four square to 1 and every pair anticommutes. Dirac's equation is then
@@ -129,8 +138,9 @@ $$i\hbar\,\frac{\partial\psi}{\partial t} = \bigl(c\,\vec\alpha\cdot\hat{\vec p}
   <strong>Spin.</strong> Part of the extra room goes to spin. The Pauli matrices sit inside Dirac's matrices, and
   the equation turns out to conserve not the orbital angular momentum alone but the orbital angular momentum plus an extra piece,
   $\tfrac12\hbar\,\vec\sigma$: spin ½, arriving without being put in by hand. The scope of this is worth stating carefully. Relativity alone
-  does not demand spin: the Klein–Gordon equation is relativistic and describes spinless particles. What demanded it was Dirac's
-  combination of relativity with an equation first order in time.
+  does not demand spin: the Klein–Gordon equation is relativistic and describes spinless particles. An equation first order in time
+  does not demand it either. What produced it was Dirac's particular construction: an equation linear in the energy and in all three components
+  of momentum, whose coefficients have to anticommute.
 </p>
 
 <p>
@@ -144,7 +154,8 @@ $$i\hbar\,\frac{\partial\psi}{\partial t} = \bigl(c\,\vec\alpha\cdot\hat{\vec p}
   <strong>Fine structure.</strong> Solved for hydrogen, the equation reproduces Bohr's levels plus small corrections of relative size
   $\alpha^2$, where $\alpha = e^2/4\pi\varepsilon_0\hbar c = 1/137.036$ is the <em>fine-structure constant</em>. (The Bohr essay's ground-state
   speed, $2.19\times10^{6}$&nbsp;m/s, is $c/137$: that ratio is $\alpha$, and relativistic corrections go as its square,
-  $5\times10^{-5}$.) The corrections split the $n = 2$ level into sublevels about 11&nbsp;GHz apart, the close pairs of lines the hydrogen essay
+  $5\times10^{-5}$.) The corrections split the $n = 2$ level into two sublevels about 11&nbsp;GHz apart, one with total angular momentum (orbital plus spin) $j = \tfrac12$ and one with
+  $j = \tfrac32$. Spectroscopists call this the $2P_{3/2}$–$2P_{1/2}$ splitting. It produces the close pairs of lines the hydrogen essay
   mentioned.
 </p>
 
@@ -194,7 +205,9 @@ $$i\hbar\,\frac{\partial\psi}{\partial t} = \bigl(c\,\vec\alpha\cdot\hat{\vec p}
 <h2>The negative energies, and antimatter</h2>
 
 <p>
-  The other two components belong to solutions with negative energy, the lower branch in the figure. In classical physics a particle
+  The rest of the extra room goes to negative energy. At each momentum the equation has four independent solutions: two spin states with positive
+  energy, and two with negative energy, the lower branch in the figure. The division is between solutions, not between rows of the column: for an
+  electron at rest the positive-energy solutions use only the upper two components, but for a moving electron they involve all four. In classical physics a particle
   starting with positive energy never jumps to the lower branch, since energy changes continuously. In quantum mechanics it can jump,
   giving the difference to a photon, and an electron could then fall forever to lower and lower energies. Atoms would not be stable.
 </p>
@@ -243,7 +256,8 @@ $$i\hbar\,\frac{\partial\psi}{\partial t} = \bigl(c\,\vec\alpha\cdot\hat{\vec p}
     The pair needs at least its rest energy, $2mc^2 = 2\times0.511 = 1.022$&nbsp;MeV. (A lone photon cannot convert in empty space, since it could
     not conserve energy and momentum together; the conversion happens near a nucleus, which takes up the momentum, and the threshold is then
     very slightly above 1.022&nbsp;MeV.) An electron and positron annihilating at rest have total momentum zero and energy 1.022&nbsp;MeV. A single photon
-    would carry momentum, so at least two are needed, emitted back to back, each with 0.511&nbsp;MeV: the 511&nbsp;keV gamma rays of the opening, which
+    would carry momentum, so at least two are needed. Exactly two is the commonest outcome (three or more are possible but rarer), and those two are emitted
+    back to back, each with 0.511&nbsp;MeV: the 511&nbsp;keV gamma rays of the opening, which
     PET scanners detect in coincidence.
   </p>
   <p>
@@ -259,8 +273,8 @@ $$i\hbar\,\frac{\partial\psi}{\partial t} = \bigl(c\,\vec\alpha\cdot\hat{\vec p}
   <summary>Worked answer</summary>
   <p>
     Partly. Spin ½ and $g = 2$ do come out of Dirac's equation without being put in, which was a genuine success. But the Klein–Gordon equation is
-    just as relativistic and has no spin, so relativity by itself does not force spin. What forced it was the combination of relativity with Dirac's
-    demand for an equation first order in time. Spin had already been described without relativity, by Pauli's two-component theory in the spin essay.
+    just as relativistic and has no spin, so relativity by itself does not force spin. What produced it was Dirac's particular
+    construction, an equation linear in the energy and in all three components of momentum, whose coefficients have to anticommute. Spin had already been described without relativity, by Pauli's two-component theory in the spin essay.
   </p>
   <p>
     The tempting wrong turn is to credit a result to the most famous ingredient in the derivation. The honest statement is narrower and more

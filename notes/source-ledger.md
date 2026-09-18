@@ -123,3 +123,23 @@ IAU, IS-GPS-200, original papers). One was wrong and eleven needed tightening; a
 Confirmed correct: muon lifetime and production height (PDG), Frisch & Smith 1963, the He-4 masses and 28.3 MeV,
 GPS offsets (+45.7 / −7.2 / +38.5 µs per day; factory offset −4.4647×10⁻¹⁰ per IS-GPS-200), Chou et al. 2010
 (33 cm), g = 2.0023, α = 1/137.036, the 10.97 GHz n = 2 splitting, the matrix algebra and the Pauli-limit signs.
+
+### External review of A1–A4 (2026-09-18): precision pass
+
+The reviewer recomputed the muon, He-4, GPS and fine-structure numbers and found them correct. Seven wording
+corrections applied; none changes a number.
+
+- A3: 11.5 km is labelled as the one-way ranging error to one satellite, not a position drift; the text notes
+  that a fix uses several satellites and solves for the receiver clock.
+- A4: added the even-dimension argument (an anticommuting partner maps the +1 eigenspace of β onto the −1
+  eigenspace), closing the gap between "no fourth 2×2" and "smallest is 4×4".
+- A4: spin ½ attributed to Dirac's construction (linear in E and all three momentum components, with
+  anticommuting coefficients), not to "first order in time"; the square-root operator described as non-local
+  rather than "not usable".
+- A4: negative energy assigned to two of four independent solutions at each momentum, not to "the other two
+  components"; moving positive-energy solutions use all four components.
+- A4: n = 2 splitting named (2P3/2–2P1/2, j = 1/2 and 3/2); two-photon annihilation called the commonest
+  channel, not the only one.
+- A2: lede now says mass measures the energy of a body at rest; the putty example adds the
+  centre-of-momentum statement.
+- A1: muon example labelled constant-speed, neglecting energy loss in air.
