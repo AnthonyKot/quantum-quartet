@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A · Spacetime and Lorentz Transformations — The Quantum Quartet</title>
+  <title>Events, clocks, and spacetime — The Quantum Quartet</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -20,176 +20,284 @@
   </nav>
 </header>
 
-<main class="page">
+<main class="page essay">
 
-<div class="chapter-meta">Appendix A · Relativity</div>
+<div class="chapter-meta">Optional — Relativity</div>
 
-<h1>Spacetime and Lorentz Transformations</h1>
+<h1>Events, clocks, and spacetime</h1>
 
-<p>
-  The appendix steps outside the quantum quartet. Relativity is the other pillar
-  of twentieth-century physics, and the four quantum authors mostly assume it
-  rather than build it — so here the lead passes to the person who did build it.
-  Einstein's own 1916 popular exposition, written for the general reader, is the
-  primary source for these chapters, with Feynman's Volume I as a modern companion.
-  The comparison is narrower than in the main chapters, but the contrast between
-  how the discoverer and a later teacher present the same ideas is worth drawing.
+<p class="lede">
+  Muons are made when cosmic rays strike the upper atmosphere, around 15&nbsp;km up. A muon at
+  rest lives on average only 2.2 millionths of a second, and even at the speed of light it could
+  cover only 660&nbsp;m in that time. Yet muons arrive at the ground in great numbers. How do they
+  make a journey more than twenty lifetimes long?
 </p>
 
 <p>
-  Special relativity rests on two premises that seem, at first, to contradict each
-  other: the laws of physics are the same in every uniformly moving frame (the
-  principle of relativity), and light travels at the same speed $c$ regardless of
-  the motion of its source or observer. Reconciling them forces a revision of the
-  most basic notions — simultaneity, length, and duration cease to be absolute —
-  and the mathematics of that revision is the Lorentz transformation. Einstein
-  reaches it by thinking about trains and lightning; Feynman reaches it through
-  Maxwell's equations and the Michelson–Morley experiment.
+  This is the first of four optional essays. The core of the book treated particles moving slowly
+  compared with light. Here we drop that restriction, which needs Einstein's special relativity.
+  This essay builds its central ideas from two principles and one thought experiment: clocks in
+  motion run slow, lengths along the motion shrink, and "at the same time" depends on who is asking.
+  The next essay turns these into the relation between energy, momentum and mass that relativistic
+  quantum mechanics needs.
 </p>
 
-<h2>Entry points</h2>
+<aside class="reminders" aria-label="Reminders">
+  <h2>Two things worth having back in mind</h2>
+  <ul>
+    <li><strong>Frames of reference.</strong> A frame is a way of assigning positions and times to
+      events, for instance by rulers and clocks at rest on the ground, or at rest on a moving train.</li>
+    <li><strong>Galilean relativity.</strong> In ordinary mechanics, a frame moving at steady velocity
+      $v$ uses $x' = x - vt$ and $t' = t$, and speeds add or subtract.</li>
+  </ul>
+</aside>
 
-<table class="entry-table">
-  <thead>
-    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="author-cell">Einstein (1916)</td>
-      <td>Constancy of $c$ (De Sitter's double stars)</td>
-      <td>The principle of relativity + the light postulate</td>
-      <td>Lorentz transformation from the two postulates</td>
-      <td>Lightning at two points of a railway embankment</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Feynman (Vol. I)</td>
-      <td>The Michelson–Morley experiment</td>
-      <td>Physical laws invariant under the Lorentz transformation</td>
-      <td>Lorentz transformation as the symmetry of Maxwell's equations</td>
-      <td>Moe and Joe comparing measurements between frames</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>The two treatments</h2>
-
-<h3>Einstein: from simultaneity outward</h3>
+<h2>Two principles that seem to clash</h2>
 
 <p>
-  Einstein's exposition is a masterpiece of building difficulty slowly. He begins
-  with the innocuous-seeming law that light travels at a fixed speed $c$, and asks
-  what happens if a ray is chased by a railway carriage moving at speed $v$. Common
-  sense — the classical addition of velocities — says the carriage should measure
-  the light approaching at $c - v$. But the principle of relativity insists that the
-  law of light propagation must look the same from the carriage as from the
-  embankment, and those two demands cannot both hold if velocities simply add.
-  Something has to give.
+  The <em>principle of relativity</em>, going back to Galileo, says that the laws of physics are the
+  same in every frame moving at constant velocity. No experiment done inside a smoothly moving train
+  with the blinds down can tell you the train is moving. The second principle is an experimental fact
+  about light: its speed in empty space is always $c = 3.00\times10^{8}$&nbsp;m/s, whatever the motion
+  of its source, and the most careful attempts, most famously Michelson and Morley's in 1887, found
+  no dependence on the motion of the observer either.
 </p>
 
 <p>
-  What gives, Einstein shows, is simultaneity itself. Before touching any equation
-  he dismantles the idea that "at the same time" has an observer-independent
-  meaning. Two lightning strokes hit the embankment at points $A$ and $B$; an
-  observer at the midpoint who sees the flashes together calls them simultaneous.
-  But an observer on a moving train, passing the midpoint as the light travels,
-  meets the flash from the front before the flash from behind — and so, by the same
-  definition, judges them <em>not</em> simultaneous. Simultaneity is relative to the
-  frame. From this single realization the whole structure follows: if clocks in
-  different places cannot be synchronized absolutely, then time, length, and the
-  addition of velocities must all be reworked, and the reworking is the Lorentz
-  transformation. Einstein's genius in the popular book is to make the strange
-  conclusion feel forced rather than imposed — the reader arrives at it having
-  refused, at each step, to accept anything that cannot be checked by experiment.
+  Put together, the two seem to contradict each other. A light ray passes a train moving at $v$ in the
+  same direction. By the rule that speeds subtract, someone on the train should measure it moving at
+  $c - v$. By the principle of relativity, the train is as good a frame as the ground, so the law "light
+  moves at $c$" must hold there too. In 1905 Einstein kept both principles and gave up the assumption that
+  made them clash: that time runs the same for everyone.
+</p>
+
+<h2>A clock made of light</h2>
+
+<p>
+  The cleanest way to see what happens to time is a clock that ticks by bouncing a pulse of light between
+  two mirrors a distance $d$ apart. At rest, one tick, up and down, takes $2d/c$. Now put the clock on a
+  train moving sideways at speed $v$. Seen from the ground, the pulse no longer goes straight up and down: the
+  mirrors move while it travels, so it follows a longer diagonal path. It still travels at $c$, the second
+  principle insists, so each tick takes longer. For half a tick of ground time $t$, the diagonal has length
+  $ct$, the sideways distance is $vt$, and the height is still $d$, so by Pythagoras
+</p>
+
+$$(ct)^2 = d^2 + (vt)^2,\qquad t = \frac{d/c}{\sqrt{1 - v^2/c^2}} .$$
+
+<p>
+  The moving clock's tick, measured by ground clocks, is longer than its tick at rest by the factor
+</p>
+
+$$\gamma = \frac{1}{\sqrt{1 - v^2/c^2}} .$$
+
+<p>
+  By the principle of relativity every kind of clock, including a muon's internal decay, must keep time with
+  a light clock moving alongside it, or the two could be compared to detect the motion. So a moving clock of
+  any kind runs slow by $\gamma$. This is <em>time dilation</em>. At everyday speeds $\gamma$ differs from 1
+  by a fraction $\tfrac12 v^2/c^2$: about $3\times10^{-13}$ for an airliner, which is why nobody noticed.
+</p>
+
+<h2>Worked example: the muon's journey</h2>
+
+<div class="worked">
+<p>
+  Take a muon made 15&nbsp;km up and moving at $v = 0.999c$. Then
+  $\gamma = 1/\sqrt{1 - 0.998} = 22.4$.
+</p>
+<p>
+  <strong>From the ground.</strong> The trip takes $15\ \text{km}/(0.999c) = 50.1$&nbsp;μs, which is 22.8 of the
+  muon's rest lifetimes of 2.197&nbsp;μs. Without time dilation, the fraction surviving would be
+  $e^{-22.8} \approx 10^{-10}$. But the muon's own clock runs slow by 22.4, so for the muon only
+  $50.1/22.4 = 2.24$&nbsp;μs pass, about one lifetime, and a fraction $e^{-1.02} = 0.36$ survives.
+</p>
+<p>
+  <strong>From the muon.</strong> The muon is entitled to regard itself as at rest, with its clock running
+  normally. Then it is the atmosphere that rushes past at $0.999c$, and the only way the two accounts can agree
+  on the same outcome is if the atmosphere's thickness, measured in the muon's frame, is shorter by the same
+  factor: $15\ \text{km}/22.4 = 670$&nbsp;m, which it crosses in 2.24&nbsp;μs. Lengths along the direction of
+  motion contract by $\gamma$. This is <em>length contraction</em>, the other face of time dilation.
+</p>
+<p>
+  <strong>Check.</strong> Both frames predict the same thing that can be counted at the ground, about 36&nbsp;percent
+  of the muons, and disagree only about how to describe the journey. Experiments comparing muon counts at a
+  mountain top and at sea level confirm that far more survive than a calculation without time dilation allows.
+</p>
+</div>
+
+<h2>"At the same time" depends on the frame</h2>
+
+<p>
+  Einstein's own route to all this, in his 1916 popular book, goes through simultaneity. Lightning strikes a
+  railway embankment at two points, A and B. An observer standing on the embankment exactly midway sees the two
+  flashes at the same moment and, since the light from each travelled the same distance at the same speed, calls
+  the strikes simultaneous. An observer on a train, passing the midpoint just as the lightning strikes, is moving
+  towards B and away from A. She meets the light from B first. The light from both strikes moves at $c$ in her
+  frame too, and she is at rest midway between the two points on the train where the lightning struck, so she concludes
+  that B struck first.
 </p>
 
 <p>
-  He is candid that the resolution came from experience, not pure thought. It was
-  Lorentz's investigation of the electrodynamics of moving bodies, he notes, that
-  showed the constancy of light to be a necessary consequence of electromagnetic
-  theory — and the theory that reconciled it with relativity he calls the special
-  theory, to distinguish it from the general theory to come. The Minkowski
-  four-dimensional world, in which space and time merge into a single continuum, he
-  presents as the geometrical culmination: not a new physical assumption but the
-  natural language in which the Lorentz transformation becomes a rotation.
+  Neither is wrong. Two events at different places that are simultaneous in one frame are, in general, not
+  simultaneous in another moving relative to it. There is no absolute "now" stretching across space. This is the
+  deepest of the changes, and time dilation and length contraction both follow from it.
 </p>
 
-<h3>Feynman: from Maxwell's symmetry</h3>
+<figure>
+<div class="fig-scroll">
+<!-- FIGURE:spacetime generated by scripts/a1_special_relativity.py -->
+<svg class="fig-svg" viewBox="0 0 680 400" role="img" aria-labelledby="fig-st-title fig-st-desc">
+<title id="fig-st-title">A spacetime diagram with a moving frame</title>
+<desc id="fig-st-desc">Horizontal axis x, vertical axis ct. Dashed light rays run at 45 degrees. The moving frame's time axis leans towards the light ray, and its line of simultaneity leans up from the x axis by the same angle. Two events that lie on that tilted line are simultaneous for the moving observer but occur at different times on the ground.</desc>
+<path class="fig-axis" style="stroke-width:1.4" d="M55.0,330.0 H601.0"/>
+<path class="fig-axis" style="stroke-width:1.4" d="M300,340 V22.0"/>
+<text class="fig-label" x="607.0" y="335.0">x</text>
+<text class="fig-label" x="292" y="16.0" text-anchor="end">ct (ground)</text>
+<path class="fig-axis" style="stroke-dasharray:5 5" d="M300.0,330.0 L6.0,36.0"/>
+<path class="fig-axis" style="stroke-dasharray:5 5" d="M300.0,330.0 L594.0,36.0"/>
+<text class="fig-tick" x="17.0" y="57.0">light</text>
+<path class="fig-curve fig-hot" d="M300,330 L480.6,29.0"/>
+<text class="fig-note" x="486.6" y="33.0">ct′ (moving at 0.6c)</text>
+<path class="fig-curve fig-hot" style="stroke-dasharray:1 0" d="M272.0,346.8 L594.0,153.6"/>
+<text class="fig-note" x="594.0" y="173.6" text-anchor="end">x′: her "now" at time zero</text>
+<path class="fig-axis" style="stroke-dasharray:2 4" d="M62.0,367.8 L524.0,90.6"/>
+<circle cx="160.0" cy="309.0" r="5" class="fig-dot"/>
+<text class="fig-label" x="151.0" y="300.0" text-anchor="end">A</text>
+<path class="fig-axis" style="stroke-dasharray:1 3" d="M160.0,309.0 H300.0"/>
+<path class="fig-axis" d="M295,309.0 h10"/>
+<text class="fig-tick" x="310" y="313.0">ground time of A</text>
+<circle cx="440.0" cy="141.0" r="5" class="fig-dot"/>
+<text class="fig-label" x="431.0" y="132.0" text-anchor="end">B</text>
+<path class="fig-axis" style="stroke-dasharray:1 3" d="M440.0,141.0 H300.0"/>
+<path class="fig-axis" d="M295,141.0 h10"/>
+<text class="fig-tick" x="310" y="145.0">ground time of B</text>
+</svg>
+<!-- /FIGURE:spacetime -->
+</div>
+  <figcaption>
+    A spacetime diagram: each point is an event, with position across and time, as $ct$, up. Light travels along
+    the dashed 45° lines. An observer moving at $0.6c$ has a time axis leaning towards the light line, and her set of
+    events at "the same time", her $x'$ axis, leans up by the same angle. Events A and B lie on one such line: simultaneous
+    for her, but on the ground A happens first.
+  </figcaption>
+</figure>
+
+<h2>The Lorentz transformation, and what stays the same</h2>
 
 <p>
-  Feynman comes at special relativity from the direction that historically produced
-  it: the failure of Maxwell's equations to respect the old, common-sense
-  (Galilean) transformation between moving frames. He recounts the puzzle plainly.
-  The principle of relativity had served mechanics since Newton, but Maxwell's
-  electrodynamics seemed to violate it — the equations changed form under a Galilean
-  transformation, which would let an experimenter detect absolute motion by optical
-  means. The Michelson–Morley experiment of 1887 looked for exactly that absolute
-  motion through the supposed ether, and found nothing, and the null result waited
-  eighteen years for Einstein's explanation.
+  The precise rule connecting the two frames' coordinates, replacing Galileo's, is the <em>Lorentz transformation</em>.
+  For a frame moving at $v$ along $x$,
+</p>
+
+$$\begin{aligned}
+x' &= \gamma\,(x - vt),\\[4pt]
+t' &= \gamma\left(t - \frac{v\,x}{c^2}\right).
+\end{aligned}$$
+
+<p>
+  The first line is Galileo's rule scaled by $\gamma$. The second is where everything new lives: the term $vx/c^2$
+  means that events at the same $t$ but different $x$ get different $t'$, which is the relativity of simultaneity.
+  When $v \ll c$, $\gamma \approx 1$ and $vx/c^2$ is negligible, and Galileo's rules return.
 </p>
 
 <p>
-  The resolution Feynman emphasizes is Lorentz's discovery that Maxwell's equations
-  <em>do</em> keep their form under a different substitution — the Lorentz
-  transformation — and Einstein's bold generalization that <em>all</em> physical
-  laws must share that invariance. The consequence is that it is Newton's mechanics,
-  not Maxwell's electrodynamics, that must be changed: mass has to be replaced by the
-  velocity-dependent form $m = m_0/\sqrt{1 - v^2/c^2}$ for the two theories to
-  harmonize. Feynman's framing is that of a modern physicist looking back with the
-  answer in hand — he leads with the symmetry principle (invariance under the
-  Lorentz transformation) and shows the mechanics bending to fit it, where Einstein
-  led with the analysis of time and let the transformation emerge. Same destination,
-  opposite order: Einstein reasons his way to the transformation from the meaning of
-  simultaneity; Feynman starts from the transformation as the known symmetry of
-  electrodynamics and asks what it costs the rest of physics.
+  Distances and times each change between frames, but one combination does not. For two events separated by $\Delta t$ and
+  $\Delta x$, the <em>interval</em>
 </p>
 
-<h2>Synthesis</h2>
+$$s^2 = (c\,\Delta t)^2 - (\Delta x)^2$$
 
 <p>
-  The two accounts are a study in how a revolutionary idea looks from inside and
-  from after. Einstein, writing eleven years after the discovery but still close to
-  it, builds the theory from a philosophical analysis of simultaneity, taking pains
-  to admit nothing the reader cannot in principle verify — the constancy of light is
-  a fact about the world, and everything else is forced by refusing to smuggle in an
-  absolute time. Feynman, writing half a century later, builds it from the symmetry
-  of Maxwell's equations, treating Lorentz invariance as a principle to be imposed on
-  all of physics and following its consequences. The discoverer argues upward from an
-  experiment; the teacher argues downward from a symmetry.
+  is the same in every frame. For an event 5 units of $ct$ and 3 units of $x$ from the origin, $s^2 = 25 - 9 = 16$. In a frame
+  moving at $0.6c$ ($\gamma = 1.25$) the same event is at $ct' = 1.25(5 - 0.6\times3) = 4$ and $x' = 1.25(3 - 0.6\times5) = 0$,
+  and $s^2 = 16 - 0 = 16$. That frame is the one moving with a clock that goes from the origin to the event, and $s/c$ is the
+  time the clock itself records. Space and time, separately, depend on the frame; spacetime, with this interval, does not.
 </p>
+
+<details>
+  <summary>Optional: deriving the Lorentz transformation</summary>
+  <p>
+    Assume the transformation is linear (so that uniform motion in one frame is uniform in the other) and write
+    $x' = \gamma(x - vt)$, with $\gamma$ to be found; by the principle of relativity the reverse must have the same form with
+    $v$ reversed, $x = \gamma(x' + vt')$. A light flash sent from the origin at $t = t' = 0$ along $x$ satisfies $x = ct$ and,
+    by the light postulate, $x' = ct'$. Substituting: $ct' = \gamma(c - v)t$ and $ct = \gamma(c + v)t'$. Multiplying the two
+    equations and cancelling $tt'$ gives $c^2 = \gamma^2(c^2 - v^2)$, so $\gamma = 1/\sqrt{1 - v^2/c^2}$. Solving the pair
+    $x' = \gamma(x - vt)$, $x = \gamma(x' + vt')$ for $t'$ then gives $t' = \gamma(t - vx/c^2)$.
+  </p>
+</details>
+
+<h2>Two questions</h2>
+
+<div class="questions">
+<p>
+  <strong>1. A slower muon.</strong> Repeat the worked example for a muon moving at $0.99c$ from the same height. What fraction
+  survives to the ground, and how thick is the atmosphere in the muon's frame?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    $\gamma = 1/\sqrt{1 - 0.9801} = 7.09$. The ground-frame trip takes $15\ \text{km}/(0.99c) = 50.5$&nbsp;μs; the muon's own
+    time is $50.5/7.09 = 7.1$&nbsp;μs, 3.25 lifetimes, so $e^{-3.25} = 0.04$ survive: about 4&nbsp;percent. In the muon's frame the
+    atmosphere is $15/7.09 = 2.1$&nbsp;km thick.
+  </p>
+  <p>
+    Reducing the speed from $0.999c$ to $0.99c$ looks like a tiny change but reduces $\gamma$ threefold, because $\gamma$ grows
+    steeply as $v$ approaches $c$. The slip to avoid is treating "almost the speed of light" as a single regime.
+  </p>
+</details>
 
 <p>
-  What both refuse is the ether and the absolute frame it implied. Einstein
-  dismantles absolute simultaneity by thought; Feynman lets Michelson and Morley
-  dismantle absolute motion by measurement; and both arrive at the same Lorentz
-  transformation and the same Minkowski spacetime, in which the interval between
-  events, not their separation in space or time alone, is the invariant. That a
-  popular exposition by the theory's author and a lecture course by its most famous
-  expositor should converge so exactly — differing only in whether simultaneity or
-  symmetry comes first — is a reminder that special relativity, unlike the quantum
-  theory that fills the rest of this site, is a settled subject with a single agreed
-  shape. The interpretive disagreements that animate the quantum chapters have no
-  counterpart here. There is one relativity, told two ways.
+  <strong>2. Whose clock is really slow?</strong> The ground says the muon's clock runs slow. The muon, entitled to regard itself as
+  at rest, says ground clocks run slow. Can both be right?
 </p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    Yes, because they are comparing different things. To say a moving clock runs slow, the ground compares it with two different
+    ground clocks as it passes them, and that comparison relies on the ground's synchronisation of those two clocks. The muon
+    judges the ground clocks to be out of synchronisation, by the relativity of simultaneity, and does the reverse comparison with
+    its own clocks. Each measurement is correct within its own frame's definition of "at the same time".
+  </p>
+  <p>
+    The tempting wrong turn is to look for which clock is "really" slow, as if there were an absolute time. The question has an
+    absolute answer only when the same two clocks meet twice, which requires at least one of them to change its motion; if one stays
+    in uniform motion throughout, the other has recorded less time.
+  </p>
+</details>
+</div>
 
-<h2>Read the originals</h2>
+<h2>Further reading</h2>
 
 <div class="read-originals">
-  <h3>Where to find these treatments</h3>
   <ul>
-    <li>Einstein, <em>Relativity: The Special and General Theory</em> (1916, Lawson translation), Part I — especially §VII "The Apparent Incompatibility of the Law of Propagation of Light with the Principle of Relativity," §VIII "On the Idea of Time in Physics," §IX "The Relativity of Simultaneity," §XI "The Lorentz Transformation," and §XVII "Minkowski's Four-dimensional Space"</li>
-    <li>Feynman, <em>Lectures on Physics</em>, Vol. I, <a href="https://www.feynmanlectures.caltech.edu/I_15.html">Ch. 15 "The Special Theory of Relativity"</a> (§15-1 the principle of relativity, §15-2 the Lorentz transformation, §15-3 Michelson–Morley) and <a href="https://www.feynmanlectures.caltech.edu/I_17.html">Ch. 17 "Space-Time"</a></li>
+    <li>Einstein, <em>Relativity: The Special and the General Theory</em> (1916, tr. Lawson), §VII "The Apparent Incompatibility of the Law of Propagation of Light with the Principle of Relativity", §IX "The Relativity of Simultaneity", §XI "The Lorentz Transformation" and §XII "The Behaviour of Measuring-Rods and Clocks in Motion". Written for a general reader, and in the public domain.</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. I, <a href="https://www.feynmanlectures.caltech.edu/I_15.html">Ch. 15 "The Special Theory of Relativity"</a>, §15-4 "Transformation of time" and §15-6 "Simultaneity", and <a href="https://www.feynmanlectures.caltech.edu/I_17.html">Ch. 17 "Space-Time"</a>, §17-2 "Space-time intervals".</li>
   </ul>
 </div>
 
+<h2>Where this leaves us</h2>
+
+<p>
+  Muons survive the journey because their clocks, seen from the ground, run slow by $\gamma$, about 22 at $0.999c$; from the
+  muon's point of view, the same fact appears as an atmosphere contracted to a few hundred metres. Both follow from keeping the
+  speed of light the same in every frame, which forces simultaneity, time and length to depend on the frame, while the spacetime
+  interval stays fixed.
+</p>
+
+<p>
+  If time and space change between frames, so must the quantities built from them: momentum and energy. Newton's formulas fail near
+  the speed of light, and the replacements contain the most famous equation in physics and the relation between energy, momentum and
+  mass that relativistic quantum mechanics is built on. That is the next essay.
+</p>
+
 <nav class="chapter-nav">
-  <a class="prev" href="14-measurement.html">← Measurement and What It All Means</a>
-  <a class="next" href="a2-mass-energy.html">Mass, Energy, Relativistic Dynamics →</a>
+  <a class="prev" href="14-measurement.html">← What measurement predicts, and what it leaves open</a>
+  <a class="next" href="a2-mass-energy.html">Energy, momentum, and mass →</a>
 </nav>
 
 </main>
 
 <footer>
-  <p>A comparative reading. Prose is original synthesis.</p>
+  <p>Original prose, worked examples and figures.</p>
 </footer>
 
 <script>
@@ -198,6 +306,13 @@ function toggleTheme() {
   const current = root.getAttribute('data-theme');
   root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
 }
+// Printed copies include every optional section and worked answer.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('details:not([open])')];
+  closedForPrint.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
 </script>
 
 </body>

@@ -57,8 +57,7 @@ not yet checked against a source on disk.
 - **Core, 16 essays: rewritten** in the new template. Reading order: 01 → 02 → 03 → 04 → 05 → 06 → 08 → 07
   → 09 → 09b (oscillator, new) → 09c (angular momentum, new) → 10 → 11 → 12 → 13 → 14. File names are stable
   URLs; titles carry no numbers; order is carried by `index.html` and prev/next links.
-- **Optional relativity, a1–a4: not yet rewritten** (old comparative format), marked "awaiting revision" on
-  the landing page.
+- **Optional essays, a1–a4: rewritten** in the same template (a3, gravity, is a side trip; a4 needs a1–a2).
 - Landing page, About page and README describe the new book. The site title "The Quantum Quartet" is kept
   until the title decision (plan §12).
 - Per-essay numbers and generated figures: `scripts/chNN_*.py` (`--write` regenerates the figure between

@@ -1,0 +1,112 @@
+#!/usr/bin/env python3
+"""Optional essay A2 (energy, momentum, mass): checked numbers and the generated figure.
+
+    python3 scripts/a2_mass_energy.py            # print the numbers used in the essay
+    python3 scripts/a2_mass_energy.py --write    # also regenerate the figure in the chapter
+
+Pure standard library. --write replaces what sits between the FIGURE:kinetic markers in
+chapters/a2-mass-energy.html.
+
+FIGURE RECORD
+  Plotted quantity : kinetic energy in units of the rest energy mc^2, against v/c from 0 to 0.95
+                       relativistic (gamma - 1)   (solid)
+                       Newtonian    v^2 / (2 c^2) (dashed)
+Masses (atomic mass units, AME2020): 1H atom 1.00782503, neutron 1.00866492, 4He atom 4.00260325;
+1 u = 931.494 MeV/c^2. Solar luminosity 3.828e26 W (IAU nominal).
+"""
+import math
+import re
+import sys
+from pathlib import Path
+
+c = 299792458.0
+U_MEV = 931.49410
+TNT_KT = 4.184e12
+
+
+def report():
+    mH, mn, mHe = 1.00782503, 1.00866492, 4.00260325
+    parts = 2 * mH + 2 * mn
+    dm = parts - mHe
+    print(f"2 H + 2 n = {parts:.6f} u; He-4 = {mHe:.6f} u; defect = {dm:.6f} u = {dm*U_MEV:.2f} MeV = {100*dm/parts:.3f}%")
+    E = 1e-3 * c * c
+    print(f"1 g: E = mc^2 = {E:.3e} J = {E/TNT_KT:.1f} kilotonnes of TNT")
+    pp = 4 * mH - mHe
+    print(f"4 H -> He-4 (solar fusion, atom masses): {pp:.6f} u = {pp*U_MEV:.2f} MeV")
+    L = 3.828e26
+    print(f"Sun: mass converted per second = {L/c**2:.3e} kg")
+    for beta in (0.1, 0.5, 0.8, 0.9, 0.99):
+        g = 1 / math.sqrt(1 - beta * beta)
+        print(f"v = {beta}c: gamma = {g:.4f}; KE/mc^2 relativistic {g-1:.4f}, Newtonian {beta*beta/2:.4f}; p/(mc) = {g*beta:.3f}")
+    # sticky collision: two 1 kg lumps at 0.6c head on
+    beta = 0.6
+    g = 1 / math.sqrt(1 - beta * beta)
+    print(f"sticky collision: two 1 kg at 0.6c: total energy {2*g:.2f} kg c^2 -> merged rest mass {2*g:.2f} kg (gain {2*g-2:.2f} kg)")
+    # electron: E^2 = p^2c^2 + m^2c^4 check for 1 MeV kinetic energy
+    me = 0.51099895
+    Etot = me + 1.0
+    pc = math.sqrt(Etot**2 - me**2)
+    print(f"electron with 1 MeV kinetic energy: E = {Etot:.4f} MeV, pc = {pc:.4f} MeV, v/c = {pc/Etot:.4f}")
+    # hydrogen binding as a mass change
+    print(f"13.6 eV binding in H: fraction of rest energy {13.6/(938.272e6+0.511e6):.2e}")
+    # 100 degree heating of 1 kg water
+    Q = 4186 * 100
+    print(f"heating 1 kg of water by 100 K: {Q:.3e} J -> mass gain {Q/c**2:.2e} kg")
+
+
+W, H = 680, 320
+L_, R_, T_, B_ = 60, 20, 20, 50
+YM = 2.3
+
+
+def sx(b):
+    return L_ + (W - L_ - R_) * b / 1.0
+
+
+def sy(k):
+    return H - B_ - (H - T_ - B_) * k / YM
+
+
+def figure_svg():
+    o = []
+    a = o.append
+    a(f'<svg class="fig-svg" viewBox="0 0 {W} {H}" role="img" aria-labelledby="fig-ke-title fig-ke-desc">')
+    a('<title id="fig-ke-title">Kinetic energy against speed, relativistic and Newtonian</title>')
+    a('<desc id="fig-ke-desc">Kinetic energy in units of rest energy against speed as a fraction of light speed. At low speed the relativistic and Newtonian curves coincide. Above about half the speed of light the relativistic curve rises much faster and climbs without limit as the speed approaches c; the Newtonian curve stays below one half.</desc>')
+    a(f'<path class="fig-axis" d="M{L_},{T_} V{H-B_} H{W-R_}"/>')
+    for b in (0, 0.25, 0.5, 0.75, 1.0):
+        a(f'<path class="fig-axis" d="M{sx(b):.1f},{H-B_} v5"/>')
+        a(f'<text class="fig-tick" x="{sx(b):.1f}" y="{H-B_+19}" text-anchor="middle">{b:g}</text>')
+    for k in (0, 0.5, 1.0, 1.5, 2.0):
+        a(f'<path class="fig-axis" d="M{L_},{sy(k):.1f} h-5"/>')
+        a(f'<text class="fig-tick" x="{L_-9}" y="{sy(k)+4:.1f}" text-anchor="end">{k:g}</text>')
+    a(f'<path class="fig-axis" style="stroke-dasharray:3 4" d="M{sx(1.0):.1f},{T_} V{H-B_}"/>')
+    a(f'<text class="fig-tick" x="{sx(1.0)-6:.1f}" y="{T_+12}" text-anchor="end">speed of light</text>')
+    a(f'<text class="fig-label" x="{(L_+W-R_)/2:.1f}" y="{H-12}" text-anchor="middle">speed, v / c</text>')
+    a(f'<text class="fig-label" transform="translate(18,{(T_+H-B_)/2:.1f}) rotate(-90)" text-anchor="middle">kinetic energy / mc²</text>')
+    bs = [0.95 * i / 400 for i in range(401)]
+    rel = " L".join(f"{sx(b):.1f},{sy(1/math.sqrt(1-b*b)-1):.1f}" for b in bs if 1/math.sqrt(1-b*b)-1 <= YM)
+    newt = " L".join(f"{sx(b):.1f},{sy(b*b/2):.1f}" for b in bs)
+    a(f'<path class="fig-curve fig-hot" style="stroke-width:2.6" d="M{rel}"/>')
+    a(f'<path class="fig-curve fig-classical" d="M{newt}"/>')
+    a(f'<text class="fig-note" x="{sx(0.62):.1f}" y="{sy(0.95):.1f}">relativistic, (γ − 1)mc²</text>')
+    a(f'<text class="fig-note" x="{sx(0.62):.1f}" y="{sy(0.12):.1f}">Newtonian, ½mv²</text>')
+    a('</svg>')
+    return "\n".join(o)
+
+
+def write_figure():
+    page = Path(__file__).resolve().parent.parent / "chapters" / "a2-mass-energy.html"
+    html = page.read_text(encoding="utf-8")
+    block = "<!-- FIGURE:kinetic generated by scripts/a2_mass_energy.py -->\n" + figure_svg() + "\n<!-- /FIGURE:kinetic -->"
+    new, n = re.subn(r"<!-- FIGURE:kinetic.*?<!-- /FIGURE:kinetic -->", lambda m: block, html, flags=re.S)
+    if n != 1:
+        sys.exit("FIGURE:kinetic markers not found exactly once in the chapter")
+    page.write_text(new, encoding="utf-8")
+    print(f"figure written into {page}")
+
+
+if __name__ == "__main__":
+    report()
+    if "--write" in sys.argv:
+        write_figure()

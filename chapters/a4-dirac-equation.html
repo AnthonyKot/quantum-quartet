@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>D · Where the Threads Meet: The Dirac Equation — The Quantum Quartet</title>
+  <title>Toward relativistic quantum mechanics — The Quantum Quartet</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -20,195 +20,286 @@
   </nav>
 </header>
 
-<main class="page">
+<main class="page essay">
 
-<div class="chapter-meta">Appendix D · Relativity</div>
+<div class="chapter-meta">Optional — Relativity</div>
 
-<h1>Where the Threads Meet: The Dirac Equation</h1>
+<h1>Toward relativistic quantum mechanics</h1>
 
-<p>
-  This is the chapter the whole appendix has been walking toward, and in a sense the
-  whole site. The main chapters told the story of quantum mechanics; the appendix
-  told the story of relativity; and here the two theories are forced to hold at once.
-  The result is the Dirac equation — the relativistic wave equation for the electron —
-  and its consequences are among the most beautiful in physics. From the bare demand
-  that quantum mechanics respect special relativity, two facts that had to be assumed
-  in the main chapters fall out on their own: the electron has spin, and there must
-  exist a particle with the electron's mass and the opposite charge. Antimatter was
-  predicted on paper before it was ever seen.
+<p class="lede">
+  Hospitals routinely image the body with positrons, the electron's antiparticle: when one meets an
+  electron, the two vanish into a pair of gamma rays of 511&nbsp;keV each. Antimatter had been predicted
+  before it was found, by an equation written in 1928 to make the electron obey both quantum mechanics
+  and relativity (though the man who found it, in 1932, was not looking for it). What was the equation, and why did it demand a new particle?
 </p>
 
 <p>
-  Dirac leads this chapter alone, and rightly — the equation is his, and his
-  <em>Principles</em> is the only one of the five books that derives it. The other
-  quantum authors stop at the non-relativistic theory; Einstein's relativity is one of
-  the two ingredients but not the dish. So this is not a comparison of treatments but a
-  single author's demonstration that the two great theories of the century, joined,
-  predict more than either alone.
+  Schrödinger's equation was built on the Newtonian relation $E = p^2/2m$. It is accurate for slow
+  electrons, which covers most of atomic physics, but it cannot be right in general, since it does not
+  respect relativity. This essay follows Paul Dirac's attempt to fix that. It explains the construction and
+  its consequences, and leaves the full mathematics to a fold-out: why matrices appear, why the electron
+  then has spin and a magnetic moment of exactly the right size, and why the equation insisted on solutions
+  with negative energy.
 </p>
 
-<h2>Entry point</h2>
+<aside class="reminders" aria-label="Reminders">
+  <h2>Two things worth having back in mind</h2>
+  <ul>
+    <li><strong>From the energy and momentum essay.</strong> $E^2 = p^2c^2 + m^2c^4$ holds in every frame, and
+      an electron's rest energy is $mc^2 = 0.511$&nbsp;MeV.</li>
+    <li><strong>From the spin essay.</strong> The Pauli matrices $\sigma_x, \sigma_y, \sigma_z$; each squares to the
+      identity, $\sigma_i^2 = 1$.</li>
+  </ul>
+</aside>
 
-<table class="entry-table">
-  <thead>
-    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="author-cell">Dirac</td>
-      <td>The electron's spin and magnetic moment (later, the positron)</td>
-      <td>Quantum mechanics made invariant under Lorentz transformations</td>
-      <td>A wave equation first-order in space and time; spin and antimatter as consequences</td>
-      <td>The "sea" of filled negative-energy states, and a hole in it</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Born, Feynman, Landau &amp; Lifshitz</td>
-      <td></td>
-      <td></td>
-      <td>Non-relativistic — the Dirac equation lies beyond their scope; spin is put in by hand</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>Dirac's argument</h2>
-
-<h3>The demand for a relativistic theory</h3>
+<h2>The problem: a square root</h2>
 
 <p>
-  Dirac opens the relativistic part of his book by naming the deficiency plainly. The
-  theory built so far, he says, is essentially non-relativistic: it works in one
-  Lorentz frame and is modeled on classical non-relativistic dynamics. To apply it to
-  fast-moving particles — and the electron in an atom is fast enough to matter — the
-  theory must be made invariant under Lorentz transformations, conforming to the
-  special principle of relativity. General relativity, he notes, is not needed:
-  gravitation is utterly negligible in atomic phenomena. The task is precise: find a
-  wave equation for the electron that treats space and time on the same footing, as
-  relativity demands.
+  The wavefunction essay reached Schrödinger's equation by letting derivatives stand in for momentum and energy,
+  $\hat p = -i\hbar\,\partial/\partial x$ and $\hat E = i\hbar\,\partial/\partial t$, and applying them to
+  $E = p^2/2m$. The relativistic relation gives the energy as
 </p>
 
+$$E = \sqrt{p^2c^2 + m^2c^4}.$$
+
 <p>
-  The obstacle is subtle. The superposition principle is already relativistic, but the
-  ordinary notion of an observable — which may refer to physical things at one instant
-  of time — is not, because "one instant" is frame-dependent. Dirac's resolution is to
-  insist on a representation in which the symmetry between space and time is displayed:
-  the Schrödinger representation with the wave function written over the four
-  coordinates $x_0, x_1, x_2, x_3$, with $x_0 = ct$. The equation he seeks must be
-  first-order in all four, so that time enters no differently from space.
+  Replacing $p$ by a derivative inside a square root does not give anything usable. The obvious escape is to use the
+  squared relation, $E^2 = p^2c^2 + m^2c^4$, with two time derivatives on the left. That was tried in 1926 and gives the
+  <em>Klein–Gordon equation</em>. It is a perfectly good relativistic equation, and it is the correct one for particles
+  with no spin. But it has second derivatives in time, unlike Schrödinger's equation, and as a description of a single
+  electron its candidate for the probability density can be negative. Dirac wanted an equation first order in time, like
+  Schrödinger's, with a probability density that is never negative.
 </p>
 
-<h3>Spin, for free</h3>
+<h2>Dirac's step: take the square root with matrices</h2>
 
 <p>
-  The triumph of the construction is what it yields without being asked. In the main
-  chapter on spin, all four authors had to <em>introduce</em> the electron's spin —
-  Feynman from Stern-Gerlach, Dirac himself from a bare algebra of Pauli matrices,
-  Landau and Lifshitz from rotational symmetry, Born from spectroscopic anomalies.
-  In every case spin was an addition, grafted onto a theory that did not require it.
-  The relativistic equation changes that entirely. Working through the motion of the
-  electron in an electromagnetic field, Dirac finds that the equation automatically
-  contains an extra term amounting to a magnetic moment of $-e\hbar/2mc$ — exactly the
-  spin magnetic moment that had been assumed to explain the Zeeman effect. Pursuing the
-  angular momentum of a free electron, he finds that the orbital angular momentum alone
-  is not conserved; only when a spin angular momentum of $\tfrac{1}{2}\hbar\boldsymbol{\sigma}$
-  is added does one obtain a constant of the motion.
+  Dirac looked for an energy that is <em>linear</em> in the momentum components but whose square is still
+  $p^2c^2 + m^2c^4$:
 </p>
 
+$$E = c\,(\alpha_x p_x + \alpha_y p_y + \alpha_z p_z) + \beta\,mc^2 .$$
+
 <p>
-  The electron's spin, in other words, is not an independent fact about the world that
-  must be discovered and inserted. It is a <em>requirement</em> of joining quantum
-  mechanics to relativity. Dirac is careful about the reach of the argument: it gives
-  spin one-half to any particle whose position is an observable, which fits the
-  electron, proton, and neutron, though not the photon — a limitation he flags rather
-  than hides. But for the electron the conclusion is exact and unforced, and it
-  retroactively explains why the spin chapter had felt like four authors patching the
-  same hole. The hole was an artifact of stopping short of relativity.
+  Squaring the right side produces terms like $\alpha_x^2 p_x^2$, which must add up to $p^2c^2$, and cross terms like
+  $(\alpha_x\alpha_y + \alpha_y\alpha_x)p_xp_y$, which must vanish. So the four coefficients must satisfy
 </p>
 
-<h3>Antimatter, predicted on paper</h3>
+$$\alpha_x^2 = \alpha_y^2 = \alpha_z^2 = \beta^2 = 1,$$
 
 <p>
-  The equation had one further consequence, and it was at first an embarrassment. A
-  relativistic energy relation is quadratic — energy appears squared — so the equation
-  admits solutions of <em>negative</em> energy as well as positive. Classically these
-  could be dismissed, but in quantum mechanics an electron could keep dropping into
-  ever-lower negative-energy states, radiating without limit; the ordinary electron
-  would be unstable. Dirac's resolution, the boldest stroke in the book, was to suppose
-  that in the vacuum essentially all the negative-energy states are already <em>filled</em>,
-  one electron each, so that the exclusion principle forbids an ordinary electron from
-  falling into them. What we call empty space is this filled sea.
+  and every pair must <em>anticommute</em>: $\alpha_x\alpha_y = -\alpha_y\alpha_x$, and so on. No ordinary numbers do
+  that. Matrices can. The Pauli matrices are exactly three such objects, each squaring to 1 and each pair anticommuting,
+  but Dirac needs four, and there is no fourth 2×2 matrix that anticommutes with all three. The smallest matrices that
+  work are 4×4, and the wavefunction they act on has four components.
 </p>
 
+<h2>Worked example: why two dimensions are not enough</h2>
+
+<div class="worked">
 <p>
-  Then comes the prediction. Remove one electron from the negative-energy sea and the
-  absence — the "hole" — behaves as a particle with positive energy and positive charge,
-  the mirror image of the electron. Dirac's own fermion formalism makes the symmetry
-  precise: the mathematics that creates a particle in an occupied state is, under an
-  exchange of "occupied" and "unoccupied," the mathematics that creates a hole, and the
-  holes, he writes, "are just as much physical things as the original particles." A
-  particle with the electron's mass and the opposite charge had to exist. When Carl
-  Anderson found the positron in cosmic rays in 1932, it was the confirmation of a
-  particle that had been deduced, years earlier, from the requirement that Schrödinger's
-  quantum mechanics be made consistent with Einstein's relativity.
+  <strong>Three that work.</strong> Multiply out $\sigma_x\sigma_y$ and $\sigma_y\sigma_x$:
 </p>
+$$\begin{aligned}\sigma_x\sigma_y &= \begin{pmatrix}0&1\\1&0\end{pmatrix}\begin{pmatrix}0&-i\\i&0\end{pmatrix}\\[6pt] &= \begin{pmatrix}i&0\\0&-i\end{pmatrix},\end{aligned}$$
+$$\sigma_y\sigma_x = \begin{pmatrix}-i&0\\0&i\end{pmatrix}.$$
+<p>
+  They are negatives of each other, so $\sigma_x\sigma_y + \sigma_y\sigma_x = 0$. The same holds for the other two pairs, and each
+  $\sigma_i^2 = 1$.
+</p>
+<p>
+  <strong>No room for a fourth.</strong> Any 2×2 matrix can be written as $M = a\,1 + b_x\sigma_x + b_y\sigma_y + b_z\sigma_z$ for some
+  numbers $a, b_x, b_y, b_z$. Using the three relations just checked, $\sigma_xM + M\sigma_x = 2a\,\sigma_x + 2b_x\,1$. For $M$ to
+  anticommute with $\sigma_x$ this must be zero, so $a = 0$ and $b_x = 0$. Repeating with $\sigma_y$ and $\sigma_z$ forces
+  $b_y = b_z = 0$. The only such $M$ is zero, which cannot square to 1.
+</p>
+<p>
+  <strong>Four that work.</strong> Build 4×4 matrices from 2×2 blocks: $\beta$ has the identity in the upper block and minus the identity
+  in the lower, and each $\alpha_i$ has $\sigma_i$ in the two off-diagonal blocks. Multiplying these out, which the script for this essay
+  does, confirms that all four square to 1 and every pair anticommutes. Dirac's equation is then
+</p>
+$$i\hbar\,\frac{\partial\psi}{\partial t} = \bigl(c\,\vec\alpha\cdot\hat{\vec p} + \beta\,mc^2\bigr)\psi ,$$
+<p>
+  with $\psi$ a column of four complex functions.
+</p>
+</div>
 
-<h2>Synthesis</h2>
+<h2>What the four components mean</h2>
 
 <p>
-  The Dirac equation is where the two halves of this project meet, and the meeting is
-  generative rather than merely consistent. Quantum mechanics and special relativity are
-  each, on their own, complete and successful theories. Forced together, they produce
-  what neither contains: the electron's spin as a necessity rather than an observation,
-  and the existence of antimatter as a theorem rather than a discovery. This is the
-  deepest vindication in the book of the conviction, which was Dirac's above all, that
-  the mathematics is not a description laid over the physics but the physics itself — for
-  here the mathematics knew about the positron before anyone had seen one.
+  <strong>Spin.</strong> Part of the extra room goes to spin. The Pauli matrices sit inside Dirac's matrices, and
+  the equation turns out to conserve not the orbital angular momentum alone but the orbital angular momentum plus an extra piece,
+  $\tfrac12\hbar\,\vec\sigma$: spin ½, arriving without being put in by hand. The scope of this is worth stating carefully. Relativity alone
+  does not demand spin: the Klein–Gordon equation is relativistic and describes spinless particles. What demanded it was Dirac's
+  combination of relativity with an equation first order in time.
 </p>
 
 <p>
-  It is fitting that Dirac stands alone in this final chapter, because it completes an
-  arc that ran through the whole site. In the uncertainty chapter he reached the
-  principle from non-commuting observables while the others used slits and wave packets;
-  in the formalism chapter he built the abstract structure the others translated; in the
-  spin chapter he forced the Pauli matrices out of pure algebra. Again and again his
-  method was to trust the mathematics further than intuition would allow. The Dirac
-  equation is the reward of that trust — the one place where following the formalism to
-  its logical end did not merely reorganize known physics but revealed physics no one
-  had known. The threads of the quartet and the threads of relativity meet here, in an
-  equation that predicted a new form of matter from consistency alone.
+  <strong>The magnetic moment.</strong> Put the electron in a magnetic field and take the slow-electron limit. The Dirac equation reduces
+  to Schrödinger's equation plus a spin term, with the spin's magnetic moment twice as large, for its angular momentum, as an orbiting
+  charge would have. That factor, called $g$, is 2, which is exactly what spectroscopy had required. Measured, $g = 2.0023$: the tiny excess
+  is explained by quantum electrodynamics, the later theory of electrons interacting with the electromagnetic field.
 </p>
 
 <p>
-  And it ends, as the measurement chapter warned it might, on unfinished business. The
-  Dirac equation joins quantum mechanics to <em>special</em> relativity; the joining of
-  quantum mechanics to <em>general</em> relativity — to gravitation, to the curved
-  spacetime of the previous chapter — has never been achieved. The quartet's theory of
-  the very small and Einstein's theory of the very large still do not speak the same
-  language. That the two greatest achievements of twentieth-century physics can be set
-  side by side, and in the Dirac equation partly joined, but not yet united, is the note
-  this comparative reading closes on. The threads meet. They are not all tied.
+  <strong>Fine structure.</strong> Solved for hydrogen, the equation reproduces Bohr's levels plus small corrections of relative size
+  $\alpha^2$, where $\alpha = e^2/4\pi\varepsilon_0\hbar c = 1/137.036$ is the <em>fine-structure constant</em>. (The Bohr essay's ground-state
+  speed, $2.19\times10^{6}$&nbsp;m/s, is $c/137$: that ratio is $\alpha$, and relativistic corrections go as its square,
+  $5\times10^{-5}$.) The corrections split the $n = 2$ level into sublevels about 11&nbsp;GHz apart, the close pairs of lines the hydrogen essay
+  mentioned.
 </p>
 
-<h2>Read the originals</h2>
+<figure>
+<div class="fig-scroll">
+<!-- FIGURE:branches generated by scripts/a4_dirac.py -->
+<svg class="fig-svg" viewBox="0 0 680 360" role="img" aria-labelledby="fig-br-title fig-br-desc">
+<title id="fig-br-title">The two energy branches of a relativistic electron</title>
+<desc id="fig-br-desc">Energy against momentum. An upper curve starts at plus 0.511 MeV at zero momentum and rises, becoming straight at large momentum. A mirror-image lower curve starts at minus 0.511 MeV and falls. Between them is an empty gap of 1.022 MeV. A dashed Newtonian parabola hugs the upper curve near zero momentum.</desc>
+<path class="fig-axis" d="M60.0,165.0 H660.0 M360.0,20 V310"/>
+<path class="fig-axis" d="M120.0,165.0 v5"/>
+<text class="fig-tick" x="120.0" y="183.0" text-anchor="middle">-2</text>
+<path class="fig-axis" d="M240.0,165.0 v5"/>
+<text class="fig-tick" x="240.0" y="183.0" text-anchor="middle">-1</text>
+<path class="fig-axis" d="M600.0,165.0 v5"/>
+<text class="fig-tick" x="600.0" y="183.0" text-anchor="middle">2</text>
+<path class="fig-axis" d="M360.0,265.0 h-5"/>
+<text class="fig-tick" x="351.0" y="269.0" text-anchor="end">-2</text>
+<path class="fig-axis" d="M360.0,215.0 h-5"/>
+<text class="fig-tick" x="351.0" y="219.0" text-anchor="end">-1</text>
+<path class="fig-axis" d="M360.0,115.0 h-5"/>
+<text class="fig-tick" x="351.0" y="119.0" text-anchor="end">1</text>
+<path class="fig-axis" d="M360.0,65.0 h-5"/>
+<text class="fig-tick" x="351.0" y="69.0" text-anchor="end">2</text>
+<text class="fig-label" x="60.0" y="201.0">momentum, pc (MeV) →</text>
+<text class="fig-label" x="368.0" y="30">energy E (MeV)</text>
+<path class="fig-curve fig-hot" style="stroke-width:2.6" d="M60.0,37.4 L61.5,38.0 L63.0,38.6 L64.5,39.3 L66.0,39.9 L67.5,40.5 L69.0,41.1 L70.5,41.7 L72.0,42.3 L73.5,42.9 L75.0,43.5 L76.5,44.1 L78.0,44.8 L79.5,45.4 L81.0,46.0 L82.5,46.6 L84.0,47.2 L85.5,47.8 L87.0,48.4 L88.5,49.0 L90.0,49.6 L91.5,50.2 L93.0,50.9 L94.5,51.5 L96.0,52.1 L97.5,52.7 L99.0,53.3 L100.5,53.9 L102.0,54.5 L103.5,55.1 L105.0,55.7 L106.5,56.3 L108.0,56.9 L109.5,57.5 L111.0,58.2 L112.5,58.8 L114.0,59.4 L115.5,60.0 L117.0,60.6 L118.5,61.2 L120.0,61.8 L121.5,62.4 L123.0,63.0 L124.5,63.6 L126.0,64.2 L127.5,64.8 L129.0,65.4 L130.5,66.0 L132.0,66.6 L133.5,67.2 L135.0,67.8 L136.5,68.4 L138.0,69.0 L139.5,69.6 L141.0,70.2 L142.5,70.8 L144.0,71.4 L145.5,72.0 L147.0,72.6 L148.5,73.2 L150.0,73.8 L151.5,74.4 L153.0,75.0 L154.5,75.6 L156.0,76.2 L157.5,76.8 L159.0,77.4 L160.5,78.0 L162.0,78.6 L163.5,79.2 L165.0,79.8 L166.5,80.4 L168.0,81.0 L169.5,81.6 L171.0,82.2 L172.5,82.8 L174.0,83.4 L175.5,84.0 L177.0,84.6 L178.5,85.2 L180.0,85.8 L181.5,86.4 L183.0,86.9 L184.5,87.5 L186.0,88.1 L187.5,88.7 L189.0,89.3 L190.5,89.9 L192.0,90.5 L193.5,91.1 L195.0,91.7 L196.5,92.2 L198.0,92.8 L199.5,93.4 L201.0,94.0 L202.5,94.6 L204.0,95.2 L205.5,95.7 L207.0,96.3 L208.5,96.9 L210.0,97.5 L211.5,98.1 L213.0,98.6 L214.5,99.2 L216.0,99.8 L217.5,100.4 L219.0,100.9 L220.5,101.5 L222.0,102.1 L223.5,102.6 L225.0,103.2 L226.5,103.8 L228.0,104.4 L229.5,104.9 L231.0,105.5 L232.5,106.1 L234.0,106.6 L235.5,107.2 L237.0,107.7 L238.5,108.3 L240.0,108.9 L241.5,109.4 L243.0,110.0 L244.5,110.5 L246.0,111.1 L247.5,111.6 L249.0,112.2 L250.5,112.7 L252.0,113.3 L253.5,113.8 L255.0,114.3 L256.5,114.9 L258.0,115.4 L259.5,115.9 L261.0,116.5 L262.5,117.0 L264.0,117.5 L265.5,118.1 L267.0,118.6 L268.5,119.1 L270.0,119.6 L271.5,120.1 L273.0,120.7 L274.5,121.2 L276.0,121.7 L277.5,122.2 L279.0,122.7 L280.5,123.2 L282.0,123.7 L283.5,124.1 L285.0,124.6 L286.5,125.1 L288.0,125.6 L289.5,126.1 L291.0,126.5 L292.5,127.0 L294.0,127.5 L295.5,127.9 L297.0,128.4 L298.5,128.8 L300.0,129.3 L301.5,129.7 L303.0,130.1 L304.5,130.5 L306.0,131.0 L307.5,131.4 L309.0,131.8 L310.5,132.2 L312.0,132.6 L313.5,132.9 L315.0,133.3 L316.5,133.7 L318.0,134.0 L319.5,134.4 L321.0,134.7 L322.5,135.1 L324.0,135.4 L325.5,135.7 L327.0,136.0 L328.5,136.3 L330.0,136.6 L331.5,136.8 L333.0,137.1 L334.5,137.3 L336.0,137.6 L337.5,137.8 L339.0,138.0 L340.5,138.2 L342.0,138.4 L343.5,138.5 L345.0,138.7 L346.5,138.8 L348.0,139.0 L349.5,139.1 L351.0,139.2 L352.5,139.3 L354.0,139.3 L355.5,139.4 L357.0,139.4 L358.5,139.4 L360.0,139.5 L361.5,139.4 L363.0,139.4 L364.5,139.4 L366.0,139.3 L367.5,139.3 L369.0,139.2 L370.5,139.1 L372.0,139.0 L373.5,138.8 L375.0,138.7 L376.5,138.5 L378.0,138.4 L379.5,138.2 L381.0,138.0 L382.5,137.8 L384.0,137.6 L385.5,137.3 L387.0,137.1 L388.5,136.8 L390.0,136.6 L391.5,136.3 L393.0,136.0 L394.5,135.7 L396.0,135.4 L397.5,135.1 L399.0,134.7 L400.5,134.4 L402.0,134.0 L403.5,133.7 L405.0,133.3 L406.5,132.9 L408.0,132.6 L409.5,132.2 L411.0,131.8 L412.5,131.4 L414.0,131.0 L415.5,130.5 L417.0,130.1 L418.5,129.7 L420.0,129.3 L421.5,128.8 L423.0,128.4 L424.5,127.9 L426.0,127.5 L427.5,127.0 L429.0,126.5 L430.5,126.1 L432.0,125.6 L433.5,125.1 L435.0,124.6 L436.5,124.1 L438.0,123.7 L439.5,123.2 L441.0,122.7 L442.5,122.2 L444.0,121.7 L445.5,121.2 L447.0,120.7 L448.5,120.1 L450.0,119.6 L451.5,119.1 L453.0,118.6 L454.5,118.1 L456.0,117.5 L457.5,117.0 L459.0,116.5 L460.5,115.9 L462.0,115.4 L463.5,114.9 L465.0,114.3 L466.5,113.8 L468.0,113.3 L469.5,112.7 L471.0,112.2 L472.5,111.6 L474.0,111.1 L475.5,110.5 L477.0,110.0 L478.5,109.4 L480.0,108.9 L481.5,108.3 L483.0,107.7 L484.5,107.2 L486.0,106.6 L487.5,106.1 L489.0,105.5 L490.5,104.9 L492.0,104.4 L493.5,103.8 L495.0,103.2 L496.5,102.6 L498.0,102.1 L499.5,101.5 L501.0,100.9 L502.5,100.4 L504.0,99.8 L505.5,99.2 L507.0,98.6 L508.5,98.1 L510.0,97.5 L511.5,96.9 L513.0,96.3 L514.5,95.7 L516.0,95.2 L517.5,94.6 L519.0,94.0 L520.5,93.4 L522.0,92.8 L523.5,92.2 L525.0,91.7 L526.5,91.1 L528.0,90.5 L529.5,89.9 L531.0,89.3 L532.5,88.7 L534.0,88.1 L535.5,87.5 L537.0,86.9 L538.5,86.4 L540.0,85.8 L541.5,85.2 L543.0,84.6 L544.5,84.0 L546.0,83.4 L547.5,82.8 L549.0,82.2 L550.5,81.6 L552.0,81.0 L553.5,80.4 L555.0,79.8 L556.5,79.2 L558.0,78.6 L559.5,78.0 L561.0,77.4 L562.5,76.8 L564.0,76.2 L565.5,75.6 L567.0,75.0 L568.5,74.4 L570.0,73.8 L571.5,73.2 L573.0,72.6 L574.5,72.0 L576.0,71.4 L577.5,70.8 L579.0,70.2 L580.5,69.6 L582.0,69.0 L583.5,68.4 L585.0,67.8 L586.5,67.2 L588.0,66.6 L589.5,66.0 L591.0,65.4 L592.5,64.8 L594.0,64.2 L595.5,63.6 L597.0,63.0 L598.5,62.4 L600.0,61.8 L601.5,61.2 L603.0,60.6 L604.5,60.0 L606.0,59.4 L607.5,58.8 L609.0,58.2 L610.5,57.5 L612.0,56.9 L613.5,56.3 L615.0,55.7 L616.5,55.1 L618.0,54.5 L619.5,53.9 L621.0,53.3 L622.5,52.7 L624.0,52.1 L625.5,51.5 L627.0,50.9 L628.5,50.2 L630.0,49.6 L631.5,49.0 L633.0,48.4 L634.5,47.8 L636.0,47.2 L637.5,46.6 L639.0,46.0 L640.5,45.4 L642.0,44.8 L643.5,44.1 L645.0,43.5 L646.5,42.9 L648.0,42.3 L649.5,41.7 L651.0,41.1 L652.5,40.5 L654.0,39.9 L655.5,39.3 L657.0,38.6 L658.5,38.0 L660.0,37.4"/>
+<path class="fig-curve fig-mid" style="stroke-width:2.2" d="M60.0,292.6 L61.5,292.0 L63.0,291.4 L64.5,290.7 L66.0,290.1 L67.5,289.5 L69.0,288.9 L70.5,288.3 L72.0,287.7 L73.5,287.1 L75.0,286.5 L76.5,285.9 L78.0,285.2 L79.5,284.6 L81.0,284.0 L82.5,283.4 L84.0,282.8 L85.5,282.2 L87.0,281.6 L88.5,281.0 L90.0,280.4 L91.5,279.8 L93.0,279.1 L94.5,278.5 L96.0,277.9 L97.5,277.3 L99.0,276.7 L100.5,276.1 L102.0,275.5 L103.5,274.9 L105.0,274.3 L106.5,273.7 L108.0,273.1 L109.5,272.5 L111.0,271.8 L112.5,271.2 L114.0,270.6 L115.5,270.0 L117.0,269.4 L118.5,268.8 L120.0,268.2 L121.5,267.6 L123.0,267.0 L124.5,266.4 L126.0,265.8 L127.5,265.2 L129.0,264.6 L130.5,264.0 L132.0,263.4 L133.5,262.8 L135.0,262.2 L136.5,261.6 L138.0,261.0 L139.5,260.4 L141.0,259.8 L142.5,259.2 L144.0,258.6 L145.5,258.0 L147.0,257.4 L148.5,256.8 L150.0,256.2 L151.5,255.6 L153.0,255.0 L154.5,254.4 L156.0,253.8 L157.5,253.2 L159.0,252.6 L160.5,252.0 L162.0,251.4 L163.5,250.8 L165.0,250.2 L166.5,249.6 L168.0,249.0 L169.5,248.4 L171.0,247.8 L172.5,247.2 L174.0,246.6 L175.5,246.0 L177.0,245.4 L178.5,244.8 L180.0,244.2 L181.5,243.6 L183.0,243.1 L184.5,242.5 L186.0,241.9 L187.5,241.3 L189.0,240.7 L190.5,240.1 L192.0,239.5 L193.5,238.9 L195.0,238.3 L196.5,237.8 L198.0,237.2 L199.5,236.6 L201.0,236.0 L202.5,235.4 L204.0,234.8 L205.5,234.3 L207.0,233.7 L208.5,233.1 L210.0,232.5 L211.5,231.9 L213.0,231.4 L214.5,230.8 L216.0,230.2 L217.5,229.6 L219.0,229.1 L220.5,228.5 L222.0,227.9 L223.5,227.4 L225.0,226.8 L226.5,226.2 L228.0,225.6 L229.5,225.1 L231.0,224.5 L232.5,223.9 L234.0,223.4 L235.5,222.8 L237.0,222.3 L238.5,221.7 L240.0,221.1 L241.5,220.6 L243.0,220.0 L244.5,219.5 L246.0,218.9 L247.5,218.4 L249.0,217.8 L250.5,217.3 L252.0,216.7 L253.5,216.2 L255.0,215.7 L256.5,215.1 L258.0,214.6 L259.5,214.1 L261.0,213.5 L262.5,213.0 L264.0,212.5 L265.5,211.9 L267.0,211.4 L268.5,210.9 L270.0,210.4 L271.5,209.9 L273.0,209.3 L274.5,208.8 L276.0,208.3 L277.5,207.8 L279.0,207.3 L280.5,206.8 L282.0,206.3 L283.5,205.9 L285.0,205.4 L286.5,204.9 L288.0,204.4 L289.5,203.9 L291.0,203.5 L292.5,203.0 L294.0,202.5 L295.5,202.1 L297.0,201.6 L298.5,201.2 L300.0,200.7 L301.5,200.3 L303.0,199.9 L304.5,199.5 L306.0,199.0 L307.5,198.6 L309.0,198.2 L310.5,197.8 L312.0,197.4 L313.5,197.1 L315.0,196.7 L316.5,196.3 L318.0,196.0 L319.5,195.6 L321.0,195.3 L322.5,194.9 L324.0,194.6 L325.5,194.3 L327.0,194.0 L328.5,193.7 L330.0,193.4 L331.5,193.2 L333.0,192.9 L334.5,192.7 L336.0,192.4 L337.5,192.2 L339.0,192.0 L340.5,191.8 L342.0,191.6 L343.5,191.5 L345.0,191.3 L346.5,191.2 L348.0,191.0 L349.5,190.9 L351.0,190.8 L352.5,190.7 L354.0,190.7 L355.5,190.6 L357.0,190.6 L358.5,190.6 L360.0,190.5 L361.5,190.6 L363.0,190.6 L364.5,190.6 L366.0,190.7 L367.5,190.7 L369.0,190.8 L370.5,190.9 L372.0,191.0 L373.5,191.2 L375.0,191.3 L376.5,191.5 L378.0,191.6 L379.5,191.8 L381.0,192.0 L382.5,192.2 L384.0,192.4 L385.5,192.7 L387.0,192.9 L388.5,193.2 L390.0,193.4 L391.5,193.7 L393.0,194.0 L394.5,194.3 L396.0,194.6 L397.5,194.9 L399.0,195.3 L400.5,195.6 L402.0,196.0 L403.5,196.3 L405.0,196.7 L406.5,197.1 L408.0,197.4 L409.5,197.8 L411.0,198.2 L412.5,198.6 L414.0,199.0 L415.5,199.5 L417.0,199.9 L418.5,200.3 L420.0,200.7 L421.5,201.2 L423.0,201.6 L424.5,202.1 L426.0,202.5 L427.5,203.0 L429.0,203.5 L430.5,203.9 L432.0,204.4 L433.5,204.9 L435.0,205.4 L436.5,205.9 L438.0,206.3 L439.5,206.8 L441.0,207.3 L442.5,207.8 L444.0,208.3 L445.5,208.8 L447.0,209.3 L448.5,209.9 L450.0,210.4 L451.5,210.9 L453.0,211.4 L454.5,211.9 L456.0,212.5 L457.5,213.0 L459.0,213.5 L460.5,214.1 L462.0,214.6 L463.5,215.1 L465.0,215.7 L466.5,216.2 L468.0,216.7 L469.5,217.3 L471.0,217.8 L472.5,218.4 L474.0,218.9 L475.5,219.5 L477.0,220.0 L478.5,220.6 L480.0,221.1 L481.5,221.7 L483.0,222.3 L484.5,222.8 L486.0,223.4 L487.5,223.9 L489.0,224.5 L490.5,225.1 L492.0,225.6 L493.5,226.2 L495.0,226.8 L496.5,227.4 L498.0,227.9 L499.5,228.5 L501.0,229.1 L502.5,229.6 L504.0,230.2 L505.5,230.8 L507.0,231.4 L508.5,231.9 L510.0,232.5 L511.5,233.1 L513.0,233.7 L514.5,234.3 L516.0,234.8 L517.5,235.4 L519.0,236.0 L520.5,236.6 L522.0,237.2 L523.5,237.8 L525.0,238.3 L526.5,238.9 L528.0,239.5 L529.5,240.1 L531.0,240.7 L532.5,241.3 L534.0,241.9 L535.5,242.5 L537.0,243.1 L538.5,243.6 L540.0,244.2 L541.5,244.8 L543.0,245.4 L544.5,246.0 L546.0,246.6 L547.5,247.2 L549.0,247.8 L550.5,248.4 L552.0,249.0 L553.5,249.6 L555.0,250.2 L556.5,250.8 L558.0,251.4 L559.5,252.0 L561.0,252.6 L562.5,253.2 L564.0,253.8 L565.5,254.4 L567.0,255.0 L568.5,255.6 L570.0,256.2 L571.5,256.8 L573.0,257.4 L574.5,258.0 L576.0,258.6 L577.5,259.2 L579.0,259.8 L580.5,260.4 L582.0,261.0 L583.5,261.6 L585.0,262.2 L586.5,262.8 L588.0,263.4 L589.5,264.0 L591.0,264.6 L592.5,265.2 L594.0,265.8 L595.5,266.4 L597.0,267.0 L598.5,267.6 L600.0,268.2 L601.5,268.8 L603.0,269.4 L604.5,270.0 L606.0,270.6 L607.5,271.2 L609.0,271.8 L610.5,272.5 L612.0,273.1 L613.5,273.7 L615.0,274.3 L616.5,274.9 L618.0,275.5 L619.5,276.1 L621.0,276.7 L622.5,277.3 L624.0,277.9 L625.5,278.5 L627.0,279.1 L628.5,279.8 L630.0,280.4 L631.5,281.0 L633.0,281.6 L634.5,282.2 L636.0,282.8 L637.5,283.4 L639.0,284.0 L640.5,284.6 L642.0,285.2 L643.5,285.9 L645.0,286.5 L646.5,287.1 L648.0,287.7 L649.5,288.3 L651.0,288.9 L652.5,289.5 L654.0,290.1 L655.5,290.7 L657.0,291.4 L658.5,292.0 L660.0,292.6"/>
+<path class="fig-curve fig-classical" d="M172.5,20.0 L174.0,21.9 L175.5,23.8 L177.0,25.7 L178.5,27.5 L180.0,29.4 L181.5,31.2 L183.0,33.0 L184.5,34.8 L186.0,36.6 L187.5,38.4 L189.0,40.1 L190.5,41.8 L192.0,43.6 L193.5,45.3 L195.0,47.0 L196.5,48.6 L198.0,50.3 L199.5,51.9 L201.0,53.6 L202.5,55.2 L204.0,56.8 L205.5,58.4 L207.0,59.9 L208.5,61.5 L210.0,63.0 L211.5,64.5 L213.0,66.0 L214.5,67.5 L216.0,69.0 L217.5,70.5 L219.0,71.9 L220.5,73.3 L222.0,74.7 L223.5,76.1 L225.0,77.5 L226.5,78.9 L228.0,80.3 L229.5,81.6 L231.0,82.9 L232.5,84.2 L234.0,85.5 L235.5,86.8 L237.0,88.0 L238.5,89.3 L240.0,90.5 L241.5,91.7 L243.0,92.9 L244.5,94.1 L246.0,95.3 L247.5,96.5 L249.0,97.6 L250.5,98.7 L252.0,99.8 L253.5,100.9 L255.0,102.0 L256.5,103.1 L258.0,104.1 L259.5,105.1 L261.0,106.2 L262.5,107.2 L264.0,108.1 L265.5,109.1 L267.0,110.1 L268.5,111.0 L270.0,111.9 L271.5,112.8 L273.0,113.7 L274.5,114.6 L276.0,115.5 L277.5,116.3 L279.0,117.2 L280.5,118.0 L282.0,118.8 L283.5,119.6 L285.0,120.3 L286.5,121.1 L288.0,121.8 L289.5,122.6 L291.0,123.3 L292.5,124.0 L294.0,124.7 L295.5,125.3 L297.0,126.0 L298.5,126.6 L300.0,127.2 L301.5,127.8 L303.0,128.4 L304.5,129.0 L306.0,129.5 L307.5,130.1 L309.0,130.6 L310.5,131.1 L312.0,131.6 L313.5,132.1 L315.0,132.6 L316.5,133.0 L318.0,133.5 L319.5,133.9 L321.0,134.3 L322.5,134.7 L324.0,135.0 L325.5,135.4 L327.0,135.8 L328.5,136.1 L330.0,136.4 L331.5,136.7 L333.0,137.0 L334.5,137.2 L336.0,137.5 L337.5,137.7 L339.0,138.0 L340.5,138.2 L342.0,138.3 L343.5,138.5 L345.0,138.7 L346.5,138.8 L348.0,139.0 L349.5,139.1 L351.0,139.2 L352.5,139.3 L354.0,139.3 L355.5,139.4 L357.0,139.4 L358.5,139.4 L360.0,139.5 L361.5,139.4 L363.0,139.4 L364.5,139.4 L366.0,139.3 L367.5,139.3 L369.0,139.2 L370.5,139.1 L372.0,139.0 L373.5,138.8 L375.0,138.7 L376.5,138.5 L378.0,138.3 L379.5,138.2 L381.0,138.0 L382.5,137.7 L384.0,137.5 L385.5,137.2 L387.0,137.0 L388.5,136.7 L390.0,136.4 L391.5,136.1 L393.0,135.8 L394.5,135.4 L396.0,135.0 L397.5,134.7 L399.0,134.3 L400.5,133.9 L402.0,133.5 L403.5,133.0 L405.0,132.6 L406.5,132.1 L408.0,131.6 L409.5,131.1 L411.0,130.6 L412.5,130.1 L414.0,129.5 L415.5,129.0 L417.0,128.4 L418.5,127.8 L420.0,127.2 L421.5,126.6 L423.0,126.0 L424.5,125.3 L426.0,124.7 L427.5,124.0 L429.0,123.3 L430.5,122.6 L432.0,121.8 L433.5,121.1 L435.0,120.3 L436.5,119.6 L438.0,118.8 L439.5,118.0 L441.0,117.2 L442.5,116.3 L444.0,115.5 L445.5,114.6 L447.0,113.7 L448.5,112.8 L450.0,111.9 L451.5,111.0 L453.0,110.1 L454.5,109.1 L456.0,108.1 L457.5,107.2 L459.0,106.2 L460.5,105.1 L462.0,104.1 L463.5,103.1 L465.0,102.0 L466.5,100.9 L468.0,99.8 L469.5,98.7 L471.0,97.6 L472.5,96.5 L474.0,95.3 L475.5,94.1 L477.0,92.9 L478.5,91.7 L480.0,90.5 L481.5,89.3 L483.0,88.0 L484.5,86.8 L486.0,85.5 L487.5,84.2 L489.0,82.9 L490.5,81.6 L492.0,80.3 L493.5,78.9 L495.0,77.5 L496.5,76.1 L498.0,74.7 L499.5,73.3 L501.0,71.9 L502.5,70.5 L504.0,69.0 L505.5,67.5 L507.0,66.0 L508.5,64.5 L510.0,63.0 L511.5,61.5 L513.0,59.9 L514.5,58.4 L516.0,56.8 L517.5,55.2 L519.0,53.6 L520.5,51.9 L522.0,50.3 L523.5,48.6 L525.0,47.0 L526.5,45.3 L528.0,43.6 L529.5,41.8 L531.0,40.1 L532.5,38.4 L534.0,36.6 L535.5,34.8 L537.0,33.0 L538.5,31.2 L540.0,29.4 L541.5,27.5 L543.0,25.7 L544.5,23.8 L546.0,21.9 L547.5,20.0"/>
+<path class="fig-axis" d="M396.0,139.5 V190.5 M391.0,139.5 h10 M391.0,190.5 h10"/>
+<text class="fig-note" x="406.0" y="156.0">gap 2mc²</text>
+<text class="fig-note" x="406.0" y="181.0">= 1.022 MeV</text>
+<text class="fig-note" x="522.0" y="112.5">positive energy</text>
+<text class="fig-note" x="486.0" y="275.0">negative energy</text>
+<text class="fig-note" x="66.0" y="97.5">dashed: Newton,</text>
+<text class="fig-note" x="66.0" y="112.5">mc² + p²/2m</text>
+</svg>
+<!-- /FIGURE:branches -->
+</div>
+  <figcaption>
+    The energies allowed by $E^2 = p^2c^2 + m^2c^4$ for an electron: a positive branch starting at $+mc^2 = 0.511$&nbsp;MeV and a negative
+    branch, its mirror image, starting at $-0.511$&nbsp;MeV, with a gap of 1.022&nbsp;MeV between. Classical physics could ignore the lower branch;
+    Dirac's equation could not. Dashed: Newton's kinetic energy added to $mc^2$, which matches the upper branch only at low momentum.
+  </figcaption>
+</figure>
+
+<h2>The negative energies, and antimatter</h2>
+
+<p>
+  The other two components belong to solutions with negative energy, the lower branch in the figure. In classical physics a particle
+  starting with positive energy never jumps to the lower branch, since energy changes continuously. In quantum mechanics it can jump,
+  giving the difference to a photon, and an electron could then fall forever to lower and lower energies. Atoms would not be stable.
+</p>
+
+<p>
+  Dirac's answer, in 1930, was to suppose that all the negative-energy states are already filled, so that the exclusion principle
+  forbids electrons from falling into them. A gamma ray with enough energy could lift an electron out of this filled "sea", leaving a
+  hole, which would behave as a particle with the opposite charge. At first Dirac took the holes to be protons. When Hermann Weyl
+  and Robert Oppenheimer showed that a hole must have the electron's mass, Dirac in 1931 predicted a new particle, an
+  "anti-electron". In 1932 Carl Anderson found tracks of exactly such particles in cosmic-ray photographs: the positron.
+</p>
+
+<p>
+  Dirac's picture of a filled sea is no longer how physicists describe this. It does not work for bosons, which obey no exclusion
+  principle, and it was replaced by quantum field theory, in which the electron is a quantum of a field and the negative-energy
+  solutions describe the antiparticle directly, with positive energy. The predictions that survive are the ones that matter: every
+  particle of this kind has an antiparticle of equal mass and opposite charge, and a pair can be created from energy or annihilate into it.
+</p>
+
+<details>
+  <summary>Optional: how the magnetic moment comes out with $g = 2$</summary>
+  <p>
+    Split the four-component $\psi$ into an upper pair $\varphi$ and a lower pair $\chi$. For a slow electron with energy close to
+    $+mc^2$, the equations show $\chi$ is small, about $(\vec\sigma\cdot\vec\pi/2mc)\,\varphi$, where $\vec\pi = \hat{\vec p} + e\vec A$ is the
+    momentum including the magnetic vector potential $\vec A$ for an electron of charge $-e$. Substituting back gives, for $\varphi$ alone,
+  </p>
+  $$i\hbar\,\frac{\partial\varphi}{\partial t} = \left[\frac{(\vec\sigma\cdot\vec\pi)^2}{2m} + V\right]\varphi$$
+  <p>
+    measured from $mc^2$. The identity $(\vec\sigma\cdot\vec\pi)^2 = \pi^2 + e\hbar\,\vec\sigma\cdot\vec B$, which follows from the Pauli
+    matrices' multiplication rules, turns the first term into the ordinary kinetic energy plus $(e\hbar/2m)\,\vec\sigma\cdot\vec B$. That is
+    the energy of a magnetic moment of one Bohr magneton, $e\hbar/2m$, carried by a spin of only $\tfrac12\hbar$: twice the ratio for orbital
+    motion, $g = 2$.
+  </p>
+</details>
+
+<h2>Two questions</h2>
+
+<div class="questions">
+<p>
+  <strong>1. Making a pair.</strong> What is the least energy a gamma ray needs to create an electron and a positron? After the positron
+  slows down and annihilates with an electron at rest, what photons come out?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    The pair needs at least its rest energy, $2mc^2 = 2\times0.511 = 1.022$&nbsp;MeV. (A lone photon cannot convert in empty space, since it could
+    not conserve energy and momentum together; the conversion happens near a nucleus, which takes up the momentum, and the threshold is then
+    very slightly above 1.022&nbsp;MeV.) An electron and positron annihilating at rest have total momentum zero and energy 1.022&nbsp;MeV. A single photon
+    would carry momentum, so at least two are needed, emitted back to back, each with 0.511&nbsp;MeV: the 511&nbsp;keV gamma rays of the opening, which
+    PET scanners detect in coincidence.
+  </p>
+  <p>
+    The slip to avoid is thinking one photon of 1.022&nbsp;MeV comes out. Momentum conservation, not energy, decides the number of photons.
+  </p>
+</details>
+
+<p>
+  <strong>2. Did relativity predict spin?</strong> A popular account says: "Spin is a consequence of relativity; Dirac derived it." How accurate is
+  that?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    Partly. Spin ½ and $g = 2$ do come out of Dirac's equation without being put in, which was a genuine success. But the Klein–Gordon equation is
+    just as relativistic and has no spin, so relativity by itself does not force spin. What forced it was the combination of relativity with Dirac's
+    demand for an equation first order in time. Spin had already been described without relativity, by Pauli's two-component theory in the spin essay.
+  </p>
+  <p>
+    The tempting wrong turn is to credit a result to the most famous ingredient in the derivation. The honest statement is narrower and more
+    interesting: a particular relativistic wave equation for the electron requires spin ½ and predicts its magnetism correctly.
+  </p>
+</details>
+</div>
+
+<h2>Further reading</h2>
 
 <div class="read-originals">
-  <h3>Where to find these treatments</h3>
   <ul>
-    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. XI "Relativistic Theory of the Electron" — §66 "Relativistic Treatment of a Particle," §67–68 (the wave equation), §70 "Existence of the Spin," and §73 "Theory of the Positron"; the hole-theory formalism in Ch. IX §65 "An Assembly of Fermions"</li>
-    <li>Einstein, <em>Relativity: The Special and General Theory</em> (1916) — supplies the relativistic half (Part I), though not the quantum synthesis</li>
-    <li>Born, Feynman, Landau &amp; Lifshitz — the relativistic electron lies beyond the non-relativistic scope of all three; in their treatments the electron's spin is introduced, not derived</li>
+    <li>Dirac, <em>Principles of Quantum Mechanics</em> (4th ed.), Ch. XI "Relativistic Theory of the Electron": §66 "Relativistic Treatment of a Particle", §67 "The Wave Equation for the Electron", §70 "Existence of the Spin", §72 "The Fine-structure of the Energy-levels of Hydrogen" and §73 "Theory of the Positron". The argument of this essay, from its author.</li>
   </ul>
 </div>
 
+<h2>Where this leaves us</h2>
+
+<p>
+  Positrons exist because the equation that makes the electron obey both quantum mechanics and relativity has solutions with negative energy, and
+  those solutions describe an antiparticle. Dirac's equation takes the square root of $E^2 = p^2c^2 + m^2c^4$ with 4×4 matrices; spin ½, $g = 2$ and
+  hydrogen's fine structure come out of it, and antimatter came with it, found four years after the equation was written.
+</p>
+
+<p>
+  This is where the book ends. The negative-energy puzzle is where single-particle quantum mechanics runs out: once particles can be created and
+  destroyed, the right description is quantum field theory, the next step in the story and the natural place to go from here. Everything in the core
+  essays, from a hot poker's glow to a detector's click, remains true within it.
+</p>
+
 <nav class="chapter-nav">
-  <a class="prev" href="a3-general-relativity.html">← General Relativity, Sketched</a>
-  <a class="next" href="../index.html">Home →</a>
+  <a class="prev" href="a3-general-relativity.html">← Gravity as geometry: a short excursion</a>
+  <a class="next" href="../index.html">Contents →</a>
 </nav>
 
 </main>
 
 <footer>
-  <p>A comparative reading. Prose is original synthesis.</p>
+  <p>Original prose, worked examples and figures.</p>
 </footer>
 
 <script>
@@ -217,6 +308,13 @@ function toggleTheme() {
   const current = root.getAttribute('data-theme');
   root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
 }
+// Printed copies include every optional section and worked answer.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('details:not([open])')];
+  closedForPrint.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
 </script>
 
 </body>

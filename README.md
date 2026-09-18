@@ -15,7 +15,8 @@ notes. Editions are listed on the About page.
 - **Core sequence, 16 essays: rewritten** (September 2026), in the reading order shown on the landing
   page. Reading order differs from file numbering in a few places, deliberately:
   01 → 02 → 03 → 04 → 05 → 06 → 08 → 07 → 09 → 09b → 09c → 10 → 11 → 12 → 13 → 14.
-- **Optional relativity essays, a1–a4: awaiting revision.** Still in the earlier comparative format.
+- **Optional essays, a1–a4: rewritten** (relativity, mass–energy, a gravity excursion, the Dirac equation).
+  Reading path a1 → a2 → a4; a3 is a side trip.
 - Plan, reader model and acceptance criteria: `notes/REWORK-PLAN.md`.
   Source verification levels: `notes/source-ledger.md`.
 

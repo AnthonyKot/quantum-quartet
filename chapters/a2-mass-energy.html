@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>B · Mass, Energy, Relativistic Dynamics — The Quantum Quartet</title>
+  <title>Energy, momentum, and mass — The Quantum Quartet</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -20,158 +20,272 @@
   </nav>
 </header>
 
-<main class="page">
+<main class="page essay">
 
-<div class="chapter-meta">Appendix B · Relativity</div>
+<div class="chapter-meta">Optional — Relativity</div>
 
-<h1>Mass, Energy, Relativistic Dynamics</h1>
+<h1>Energy, momentum, and mass</h1>
 
-<p>
-  The most famous equation in physics, $E = mc^2$, is a consequence of the Lorentz
-  transformation, not a separate postulate. Once space and time are reworked so that
-  the laws of physics respect the constancy of light, mechanics must be reworked too:
-  momentum and energy take new forms, mass grows with velocity, and — the startling
-  result — the inertia of a body turns out to be a measure of its energy content.
-  Rest mass is just frozen energy. This chapter follows how Einstein and Feynman
-  each arrive at that identity.
+<p class="lede">
+  A helium-4 nucleus is made of two protons and two neutrons. Weigh it, and it is lighter than
+  those four particles weighed separately, by about three-quarters of a percent. Where did the
+  missing mass go, and what does it have to do with the energy the Sun pours out?
 </p>
 
 <p>
-  Both reach the same conclusion — that the conservation of mass and the
-  conservation of energy are one law, not two — and both reach it by insisting that
-  relativity be consistent. But the routes differ in a way that has become familiar
-  across this site. Einstein argues from the energy a body absorbs; Feynman argues
-  from what happens when relativistic objects collide. The discoverer reasons from a
-  principle; the teacher reasons from a crash.
+  The previous essay showed that time and length depend on the frame. Newton's momentum and
+  kinetic energy are built from them, and they fail near the speed of light. This essay finds the
+  replacements. They contain $E = mc^2$, which says that energy and mass are two measures of one
+  thing, and a relation between energy, momentum and mass that holds in every frame. That relation
+  is what the last optional essay uses to make quantum mechanics relativistic.
 </p>
 
-<h2>Entry points</h2>
+<aside class="reminders" aria-label="Reminders">
+  <h2>Two things worth having back in mind</h2>
+  <ul>
+    <li><strong>From the previous essay.</strong> $\gamma = 1/\sqrt{1 - v^2/c^2}$, which is 1 at rest
+      and grows without limit as $v$ approaches $c$.</li>
+    <li><strong>A useful approximation.</strong> For small $x$, $1/\sqrt{1 - x} \approx 1 + \tfrac12 x$.</li>
+  </ul>
+</aside>
 
-<table class="entry-table">
-  <thead>
-    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="author-cell">Einstein (1916)</td>
-      <td></td>
-      <td>Energy and mass equivalence from the relativistic energy expression</td>
-      <td>Inertial mass increases by $E_0/c^2$ when a body absorbs energy $E_0$</td>
-      <td>A body absorbing radiation</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Feynman (Vol. I)</td>
-      <td></td>
-      <td>Conservation of momentum + relativistic mass</td>
-      <td>$\Delta T = (m - m_0)c^2$; total energy $= mc^2$</td>
-      <td>Inelastic collision of two equal masses</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>The two treatments</h2>
-
-<h3>Einstein: mass as a measure of energy</h3>
+<h2>Momentum and energy, rebuilt</h2>
 
 <p>
-  Einstein reaches the mass–energy relation by asking what happens to a body's
-  inertia when it absorbs energy. Working from the relativistic expression for the
-  energy of a moving body, he shows that a body which takes up an amount of energy
-  $E_0$ has its inertial mass increased by $E_0/c^2$. The inference he draws is
-  sweeping: the inertial mass of a body is not a constant but varies with its energy
-  content, so that the inertial mass of a system can be regarded as a measure of its
-  energy. The law of conservation of mass and the law of conservation of energy
-  merge into a single law — valid, he is careful to add, only so long as the system
-  neither absorbs nor emits energy.
+  In Newton's mechanics momentum is $mv$, and total momentum is conserved in collisions. Apply that
+  rule in one frame, transform to another with the Lorentz transformation, and conservation fails:
+  $mv$ is conserved in one frame but not another, which the principle of relativity forbids. The
+  quantity that <em>is</em> conserved in every frame is
+</p>
+
+$$p = \gamma m v .$$
+
+<p>
+  Here $m$ is the ordinary mass, the one measured when the body is at rest. It is the same in every
+  frame. (Older books, Feynman's among them, called $\gamma m$ the mass of a moving body and said
+  that mass grows with speed. Most physicists no longer use that convention: the factor $\gamma$ belongs with the velocity, not with the mass.)
+  At low speed $\gamma \approx 1$ and Newton's $mv$ returns; near $c$ the momentum grows without limit,
+  which is why no amount of pushing brings a massive body to the speed of light.
 </p>
 
 <p>
-  The term $mc^2$, he then observes, is nothing other than the energy the body
-  already possessed before it absorbed anything — the rest energy. Einstein is
-  scrupulous about the empirical status of the claim. Writing in 1920, he notes that
-  a direct experimental test is not yet possible, because the energy changes one can
-  impose on a system are far too small to register as a measurable change in its
-  mass — which is precisely why classical physics had been able to treat
-  conservation of mass as an independent law. A footnote added to the later edition
-  records the vindication tersely: the equation has since been thoroughly proved,
-  time and again. The relation is, for Einstein, an unforced consequence of the
-  relativistic energy expression, and its smallness in everyday terms explains why
-  it went unnoticed for so long.
+  The matching energy, the one conserved together with $p$, is
 </p>
 
-<h3>Feynman: mass from the collision</h3>
+$$E = \gamma m c^2 .$$
 
 <p>
-  Feynman derives the same identity from dynamics. Having established that mass
-  depends on velocity, he shows that the work done by forces on a body changes its
-  kinetic energy by $\Delta T = (m - m_0)c^2$, and then makes the bolder guess that
-  the <em>total</em> energy of a body is its total mass times $c^2$. To test the
-  idea he turns to an inelastic collision. When two equal masses stick together, the
-  composite is heavier than the sum of the rest masses — heavier by exactly the
-  kinetic energy brought into the collision. Energy has inertia; a hotter gas is a
-  heavier gas; a compound assembled forcefully weighs more than the same pieces put
-  together gently.
+  At low speed, with the approximation from the reminders,
+  $E \approx mc^2 + \tfrac12 mv^2$: Newton's kinetic energy plus a constant. In Newton's mechanics a constant
+  added to energy would be meaningless. In relativity it is not. A body at rest has energy
+</p>
+
+$$E_0 = mc^2 ,$$
+
+<p>
+  its <em>rest energy</em>, and the kinetic energy is what $\gamma$ adds on top, $(\gamma - 1)mc^2$.
+</p>
+
+<figure>
+<div class="fig-scroll">
+<!-- FIGURE:kinetic generated by scripts/a2_mass_energy.py -->
+<svg class="fig-svg" viewBox="0 0 680 320" role="img" aria-labelledby="fig-ke-title fig-ke-desc">
+<title id="fig-ke-title">Kinetic energy against speed, relativistic and Newtonian</title>
+<desc id="fig-ke-desc">Kinetic energy in units of rest energy against speed as a fraction of light speed. At low speed the relativistic and Newtonian curves coincide. Above about half the speed of light the relativistic curve rises much faster and climbs without limit as the speed approaches c; the Newtonian curve stays below one half.</desc>
+<path class="fig-axis" d="M60,20 V270 H660"/>
+<path class="fig-axis" d="M60.0,270 v5"/>
+<text class="fig-tick" x="60.0" y="289" text-anchor="middle">0</text>
+<path class="fig-axis" d="M210.0,270 v5"/>
+<text class="fig-tick" x="210.0" y="289" text-anchor="middle">0.25</text>
+<path class="fig-axis" d="M360.0,270 v5"/>
+<text class="fig-tick" x="360.0" y="289" text-anchor="middle">0.5</text>
+<path class="fig-axis" d="M510.0,270 v5"/>
+<text class="fig-tick" x="510.0" y="289" text-anchor="middle">0.75</text>
+<path class="fig-axis" d="M660.0,270 v5"/>
+<text class="fig-tick" x="660.0" y="289" text-anchor="middle">1</text>
+<path class="fig-axis" d="M60,270.0 h-5"/>
+<text class="fig-tick" x="51" y="274.0" text-anchor="end">0</text>
+<path class="fig-axis" d="M60,215.7 h-5"/>
+<text class="fig-tick" x="51" y="219.7" text-anchor="end">0.5</text>
+<path class="fig-axis" d="M60,161.3 h-5"/>
+<text class="fig-tick" x="51" y="165.3" text-anchor="end">1</text>
+<path class="fig-axis" d="M60,107.0 h-5"/>
+<text class="fig-tick" x="51" y="111.0" text-anchor="end">1.5</text>
+<path class="fig-axis" d="M60,52.6 h-5"/>
+<text class="fig-tick" x="51" y="56.6" text-anchor="end">2</text>
+<path class="fig-axis" style="stroke-dasharray:3 4" d="M660.0,20 V270"/>
+<text class="fig-tick" x="654.0" y="32" text-anchor="end">speed of light</text>
+<text class="fig-label" x="360.0" y="308" text-anchor="middle">speed, v / c</text>
+<text class="fig-label" transform="translate(18,145.0) rotate(-90)" text-anchor="middle">kinetic energy / mc²</text>
+<path class="fig-curve fig-hot" style="stroke-width:2.6" d="M60.0,270.0 L61.4,270.0 L62.9,270.0 L64.3,270.0 L65.7,270.0 L67.1,270.0 L68.5,270.0 L70.0,270.0 L71.4,270.0 L72.8,270.0 L74.2,270.0 L75.7,270.0 L77.1,270.0 L78.5,269.9 L79.9,269.9 L81.4,269.9 L82.8,269.9 L84.2,269.9 L85.7,269.9 L87.1,269.9 L88.5,269.9 L89.9,269.9 L91.3,269.9 L92.8,269.8 L94.2,269.8 L95.6,269.8 L97.0,269.8 L98.5,269.8 L99.9,269.8 L101.3,269.7 L102.8,269.7 L104.2,269.7 L105.6,269.7 L107.0,269.7 L108.4,269.6 L109.9,269.6 L111.3,269.6 L112.7,269.6 L114.2,269.6 L115.6,269.5 L117.0,269.5 L118.4,269.5 L119.8,269.5 L121.3,269.4 L122.7,269.4 L124.1,269.4 L125.5,269.3 L127.0,269.3 L128.4,269.3 L129.8,269.3 L131.2,269.2 L132.7,269.2 L134.1,269.2 L135.5,269.1 L136.9,269.1 L138.4,269.1 L139.8,269.0 L141.2,269.0 L142.6,269.0 L144.1,268.9 L145.5,268.9 L146.9,268.8 L148.3,268.8 L149.8,268.8 L151.2,268.7 L152.6,268.7 L154.1,268.6 L155.5,268.6 L156.9,268.6 L158.3,268.5 L159.8,268.5 L161.2,268.4 L162.6,268.4 L164.0,268.3 L165.4,268.3 L166.9,268.2 L168.3,268.2 L169.7,268.1 L171.2,268.1 L172.6,268.0 L174.0,268.0 L175.4,267.9 L176.8,267.9 L178.3,267.8 L179.7,267.8 L181.1,267.7 L182.6,267.7 L184.0,267.6 L185.4,267.5 L186.8,267.5 L188.2,267.4 L189.7,267.4 L191.1,267.3 L192.5,267.2 L193.9,267.2 L195.4,267.1 L196.8,267.1 L198.2,267.0 L199.6,266.9 L201.1,266.9 L202.5,266.8 L203.9,266.7 L205.3,266.7 L206.8,266.6 L208.2,266.5 L209.6,266.5 L211.0,266.4 L212.5,266.3 L213.9,266.2 L215.3,266.2 L216.8,266.1 L218.2,266.0 L219.6,265.9 L221.0,265.9 L222.4,265.8 L223.9,265.7 L225.3,265.6 L226.7,265.5 L228.2,265.5 L229.6,265.4 L231.0,265.3 L232.4,265.2 L233.8,265.1 L235.3,265.0 L236.7,265.0 L238.1,264.9 L239.5,264.8 L241.0,264.7 L242.4,264.6 L243.8,264.5 L245.3,264.4 L246.7,264.3 L248.1,264.2 L249.5,264.1 L250.9,264.0 L252.4,263.9 L253.8,263.8 L255.2,263.7 L256.6,263.6 L258.1,263.5 L259.5,263.4 L260.9,263.3 L262.4,263.2 L263.8,263.1 L265.2,263.0 L266.6,262.9 L268.0,262.8 L269.5,262.7 L270.9,262.6 L272.3,262.5 L273.8,262.4 L275.2,262.3 L276.6,262.1 L278.0,262.0 L279.4,261.9 L280.9,261.8 L282.3,261.7 L283.7,261.6 L285.1,261.4 L286.6,261.3 L288.0,261.2 L289.4,261.1 L290.9,260.9 L292.3,260.8 L293.7,260.7 L295.1,260.6 L296.5,260.4 L298.0,260.3 L299.4,260.2 L300.8,260.0 L302.2,259.9 L303.7,259.7 L305.1,259.6 L306.5,259.5 L307.9,259.3 L309.4,259.2 L310.8,259.0 L312.2,258.9 L313.6,258.8 L315.1,258.6 L316.5,258.5 L317.9,258.3 L319.4,258.2 L320.8,258.0 L322.2,257.9 L323.6,257.7 L325.1,257.5 L326.5,257.4 L327.9,257.2 L329.3,257.1 L330.8,256.9 L332.2,256.7 L333.6,256.6 L335.0,256.4 L336.4,256.2 L337.9,256.1 L339.3,255.9 L340.7,255.7 L342.1,255.5 L343.6,255.4 L345.0,255.2 L346.4,255.0 L347.8,254.8 L349.3,254.6 L350.7,254.4 L352.1,254.3 L353.5,254.1 L355.0,253.9 L356.4,253.7 L357.8,253.5 L359.2,253.3 L360.7,253.1 L362.1,252.9 L363.5,252.7 L364.9,252.5 L366.4,252.3 L367.8,252.1 L369.2,251.9 L370.6,251.6 L372.1,251.4 L373.5,251.2 L374.9,251.0 L376.4,250.8 L377.8,250.6 L379.2,250.3 L380.6,250.1 L382.0,249.9 L383.5,249.6 L384.9,249.4 L386.3,249.2 L387.8,248.9 L389.2,248.7 L390.6,248.4 L392.0,248.2 L393.4,247.9 L394.9,247.7 L396.3,247.4 L397.7,247.2 L399.2,246.9 L400.6,246.7 L402.0,246.4 L403.4,246.1 L404.8,245.9 L406.3,245.6 L407.7,245.3 L409.1,245.0 L410.5,244.8 L412.0,244.5 L413.4,244.2 L414.8,243.9 L416.2,243.6 L417.7,243.3 L419.1,243.0 L420.5,242.7 L421.9,242.4 L423.4,242.1 L424.8,241.8 L426.2,241.5 L427.7,241.2 L429.1,240.8 L430.5,240.5 L431.9,240.2 L433.3,239.8 L434.8,239.5 L436.2,239.2 L437.6,238.8 L439.0,238.5 L440.5,238.1 L441.9,237.8 L443.3,237.4 L444.8,237.0 L446.2,236.7 L447.6,236.3 L449.0,235.9 L450.5,235.5 L451.9,235.2 L453.3,234.8 L454.7,234.4 L456.1,234.0 L457.6,233.6 L459.0,233.2 L460.4,232.7 L461.8,232.3 L463.3,231.9 L464.7,231.5 L466.1,231.0 L467.6,230.6 L469.0,230.1 L470.4,229.7 L471.8,229.2 L473.2,228.8 L474.7,228.3 L476.1,227.8 L477.5,227.3 L479.0,226.9 L480.4,226.4 L481.8,225.9 L483.2,225.4 L484.6,224.8 L486.1,224.3 L487.5,223.8 L488.9,223.3 L490.3,222.7 L491.8,222.2 L493.2,221.6 L494.6,221.0 L496.1,220.5 L497.5,219.9 L498.9,219.3 L500.3,218.7 L501.8,218.1 L503.2,217.5 L504.6,216.8 L506.0,216.2 L507.4,215.5 L508.9,214.9 L510.3,214.2 L511.7,213.5 L513.1,212.9 L514.6,212.2 L516.0,211.5 L517.4,210.7 L518.8,210.0 L520.3,209.3 L521.7,208.5 L523.1,207.7 L524.5,206.9 L526.0,206.2 L527.4,205.3 L528.8,204.5 L530.2,203.7 L531.7,202.8 L533.1,202.0 L534.5,201.1 L536.0,200.2 L537.4,199.3 L538.8,198.3 L540.2,197.4 L541.6,196.4 L543.1,195.4 L544.5,194.4 L545.9,193.4 L547.3,192.4 L548.8,191.3 L550.2,190.2 L551.6,189.1 L553.0,188.0 L554.5,186.8 L555.9,185.6 L557.3,184.4 L558.8,183.2 L560.2,181.9 L561.6,180.6 L563.0,179.3 L564.5,177.9 L565.9,176.6 L567.3,175.1 L568.7,173.7 L570.1,172.2 L571.6,170.7 L573.0,169.1 L574.4,167.5 L575.8,165.9 L577.3,164.2 L578.7,162.4 L580.1,160.7 L581.5,158.8 L583.0,156.9 L584.4,155.0 L585.8,153.0 L587.2,151.0 L588.7,148.8 L590.1,146.7 L591.5,144.4 L593.0,142.1 L594.4,139.7 L595.8,137.2 L597.2,134.6 L598.6,131.9 L600.1,129.2 L601.5,126.3 L602.9,123.3 L604.3,120.3 L605.8,117.0 L607.2,113.7 L608.6,110.2 L610.0,106.6 L611.5,102.8 L612.9,98.8 L614.3,94.7 L615.8,90.3 L617.2,85.7 L618.6,80.9 L620.0,75.8 L621.4,70.5 L622.9,64.8 L624.3,58.8 L625.7,52.4 L627.1,45.6 L628.6,38.4 L630.0,30.6"/>
+<path class="fig-curve fig-classical" d="M60.0,270.0 L61.4,270.0 L62.9,270.0 L64.3,270.0 L65.7,270.0 L67.1,270.0 L68.5,270.0 L70.0,270.0 L71.4,270.0 L72.8,270.0 L74.2,270.0 L75.7,270.0 L77.1,270.0 L78.5,269.9 L79.9,269.9 L81.4,269.9 L82.8,269.9 L84.2,269.9 L85.7,269.9 L87.1,269.9 L88.5,269.9 L89.9,269.9 L91.3,269.9 L92.8,269.8 L94.2,269.8 L95.6,269.8 L97.0,269.8 L98.5,269.8 L99.9,269.8 L101.3,269.7 L102.8,269.7 L104.2,269.7 L105.6,269.7 L107.0,269.7 L108.4,269.6 L109.9,269.6 L111.3,269.6 L112.7,269.6 L114.2,269.6 L115.6,269.5 L117.0,269.5 L118.4,269.5 L119.8,269.5 L121.3,269.4 L122.7,269.4 L124.1,269.4 L125.5,269.4 L127.0,269.3 L128.4,269.3 L129.8,269.3 L131.2,269.2 L132.7,269.2 L134.1,269.2 L135.5,269.1 L136.9,269.1 L138.4,269.1 L139.8,269.0 L141.2,269.0 L142.6,269.0 L144.1,268.9 L145.5,268.9 L146.9,268.9 L148.3,268.8 L149.8,268.8 L151.2,268.7 L152.6,268.7 L154.1,268.7 L155.5,268.6 L156.9,268.6 L158.3,268.5 L159.8,268.5 L161.2,268.5 L162.6,268.4 L164.0,268.4 L165.4,268.3 L166.9,268.3 L168.3,268.2 L169.7,268.2 L171.2,268.1 L172.6,268.1 L174.0,268.0 L175.4,268.0 L176.8,267.9 L178.3,267.9 L179.7,267.8 L181.1,267.8 L182.6,267.7 L184.0,267.7 L185.4,267.6 L186.8,267.6 L188.2,267.5 L189.7,267.5 L191.1,267.4 L192.5,267.3 L193.9,267.3 L195.4,267.2 L196.8,267.2 L198.2,267.1 L199.6,267.1 L201.1,267.0 L202.5,266.9 L203.9,266.9 L205.3,266.8 L206.8,266.7 L208.2,266.7 L209.6,266.6 L211.0,266.6 L212.5,266.5 L213.9,266.4 L215.3,266.4 L216.8,266.3 L218.2,266.2 L219.6,266.2 L221.0,266.1 L222.4,266.0 L223.9,265.9 L225.3,265.9 L226.7,265.8 L228.2,265.7 L229.6,265.7 L231.0,265.6 L232.4,265.5 L233.8,265.4 L235.3,265.4 L236.7,265.3 L238.1,265.2 L239.5,265.1 L241.0,265.1 L242.4,265.0 L243.8,264.9 L245.3,264.8 L246.7,264.7 L248.1,264.7 L249.5,264.6 L250.9,264.5 L252.4,264.4 L253.8,264.3 L255.2,264.2 L256.6,264.2 L258.1,264.1 L259.5,264.0 L260.9,263.9 L262.4,263.8 L263.8,263.7 L265.2,263.6 L266.6,263.6 L268.0,263.5 L269.5,263.4 L270.9,263.3 L272.3,263.2 L273.8,263.1 L275.2,263.0 L276.6,262.9 L278.0,262.8 L279.4,262.7 L280.9,262.6 L282.3,262.5 L283.7,262.4 L285.1,262.3 L286.6,262.2 L288.0,262.2 L289.4,262.1 L290.9,262.0 L292.3,261.9 L293.7,261.8 L295.1,261.7 L296.5,261.6 L298.0,261.5 L299.4,261.3 L300.8,261.2 L302.2,261.1 L303.7,261.0 L305.1,260.9 L306.5,260.8 L307.9,260.7 L309.4,260.6 L310.8,260.5 L312.2,260.4 L313.6,260.3 L315.1,260.2 L316.5,260.1 L317.9,260.0 L319.4,259.8 L320.8,259.7 L322.2,259.6 L323.6,259.5 L325.1,259.4 L326.5,259.3 L327.9,259.2 L329.3,259.0 L330.8,258.9 L332.2,258.8 L333.6,258.7 L335.0,258.6 L336.4,258.5 L337.9,258.3 L339.3,258.2 L340.7,258.1 L342.1,258.0 L343.6,257.9 L345.0,257.7 L346.4,257.6 L347.8,257.5 L349.3,257.4 L350.7,257.2 L352.1,257.1 L353.5,257.0 L355.0,256.9 L356.4,256.7 L357.8,256.6 L359.2,256.5 L360.7,256.4 L362.1,256.2 L363.5,256.1 L364.9,256.0 L366.4,255.8 L367.8,255.7 L369.2,255.6 L370.6,255.4 L372.1,255.3 L373.5,255.2 L374.9,255.0 L376.4,254.9 L377.8,254.8 L379.2,254.6 L380.6,254.5 L382.0,254.3 L383.5,254.2 L384.9,254.1 L386.3,253.9 L387.8,253.8 L389.2,253.6 L390.6,253.5 L392.0,253.4 L393.4,253.2 L394.9,253.1 L396.3,252.9 L397.7,252.8 L399.2,252.6 L400.6,252.5 L402.0,252.3 L403.4,252.2 L404.8,252.0 L406.3,251.9 L407.7,251.7 L409.1,251.6 L410.5,251.4 L412.0,251.3 L413.4,251.1 L414.8,251.0 L416.2,250.8 L417.7,250.7 L419.1,250.5 L420.5,250.4 L421.9,250.2 L423.4,250.1 L424.8,249.9 L426.2,249.8 L427.7,249.6 L429.1,249.4 L430.5,249.3 L431.9,249.1 L433.3,249.0 L434.8,248.8 L436.2,248.6 L437.6,248.5 L439.0,248.3 L440.5,248.1 L441.9,248.0 L443.3,247.8 L444.8,247.7 L446.2,247.5 L447.6,247.3 L449.0,247.2 L450.5,247.0 L451.9,246.8 L453.3,246.6 L454.7,246.5 L456.1,246.3 L457.6,246.1 L459.0,246.0 L460.4,245.8 L461.8,245.6 L463.3,245.4 L464.7,245.3 L466.1,245.1 L467.6,244.9 L469.0,244.7 L470.4,244.6 L471.8,244.4 L473.2,244.2 L474.7,244.0 L476.1,243.9 L477.5,243.7 L479.0,243.5 L480.4,243.3 L481.8,243.1 L483.2,243.0 L484.6,242.8 L486.1,242.6 L487.5,242.4 L488.9,242.2 L490.3,242.0 L491.8,241.9 L493.2,241.7 L494.6,241.5 L496.1,241.3 L497.5,241.1 L498.9,240.9 L500.3,240.7 L501.8,240.5 L503.2,240.3 L504.6,240.2 L506.0,240.0 L507.4,239.8 L508.9,239.6 L510.3,239.4 L511.7,239.2 L513.1,239.0 L514.6,238.8 L516.0,238.6 L517.4,238.4 L518.8,238.2 L520.3,238.0 L521.7,237.8 L523.1,237.6 L524.5,237.4 L526.0,237.2 L527.4,237.0 L528.8,236.8 L530.2,236.6 L531.7,236.4 L533.1,236.2 L534.5,236.0 L536.0,235.8 L537.4,235.6 L538.8,235.4 L540.2,235.2 L541.6,235.0 L543.1,234.8 L544.5,234.6 L545.9,234.4 L547.3,234.1 L548.8,233.9 L550.2,233.7 L551.6,233.5 L553.0,233.3 L554.5,233.1 L555.9,232.9 L557.3,232.7 L558.8,232.4 L560.2,232.2 L561.6,232.0 L563.0,231.8 L564.5,231.6 L565.9,231.4 L567.3,231.1 L568.7,230.9 L570.1,230.7 L571.6,230.5 L573.0,230.3 L574.4,230.0 L575.8,229.8 L577.3,229.6 L578.7,229.4 L580.1,229.2 L581.5,228.9 L583.0,228.7 L584.4,228.5 L585.8,228.3 L587.2,228.0 L588.7,227.8 L590.1,227.6 L591.5,227.3 L593.0,227.1 L594.4,226.9 L595.8,226.7 L597.2,226.4 L598.6,226.2 L600.1,226.0 L601.5,225.7 L602.9,225.5 L604.3,225.3 L605.8,225.0 L607.2,224.8 L608.6,224.6 L610.0,224.3 L611.5,224.1 L612.9,223.8 L614.3,223.6 L615.8,223.4 L617.2,223.1 L618.6,222.9 L620.0,222.7 L621.4,222.4 L622.9,222.2 L624.3,221.9 L625.7,221.7 L627.1,221.4 L628.6,221.2 L630.0,221.0"/>
+<text class="fig-note" x="432.0" y="166.7">relativistic, (γ − 1)mc²</text>
+<text class="fig-note" x="432.0" y="257.0">Newtonian, ½mv²</text>
+</svg>
+<!-- /FIGURE:kinetic -->
+</div>
+  <figcaption>
+    Kinetic energy as a fraction of rest energy, against speed. The two formulas agree at low speed and part
+    company above about half the speed of light. At $0.9c$ the relativistic value is three times Newton's, and it
+    grows without limit towards $c$, while Newton's never passes $\tfrac12 mc^2$ there.
+  </figcaption>
+</figure>
+
+<h2>The relation that holds in every frame</h2>
+
+<p>
+  Energy and momentum both change from frame to frame, but one combination does not, in the same way that the
+  spacetime interval did not. Squaring $E = \gamma mc^2$ and $p = \gamma mv$ and subtracting,
+</p>
+
+$$E^2 - p^2c^2 = \gamma^2 m^2c^4\left(1 - \frac{v^2}{c^2}\right) = m^2c^4 ,$$
+
+<p>
+  so
+</p>
+
+$$E^2 = p^2c^2 + m^2c^4 .$$
+
+<p>
+  Every observer, however they are moving, finds the same $m$ from a body's energy and momentum. That is what
+  mass is, in relativity: the frame-independent part of energy and momentum. The relation also covers things with
+  no mass. Setting $m = 0$ gives $E = pc$, the photon's relation used in the photons essay, where it was stated
+  without proof. A massless particle cannot be at rest and always moves at $c$.
+</p>
+
+<h2>Energy has inertia</h2>
+
+<p>
+  A thought experiment shows what $E_0 = mc^2$ means. Two identical lumps of putty, each of mass 1&nbsp;kg, fly at
+  each other at $0.6c$ ($\gamma = 1.25$) and stick. Momentum before is zero, so the merged lump is at rest. Energy is
+  conserved, so its rest energy equals the total energy before: $2\times1.25\,mc^2 = 2.5$&nbsp;kg$\times c^2$. The merged
+  lump has a mass of 2.5&nbsp;kg, not 2. The kinetic energy has not vanished into heat that weighs nothing; the heat is
+  still there, and it has mass.
 </p>
 
 <p>
-  From this Feynman draws a conclusion he clearly relishes: there is no place in
-  relativity for a strictly inelastic collision of the Newtonian kind. In Newtonian
-  mechanics two bodies could collide and form an object indistinguishable from one
-  assembled slowly, the extra kinetic energy leaving the mass untouched. Relativity
-  forbids it — the energy of the collision shows up as extra mass, so the resulting
-  object is genuinely different and measurably heavier. The conservation of mass,
-  he concludes, must go along with the conservation of energy; they are the same
-  principle. Where Einstein infers the identity from the energy a body absorbs,
-  Feynman forces it out of the books balancing in a collision, and makes the
-  disappearance of the Newtonian inelastic collision the vivid sign that something
-  fundamental has changed.
+  So there is no such thing, in relativity, as a collision that loses energy without changing mass. Any energy a body
+  contains, heat, the motion of its parts, the energy of the forces binding it, contributes $E/c^2$ to its mass. Heating a
+  kilogram of water by 100 degrees adds $4\times10^{5}$&nbsp;J and so $5\times10^{-12}$&nbsp;kg: real, but far below what any
+  balance can detect. Only in nuclear physics, where binding energies are millions of times larger than chemical ones, does
+  the change become easy to weigh.
 </p>
 
-<h2>Synthesis</h2>
+<h2>Worked example: the helium nucleus</h2>
+
+<div class="worked">
+<p>
+  Masses are quoted in atomic mass units, u, with $1\ \text{u} = 931.5\ \text{MeV}/c^2$. Using whole atoms, so that the
+  electrons balance on both sides:
+</p>
+$$\begin{aligned}
+2\,m(^1\text{H}) + 2\,m_n &= 2(1.007825)\\[2pt]
+&\quad + 2(1.008665)\\[4pt]
+&= 4.032980\ \text{u},\\[4pt]
+m(^4\text{He}) &= 4.002603\ \text{u}.
+\end{aligned}$$
+<p>
+  The helium atom is lighter by $0.030377$&nbsp;u, which is $0.030377\times931.5 = 28.3$&nbsp;MeV: 0.75&nbsp;percent of the mass.
+  That is the <em>binding energy</em> of the helium nucleus. To pull it apart into two protons and two neutrons you must supply
+  28.3&nbsp;MeV, and the pieces then weigh exactly that much more. Assembled, the nucleus has given that energy away, and its mass
+  has fallen by $E/c^2$. The missing mass left as energy, carried off by radiation and moving particles.
+</p>
+<p>
+  <strong>The Sun.</strong> The Sun builds helium from four hydrogen nuclei, which releases 26.7&nbsp;MeV per helium nucleus: a little less
+  than 28.3&nbsp;MeV, because two of the protons must first turn into the slightly heavier neutrons. That energy, apart from about 2&nbsp;percent
+  carried off by neutrinos, is what the Sun radiates. Its output, $3.83\times10^{26}$&nbsp;W, corresponds to losing
+  $3.83\times10^{26}/c^2 = 4.3\times10^{9}$&nbsp;kg of mass every second, over four million tonnes. Converting one gram entirely into energy would release $9\times10^{13}$&nbsp;J, about the energy of 21 kilotonnes
+  of TNT.
+</p>
+<p>
+  <strong>Check: chemistry.</strong> Binding an electron to a proton releases 13.6&nbsp;eV, a fraction $1.4\times10^{-8}$ of the
+  atom's rest energy. The same principle holds, but the mass change is too small to weigh, which is why chemists could treat mass as
+  exactly conserved.
+</p>
+</div>
+
+<details>
+  <summary>Optional: why $p = \gamma mv$ and not $mv$</summary>
+  <p>
+    Consider a glancing collision seen from two frames. One ball is nearly at rest in the ground frame, the other nearly at rest in a
+    frame moving along $x$ at $v$; each has a small sideways velocity along $y$, and the collision reverses them. Sideways
+    distances are the same in both frames, but by time dilation each frame judges the other ball's clock slow, so it judges the other
+    ball's sideways speed smaller by $\gamma$. If momentum were $mv$, the two sideways kicks could not cancel in both frames at once. Weighting
+    each velocity by the $\gamma$ of the ball's own motion makes them cancel in every frame. Carrying the same argument through for the energy,
+    so that energy and momentum transform together the way $ct$ and $x$ do, gives $E = \gamma mc^2$.
+  </p>
+</details>
+
+<h2>Two questions</h2>
+
+<div class="questions">
+<p>
+  <strong>1. A fast electron.</strong> An electron (rest energy 0.511&nbsp;MeV) is given 1.0&nbsp;MeV of kinetic energy. What are its total
+  energy, its momentum (as $pc$, in MeV) and its speed?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    Total energy $E = 0.511 + 1.0 = 1.511$&nbsp;MeV. From $E^2 = p^2c^2 + m^2c^4$,
+    $pc = \sqrt{1.511^2 - 0.511^2} = 1.422$&nbsp;MeV. Speed: $v/c = pc/E = 0.941$.
+  </p>
+  <p>
+    The slip to avoid is using $\tfrac12 mv^2 = 1.0$&nbsp;MeV, which gives $v/c = \sqrt{2\times1.0/0.511} = 1.98$: faster than light. When the
+    kinetic energy is comparable with the rest energy, Newton's formula is not a small error but a wrong answer.
+  </p>
+</details>
 
 <p>
-  Mass–energy equivalence is the rare result that looks the same from every angle,
-  and the two authors differ only in which face they present first. Einstein leads
-  with absorption: give a body energy and its inertia grows, so mass measures energy.
-  Feynman leads with collision: smash bodies together and the debris is heavier, so
-  energy has mass. Both then state the unifying conclusion in nearly identical words —
-  the conservation of mass and the conservation of energy are one law — and both note
-  that the effect is invisible in daily life only because $c^2$ is enormous and the
-  mass changes correspondingly tiny.
+  <strong>2. Is mass converted into energy?</strong> People often say that in the Sun "mass is converted into energy". Using the helium example,
+  what is a more careful statement?
 </p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    Energy is conserved throughout; nothing turns from one kind of stuff into another. Before fusion, part of the energy is locked up as the
+    rest energy of the separate particles. After, the helium nucleus has less rest energy, and the difference is carried away as the kinetic energy
+    of particles and as radiation. The helium's mass is lower because it contains less energy. Total energy is unchanged, and so is the total mass of
+    everything, radiation included, if you count the radiation's energy divided by $c^2$.
+  </p>
+  <p>
+    The tempting wrong turn is to picture mass as a fuel that disappears. What $E = mc^2$ says is that mass and rest energy are the same quantity in
+    different units; the Sun loses mass because it loses energy.
+  </p>
+</details>
+</div>
 
-<p>
-  The chapter also shows the two temperaments that have run through the whole site,
-  transplanted to a settled subject. Einstein reasons from a principle to its
-  consequence and is meticulous about what experiment can and cannot yet confirm —
-  the same care he took with simultaneity. Feynman reasons from a concrete physical
-  situation, a collision he can picture, and prizes the moment when the new physics
-  contradicts the old in a way you could in principle weigh on a scale. That the
-  discoverer and the teacher reach $E = mc^2$ by such different roads, and disagree
-  about nothing at the end, is the appendix's quiet counterpoint to the quantum
-  chapters, where the roads diverge and the destinations sometimes do too. Here there
-  is one summit and two paths up.
-</p>
-
-<h2>Read the originals</h2>
+<h2>Further reading</h2>
 
 <div class="read-originals">
-  <h3>Where to find these treatments</h3>
   <ul>
-    <li>Einstein, <em>Relativity: The Special and General Theory</em> (1916, Lawson translation), §XV "General Results of the Theory" — the derivation that a body absorbing energy $E_0$ gains inertial mass $E_0/c^2$, and that $mc^2$ is the rest energy</li>
-    <li>Feynman, <em>Lectures on Physics</em>, Vol. I, <a href="https://www.feynmanlectures.caltech.edu/I_16.html">Ch. 16 "Relativistic Energy and Momentum"</a> (§16-4 relativistic mass, §16-5 relativistic energy) and <a href="https://www.feynmanlectures.caltech.edu/I_15.html">Ch. 15 §15-9 "Equivalence of mass and energy"</a></li>
+    <li>Einstein, <em>Relativity: The Special and the General Theory</em> (1916, tr. Lawson), §XV "General Results of the Theory": the argument that a body absorbing energy gains inertia in proportion.</li>
+    <li>Feynman, <em>Lectures on Physics</em>, Vol. I, <a href="https://www.feynmanlectures.caltech.edu/I_15.html">Ch. 15</a>, §15-8 "Relativistic dynamics" and §15-9 "Equivalence of mass and energy", and <a href="https://www.feynmanlectures.caltech.edu/I_16.html">Ch. 16 "Relativistic Energy and Momentum"</a>, §16-5 "Relativistic energy". Feynman's Chs. 15–16 use the older convention throughout, explicitly in §16-4 "Relativistic mass", which also gives the glancing-collision argument of the fold-out above.</li>
   </ul>
 </div>
 
+<h2>Where this leaves us</h2>
+
+<p>
+  The helium nucleus is lighter than its parts because it contains less energy: assembling it releases 28.3&nbsp;MeV, and every joule released takes
+  $1/c^2$ kilograms of mass with it. That is $E_0 = mc^2$, one consequence of rebuilding momentum and energy so that they are conserved in every frame.
+  The other is the relation $E^2 = p^2c^2 + m^2c^4$, which picks out mass as the part of energy and momentum that every observer agrees on.
+</p>
+
+<p>
+  That relation is the key to the last optional essay, where Dirac asks what wave equation an electron obeys if it must respect it. Before that, there is a
+  short excursion into gravity, where Einstein carried the idea that clocks depend on circumstances one step further. It is not needed for the Dirac essay,
+  and readers heading straight there can skip it.
+</p>
+
 <nav class="chapter-nav">
-  <a class="prev" href="a1-special-relativity.html">← Spacetime and Lorentz Transformations</a>
-  <a class="next" href="a3-general-relativity.html">General Relativity, Sketched →</a>
+  <a class="prev" href="a1-special-relativity.html">← Events, clocks, and spacetime</a>
+  <a class="next" href="a3-general-relativity.html">Gravity as geometry: a short excursion →</a>
 </nav>
 
 </main>
 
 <footer>
-  <p>A comparative reading. Prose is original synthesis.</p>
+  <p>Original prose, worked examples and figures.</p>
 </footer>
 
 <script>
@@ -180,6 +294,13 @@ function toggleTheme() {
   const current = root.getAttribute('data-theme');
   root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
 }
+// Printed copies include every optional section and worked answer.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('details:not([open])')];
+  closedForPrint.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
 </script>
 
 </body>

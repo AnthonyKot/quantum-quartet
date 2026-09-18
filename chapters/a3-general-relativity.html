@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>C · General Relativity, Sketched — The Quantum Quartet</title>
+  <title>Gravity as geometry: a short excursion — The Quantum Quartet</title>
   <link rel="stylesheet" href="../static/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
@@ -20,159 +20,246 @@
   </nav>
 </header>
 
-<main class="page">
+<main class="page essay">
 
-<div class="chapter-meta">Appendix C · Relativity</div>
+<div class="chapter-meta">Optional — Relativity (excursion)</div>
 
-<h1>General Relativity, Sketched</h1>
+<h1>Gravity as geometry: a short excursion</h1>
 
-<p>
-  This chapter is a sketch, and says so plainly. General relativity — Einstein's
-  theory of gravitation as the curvature of spacetime — is the one major subject in
-  this project that none of the five books treats at a level a general reader can
-  follow with the mathematics in front of them. The full theory requires tensor
-  calculus and Riemannian geometry that lie well beyond the scope of a comparative
-  reading. What can be conveyed, and what Einstein's 1916 popular exposition conveys
-  beautifully, is the physical idea at the theory's root: that gravitation and
-  acceleration are locally indistinguishable, and that this equivalence forces
-  spacetime to be curved.
+<p class="lede">
+  The clocks on GPS satellites are deliberately built to tick slightly slow before launch: by about
+  38 millionths of a second per day. Without that correction the system would drift by kilometres
+  a day. Why should a perfectly good clock need adjusting just because it is high up and moving fast?
 </p>
 
 <p>
-  Here the comparison thins to almost a single voice. Einstein leads, as the theory's
-  author writing for the public. Feynman's Volume I, from which the previous two
-  appendix chapters drew, does not develop general relativity — it belongs to a later
-  volume and a harder treatment. The four quantum authors are, of course, silent on
-  it entirely; their subject is the very small, and gravitation plays no role in
-  non-relativistic quantum mechanics. So this chapter presents Einstein's central
-  argument and is honest about stopping where the mathematics would begin.
+  This essay is an excursion. The Dirac essay that follows does not depend on it. It takes one idea
+  from Einstein's general theory of relativity, that gravity is felt only through comparisons between
+  different places, and follows it to a prediction you can check on a satellite: clocks run at different
+  rates at different heights. It stops short of the full theory, which needs mathematics well beyond this
+  book, and it says where the simple argument stops working.
 </p>
 
-<h2>Entry points</h2>
+<aside class="reminders" aria-label="Reminders">
+  <h2>Two things worth having back in mind</h2>
+  <ul>
+    <li><strong>From the first optional essay.</strong> A clock moving at speed $v$ runs slow by the
+      factor $\gamma \approx 1 + \tfrac12 v^2/c^2$ when $v \ll c$.</li>
+    <li><strong>The Doppler effect.</strong> A receiver moving towards a source at speed $u \ll c$ sees the
+      frequency raised by the fraction $u/c$.</li>
+  </ul>
+</aside>
 
-<table class="entry-table">
-  <thead>
-    <tr><th></th><th>Experiment</th><th>Axiom</th><th>Calculation</th><th>Thought experiment</th></tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="author-cell">Einstein (1916)</td>
-      <td>Equality of inertial and gravitational mass</td>
-      <td>The general principle of relativity</td>
-      <td>Deferred — the field equations lie beyond a popular account</td>
-      <td>The accelerating chest; the rotating disc</td>
-    </tr>
-    <tr>
-      <td class="author-cell">Feynman / the quartet</td>
-      <td></td>
-      <td></td>
-      <td>Not treated at an accessible level (Feynman Vol. I) or at all (the quantum texts)</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-<h2>Einstein's argument</h2>
-
-<h3>The equivalence principle</h3>
+<h2>Falling boxes feel no gravity</h2>
 
 <p>
-  Einstein's way into general relativity is the single most famous thought
-  experiment in physics, and his popular book presents it with disarming clarity.
-  Imagine a large chest, far from any star, with an observer inside; gravitation does
-  not exist for him, and he floats. Now suppose a "being" attaches a rope to the
-  outside of the chest and pulls with a constant force, so that the chest accelerates
-  uniformly. The observer inside is pressed to the floor exactly as he would be
-  standing in a room on Earth. If he releases a body, it falls to the floor with an
-  acceleration that is the same whatever body he chooses — precisely the hallmark of
-  a gravitational field.
+  Everything falls with the same acceleration: a feather and a hammer, in a vacuum, hit the ground together.
+  Einstein took this as the clue. Imagine a closed laboratory falling freely. Everything in it, including you,
+  falls together, so nothing presses on anything: objects let go of hang in mid-air, exactly as they would in a
+  laboratory drifting in empty space far from any star. Conversely, a laboratory in empty space being accelerated
+  upwards by a rocket feels exactly like one standing on the Earth: objects fall to the floor.
 </p>
 
 <p>
-  The observer, Einstein argues, is entitled to conclude that he sits at rest in a
-  uniform gravitational field, with the chest suspended by the rope. Ought we to
-  correct him? Einstein's answer is that we ought not — his interpretation violates
-  neither reason nor any known mechanical law. There is no experiment the man can
-  perform inside the chest to distinguish "I am being accelerated" from "I am at rest
-  in a gravitational field." This indistinguishability, resting on the observed
-  equality of inertial and gravitational mass, is the equivalence principle, and it
-  is the ground on which Einstein extends the principle of relativity from uniform
-  motion to accelerated frames — the step from special to general relativity.
+  Einstein's <em>equivalence principle</em> turns this into a law: in a small enough region, and over a short enough
+  time, the effects of gravity cannot be told apart from the effects of acceleration, by any experiment whatever. The
+  qualification matters, and we will come back to it.
 </p>
 
-<h3>Why spacetime must curve</h3>
+<h2>Clocks higher up run faster</h2>
 
 <p>
-  From the equivalence principle Einstein draws consequences that a reader can grasp
-  without the field equations. Because acceleration and gravitation are locally the
-  same, a gravitational field must bend light and slow clocks — a beam crossing the
-  accelerating chest appears to curve, so a beam crossing a real gravitational field
-  must curve too. His most vivid geometrical argument is the rotating disc. Set a
-  large disc spinning and measure it with rods: the circumference, whose rods are
-  contracted by their motion, no longer stands to the diameter in the ratio $\pi$.
-  Euclid's geometry fails on the rotating disc — and since, by the equivalence
-  principle, rotation is a kind of gravitational field, geometry itself must be
-  non-Euclidean wherever gravitation is present.
+  Put two clocks in a rocket accelerating upwards at $g$ in empty space, one on the floor and one a height $h$ above it.
+  The floor clock sends a light signal up. The light takes a time $h/c$ to arrive, and meanwhile the rocket has gained
+  speed $u = gh/c$. The upper clock is therefore moving away from where the light was emitted, faster than the rocket
+  was moving at the time, and by the Doppler effect it receives the signal at a frequency lower by the fraction
+</p>
+
+$$\frac{\Delta\nu}{\nu} = \frac{u}{c} = \frac{gh}{c^2}.$$
+
+<p>
+  The upper clock sees the lower one ticking slow. The same happens for a signal sent downwards, reversed: the lower clock
+  sees the upper one ticking fast. By the equivalence principle, the same must hold for two clocks at rest in a gravitational
+  field of strength $g$. <strong>A clock lower down in gravity runs slower</strong>, by the fraction $gh/c^2$, than one higher up.
+  This is the <em>gravitational redshift</em>: light climbing out of gravity arrives with lower frequency.
 </p>
 
 <p>
-  This is as far as a sketch honestly reaches. The conclusion — that gravitation is
-  not a force acting within a flat space but the curvature of spacetime itself, and
-  that matter tells spacetime how to curve while spacetime tells matter how to move —
-  is stated by Einstein in words but established only through the mathematics of
-  Gaussian coordinates and the general field equations, which his popular book gently
-  approaches and this chapter does not. The reader who wants the physical intuition
-  has it here; the reader who wants the theory must go to the sources, and past them.
+  The effect is tiny near the Earth: $g/c^2 = 1.1\times10^{-16}$ per metre of height. In 1959–60, Robert Pound and Glen Rebka sent
+  gamma rays 22.5&nbsp;m up a tower at Harvard and measured the predicted shift, $gh/c^2 = 2.5\times10^{-15}$. Today optical atomic
+  clocks can detect the difference in rate made by raising one of them by a fraction of a metre.
 </p>
 
-<h2>Synthesis</h2>
+<h2>Worked example: GPS</h2>
+
+<div class="worked">
+<p>
+  GPS satellites orbit at a radius of about 26,560&nbsp;km, some 20,200&nbsp;km above the ground. For height differences that large,
+  $gh/c^2$ is replaced by the difference in gravitational potential divided by $c^2$, which for a sphere of mass $M$ is
+  $(GM/c^2)(1/R_E - 1/r)$, with $GM = 3.986\times10^{14}$&nbsp;m³/s² for the Earth and $R_E = 6371$&nbsp;km.
+</p>
+<p>
+  <strong>Gravity:</strong> $(GM/c^2)(1/R_E - 1/r) = 5.3\times10^{-10}$. Over a day of 86,400&nbsp;s, the satellite clock gains
+  <strong>45.7&nbsp;μs</strong> on a ground clock.
+</p>
+<p>
+  <strong>Motion:</strong> the orbital speed is $v = \sqrt{GM/r} = 3.87$&nbsp;km/s, so the special-relativity slowing is
+  $v^2/2c^2 = 8.3\times10^{-11}$, a loss of <strong>7.2&nbsp;μs</strong> a day.
+</p>
+<p>
+  <strong>Net:</strong> the satellite clock gains about <strong>38.5&nbsp;μs per day</strong>. GPS works by timing radio signals,
+  which cover $c\times38.5\ \mu\text{s} = 11.5$&nbsp;km in that time. Uncorrected, position fixes would drift by kilometres every day.
+  That is why the satellite clocks are set to run slow by this amount before launch. (This simple calculation ignores the
+  Earth's rotation and the slight ellipticity of the orbits, both of which the real system corrects for.)
+</p>
+<p>
+  <strong>Check:</strong> for a clock in low orbit, the speed term wins. The International Space Station, 420&nbsp;km up and moving at
+  7.7&nbsp;km/s, loses about 24&nbsp;μs a day on a ground clock, and the two effects cancel at an altitude of about 3,200&nbsp;km.
+</p>
+</div>
+
+<figure>
+<div class="fig-scroll">
+<!-- FIGURE:clockrates generated by scripts/a3_gravity.py -->
+<svg class="fig-svg" viewBox="0 0 680 330" role="img" aria-labelledby="fig-cr-title fig-cr-desc">
+<title id="fig-cr-title">How fast an orbiting clock runs compared with one on the ground</title>
+<desc id="fig-cr-desc">Daily clock gain or loss against orbital altitude. The gravitational effect makes higher clocks gain, rising towards about 60 microseconds a day. The orbital speed makes them lose, most strongly in low orbit. The net is a loss in low orbit, zero at about 3,200 kilometres, and a gain of about 38 microseconds a day at the altitude of GPS.</desc>
+<path class="fig-axis" d="M70,20 V280 H660"/>
+<path class="fig-axis" style="stroke-width:1.2" d="M70,178.9 H660"/>
+<path class="fig-axis" d="M70.0,280 v5"/>
+<text class="fig-tick" x="70.0" y="299" text-anchor="middle">0</text>
+<path class="fig-axis" d="M188.0,280 v5"/>
+<text class="fig-tick" x="188.0" y="299" text-anchor="middle">5,000</text>
+<path class="fig-axis" d="M306.0,280 v5"/>
+<text class="fig-tick" x="306.0" y="299" text-anchor="middle">10,000</text>
+<path class="fig-axis" d="M424.0,280 v5"/>
+<text class="fig-tick" x="424.0" y="299" text-anchor="middle">15,000</text>
+<path class="fig-axis" d="M542.0,280 v5"/>
+<text class="fig-tick" x="542.0" y="299" text-anchor="middle">20,000</text>
+<path class="fig-axis" d="M660.0,280 v5"/>
+<text class="fig-tick" x="660.0" y="299" text-anchor="middle">25,000</text>
+<path class="fig-axis" d="M70,265.6 h-5"/>
+<text class="fig-tick" x="61" y="269.6" text-anchor="end">-30</text>
+<path class="fig-axis" d="M70,222.2 h-5"/>
+<text class="fig-tick" x="61" y="226.2" text-anchor="end">-15</text>
+<path class="fig-axis" d="M70,178.9 h-5"/>
+<text class="fig-tick" x="61" y="182.9" text-anchor="end">0</text>
+<path class="fig-axis" d="M70,135.6 h-5"/>
+<text class="fig-tick" x="61" y="139.6" text-anchor="end">+15</text>
+<path class="fig-axis" d="M70,92.2 h-5"/>
+<text class="fig-tick" x="61" y="96.2" text-anchor="end">+30</text>
+<path class="fig-axis" d="M70,48.9 h-5"/>
+<text class="fig-tick" x="61" y="52.9" text-anchor="end">+45</text>
+<text class="fig-label" x="365.0" y="318" text-anchor="middle">orbital altitude (km)</text>
+<text class="fig-label" transform="translate(18,150.0) rotate(-90)" text-anchor="middle">clock gain per day (μs)</text>
+<path class="fig-curve fig-mid" style="stroke-dasharray:6 4" d="M71.5,177.2 L73.0,175.5 L74.4,173.9 L75.9,172.3 L77.4,170.8 L78.8,169.2 L80.3,167.7 L81.8,166.2 L83.3,164.8 L84.8,163.4 L86.2,162.0 L87.7,160.6 L89.2,159.2 L90.7,157.9 L92.1,156.6 L93.6,155.3 L95.1,154.1 L96.5,152.8 L98.0,151.6 L99.5,150.4 L101.0,149.2 L102.5,148.0 L103.9,146.9 L105.4,145.8 L106.9,144.7 L108.3,143.6 L109.8,142.5 L111.3,141.4 L112.8,140.4 L114.2,139.4 L115.7,138.4 L117.2,137.4 L118.7,136.4 L120.2,135.4 L121.6,134.5 L123.1,133.5 L124.6,132.6 L126.0,131.7 L127.5,130.8 L129.0,129.9 L130.5,129.0 L131.9,128.2 L133.4,127.3 L134.9,126.5 L136.4,125.7 L137.8,124.9 L139.3,124.1 L140.8,123.3 L142.3,122.5 L143.8,121.7 L145.2,120.9 L146.7,120.2 L148.2,119.5 L149.7,118.7 L151.1,118.0 L152.6,117.3 L154.1,116.6 L155.6,115.9 L157.0,115.2 L158.5,114.5 L160.0,113.8 L161.4,113.2 L162.9,112.5 L164.4,111.9 L165.9,111.2 L167.3,110.6 L168.8,110.0 L170.3,109.4 L171.8,108.8 L173.2,108.1 L174.7,107.6 L176.2,107.0 L177.7,106.4 L179.2,105.8 L180.6,105.2 L182.1,104.7 L183.6,104.1 L185.1,103.6 L186.5,103.0 L188.0,102.5 L189.5,102.0 L190.9,101.4 L192.4,100.9 L193.9,100.4 L195.4,99.9 L196.8,99.4 L198.3,98.9 L199.8,98.4 L201.3,97.9 L202.8,97.4 L204.2,96.9 L205.7,96.5 L207.2,96.0 L208.7,95.5 L210.1,95.1 L211.6,94.6 L213.1,94.2 L214.6,93.7 L216.0,93.3 L217.5,92.8 L219.0,92.4 L220.4,92.0 L221.9,91.6 L223.4,91.1 L224.9,90.7 L226.3,90.3 L227.8,89.9 L229.3,89.5 L230.8,89.1 L232.2,88.7 L233.7,88.3 L235.2,87.9 L236.7,87.5 L238.2,87.2 L239.6,86.8 L241.1,86.4 L242.6,86.0 L244.1,85.7 L245.5,85.3 L247.0,84.9 L248.5,84.6 L249.9,84.2 L251.4,83.9 L252.9,83.5 L254.4,83.2 L255.8,82.8 L257.3,82.5 L258.8,82.2 L260.3,81.8 L261.8,81.5 L263.2,81.2 L264.7,80.8 L266.2,80.5 L267.6,80.2 L269.1,79.9 L270.6,79.6 L272.1,79.3 L273.6,79.0 L275.0,78.6 L276.5,78.3 L278.0,78.0 L279.4,77.7 L280.9,77.4 L282.4,77.2 L283.9,76.9 L285.4,76.6 L286.8,76.3 L288.3,76.0 L289.8,75.7 L291.2,75.4 L292.7,75.2 L294.2,74.9 L295.7,74.6 L297.1,74.3 L298.6,74.1 L300.1,73.8 L301.6,73.5 L303.1,73.3 L304.5,73.0 L306.0,72.8 L307.5,72.5 L308.9,72.2 L310.4,72.0 L311.9,71.7 L313.4,71.5 L314.9,71.2 L316.3,71.0 L317.8,70.8 L319.3,70.5 L320.8,70.3 L322.2,70.0 L323.7,69.8 L325.2,69.6 L326.6,69.3 L328.1,69.1 L329.6,68.9 L331.1,68.6 L332.6,68.4 L334.0,68.2 L335.5,68.0 L337.0,67.7 L338.4,67.5 L339.9,67.3 L341.4,67.1 L342.9,66.9 L344.4,66.6 L345.8,66.4 L347.3,66.2 L348.8,66.0 L350.2,65.8 L351.7,65.6 L353.2,65.4 L354.7,65.2 L356.1,65.0 L357.6,64.8 L359.1,64.6 L360.6,64.4 L362.1,64.2 L363.5,64.0 L365.0,63.8 L366.5,63.6 L367.9,63.4 L369.4,63.2 L370.9,63.0 L372.4,62.8 L373.9,62.7 L375.3,62.5 L376.8,62.3 L378.3,62.1 L379.8,61.9 L381.2,61.7 L382.7,61.6 L384.2,61.4 L385.6,61.2 L387.1,61.0 L388.6,60.8 L390.1,60.7 L391.6,60.5 L393.0,60.3 L394.5,60.2 L396.0,60.0 L397.4,59.8 L398.9,59.6 L400.4,59.5 L401.9,59.3 L403.4,59.1 L404.8,59.0 L406.3,58.8 L407.8,58.7 L409.2,58.5 L410.7,58.3 L412.2,58.2 L413.7,58.0 L415.1,57.9 L416.6,57.7 L418.1,57.5 L419.6,57.4 L421.1,57.2 L422.5,57.1 L424.0,56.9 L425.5,56.8 L426.9,56.6 L428.4,56.5 L429.9,56.3 L431.4,56.2 L432.9,56.0 L434.3,55.9 L435.8,55.7 L437.3,55.6 L438.8,55.5 L440.2,55.3 L441.7,55.2 L443.2,55.0 L444.6,54.9 L446.1,54.8 L447.6,54.6 L449.1,54.5 L450.6,54.3 L452.0,54.2 L453.5,54.1 L455.0,53.9 L456.4,53.8 L457.9,53.7 L459.4,53.5 L460.9,53.4 L462.4,53.3 L463.8,53.1 L465.3,53.0 L466.8,52.9 L468.2,52.8 L469.7,52.6 L471.2,52.5 L472.7,52.4 L474.1,52.2 L475.6,52.1 L477.1,52.0 L478.6,51.9 L480.1,51.8 L481.5,51.6 L483.0,51.5 L484.5,51.4 L485.9,51.3 L487.4,51.1 L488.9,51.0 L490.4,50.9 L491.9,50.8 L493.3,50.7 L494.8,50.6 L496.3,50.4 L497.8,50.3 L499.2,50.2 L500.7,50.1 L502.2,50.0 L503.6,49.9 L505.1,49.8 L506.6,49.6 L508.1,49.5 L509.6,49.4 L511.0,49.3 L512.5,49.2 L514.0,49.1 L515.5,49.0 L516.9,48.9 L518.4,48.8 L519.9,48.7 L521.4,48.6 L522.8,48.4 L524.3,48.3 L525.8,48.2 L527.2,48.1 L528.7,48.0 L530.2,47.9 L531.7,47.8 L533.1,47.7 L534.6,47.6 L536.1,47.5 L537.6,47.4 L539.0,47.3 L540.5,47.2 L542.0,47.1 L543.5,47.0 L545.0,46.9 L546.4,46.8 L547.9,46.7 L549.4,46.6 L550.9,46.5 L552.3,46.4 L553.8,46.3 L555.3,46.2 L556.8,46.1 L558.2,46.0 L559.7,46.0 L561.2,45.9 L562.6,45.8 L564.1,45.7 L565.6,45.6 L567.1,45.5 L568.5,45.4 L570.0,45.3 L571.5,45.2 L573.0,45.1 L574.5,45.0 L575.9,44.9 L577.4,44.9 L578.9,44.8 L580.4,44.7 L581.8,44.6 L583.3,44.5 L584.8,44.4 L586.2,44.3 L587.7,44.2 L589.2,44.2 L590.7,44.1 L592.1,44.0 L593.6,43.9 L595.1,43.8 L596.6,43.7 L598.0,43.6 L599.5,43.6 L601.0,43.5 L602.5,43.4 L604.0,43.3 L605.4,43.2 L606.9,43.1 L608.4,43.1 L609.9,43.0 L611.3,42.9 L612.8,42.8 L614.3,42.7 L615.8,42.7 L617.2,42.6 L618.7,42.5 L620.2,42.4 L621.6,42.3 L623.1,42.3 L624.6,42.2 L626.1,42.1 L627.5,42.0 L629.0,42.0 L630.5,41.9 L632.0,41.8 L633.5,41.7 L634.9,41.7 L636.4,41.6 L637.9,41.5 L639.4,41.4 L640.8,41.4 L642.3,41.3 L643.8,41.2 L645.2,41.1 L646.7,41.1 L648.2,41.0 L649.7,40.9 L651.1,40.8 L652.6,40.8 L654.1,40.7 L655.6,40.6 L657.0,40.6 L658.5,40.5 L660.0,40.4"/>
+<path class="fig-curve fig-cool" style="stroke-dasharray:2 3" d="M71.5,264.9 L73.0,264.1 L74.4,263.3 L75.9,262.5 L77.4,261.7 L78.8,260.9 L80.3,260.2 L81.8,259.4 L83.3,258.7 L84.8,258.0 L86.2,257.3 L87.7,256.6 L89.2,255.9 L90.7,255.3 L92.1,254.6 L93.6,254.0 L95.1,253.3 L96.5,252.7 L98.0,252.1 L99.5,251.5 L101.0,250.9 L102.5,250.3 L103.9,249.8 L105.4,249.2 L106.9,248.7 L108.3,248.1 L109.8,247.6 L111.3,247.0 L112.8,246.5 L114.2,246.0 L115.7,245.5 L117.2,245.0 L118.7,244.5 L120.2,244.0 L121.6,243.6 L123.1,243.1 L124.6,242.6 L126.0,242.2 L127.5,241.7 L129.0,241.3 L130.5,240.8 L131.9,240.4 L133.4,240.0 L134.9,239.6 L136.4,239.2 L137.8,238.8 L139.3,238.3 L140.8,238.0 L142.3,237.6 L143.8,237.2 L145.2,236.8 L146.7,236.4 L148.2,236.0 L149.7,235.7 L151.1,235.3 L152.6,235.0 L154.1,234.6 L155.6,234.3 L157.0,233.9 L158.5,233.6 L160.0,233.2 L161.4,232.9 L162.9,232.6 L164.4,232.3 L165.9,231.9 L167.3,231.6 L168.8,231.3 L170.3,231.0 L171.8,230.7 L173.2,230.4 L174.7,230.1 L176.2,229.8 L177.7,229.5 L179.2,229.2 L180.6,228.9 L182.1,228.7 L183.6,228.4 L185.1,228.1 L186.5,227.8 L188.0,227.6 L189.5,227.3 L190.9,227.0 L192.4,226.8 L193.9,226.5 L195.4,226.3 L196.8,226.0 L198.3,225.8 L199.8,225.5 L201.3,225.3 L202.8,225.0 L204.2,224.8 L205.7,224.6 L207.2,224.3 L208.7,224.1 L210.1,223.9 L211.6,223.6 L213.1,223.4 L214.6,223.2 L216.0,223.0 L217.5,222.7 L219.0,222.5 L220.4,222.3 L221.9,222.1 L223.4,221.9 L224.9,221.7 L226.3,221.5 L227.8,221.3 L229.3,221.1 L230.8,220.9 L232.2,220.7 L233.7,220.5 L235.2,220.3 L236.7,220.1 L238.2,219.9 L239.6,219.7 L241.1,219.5 L242.6,219.3 L244.1,219.2 L245.5,219.0 L247.0,218.8 L248.5,218.6 L249.9,218.4 L251.4,218.3 L252.9,218.1 L254.4,217.9 L255.8,217.7 L257.3,217.6 L258.8,217.4 L260.3,217.2 L261.8,217.1 L263.2,216.9 L264.7,216.7 L266.2,216.6 L267.6,216.4 L269.1,216.3 L270.6,216.1 L272.1,216.0 L273.6,215.8 L275.0,215.6 L276.5,215.5 L278.0,215.3 L279.4,215.2 L280.9,215.0 L282.4,214.9 L283.9,214.8 L285.4,214.6 L286.8,214.5 L288.3,214.3 L289.8,214.2 L291.2,214.0 L292.7,213.9 L294.2,213.8 L295.7,213.6 L297.1,213.5 L298.6,213.4 L300.1,213.2 L301.6,213.1 L303.1,213.0 L304.5,212.8 L306.0,212.7 L307.5,212.6 L308.9,212.4 L310.4,212.3 L311.9,212.2 L313.4,212.1 L314.9,211.9 L316.3,211.8 L317.8,211.7 L319.3,211.6 L320.8,211.5 L322.2,211.3 L323.7,211.2 L325.2,211.1 L326.6,211.0 L328.1,210.9 L329.6,210.8 L331.1,210.6 L332.6,210.5 L334.0,210.4 L335.5,210.3 L337.0,210.2 L338.4,210.1 L339.9,210.0 L341.4,209.9 L342.9,209.8 L344.4,209.6 L345.8,209.5 L347.3,209.4 L348.8,209.3 L350.2,209.2 L351.7,209.1 L353.2,209.0 L354.7,208.9 L356.1,208.8 L357.6,208.7 L359.1,208.6 L360.6,208.5 L362.1,208.4 L363.5,208.3 L365.0,208.2 L366.5,208.1 L367.9,208.0 L369.4,207.9 L370.9,207.8 L372.4,207.7 L373.9,207.6 L375.3,207.6 L376.8,207.5 L378.3,207.4 L379.8,207.3 L381.2,207.2 L382.7,207.1 L384.2,207.0 L385.6,206.9 L387.1,206.8 L388.6,206.7 L390.1,206.7 L391.6,206.6 L393.0,206.5 L394.5,206.4 L396.0,206.3 L397.4,206.2 L398.9,206.1 L400.4,206.1 L401.9,206.0 L403.4,205.9 L404.8,205.8 L406.3,205.7 L407.8,205.6 L409.2,205.6 L410.7,205.5 L412.2,205.4 L413.7,205.3 L415.1,205.3 L416.6,205.2 L418.1,205.1 L419.6,205.0 L421.1,204.9 L422.5,204.9 L424.0,204.8 L425.5,204.7 L426.9,204.6 L428.4,204.6 L429.9,204.5 L431.4,204.4 L432.9,204.3 L434.3,204.3 L435.8,204.2 L437.3,204.1 L438.8,204.1 L440.2,204.0 L441.7,203.9 L443.2,203.8 L444.6,203.8 L446.1,203.7 L447.6,203.6 L449.1,203.6 L450.6,203.5 L452.0,203.4 L453.5,203.4 L455.0,203.3 L456.4,203.2 L457.9,203.2 L459.4,203.1 L460.9,203.0 L462.4,203.0 L463.8,202.9 L465.3,202.8 L466.8,202.8 L468.2,202.7 L469.7,202.6 L471.2,202.6 L472.7,202.5 L474.1,202.4 L475.6,202.4 L477.1,202.3 L478.6,202.3 L480.1,202.2 L481.5,202.1 L483.0,202.1 L484.5,202.0 L485.9,202.0 L487.4,201.9 L488.9,201.8 L490.4,201.8 L491.9,201.7 L493.3,201.7 L494.8,201.6 L496.3,201.5 L497.8,201.5 L499.2,201.4 L500.7,201.4 L502.2,201.3 L503.6,201.3 L505.1,201.2 L506.6,201.1 L508.1,201.1 L509.6,201.0 L511.0,201.0 L512.5,200.9 L514.0,200.9 L515.5,200.8 L516.9,200.8 L518.4,200.7 L519.9,200.7 L521.4,200.6 L522.8,200.5 L524.3,200.5 L525.8,200.4 L527.2,200.4 L528.7,200.3 L530.2,200.3 L531.7,200.2 L533.1,200.2 L534.6,200.1 L536.1,200.1 L537.6,200.0 L539.0,200.0 L540.5,199.9 L542.0,199.9 L543.5,199.8 L545.0,199.8 L546.4,199.7 L547.9,199.7 L549.4,199.6 L550.9,199.6 L552.3,199.5 L553.8,199.5 L555.3,199.4 L556.8,199.4 L558.2,199.3 L559.7,199.3 L561.2,199.3 L562.6,199.2 L564.1,199.2 L565.6,199.1 L567.1,199.1 L568.5,199.0 L570.0,199.0 L571.5,198.9 L573.0,198.9 L574.5,198.8 L575.9,198.8 L577.4,198.7 L578.9,198.7 L580.4,198.7 L581.8,198.6 L583.3,198.6 L584.8,198.5 L586.2,198.5 L587.7,198.4 L589.2,198.4 L590.7,198.4 L592.1,198.3 L593.6,198.3 L595.1,198.2 L596.6,198.2 L598.0,198.1 L599.5,198.1 L601.0,198.1 L602.5,198.0 L604.0,198.0 L605.4,197.9 L606.9,197.9 L608.4,197.9 L609.9,197.8 L611.3,197.8 L612.8,197.7 L614.3,197.7 L615.8,197.7 L617.2,197.6 L618.7,197.6 L620.2,197.5 L621.6,197.5 L623.1,197.5 L624.6,197.4 L626.1,197.4 L627.5,197.3 L629.0,197.3 L630.5,197.3 L632.0,197.2 L633.5,197.2 L634.9,197.2 L636.4,197.1 L637.9,197.1 L639.4,197.0 L640.8,197.0 L642.3,197.0 L643.8,196.9 L645.2,196.9 L646.7,196.9 L648.2,196.8 L649.7,196.8 L651.1,196.7 L652.6,196.7 L654.1,196.7 L655.6,196.6 L657.0,196.6 L658.5,196.6 L660.0,196.5"/>
+<path class="fig-curve fig-hot" style="stroke-width:2.6" d="M71.5,263.2 L73.0,260.8 L74.4,258.3 L75.9,255.9 L77.4,253.6 L78.8,251.3 L80.3,249.0 L81.8,246.8 L83.3,244.6 L84.8,242.5 L86.2,240.4 L87.7,238.3 L89.2,236.3 L90.7,234.3 L92.1,232.3 L93.6,230.4 L95.1,228.5 L96.5,226.7 L98.0,224.8 L99.5,223.0 L101.0,221.2 L102.5,219.5 L103.9,217.8 L105.4,216.1 L106.9,214.4 L108.3,212.8 L109.8,211.2 L111.3,209.6 L112.8,208.0 L114.2,206.5 L115.7,205.0 L117.2,203.5 L118.7,202.0 L120.2,200.6 L121.6,199.2 L123.1,197.7 L124.6,196.4 L126.0,195.0 L127.5,193.6 L129.0,192.3 L130.5,191.0 L131.9,189.7 L133.4,188.4 L134.9,187.2 L136.4,185.9 L137.8,184.7 L139.3,183.5 L140.8,182.3 L142.3,181.2 L143.8,180.0 L145.2,178.9 L146.7,177.7 L148.2,176.6 L149.7,175.5 L151.1,174.4 L152.6,173.4 L154.1,172.3 L155.6,171.2 L157.0,170.2 L158.5,169.2 L160.0,168.2 L161.4,167.2 L162.9,166.2 L164.4,165.2 L165.9,164.3 L167.3,163.3 L168.8,162.4 L170.3,161.5 L171.8,160.6 L173.2,159.7 L174.7,158.8 L176.2,157.9 L177.7,157.0 L179.2,156.1 L180.6,155.3 L182.1,154.4 L183.6,153.6 L185.1,152.8 L186.5,152.0 L188.0,151.2 L189.5,150.4 L190.9,149.6 L192.4,148.8 L193.9,148.0 L195.4,147.3 L196.8,146.5 L198.3,145.8 L199.8,145.0 L201.3,144.3 L202.8,143.6 L204.2,142.8 L205.7,142.1 L207.2,141.4 L208.7,140.7 L210.1,140.0 L211.6,139.4 L213.1,138.7 L214.6,138.0 L216.0,137.4 L217.5,136.7 L219.0,136.1 L220.4,135.4 L221.9,134.8 L223.4,134.1 L224.9,133.5 L226.3,132.9 L227.8,132.3 L229.3,131.7 L230.8,131.1 L232.2,130.5 L233.7,129.9 L235.2,129.3 L236.7,128.7 L238.2,128.2 L239.6,127.6 L241.1,127.0 L242.6,126.5 L244.1,125.9 L245.5,125.4 L247.0,124.8 L248.5,124.3 L249.9,123.8 L251.4,123.2 L252.9,122.7 L254.4,122.2 L255.8,121.7 L257.3,121.2 L258.8,120.7 L260.3,120.2 L261.8,119.7 L263.2,119.2 L264.7,118.7 L266.2,118.2 L267.6,117.7 L269.1,117.3 L270.6,116.8 L272.1,116.3 L273.6,115.9 L275.0,115.4 L276.5,114.9 L278.0,114.5 L279.4,114.0 L280.9,113.6 L282.4,113.2 L283.9,112.7 L285.4,112.3 L286.8,111.9 L288.3,111.4 L289.8,111.0 L291.2,110.6 L292.7,110.2 L294.2,109.8 L295.7,109.3 L297.1,108.9 L298.6,108.5 L300.1,108.1 L301.6,107.7 L303.1,107.3 L304.5,107.0 L306.0,106.6 L307.5,106.2 L308.9,105.8 L310.4,105.4 L311.9,105.0 L313.4,104.7 L314.9,104.3 L316.3,103.9 L317.8,103.6 L319.3,103.2 L320.8,102.8 L322.2,102.5 L323.7,102.1 L325.2,101.8 L326.6,101.4 L328.1,101.1 L329.6,100.7 L331.1,100.4 L332.6,100.0 L334.0,99.7 L335.5,99.4 L337.0,99.0 L338.4,98.7 L339.9,98.4 L341.4,98.0 L342.9,97.7 L344.4,97.4 L345.8,97.1 L347.3,96.8 L348.8,96.5 L350.2,96.1 L351.7,95.8 L353.2,95.5 L354.7,95.2 L356.1,94.9 L357.6,94.6 L359.1,94.3 L360.6,94.0 L362.1,93.7 L363.5,93.4 L365.0,93.1 L366.5,92.8 L367.9,92.5 L369.4,92.3 L370.9,92.0 L372.4,91.7 L373.9,91.4 L375.3,91.1 L376.8,90.9 L378.3,90.6 L379.8,90.3 L381.2,90.0 L382.7,89.8 L384.2,89.5 L385.6,89.2 L387.1,89.0 L388.6,88.7 L390.1,88.4 L391.6,88.2 L393.0,87.9 L394.5,87.7 L396.0,87.4 L397.4,87.2 L398.9,86.9 L400.4,86.6 L401.9,86.4 L403.4,86.2 L404.8,85.9 L406.3,85.7 L407.8,85.4 L409.2,85.2 L410.7,84.9 L412.2,84.7 L413.7,84.5 L415.1,84.2 L416.6,84.0 L418.1,83.8 L419.6,83.5 L421.1,83.3 L422.5,83.1 L424.0,82.8 L425.5,82.6 L426.9,82.4 L428.4,82.2 L429.9,81.9 L431.4,81.7 L432.9,81.5 L434.3,81.3 L435.8,81.1 L437.3,80.8 L438.8,80.6 L440.2,80.4 L441.7,80.2 L443.2,80.0 L444.6,79.8 L446.1,79.6 L447.6,79.4 L449.1,79.2 L450.6,78.9 L452.0,78.7 L453.5,78.5 L455.0,78.3 L456.4,78.1 L457.9,77.9 L459.4,77.7 L460.9,77.5 L462.4,77.3 L463.8,77.1 L465.3,77.0 L466.8,76.8 L468.2,76.6 L469.7,76.4 L471.2,76.2 L472.7,76.0 L474.1,75.8 L475.6,75.6 L477.1,75.4 L478.6,75.2 L480.1,75.1 L481.5,74.9 L483.0,74.7 L484.5,74.5 L485.9,74.3 L487.4,74.2 L488.9,74.0 L490.4,73.8 L491.9,73.6 L493.3,73.4 L494.8,73.3 L496.3,73.1 L497.8,72.9 L499.2,72.7 L500.7,72.6 L502.2,72.4 L503.6,72.2 L505.1,72.1 L506.6,71.9 L508.1,71.7 L509.6,71.6 L511.0,71.4 L512.5,71.2 L514.0,71.1 L515.5,70.9 L516.9,70.7 L518.4,70.6 L519.9,70.4 L521.4,70.3 L522.8,70.1 L524.3,69.9 L525.8,69.8 L527.2,69.6 L528.7,69.5 L530.2,69.3 L531.7,69.2 L533.1,69.0 L534.6,68.9 L536.1,68.7 L537.6,68.6 L539.0,68.4 L540.5,68.3 L542.0,68.1 L543.5,68.0 L545.0,67.8 L546.4,67.7 L547.9,67.5 L549.4,67.4 L550.9,67.2 L552.3,67.1 L553.8,66.9 L555.3,66.8 L556.8,66.6 L558.2,66.5 L559.7,66.4 L561.2,66.2 L562.6,66.1 L564.1,65.9 L565.6,65.8 L567.1,65.7 L568.5,65.5 L570.0,65.4 L571.5,65.3 L573.0,65.1 L574.5,65.0 L575.9,64.8 L577.4,64.7 L578.9,64.6 L580.4,64.4 L581.8,64.3 L583.3,64.2 L584.8,64.1 L586.2,63.9 L587.7,63.8 L589.2,63.7 L590.7,63.5 L592.1,63.4 L593.6,63.3 L595.1,63.2 L596.6,63.0 L598.0,62.9 L599.5,62.8 L601.0,62.6 L602.5,62.5 L604.0,62.4 L605.4,62.3 L606.9,62.2 L608.4,62.0 L609.9,61.9 L611.3,61.8 L612.8,61.7 L614.3,61.5 L615.8,61.4 L617.2,61.3 L618.7,61.2 L620.2,61.1 L621.6,61.0 L623.1,60.8 L624.6,60.7 L626.1,60.6 L627.5,60.5 L629.0,60.4 L630.5,60.3 L632.0,60.1 L633.5,60.0 L634.9,59.9 L636.4,59.8 L637.9,59.7 L639.4,59.6 L640.8,59.5 L642.3,59.4 L643.8,59.3 L645.2,59.1 L646.7,59.0 L648.2,58.9 L649.7,58.8 L651.1,58.7 L652.6,58.6 L654.1,58.5 L655.6,58.4 L657.0,58.3 L658.5,58.2 L660.0,58.1"/>
+<text class="fig-note" x="435.8" y="31.6">gravity: higher clocks gain</text>
+<text class="fig-note" x="412.2" y="233.8">orbital speed: moving clocks lose</text>
+<circle cx="546.5" cy="67.7" r="4.5" class="fig-dot"/>
+<text class="fig-note" x="554.5" y="59.7">GPS, net +38.5</text>
+<circle cx="79.9" cy="249.6" r="4.5" class="fig-dot"/>
+<text class="fig-note" x="87.9" y="265.6">ISS, net -24.5</text>
+</svg>
+<!-- /FIGURE:clockrates -->
+</div>
+  <figcaption>
+    Daily gain of an orbiting clock over a ground clock, against altitude, for circular orbits around a non-rotating Earth.
+    Dashed: the gravitational gain, larger for higher clocks. Dotted: the loss from orbital speed, larger in low orbit. Solid:
+    the net. Low orbits lose time, high orbits gain it; GPS satellites gain about 38&nbsp;μs a day.
+  </figcaption>
+</figure>
+
+<h2>Where the equivalence stops: tides</h2>
 
 <p>
-  The honest content of this chapter is a single, powerful idea presented by its
-  author, and an acknowledgment of a limit. Einstein's equivalence principle — that a
-  freely falling observer feels no gravity, and an accelerated one cannot tell
-  acceleration from gravitation — is the conceptual seed of general relativity, and it
-  is fully graspable without mathematics. That is why his 1916 exposition remains, a
-  century on, one of the best first encounters with the idea. What cannot be sketched
-  is the harvest: the field equations, the bending of starlight, the precession of
-  Mercury, the expansion of the universe. Those require the machinery the popular book
-  can only gesture toward.
+  The equivalence principle holds only in a small region, and the reason points to the full theory. Drop two balls side by side,
+  1&nbsp;m apart, in a freely falling laboratory. Each falls towards the centre of the Earth, and the two directions are not quite
+  parallel, so the balls drift towards each other: slowly, by about 77 micrometres after ten seconds of falling, but measurably.
+  Two balls one above the other drift apart, because the lower one is pulled slightly harder. No uniform acceleration of the
+  laboratory can produce this squeezing and stretching. These are <em>tidal</em> effects, the same that raise the ocean tides.
 </p>
 
 <p>
-  It is worth marking why the comparison collapses here to one voice, because the
-  silence is itself informative. General relativity stands apart from everything else
-  in this project: it is a classical field theory of gravitation, and it has never
-  been reconciled with the quantum mechanics that fills the main chapters. The four
-  quantum authors do not treat it because their domain — atoms, electrons, the very
-  small — is one where gravitation is utterly negligible. Feynman treats it, but
-  elsewhere and harder. The gap between this appendix and the rest of the site is the
-  same gap that still runs through physics itself: the unfinished business of joining
-  the theory of the very large to the theory of the very small. That this comparative
-  reading can set them side by side but not unite them is not a failure of the
-  reading. It is the honest state of the subject.
+  So gravity can be removed by free fall only locally, one small region at a time, and the regions do not fit together into one
+  flat frame. Einstein's general theory, completed in 1915, makes this precise: tidal effects are the curvature of spacetime, and
+  matter and energy determine that curvature. Free-falling bodies follow the straightest possible paths through curved spacetime.
+  Uniform gravity, which the equivalence argument handled, is exactly the part that free fall removes; curvature is the part it
+  cannot remove. The full theory predicts more than the redshift: the extra bending of starlight passing the Sun, first measured in
+  1919; the slow turning of Mercury's orbit; and gravitational waves, detected directly in 2015.
 </p>
 
-<h2>Read the originals</h2>
+<h2>Two questions</h2>
+
+<div class="questions">
+<p>
+  <strong>1. A mountain observatory.</strong> A clock stands on a mountain 3,000&nbsp;m above sea level. By how much does it gain on a
+  sea-level clock in a year, from gravity alone?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    The fractional rate difference is $gh/c^2 = 9.81\times3000/(3.00\times10^8)^2 = 3.3\times10^{-13}$. A year is
+    $3.16\times10^{7}$&nbsp;s, so the gain is about $1.0\times10^{-5}$&nbsp;s: ten microseconds a year.
+  </p>
+  <p>
+    The easy slip is to include the orbital-speed term from the GPS example. The mountain clock is not in orbit; it moves with the
+    Earth like the sea-level clock, so, apart from a tiny difference in rotation speed, only the height matters.
+  </p>
+</details>
+
+<p>
+  <strong>2. Is gravity an illusion?</strong> Someone argues: "The equivalence principle shows that gravity can always be made to
+  disappear by falling freely, so gravity is not a real force, only a matter of the frame you choose." What is right and what is wrong?
+</p>
+<details>
+  <summary>Worked answer</summary>
+  <p>
+    What is right: the uniform part of gravity in a small region can be removed by free fall, and in that sense the "force" of gravity
+    depends on the frame. What is wrong: the tidal part cannot be removed by any choice of frame. Two falling balls still drift together,
+    whatever you do. That residue is spacetime curvature, and it is as real as anything in physics: it raises the tides and bends starlight.
+  </p>
+  <p>
+    The tempting wrong turn is to apply the equivalence principle beyond its scope. It is a statement about small regions. The general
+    theory is the account of how the small regions fit together, and the fitting is where gravity lives.
+  </p>
+</details>
+</div>
+
+<h2>Further reading</h2>
 
 <div class="read-originals">
-  <h3>Where to find these treatments</h3>
   <ul>
-    <li>Einstein, <em>Relativity: The Special and General Theory</em> (1916, Lawson translation), Part II — especially §XX "The Equality of Inertial and Gravitational Mass as an Argument for the General Postulate of Relativity," §XXIII "Behaviour of Clocks and Measuring-Rods on a Rotating Body of Reference," and §XXIV "Euclidean and non-Euclidean Continuum"</li>
-    <li>Feynman, <em>Lectures on Physics</em> — general relativity is not developed in Vol. I; an accessible qualitative treatment appears in Vol. II, Ch. 42 "Curved Space" (outside this project's Vol. I / Vol. III scope)</li>
-    <li>Born, Landau &amp; Lifshitz, Dirac — general relativity is outside the scope of all four quantum texts</li>
+    <li>Einstein, <em>Relativity: The Special and the General Theory</em> (1916, tr. Lawson), §XX "The Equality of Inertial and Gravitational Mass as an Argument for the General Postulate of Relativity" (the accelerated chest), §XXIII "Behaviour of Clocks and Measuring-Rods on a Rotating Body of Reference", and Appendix III (c) on the displacement of spectral lines towards the red.</li>
   </ul>
 </div>
 
+<h2>Where this leaves us</h2>
+
+<p>
+  A GPS clock needs adjusting because clocks run at different rates depending on where they are and how they move: slower when moving,
+  by special relativity, and slower lower down in gravity, by the equivalence principle. For GPS the gravitational gain wins, by 38.5&nbsp;μs a
+  day. The equivalence argument explains that much; the tides, which no choice of frame removes, are where the full general theory, and
+  curved spacetime, begin.
+</p>
+
+<p>
+  General relativity and quantum mechanics have never been fully joined, and that remains one of the open problems of physics. Special
+  relativity and quantum mechanics were joined in 1928, for the electron, by Paul Dirac, using the relation between energy, momentum and
+  mass from the previous essay. The result accounted for the electron's spin and its magnetism, and predicted a particle nobody had yet seen. That is the
+  last optional essay.
+</p>
+
 <nav class="chapter-nav">
-  <a class="prev" href="a2-mass-energy.html">← Mass, Energy, Relativistic Dynamics</a>
-  <a class="next" href="a4-dirac-equation.html">Where the Threads Meet: The Dirac Equation →</a>
+  <a class="prev" href="a2-mass-energy.html">← Energy, momentum, and mass</a>
+  <a class="next" href="a4-dirac-equation.html">Toward relativistic quantum mechanics →</a>
 </nav>
 
 </main>
 
 <footer>
-  <p>A comparative reading. Prose is original synthesis.</p>
+  <p>Original prose, worked examples and figures.</p>
 </footer>
 
 <script>
@@ -181,6 +268,13 @@ function toggleTheme() {
   const current = root.getAttribute('data-theme');
   root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
 }
+// Printed copies include every optional section and worked answer.
+let closedForPrint = [];
+addEventListener('beforeprint', () => {
+  closedForPrint = [...document.querySelectorAll('details:not([open])')];
+  closedForPrint.forEach(d => d.open = true);
+});
+addEventListener('afterprint', () => closedForPrint.forEach(d => d.open = false));
 </script>
 
 </body>

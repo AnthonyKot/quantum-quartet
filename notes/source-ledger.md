@@ -87,3 +87,39 @@ Checked against external references by a research pass; four needed changes, mad
 | Rutherford 1911, Balmer 1885, de Broglie 1924, electron diffraction 1927, Compton 1923, Planck 1900, Ehrenfest "ultraviolet catastrophe" 1911, Einstein 1905, Born 1926, Schrödinger 1926 and equivalence within months, Heisenberg–Born–Jordan 1925 | Correct; checked from standard citations, not re-fetched | Phil. Mag. 21, 669 (1911); Phys. Rev. 21, 483 (1923); Phys. Rev. 30, 705 (1927); Ann. Phys. 36, 91 (1911) |
 
 Nothing is outstanding for the core essays. The relativity essays (a1–a4) have not been through this process.
+
+## Optional essays (a1–a4), rewritten and checked 2026-09-18
+
+Further-reading pointers:
+
+| Essay | Pointer | Level | Checked against |
+|---|---|---|---|
+| A1 | Einstein 1916 (tr. Lawson) §VII, §IX, §XI, §XII | Location + passage (§IX) | `sources/einstein-relativity-1916-lawson.txt`; §IX lightning argument read |
+| A1 | Feynman I §15-4, §15-6, §17-2 | Location + passage | `feyman20.txt`, `feyman22.txt`: light clock and muons; simultaneity; interval |
+| A2 | Einstein §XV "General Results of the Theory" | Passage | inertial mass rises by E₀/c² when energy E₀ is absorbed |
+| A2 | Feynman I §15-8, §15-9, §16-4, §16-5 | Location + passage | `feyman20.txt`, `feyman21.txt`; the older mass-grows-with-speed convention noted in the essay |
+| A3 | Einstein §XX, §XXIII, Appendix III (c) | Location + passage | accelerated chest; clocks on a rotating disc; red shift |
+| A4 | Dirac Ch. XI §66, §67, §70, §72, §73 | Location | Dirac contents page (PDF page 11) |
+
+Prose claims: a research pass checked every historical and numerical claim (PDG, CODATA, AME2020,
+IAU, IS-GPS-200, original papers). One was wrong and eleven needed tightening; all corrected:
+
+- A4: "antimatter was not found by accident" was **wrong** (Anderson, Am. J. Phys. 29, 825 (1961):
+  "wholly accidental"). Now: predicted before it was found, by a discoverer not looking for it.
+- A4: 1930 hole theory first identified holes with protons; Weyl and Oppenheimer showed the hole must
+  have the electron's mass; anti-electron predicted 1931 (Proc. R. Soc. A 133, 60).
+- A4: annihilation photons "of 511 keV each" (exactly only at rest).
+- A2: the Sun releases 26.7 MeV per helium (from four protons), not the 28.3 MeV binding energy; about 2%
+  leaves as neutrinos; luminosity 3.83×10²⁶ W (IAU 2015 B3) for the 4.3×10⁹ kg/s figure.
+- A2: "relativistic mass" convention: "most physicists no longer use" (not "no longer used"); Feynman
+  Chs. 15–16 use it throughout, explicitly §16-4.
+- A2: glancing-collision fold-out now states each ball is nearly at rest in one of the two frames.
+- A3: Pound–Rebka "1959–60" (measurement published PRL 4, 337, 1960); Dirac's result "accounted for"
+  spin and magnetism rather than "predicted" them.
+- A1: twin-clock answer now requires one clock to stay inertial; train observer "at rest midway between the
+  two points on the train where the lightning struck"; principle of relativity "going back to Galileo";
+  Michelson–Morley "most famously" in 1887.
+
+Confirmed correct: muon lifetime and production height (PDG), Frisch & Smith 1963, the He-4 masses and 28.3 MeV,
+GPS offsets (+45.7 / −7.2 / +38.5 µs per day; factory offset −4.4647×10⁻¹⁰ per IS-GPS-200), Chou et al. 2010
+(33 cm), g = 2.0023, α = 1/137.036, the 10.97 GHz n = 2 splitting, the matrix algebra and the Pauli-limit signs.
